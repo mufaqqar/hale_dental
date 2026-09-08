@@ -1,0 +1,16 @@
+{
+  "name": "hale-coffee",
+  "version": "1.0.0",
+  "description": "Hale Coffee WordPress theme",
+  "scripts": {
+    "build": "npx tailwindcss -i ./assets/css/source.css -o ./assets/css/style.css --minify",
+    "watch": "npx tailwindcss -i ./assets/css/source.css -o ./assets/css/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  },
+  "dependencies": {
+    "baseline-browser-mapping": "^2.11.15",
+    "caniuse-lite": "^1.0.30001809"
+  }
+}

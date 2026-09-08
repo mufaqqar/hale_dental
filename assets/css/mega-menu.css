@@ -1,0 +1,106 @@
+/**
+ * Hale Coffee - Mega Menu & Navigation Styles
+ */
+
+/* ===== Desktop ===== */
+@media (min-width: 768px) {
+
+  /* Regular dropdown */
+  .primary-navigation .menu-item-has-children {
+    position: relative;
+  }
+
+  .primary-navigation .menu-item-has-children > .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 15px 35px rgba(17, 17, 17, 0.12);
+    padding: 0.5rem 0;
+    z-index: 100;
+  }
+
+  .primary-navigation .menu-item-has-children:hover > .sub-menu,
+  .primary-navigation .menu-item-has-children:focus-within > .sub-menu {
+    display: block;
+  }
+
+  .primary-navigation .menu-item-has-children > .sub-menu li a {
+    display: block;
+    padding: 0.55rem 1.25rem;
+    color: var(--secondary);
+    border-radius: 0;
+  }
+
+  .primary-navigation .menu-item-has-children > .sub-menu li a:hover {
+    background: #f5f1e8;
+    color: var(--coffGreen);
+    opacity: 1;
+  }
+
+  /* Mega menu */
+  .menu-item-mega {
+    position: static;
+  }
+
+  .menu-item-mega > .mega-sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: min(1200px, 92vw);
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 25px 60px rgba(17, 17, 17, 0.15);
+    padding: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem 2rem;
+    z-index: 100;
+  }
+
+  .menu-item-mega:hover > .mega-sub-menu,
+  .menu-item-mega:focus-within > .mega-sub-menu {
+    display: grid;
+  }
+
+  .mega-sub-menu li a {
+    display: block;
+    padding: 0.45rem 0;
+    color: var(--secondary);
+    font-size: 0.95rem;
+    border-radius: 0;
+  }
+
+  .mega-sub-menu li a:hover {
+    color: var(--coffGreen);
+    opacity: 1;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 767px) {
+
+  .primary-navigation .sub-menu,
+  .primary-navigation .mega-sub-menu {
+    display: none;
+    padding-left: 1.25rem;
+  }
+
+  .primary-navigation .sub-menu.open,
+  .primary-navigation .mega-sub-menu.open {
+    display: block;
+  }
+
+  .primary-navigation .sub-menu li a,
+  .primary-navigation .mega-sub-menu li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--secondary);
+    border-left: 2px solid var(--coffLightGreen);
+  }
+}

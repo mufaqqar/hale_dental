@@ -1,0 +1,428 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2D4B99;
+  --secondary: #4A7DFF;
+  --coff_black: #111111;
+  --coffGreen: #004650;
+  --coffLightGreen: #c7d8c4;
+  --secondaryLight: #6b7280;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    color: var(--coff_black);
+    background-color: #ffffff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+
+  .content-area {
+    min-height: 60vh;
+  }
+
+  /* ---------- Primary navigation ---------- */
+  .primary-navigation .menu-item > a {
+    color: var(--coff_black);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+    border-radius: 9999px;
+    transition: color 0.2s ease;
+  }
+
+  .primary-navigation .menu-item > a:hover {
+    color: #3254ac;
+  }
+
+  .primary-navigation .current-menu-item > a {
+    color: #3254ac;
+    font-weight: 600;
+  }
+
+  /* ---------- Header CTA button (per Header.png) ---------- */
+  .btn-consult {
+    display: inline-block;
+    background: linear-gradient(197.05deg, rgb(45 75 153) -42.06%, rgb(74 125 255) 136.49%);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1;
+    padding: 0.75rem 1.6rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+  }
+
+  .btn-consult:hover {
+    background: #2a4690;
+    color: #ffffff;
+  }
+
+  /* ---------- Language switch ---------- */
+  .lang-switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--secondary);
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .lang-switch i {
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+  }
+
+  .lang-switch:hover {
+    color: #3254ac;
+  }
+
+  .lang-switch.open i {
+    transform: rotate(180deg);
+  }
+
+  .lang-switch .lang-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -30px;
+    margin-top: 0.5rem;
+    min-width: 130px;
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 0.5rem;
+    box-shadow: 0 12px 30px rgba(17, 17, 17, 0.1);
+    z-index: 50;
+    padding: 0.5rem 0;
+  }
+
+  .lang-switch.open .lang-options {
+    display: block;
+  }
+
+  .lang-switch .lang-options a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--secondary);
+    font-size: 0.9rem;
+    border-radius: 0;
+  }
+
+  .lang-switch .lang-options a:hover {
+    background: #f5f1e8;
+    color: #3254ac;
+  }
+
+  @media (max-width: 767px) {
+    .primary-navigation .menu-item > a {
+      color: var(--secondary);
+      width: 100%;
+    }
+  }
+
+  /* ---------- Hero video ---------- */
+  .Main_slider .video_overlay iframe {
+    pointer-events: inherit;
+  }
+
+  /* ---------- Brand / category sliders (fallback when slick is not loaded) ---------- */
+  .brand-slider:not(.slick-initialized),
+  .cate-slider:not(.slick-initialized),
+  .noissue:not(.slick-initialized),
+  .popular:not(.slick-initialized),
+  .readytoship:not(.slick-initialized) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .noissue > .slick-slide,
+  .popular > .slick-slide,
+  .readytoship > .slick-slide {
+    padding: 0.25rem;
+  }
+
+  /* ---------- Tabs (packaging partner) ---------- */
+  .tab-btn {
+    padding: 0.6rem 1.4rem;
+    border-radius: 9999px;
+    background: #f3f1ec;
+    color: var(--secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .tab-btn:hover {
+    background: #e9e6de;
+  }
+
+  .tab-btn.active {
+    background: var(--secondary);
+    color: #ffffff;
+  }
+
+  /* ---------- Slick arrows ---------- */
+  .slick-prev,
+  .slick-next {
+    width: 42px;
+    height: 42px;
+    background: var(--secondary);
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    z-index: 5;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .slick-prev:hover,
+  .slick-next:hover {
+    background: var(--coffGreen);
+  }
+
+  .slick-prev:before,
+  .slick-next:before {
+    content: none;
+  }
+
+  .slick-prev i,
+  .slick-next i {
+    font-size: 0.9rem;
+  }
+
+  .slick-prev {
+    left: -10px;
+  }
+
+  .slick-next {
+    right: -10px;
+  }
+
+  /* ---------- FAQ accordion ---------- */
+  .faq-item {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .faq-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1.05rem;
+    text-align: left;
+    padding: 1.1rem 1.4rem;
+    cursor: pointer;
+  }
+
+  .faq-icon {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .faq-item.open .faq-icon,
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .faq-content.open {
+    max-height: 500px;
+  }
+
+  .faq-body {
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0 1.4rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Available worldwide accordion ---------- */
+  .avail-faq-item {
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .avail-faq-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    background: #efe9dd;
+    transition: background 0.2s ease;
+  }
+
+  .avail-faq-item.active .avail-faq-title {
+    background: var(--coffLightGreen);
+  }
+
+  .avail-faq-icon {
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .avail-faq-item.open .avail-faq-icon,
+  .avail-faq-item.active .avail-faq-icon {
+    transform: rotate(180deg);
+  }
+
+  .avail-faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .avail-faq-content.open {
+    max-height: 1200px;
+  }
+
+  /* ---------- Order steps (get a quote) ---------- */
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .before_line {
+    position: relative;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .before_line::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 2.25rem;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .step:last-child .before_line::before {
+    content: none;
+  }
+
+  /* ---------- Quote / contact form ---------- */
+  .hale_input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 0;
+    padding: 0.7rem 0;
+    color: #ffffff;
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .hale_input:focus {
+    border-bottom-color: #ffffff;
+  }
+
+  .hale_input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .hale_input option {
+    color: var(--coff_black);
+  }
+
+  .error-message {
+    display: block;
+    min-height: 1rem;
+    color: #ff7675;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+  }
+
+  .form_btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary);
+    color: var(--secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .form_btn:hover {
+    background: #ffffff;
+  }
+
+  /* ---------- About feature box ---------- */
+  .feature_box {
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    align-items: center;
+  }
+
+  .feature_box img {
+    border-radius: 1rem;
+  }
+
+  .feature_box h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--coff_black);
+    margin-bottom: 0.75rem;
+  }
+
+}
