@@ -226,6 +226,55 @@
     right: -10px;
   }
 
+  /* ---------- Journey slider (packaging partner) ---------- */
+  .journey-slider .slick-list,
+  .journey-slider .slick-track,
+  .journey-slider .slick-slide {
+    height: 100%;
+  }
+
+  .journey-slider .slick-track {
+    display: flex;
+    align-items: center;
+  }
+
+  .journey-slider .slick-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .journey-slider .slick-slide > div {
+    width: 100%;
+  }
+
+  .journey-slide {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  /* Active / center slide highlight */
+  .journey-slider .slick-center .journey-item {
+    border: 3px solid #f3a895;
+    box-shadow: 0 0 20px rgba(243, 168, 149, 0.45), 0 0 40px rgba(243, 168, 149, 0.2);
+  }
+
+  .journey-item {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 17px;
+  }
+
+  .journey-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 17px;
+  }
+
   /* ---------- FAQ accordion ---------- */
   .faq-item {
     background: rgba(255, 255, 255, 0.08);

@@ -96,7 +96,8 @@ function hale_coffee_enqueue_assets()
     );
 
     wp_localize_script('hale-tabs', 'haleCf', array(
-        'ajaxUrl' => admin_url('admin-ajax.php'),
+        'ajaxUrl'     => admin_url('admin-ajax.php'),
+        'templateUri' => get_template_directory_uri(),
     ));
 }
 add_action('wp_enqueue_scripts', 'hale_coffee_enqueue_assets');

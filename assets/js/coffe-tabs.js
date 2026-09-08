@@ -2,21 +2,6 @@
  * Hale Coffee - Tabs, accordions & quote form
  */
 jQuery(function ($) {
-
-  /* ===== Packaging partner tabs ===== */
-  $('.tab-btn').on('click', function () {
-    var tabId = $(this).data('tab');
-
-    $('.tab-btn').removeClass('active');
-    $(this).addClass('active');
-
-    $('.tab-content').addClass('hidden').removeClass('active');
-    $('#' + tabId).removeClass('hidden').addClass('active');
-
-    /* Refresh sliders hidden inside the tab pane */
-    $('#' + tabId).find('.slick-initialized').slick('refresh');
-  });
-
   /* ===== FAQ accordion ===== */
   $('.faq-title').on('click', function () {
     var item = $(this).closest('.faq-item');
@@ -83,4 +68,334 @@ jQuery(function ($) {
         btn.prop('disabled', false).text('Submit');
       });
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const track = document.getElementById("journeyTrack");
+  const tabs = document.querySelectorAll(".journey-tab");
+  const prevBtn = document.getElementById("journeyPrev");
+  const nextBtn = document.getElementById("journeyNext");
+
+  if (!track || !tabs.length) return;
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | SLIDER DATA
+  |--------------------------------------------------------------------------
+  */
+
+  const slides = {
+    face: [
+      "face/1.webp",
+      "face/2.webp",
+      "face/3.webp",
+      "face/4.webp",
+      "face/5.webp",
+      "face/6.webp",
+      "face/7.webp",
+      "face/1.webp"
+    ],
+
+    hair: [
+      "face/1.webp",
+      "face/2.webp",
+      "face/3.webp",
+      "face/4.webp",
+      "face/5.webp",
+      "face/6.webp",
+      "face/7.webp",
+      "face/1.webp"
+    ],
+
+    dentistry: [
+      "face/1.webp",
+      "face/2.webp",
+      "face/3.webp",
+      "face/4.webp",
+      "face/5.webp",
+      "face/6.webp",
+      "face/7.webp",
+      "face/1.webp"
+    ]
+  };
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | CURRENT STATE
+  |--------------------------------------------------------------------------
+  */
+
+  let currentCategory = "face";
+  let currentIndex = 3;
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | BUILD SLIDER
+  |--------------------------------------------------------------------------
+  */
+
+  function buildSlider(category) {
+
+    const imagePath = window.haleCf ? window.haleCf.templateUri + "/assets/images/" : "/assets/images/";
+
+    track.innerHTML = "";
+
+    slides[category].forEach(function (image, index) {
+
+      const slide = document.createElement("div");
+
+      slide.className =
+        "journey-slide shrink-0 overflow-hidden rounded-[17px] transition-all duration-500";
+
+      if (index === 3) {
+        slide.classList.add(
+          "journey-slide-active",
+          "rounded-[18px]",
+          "border",
+          "border-white/5"
+        );
+      }
+
+      slide.innerHTML = `
+                <img
+                    src="${imagePath}${image}"
+                    alt="${category} transformation"
+                    class="h-full w-full object-cover"
+                >
+            `;
+
+      track.appendChild(slide);
+    });
+
+    currentIndex = 3;
+
+    updateSlider(false);
+  }
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | UPDATE SLIDER
+  |--------------------------------------------------------------------------
+  */
+
+  function updateSlider(animate = true) {
+
+    const slidesElements =
+      track.querySelectorAll(".journey-slide");
+
+    if (!slidesElements.length) return;
+
+    slidesElements.forEach(function (slide, index) {
+
+      const distance = Math.abs(index - currentIndex);
+
+      /*
+      Center image
+      */
+      if (index === currentIndex) {
+
+        slide.classList.add(
+          "journey-slide-active"
+        );
+
+        slide.style.width = "298px";
+        slide.style.height = "300px";
+        slide.style.opacity = "1";
+        slide.style.filter = "none";
+        slide.style.zIndex = "10";
+
+      }
+
+      /*
+      Adjacent images
+      */
+      else if (distance === 1) {
+
+        slide.classList.remove(
+          "journey-slide-active"
+        );
+
+        slide.style.width = "210px";
+        slide.style.height = "213px";
+        slide.style.opacity = "0.55";
+        slide.style.filter = "brightness(.65)";
+        slide.style.zIndex = "5";
+
+      }
+
+      /*
+      Far images
+      */
+      else {
+
+        slide.classList.remove(
+          "journey-slide-active"
+        );
+
+        slide.style.width = "210px";
+        slide.style.height = "213px";
+        slide.style.opacity = "0.35";
+        slide.style.filter = "brightness(.55)";
+        slide.style.zIndex = "3";
+
+      }
+    });
+
+
+    /*
+    Calculate center position
+    */
+
+    const activeSlide =
+      slidesElements[currentIndex];
+
+    if (!activeSlide) return;
+
+    const trackWidth =
+      track.parentElement.offsetWidth;
+
+    const activeCenter =
+      activeSlide.offsetLeft +
+      activeSlide.offsetWidth / 2;
+
+    const translate =
+      (trackWidth / 2) - activeCenter;
+
+    track.style.transition =
+      animate
+        ? "transform 500ms ease"
+        : "none";
+
+    track.style.transform =
+      `translateX(calc(-50% + ${translate}px))`;
+  }
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | NEXT
+  |--------------------------------------------------------------------------
+  */
+
+  nextBtn.addEventListener("click", function () {
+
+    const slidesElements =
+      track.querySelectorAll(".journey-slide");
+
+    if (currentIndex < slidesElements.length - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+
+  });
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | PREVIOUS
+  |--------------------------------------------------------------------------
+  */
+
+  prevBtn.addEventListener("click", function () {
+
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+
+  });
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | TABS
+  |--------------------------------------------------------------------------
+  */
+
+  tabs.forEach(function (tab) {
+
+    tab.addEventListener("click", function () {
+
+      const category =
+        tab.dataset.tab;
+
+      currentCategory = category;
+
+
+      /*
+      Active tab
+      */
+
+      tabs.forEach(function (item) {
+
+        item.classList.remove(
+          "active",
+          "font-semibold",
+          "text-[#f3a895]"
+        );
+
+        item.classList.add(
+          "font-normal",
+          "text-white/40"
+        );
+
+        item.setAttribute(
+          "aria-selected",
+          "false"
+        );
+      });
+
+
+      tab.classList.add(
+        "active",
+        "font-semibold",
+        "text-[#f3a895]"
+      );
+
+      tab.classList.remove(
+        "font-normal",
+        "text-white/40"
+      );
+
+      tab.setAttribute(
+        "aria-selected",
+        "true"
+      );
+
+
+      /*
+      Load category
+      */
+
+      buildSlider(category);
+
+    });
+
+  });
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | INITIALIZE
+  |--------------------------------------------------------------------------
+  */
+
+  buildSlider("face");
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | RESIZE
+  |--------------------------------------------------------------------------
+  */
+
+  window.addEventListener("resize", function () {
+    updateSlider(false);
+  });
+
 });
