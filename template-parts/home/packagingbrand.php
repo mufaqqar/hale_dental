@@ -4,7 +4,7 @@
             <span class="text-secondary font-semibold text-base uppercase tracking-wider">
                 brands of all sizes
             </span>
-            <h2 class="md:text-4xl text-2xl font-bold text-coff_black capitalize mt-1">
+            <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight capitalize mt-1">
                 Custom packaging for brands of all sizes
             </h2>
         </div>

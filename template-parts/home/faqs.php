@@ -38,11 +38,11 @@ $faqs = [
 
         <!-- Heading -->
         <div class="mb-7 text-center">
-            <h2 class="text-[34px] font-semibold tracking-[-1.5px] text-black sm:text-[36px]">
+            <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight">
                 Frequently Asked Questions
             </h2>
 
-            <p class="mt-4 text-[14px] text-[#555]">
+            <p class="mt-4 text-lg text-coff_black leading-relaxed">
                 Looking for more information about Dentakay? You can find it here.
             </p>
         </div>
@@ -102,13 +102,13 @@ $faqs = [
                                 ></span>
 
                                 <!-- Question -->
-                                <span class="flex-1 text-[14px] font-medium leading-5 text-[#171717]">
+                                <span class="flex-1 text-xl font-medium leading-5 text-[#171717]">
                                     <?= htmlspecialchars($faq['question']) ?>
                                 </span>
 
                                 <!-- Arrow -->
                                 <svg
-                                    class="faq-arrow h-[16px] w-[16px] shrink-0 text-[#73a0ff] transition-transform duration-200"
+                                    class="faq-arrow h-5 w-5 shrink-0 text-[#73a0ff] transition-transform duration-200"
                                     fill="none"
                                     stroke="currentColor"
                                     stroke-width="1.5"
@@ -154,7 +154,7 @@ $faqs = [
 
                         <p
                             id="answerText"
-                            class="mt-20 text-[14px] leading-[21px] text-[#555]"
+                            class="mt-20 md:text-xl text-lg leading-[21px] text-[#555]"
                         >
                             <?= htmlspecialchars($faqs[0]['answer']) ?>
                         </p>

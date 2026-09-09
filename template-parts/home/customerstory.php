@@ -69,11 +69,11 @@ $testimonials = [
         <!-- Heading -->
         <div class="text-center">
 
-            <h2 class="text-[32px] font-bold leading-[1.1] tracking-[-1.5px] text-black md:text-[36px]">
+            <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight">
                 Real, Life-Changing Transformations
             </h2>
 
-            <p class="mx-auto mt-5 max-w-[900px] text-[14px] leading-[1.6] text-[#444] md:text-[15px]">
+            <p class="mx-auto mt-5 max-w-[900px] text-lg text-coff_black leading-relaxed">
                 Experience the impact of expert care through the voices of our patients.
                 Watch real testimonials from those who trusted Dentakay for their smile makeover.
             </p>

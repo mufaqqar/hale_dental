@@ -8,13 +8,13 @@
         <div class="mx-auto mb-[28px] max-w-[900px] text-center">
 
             <h2
-                class="m-0 font-sans text-[32px] font-bold leading-[1.15] tracking-[-1.5px] text-black md:text-[36px]"
+                class="m-0 font-sans md:text-5xl text-3xl font-semibold text-coff_black tracking-tight"
             >
                 Why Choose Dentakay?
             </h2>
 
             <p
-                class="mx-auto mt-[20px] max-w-[850px] font-sans text-[14px] font-normal leading-[1.45] text-[#555] md:text-[15px]"
+                class="mx-auto mt-[20px] max-w-[850px] font-sans text-lg text-coff_black leading-relaxed"
             >
                 We focus on delivering high-quality dental care with a process that's
                 transparent, reliable, and built around your needs. Here's what makes us

@@ -1,6 +1,6 @@
 <section class="py-10">
     <div class="container mx-auto px-4 ">
-        <h2 class="md:text-4xl text-2xl font-bold text-coff_black capitalize text-center">
+        <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight capitalize text-center">
             Available Worldwide
         </h2>
         <div id="avail_faqs" class="pt-8">

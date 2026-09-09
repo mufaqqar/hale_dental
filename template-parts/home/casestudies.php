@@ -8,7 +8,7 @@
                     Latest Blog
                 </span>
 
-                <h2 class="text-4xl font-bold text-coff_black mt-2">
+                <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight mt-2">
                     Coffee Stories
                 </h2>
             </div>
