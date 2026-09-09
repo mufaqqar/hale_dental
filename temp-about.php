@@ -2,174 +2,583 @@
 /** Template Name: About */
 get_header();
 ?>
-<?php
-$featureproductsRes = [
-    [
-        'title' => 'R&D Department Helping in Branding',
-        'subTitle' => 'Have you ever stood in a shop and picked one product without fully knowing why? That small moment of hesitation — that’s branding in action',
-        'excerpt' => 'Hale Path Packaging works as a modern solution provider for all types of printing and packaging needs. You may already have a strong product. But does your packaging support it properly?
-                    Our R&D department studies market trends and customer behaviour carefully. We look at what buyers prefer, what attracts attention, and what encourages a purchase. When your product sits on a shelf beside competitors in retail shops or shopping malls, packaging becomes the first impression. Often, it becomes the first trigger for brand choice.
-                    Our R&D team improves artwork to make it clearer and more appealing. They guide clients on selecting the right stock, colour combinations, and branded finishes such as gold foiling, embossing, Spot UV, and fluorescent colours. These adjustments can directly impact sales performance.
-                    We push for high standards across customisation, design, service, technology, and materials. We don’t aim for “good enough.” We aim for solid results. That approach allows us to offer wide options in textures, materials, designs, and innovative outlooks.',
-        'slug' => ['current' => 'eco-packaging'],
-        'gallery' => [
-            ['asset' => ['url' => get_template_directory_uri() . '/assets/images/packaging-partner.jpg']]
-        ],
-    ],
-    [
-        'title' => 'Customize Packaging',
-        'subTitle' => 'Every product is different. So why should packaging look the same?',
-        'excerpt' => 'We are wholesale manufacturers of customized packaging serving thousands of satisfied clients. From small home-based startups to large wholesale businesses — and even individuals planning events — we provide packaging solutions for all.
-                    Our pricing stays competitive and often lower than standard market rates. This allows clients to manage packaging costs more comfortably. We focus on long-term, mutually beneficial relationships. Our goal is to help products stand out through packaging that speaks for itself.
-                    We work with customers across the USA, UK, Canada, and Europe. Our services include strong pre-sales guidance and dependable after-sales support. With countless styles, sizes, and colour options available, we create packaging for both professional and personal use.
-                    Our production, creative design, and customer service teams operate within a modern facility equipped with advanced technology. The result? High-quality packaging delivered at reasonable prices.',
-        'slug' => ['current' => 'custom-boxes'],
-        'gallery' => [
-            ['asset' => ['url' => get_template_directory_uri() . '/assets/images/packaging-partner.jpg']]
-        ],
-    ],
-    [
-        'title' => 'Graphic Designing Support',
-        'subTitle' => 'Design is not just decoration. It guides the eye. It shapes perception.',
-        'excerpt' => 'Our in-house design team works closely with clients to bring their ideas to life. We make sure every detail reflects their preferences. If someone feels unsure about their packaging direction, our designers step in with practical advice.
-                    We assist with dielines, template styles, artwork setup, branded finish suggestions, and selecting colours that align with brand identity. Clients can share their ideas freely, and we refine them through unlimited revisions until everything feels right.
-                    The goal is simple: packaging that looks correct, feels consistent, and represents the brand clearly.',
-        'slug' => ['current' => 'luxury-packaging'],
-        'gallery' => [
-            ['asset' => ['url' => get_template_directory_uri() . '/assets/images/packaging-partner.jpg']]
-        ],
-    ],
-    [
-        'title' => 'Largest Production Facility',
-        'subTitle' => 'Large-scale production only works if quality stays consistent.',
-        'excerpt' => 'Our facility can produce up to 500,000 mixed-category units per day. Our advanced offset printing machines manage orders ranging from 100,000 to 500,000 units with a lead time of 11–14 business days, even when handling multiple clients.
-                    Our skilled team carefully manages colour control, die-cutting plates, and lamination processes. Experience and technology work together to maintain steady output without compromising standards.',
-        'slug' => ['current' => 'retail-packs'],
-        'gallery' => [
-            ['asset' => ['url' => get_template_directory_uri() . '/assets/images/packaging-partner.jpg']]
-        ],
-    ],
-    [
-        'title' => 'Logistics Solutions',
-        'subTitle' => 'Large orders can reduce per-unit cost. But what if storage space is limited?',
-        'excerpt' => 'We offer warehouse storage within our facility for clients who want to place large annual orders but do not have enough space. Inventory can be stored safely in controlled temperature conditions.
-                    We then ship products on a regular schedule — monthly, weekly, or based on your requirement. This system allows businesses to benefit from large production runs and lower costs without worrying about storage management.
-                    In simple terms, we handle the packaging supply so you can focus on running your business.',
-        'slug' => ['current' => 'retail-packs'],
-        'gallery' => [
-            ['asset' => ['url' => get_template_directory_uri() . '/assets/images/packaging-partner.jpg']]
-        ],
-    ],
-];
-?>
-<section
-    class="py-16 sm:h-[350px] h-[260px] flex items-center justify-center bg-cover bg-no-repeat bg-center bg-black/50 bg-blend-overlay"
-    style="background-image: url('<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/faq-bg.jpg')">
-    <div class="container mx-auto px-4">
-        <h1 class="text-white font-bold text-3xl md:text-5xl lg:text-[51px]">
-            <?php the_title(); ?>
-        </h1>
-    </div>
-</section>
-<section class="my-16">
-    <div class="container mx-auto px-4 md:flex items-center gap-5 md:gap-10 flex-row">
-        <figure class="md:w-1/2">
-            <img alt="Why Us Image"
-                src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/packaging-partner.jpg"
-                class="rounded-2xl">
-        </figure>
-        <div class="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col">
-            <h4 class="text-[#111827] mt-5 md:mt-0 font-bold text-3xl text-center md:text-left mb-4">
-                Packaging usually gets blamed for waste.</h4>
-            <p class="mb-2 text-center md:text-left">
-                Yet at Hale Path Packaging, we see it differently. We believe packaging can be strong, smart, and
-                responsible at the same time.
-                Hale Path Packaging offers complementary print technologies — Offset, UV offset, Flexo Printing, digital
-                printing, and cold foil or hot foil — supported by state-of-the-art binding and finishing systems. That
-                may sound technical, but here’s what it really means: we choose the right printing method for the right
-                job. Some designs need sharp detail. Others need bold colour. Some need speed. We match the process to
-                the purpose.
-            </p>
-            <p class="mb-2 text-center md:text-left">
-                HPP leads the corrugated packaging market while operating as one of the largest renewable packaging
-                facilities. In simple words, we don’t just produce boxes. We build packaging with long-term thinking. We
-                even develop our own liner and fluting in-house. These inner layers give corrugated boxes the strength
-                and durability required to pack and transport valuable products safely. If it needs to travel, stack, or
-                sit on shelves, it needs structure. We make sure it has it.
-            </p>
-        </div>
-    </div>
-</section>
-<section class="my-16">
-    <div class="container mx-auto px-4 md:flex items-center gap-5 md:gap-10 flex-row-reverse">
-        <figure class="md:w-1/2">
-            <img alt="Why Us Image"
-                src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/packaging-partner.jpg"
-                class="rounded-2xl">
-        </figure>
-        <div class="flex md:w-1/2 justify-center md:justify-start items-center md:items-start flex-col">
-            <h4 class="text-[#111827] mt-5 md:mt-0 font-bold text-3xl text-center md:text-left mb-4">
-                Our Story! Who Are We?</h4>
-            <p class="mb-2 text-center md:text-left">
-                Our name wasn’t picked randomly. “Hale” means healthy. “Path” means way. And “Packaging” is what we do
-                every day. Put it together, and it shows exactly what we stand for — a healthier, more responsible way
-                of creating
-                packaging.
-            </p>
-            <p class="mb-2 text-center md:text-left">
-                At Hale Path Packaging, eco-friendly and sustainable packaging isn’t just a buzzword. We make sure our
-                boxes, packaging, and inserts protect products while reducing environmental impact. Many businesses
-                think they must choose between durability and sustainability. We don’t agree — we deliver both. Using
-                renewable materials, careful production methods, and waste-minimizing systems, we help brands make
-                smart, eco-conscious choices without compromising quality.
-            </p>
-            <p class="mb-2 text-center md:text-left">
-                Let me tell you something more mesmerizing: A UK-based organic candle brand wanted packaging that
-                reflected their commitment to sustainability. They approached us for custom eco-friendly candle boxes
-                with inserts. Using recycled cardboard, soy-based inks, and minimal lamination, we delivered packaging
-                that was durable, protective, and fully recyclable. The brand reported a 25% increase in customer
-                appreciation for their eco-conscious efforts, and their boxes became a talking point in stores — showing
-                that sustainable choices can also enhance brand appeal and sales.
-            </p>
-            <p class="mb-5 text-center md:text-left">
-                At the end of the day, our goal is simple: create packaging that protects products, supports businesses,
-                and moves the industry toward a healthier, greener path.
-            </p>
-        </div>
-    </div>
-</section>
-<section class="py-16">
-    <div class="container mx-auto px-4">
-        <h2 class="md:text-4xl text-2xl font-bold text-coff_black capitalize mt-1 text-center mb-4">
-            The Work We Do And <span class="text-primary">Love Doing</span>
-        </h2>
-        <p class="md:text-xl text-base font-normal text-title_Clr text-center max-w-[880px] mx-auto">
-            <b>It might sound strange, but yes — packaging can influence how people think and buy.</b>
-            It’s not just a box. It’s the first thing a customer sees. Sometimes it’s the reason they pick one product
-            over another.
-            This mix of psychology, engineering, and creativity is exactly what we enjoy working with every day at Hale
-            Path Packaging.
 
-        </p>
+<?php
+/** Template Name: About */
+get_header();
+?>
+
+<section class="bg-[#f5f5f5] pt-32 px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-[1250px] rounded-[28px] bg-white p-4 sm:p-5">
+        <div class="relative min-h-[370px] overflow-hidden rounded-[18px] bg-[#f7f7f7]">
+            <div
+                class="absolute right-[18%] top-[-80px] h-[300px] w-[300px] rounded-full bg-[#dce5ff] opacity-80 blur-[90px]">
+            </div>
+            <div class="relative z-10 flex min-h-[370px] flex-col items-center justify-center">
+                <h1
+                    class="mr-[20%] text-center text-3xl font-bold tracking-[-1.5px] text-black sm:text-4xl md:text-5xl">
+                    Beyond Dentistry, We
+                </h1>
+                <h2
+                    class="mt-5 ml-[20%] text-center text-3xl font-bold tracking-[-1.5px] text-black sm:text-4xl md:text-5xl">
+                    Build Happiness
+                </h2>
+            </div>
+        </div>
     </div>
-    <div class="container mx-auto px-4 mt-10 flex flex-col gap-8 ">
-        <?php foreach ($featureproductsRes as $product): ?>
-            <div class='feature_box flex md:flex-row flex-col items-center md:even:flex-row-reverse'>
-                <div class="md:w-1/3 w-full">
-                    <img src="<?php echo esc_url( $product['gallery'][0]['asset']['url'] ); ?>" alt="img"
-                        class='w-full object-cover object-center' />
-                </div>
-                <div class='md:w-2/3 w-full p-5'>
-                    <h3 class=''>
-                        <?php echo esc_html($product['title']); ?>
+</section>
+
+
+<main class="bg-[#f5f5f5] py-10 px-4 sm:px-6 lg:px-8">
+
+    <div class="mx-auto max-w-[1250px]">
+
+        <!-- ===================== -->
+        <!-- HERO / INTRO -->
+        <!-- ===================== -->
+        <section class="mb-5">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-[180px_1fr]">
+                <!-- Table of Contents -->
+                <aside class="hidden lg:block">
+                    <h3 class="mb-3 text-[20px] font-bold text-black">
+                        Table Of Contents
                     </h3>
-                    <p class='md:text-lg text-base font-normal text-title_Clr'>
-                        <?php echo esc_html($product['excerpt']); ?>
-                    </p>
+
+                    <ul class="space-y-2 border-l border-gray-300 pl-3 text-[14px] text-gray-500">
+                        <li>
+                            <a href="#transforming" class="text-[#315fcf] font-semibold">
+                                Transforming Smiles Since 2009
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#values" class="hover:text-black font-semibold">
+                                Our Core Values
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" class="hover:text-black font-semibold">
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#trustedworldwide" class="hover:text-black font-semibold">
+                                Recognised for Excellence, Trusted Worldwide
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#certificates" class="hover:text-black font-semibold">
+                                Certificates We Have Earned from All Over The World
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <div>
+                    <!-- ===================== -->
+                    <!-- INTRO -->
+                    <!-- ===================== -->
+                    <section id="transforming">
+                        <h1 class="text-[27px] font-bold leading-tight tracking-[-1.2px] text-black sm:text-[32px]">
+                            Transforming Smiles Since 2009
+                        </h1>
+                        <p class="mt-2 max-w-[900px] text-[18px] leading-[1.55]  sm:text-[11px]">
+                            At Dentalkay, we redefine excellence in dental care by combining
+                            cutting-edge technology with a patient-first approach. Our commitment
+                            to innovation ensures that every treatment is performed with precision,
+                            efficiency, and the highest standards of comfort.
+                        </p>
+                        <p class="mt-1 max-w-[900px] text-[18px] leading-[1.55]  sm:text-[11px]">
+                            By integrating advanced techniques with personalized care, we create
+                            a seamless experience that prioritizes your well-being and satisfaction.
+                            Whether it's a routine check-up or complex procedure, our goal is to
+                            deliver outstanding results in a welcoming and professional environment.
+                        </p>
+                    </section>
+
+
+                    <!-- ===================== -->
+                    <!-- BLUE TIMELINE -->
+                    <!-- ===================== -->
+                    <div class="relative mt-8">
+                        <div class="absolute left-0 right-0 top-0 h-[3px] rounded-full bg-[#315fcf]"></div>
+                        <div class="absolute right-0 top-[-3px] h-[9px] w-[9px] rounded-full bg-[#315fcf]"></div>
+
+                        <div class="grid grid-cols-2 gap-6 pt-5 sm:grid-cols-5">
+                            <div class="text-center">
+                                <p class="text-[14px font-bold] text-gray-500">
+                                    Founded in
+                                </p>
+                                <p class="mt-1 text-[18px] font-medium text-gray-700">
+                                    2009
+                                </p>
+                            </div>
+
+                            <div class="text-center">
+                                <p class="text-[14px font-bold] text-gray-500">
+                                    International patient
+                                    <br>surge
+                                </p>
+                                <p class="mt-1 text-[18px] font-medium text-gray-700">
+                                    2015
+                                </p>
+                            </div>
+
+                            <div class="text-center">
+                                <p class="text-[14px font-bold] text-gray-500">
+                                    Dedicated
+                                    <br>international clinic
+                                </p>
+                                <p class="mt-1 text-[18px] font-medium text-gray-700">
+                                    2018
+                                </p>
+                            </div>
+
+                            <div class="text-center">
+                                <p class="text-[14px font-bold] text-gray-500">
+                                    London consultation
+                                    <br>office
+                                </p>
+                                <p class="mt-1 text-[18px] font-medium text-gray-700">
+                                    2023
+                                </p>
+                            </div>
+
+                            <div class="text-center">
+                                <p class="text-[14px font-bold] text-gray-500">
+                                    First clinic outside
+                                    <br>Türkiye
+                                </p>
+                                <p class="mt-1 text-[18px] font-medium text-gray-700">
+                                    2023
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <!-- Countries -->
+                        <div class="mt-2 grid grid-cols-3 text-center text-[9px] font-medium ">
+                            <div class="font-bold text-[20px]">
+                                <span class=" text-[24px]">🔴</span>
+                                Türkiye
+                            </div>
+                            <div class="font-bold text-[20px]">
+                                <span class=" text-[24px]">🇬🇧</span>
+                                United Kingdom
+                            </div>
+                            <div class="font-bold text-[20px]">
+                                <span class=" text-[24px]">🇸🇦</span>
+                                Saudi Arabia
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ===================== -->
+                    <!-- VISION / MISSION -->
+                    <!-- ===================== -->
+                    <div class="mt-7 grid grid-cols-1 gap-3 md:grid-cols-2">
+                        <!-- Vision -->
+                        <div id="vision" class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
+                            <h2 class="text-center text-[24px] font-bold text--coff_black">
+                                Our Vision
+                            </h2>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-[18px] leading-none text-gray-400">
+                                    “
+                                </span>
+                                <p class="text-[18px] leading-[1.6] ">
+                                    To be the leading dental tourism brand worldwide, trusted
+                                    for our patient-centred approach, advanced technology,
+                                    and expertise — delivering 100% patient satisfaction.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <!-- Mission -->
+                        <div id="mission" class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
+                            <h2 class="text-center text-[24px] font-bold text-coff_black">
+                                Our Mission
+                            </h2>
+                            <div class="mt-3 flex gap-2">
+                                <span class="text-[18px] leading-none text-gray-400">
+                                    “
+                                </span>
+                                <p class="text-[18px] leading-[1.6] ">
+                                    To provide international-standard dental care that is
+                                    ethical, innovative, and accessible. With our experience,
+                                    state-of-the-art technology, and luxury, comfortable clinics,
+                                    we ensure exceptional patient experiences and deliver
+                                    beautiful, healthy smiles that patients can trust.
+                               </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ===================== -->
+                    <!-- CORE VALUES -->
+                    <!-- ===================== -->
+                    <section id="values" class="mt-7">
+                        <h2 class="text-center text-[32px] font-bold text-coff_black">
+                            Our Core Values
+                        </h2>
+                        <div class="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
+                            <!-- Health First -->
+                            <div class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
+                                <h3 class="text-center text-[24px] font-bold text-coff_black">
+                                    Health First
+                                </h3>
+                                <div class="mt-2 flex gap-2">
+                                    <span class="text-[17px] text-gray-400">“</span>
+                                    <p class="text-[18px] leading-[1.6] ">
+                                        Our patients' oral health always comes first.
+                                        Even when there are aesthetic expectations,
+                                        our top priority remains the patient's overall
+                                        well-being.
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <!-- Patient Focus -->
+                            <div class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
+                                <h3 class="text-center text-[24px] font-bold text-coff_black">
+                                    Patient Focus
+                                </h3>
+                                <div class="mt-2 flex gap-2">
+                                    <span class="text-[17px] text-gray-400">“</span>
+                                    <p class="text-[18px] leading-[1.6] ">
+                                        We strive for an excellent patient experience
+                                        at every stage, acting with kindness and sincerity,
+                                        and always aiming for complete satisfaction.
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <!-- Transparency -->
+                            <div class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
+                                <h3 class="text-center text-[24px] font-bold text-coff_black">
+                                    Transparency & Trust
+                                </h3>
+                                <div class="mt-2 flex gap-2">
+                                    <span class="text-[17px] text-gray-400">“</span>
+                                    <p class="text-[18px] leading-[1.6] ">
+                                        We keep our patients fully informed, provide the
+                                        most appropriate medical solutions, and honour
+                                        our commitments in travel and accommodation —
+                                        always respecting patient rights.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Growing Together -->
+                            <div class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
+                                <h3 class="text-center text-[24px] font-bold text-coff_black">
+                                    Growing Together
+                                </h3>
+                                <div class="mt-2 flex gap-2">
+                                    <span class="text-[17px] text-gray-400">“</span>
+                                    <p class="text-[18px] leading-[1.6] ">
+                                        We see our staff and partners as long-term
+                                        collaborators and focus on sharing growth
+                                        and development together.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Respect -->
+                            <div class="rounded-[10px] bg-white px-5 py-4 shadow-sm md:col-span-2">
+                                <h3 class="text-center text-[24px] font-bold text-coff_black">
+                                    Respect for People
+                                </h3>
+                                <div class="mt-2 flex gap-2">
+                                    <span class="text-[17px] text-gray-400">“</span>
+                                    <p class="text-[18px] leading-[1.6] ">
+                                        Our management philosophy is built on respect for people.
+                                        We create the best possible environment for employee
+                                        happiness and growth, supporting every individual to
+                                        realize their potential.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!-- ===================== -->
+                    <!-- ABOUT -->
+                    <!-- ===================== -->
+                    <section class=" py-8" id="about">
+                        <h1 class="text-2xl sm:text-4xl font-bold mb-5">
+                            About
+                        </h1>
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6">
+                            <div class="flex flex-col md:flex-row gap-5">
+                                <!-- Profile Image -->
+                                <div class="w-full md:w-[150px] shrink-0">
+                                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Dr-Gulay-Akay.webp'); ?>"
+                                        alt="Founder"
+                                        class="w-full md:w-[150px] h-[190px] md:h-[180px] object-cover rounded-lg">
+                                </div>
+                                <!-- About Content -->
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span
+                                            class="bg-blue-600 text-white text-[11px] px-2.5 py-1 rounded-full font-semibold">
+                                            Founder
+                                        </span>
+                                        <span class="text-[18px] text-blue-600 font-bold">
+                                            Dr. Gülçay Aksoy
+                                        </span>
+                                    </div>
+                                 <p class="text-[18px] leading-6  mb-3">
+                                        Dr. Gülçay Aksoy is an award-winning medical doctor, researcher,
+                                        healthcare professional and international expert whose work
+                                        combines scientific knowledge, professional experience and
+                                        innovative approaches.
+                                    </p>
+                                    <p class="text-[18px] leading-6  mb-3">
+                                        She has more than 15 years of experience in research,
+                                        clinical development, international healthcare and
+                                        professional education. Her mission is to contribute to better healthcare
+                                        through
+                                        evidence-based knowledge, education and internationally
+                                        recognized professional standards.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!-- =========================
+         RECOGNIZED SECTION
+    ========================== -->
+                    <section class="max-w-[1180px] mx-auto px-4 sm:px-6 pb-8" id="trustedworldwide">
+                        <div class="text-center mb-6">
+                            <h2 class="text-xl sm:text-2xl md:text-4xl font-bold">
+                                Recognised for Excellence, Trusted Worldwide
+                            </h2>
+                            <div class="w-16 h-1 bg-blue-600 mx-auto mt-3 rounded-full"></div>
+                        </div>
+                        <!-- Recognition Logos -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mb-8">
+                            <?php
+            $recognitions = [
+                'Dental Clinic of the Year',
+                'Best Dental Clinic in Europe',
+                'Best Dental Clinic in Türkiye',
+                'European Parliament Recognition',
+                'Ace of Rise',
+                'Miss England'
+            ];
+            foreach ($recognitions as $recognition) :
+            ?>
+                            <div class="bg-white border border-gray-100 rounded-lg
+                            shadow-sm min-h-[60px] flex items-center
+                            justify-center text-center p-2">
+                                <span class="text-[10px] sm:text-[11px] font-medium text-gray-500">
+                                    <?php echo esc_html($recognition); ?>
+                                </span>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+
+
+                        <!-- =========================
+             AWARDS FEATURE
+        ========================== -->
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100
+                    overflow-hidden">
+                            <div class="grid md:grid-cols-2">
+                                <!-- Text -->
+                                <div class="p-5 sm:p-7">
+                                    <span class="text-xl text-blue-600 font-semibold">
+                                        The European Awards 2025
+                                    </span>
+                                    <h3 class="text-2xl sm:text-4xl font-bold mt-2 mb-4">
+                                        Dental Clinic of the Year
+                                    </h3>
+                                    <p class="text-sm leading-6  mb-4">
+                                        Dentax Dental Clinic has been recognised as the
+                                        “Dental Clinic of the Year” at The European Awards.
+                                        This prestigious recognition celebrates excellence,
+                                        innovation and exceptional standards in dental healthcare.
+                                    </p>
+                                    <p class="text-sm leading-6 ">
+                                        The award highlights our commitment to providing
+                                        high-quality treatment, advanced technology and
+                                        outstanding patient care.
+                                    </p>
+                                    <a href="#award-video" class="inline-flex items-center gap-2 mt-5
+                               border border-blue-500 text-blue-600
+                               rounded-full px-5 py-2 text-xs font-semibold
+                               hover:bg-blue-600 hover:text-white
+                               transition">
+                                        ▶ Watch the Video
+                                    </a>
+                                </div>
+                                <!-- Award Images -->
+                                <div class="bg-gray-50 p-4">
+                                    <div class="grid grid-cols-2 gap-3 h-full">
+                                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Dental-Clinic-Of-The-Year-P1.webp'); ?>"
+                                            alt="European Award"
+                                            class="w-full h-full min-h-[230px] object-cover rounded-lg">
+                                        <div class="grid grid-rows-3 gap-3">
+                                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Dental-Clinic-Of-The-Year-P2.webp'); ?>"
+                                                alt="Award ceremony" class="w-full h-full object-cover rounded-lg">
+                                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Dental-Clinic-Of-The-Year-P1.webp'); ?>"
+                                                alt="Award ceremony" class="w-full h-full object-cover rounded-lg">
+                                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/Dental-Clinic-Of-The-Year-P2.webp'); ?>"
+                                                alt="Award ceremony" class="w-full h-full object-cover rounded-lg">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!-- =========================
+         CERTIFICATES
+    ========================== -->
+                    <section class="max-w-[1180px] mx-auto px-4 sm:px-6 pb-10" id="certificates">
+                        <div class="text-center mb-6">
+                            <h2 class="text-xl sm:text-3xl md:text-4xl font-bold">
+                                Certificates We Have Earned from All Over the World
+                            </h2>
+                            <div class="w-16 h-1 bg-blue-600 mx-auto mt-3 rounded-full"></div>
+                        </div>
+                        <!-- Certificate Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+                            <?php
+            $certificates = [
+                'certificate-1.webp',
+                'certificate-2.jpg',
+                'certificate-3.jpg',
+                'certificate-4.jpg',
+                'certificate-5.jpg',
+                'certificate-6.jpg',
+                'certificate-7.jpg',
+                'certificate-8.jpg',
+                'certificate-9.jpg',
+                'certificate-10.jpg',
+            ];
+            foreach ($certificates as $certificate) :
+            ?>
+                            <div class="bg-white border border-gray-100
+                            rounded-lg overflow-hidden shadow-sm">
+                                <img src="<?php echo esc_url(
+                            get_template_directory_uri() .
+                            '/assets/images/certificate-1.webp' .
+                            $certificate
+                        ); ?>" alt="International Certificate" class="w-full aspect-[1.4/1] object-contain bg-white">
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
+
+
+                    <!-- =========================
+         CERTIFICATE DESCRIPTION
+    ========================== -->
+                    <section class="max-w-[1180px] mx-auto px-4 sm:px-6 pb-8">
+                        <div class="bg-white rounded-xl shadow-sm
+                    border border-gray-100 p-6 sm:p-8">
+                            <p class="text-center max-w-[950px] mx-auto
+                      text-[18px] leading-6 ">
+                                Clinical excellence is supported by a culture of continuous
+                                education and professional development. Our team maintains
+                                internationally recognised standards while continuously
+                                improving knowledge, techniques and patient care.
+                            </p>
+                            <!-- Accreditation Logos -->
+                            <div class="flex flex-wrap justify-center
+                        items-center gap-4 sm:gap-6 mt-6">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/certified-1.webp'); ?>"
+                                    alt="Award ceremony" class="w-8 object-cover ">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/certified-1 (2).webp'); ?>"
+                                    alt="Award ceremony" class="w-12 object-cover ">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/certified-1 (1).webp'); ?>"
+                                    alt="Award ceremony" class="w-8 object-cover ">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/top-employer-2.webp'); ?>"
+                                    alt="Award ceremony" class="w-20 object-cover ">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/top-employer.webp'); ?>"
+                                    alt="Award ceremony" class="w-20 object-cover ">
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!-- =========================
+         TURQUALITY
+    ========================== -->
+                    <section class="max-w-[1180px] mx-auto px-4 sm:px-6 pb-12">
+                        <div class="bg-white rounded-xl shadow-sm
+                    border border-gray-100 p-6 sm:p-8">
+                            <p class="text-center max-w-[950px] mx-auto
+                      text-[18px] leading-6 ">
+                                Our commitment to quality is further supported by
+                                internationally recognised programmes and professional
+                                standards. We continuously work to improve our services,
+                                technology and patient experience.
+
+                            </p>
+                            <div class="flex justify-center mt-6">
+
+                                <div class="border border-blue-300
+                            rounded-md px-8 py-3">
+                                    <span class="text-blue-500 font-bold tracking-wide">
+                                        TURQUALITY
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+
                 </div>
             </div>
-        <?php endforeach; ?>
+        </section>
     </div>
-</section>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php get_footer(); ?>
