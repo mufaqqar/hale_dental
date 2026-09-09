@@ -27,6 +27,14 @@ add_filter('document_title_parts', 'hale_coffee_remove_site_title');
 function hale_coffee_enqueue_assets()
 {
 
+    // Cal Sans font
+    wp_enqueue_style(
+        'cal-sans',
+        'https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;500;600;700;800&display=swap',
+        [],
+        null
+    );
+
     // Font Awesome
     wp_enqueue_style(
         'font-awesome',

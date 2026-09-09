@@ -6,7 +6,7 @@
   --primary: #2D4B99;
   --secondary: #4A7DFF;
   --coff_black: #111111;
-  --coffGreen: #004650;
+  --coffGreen: #4A7DFF;
   --coffLightGreen: #c7d8c4;
   --secondaryLight: #6b7280;
 }
@@ -17,7 +17,7 @@
   }
 
   body {
-    font-family: 'Poppins', 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Cal Sans', 'Poppins', 'Open Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     color: var(--coff_black);
     background-color: #ffffff;
     line-height: 1.6;
