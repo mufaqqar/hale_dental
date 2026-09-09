@@ -125,17 +125,16 @@ get_header();
                         <div class="pt-3 sm:pt-4">
 
                             <!-- Title -->
-                            <h2 class="mb-2 text-[16px] font-bold leading-[1.3] tracking-[-0.4px] text-[#292929] sm:text-[28px]">
+<h2 class="mb-2 text-[16px] font-bold leading-[1.3] tracking-[-0.4px] text-[#292929] sm:text-[28px]">
 
-                               Root Canal Treatment for an Infected Tooth: Is It Possible?
+    <?php the_title(); ?>
 
-                            </h2>
+</h2>
 
-                            <!-- Excerpt -->
-                            <p class="mb-4 overflow-hidden text-ellipsis whitespace-nowrap text-[13px] leading-5  sm:text-[15px]">
-                                <!-- <?php echo esc_html($excerpt); ?> -->
-                                 Root canal treatment is a dental procedure widely used by endodontics specialists. It's typically ap...
-                            </p>
+<!-- Excerpt -->
+<p class="mb-4 overflow-hidden text-ellipsis whitespace-nowrap text-[13px] leading-5  sm:text-[15px]">
+    <?php echo esc_html($excerpt); ?>
+</p>
                             <!-- Bottom Info -->
                             <div class="flex items-center justify-between gap-4">
                                 <!-- Author -->
@@ -155,15 +154,13 @@ get_header();
 
                                     <div class="flex items-center gap-2">
                                         <span class="text-[10px] font-medium text-[#333] sm:text-[11px]">
-                                            <!-- <?php the_author(); ?> -->
-                                             Gülay Akay
+                                            <?php the_author(); ?>
                                         </span>
                                         <!-- Blue Dot -->
                                         <span class="h-[5px] w-[5px] rounded-full bg-[#4169e1]"></span>
                                         <!-- Date -->
                                         <span class="text-[9px] text-[#555] sm:text-[10px]">
-                                            <!-- <?php echo esc_html(get_the_date('d.m.Y')); ?> -->
-                                             21.08.2026
+                                            <?php echo esc_html(get_the_date('d.m.Y')); ?>
                                         </span>
                                     </div>
                                 </div>
@@ -299,7 +296,7 @@ get_header();
                                     </div>
                                     <!-- Post Title -->
                                     <h3 class="text-[13px] font-semibold leading-[1.5] text-[#292929]">
-                                        <!-- <?php
+                                        <?php
                                         echo esc_html(
                                             wp_trim_words(
                                                 get_the_title(),
@@ -307,8 +304,7 @@ get_header();
                                                 '...'
                                             )
                                         );
-                                        ?> -->
-                                        Root Canal Treatment for an Infected Tooth: Is It Possible?
+                                        ?>
                                     </h3>
                                 </a>
                         <?php
