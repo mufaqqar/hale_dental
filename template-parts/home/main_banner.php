@@ -3,7 +3,7 @@
     <div class="absolute inset-0 z-0 overflow-hidden">
         <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline preload="auto"
             aria-hidden="true">
-            <source src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/video/video.mp4" type="video/mp4">
+            <source src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/videos/video.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 z-[1]"
             style="background: linear-gradient(91deg, rgb(0, 70, 80) 0%, rgba(0, 70, 80, 0) 236%), radial-gradient(66.49% 105.16% at 70.36% 47.07%, rgba(0, 70, 80, 0) 0%, rgba(0, 70, 80, 0.2) 100%); filter: brightness(0.5);">

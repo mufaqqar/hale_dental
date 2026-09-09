@@ -11,9 +11,9 @@
     <?php wp_body_open(); ?>
     <div id="page" class="min-h-screen flex flex-col">
         <header id="masthead" class="sticky top-0 z-[9999] py-4">
-            <div class="container mx-auto">
-                <div class="flex items-stretch justify-between gap-4">
-                    <div class="flex items-center justify-between gap-4 w-full bg-white px-4 rounded-xl">
+            <div class="container mx-auto md:px-0 px-2">
+                <div class="flex items-stretch justify-between sm:gap-4 gap-2">
+                    <div class="flex items-center justify-between gap-4 w-full bg-white sm:px-4 px-2 rounded-xl">
                         <!-- Logo -->
                         <div class="site-branding inline-flex shrink-0">
                             <?php if (has_custom_logo()): ?>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <!-- Right: CTA + language (desktop) -->
-                    <div class="hidden lg:flex items-center gap-6 shrink-0 bg-white px-4 rounded-xl">
+                    <div class="hidden lg:flex items-center gap-6 shrink-0 bg-white sm:px-4 px-2 rounded-xl">
                         <div class="lang-switch" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
                             <span>English</span>
                             <i class="fa-solid fa-chevron-down"></i>
@@ -60,14 +60,14 @@
                         </div>
                     </div>
                     <!-- Mobile hamburger -->
-                    <button class="menu-toggle lg:hidden text-coff_black text-2xl p-2" aria-label="Toggle menu"
+                    <button class="menu-toggle lg:hidden text-coff_black text-2xl p-2 bg-white px-4 rounded-xl" aria-label="Toggle menu"
                         aria-expanded="false">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
 
                 <!-- Mobile navigation panel -->
-                <div id="mobile-nav" class="primary-navigation lg:hidden hidden pb-4 border-t border-gray-100 mt-2">
+                <div id="mobile-nav" class="primary-navigation lg:hidden hidden pb-4 bg-white mt-2">
                     <?php
                     wp_nav_menu([
                         'theme_location' => 'primary',
@@ -77,7 +77,7 @@
                         'walker' => new Hale_Mega_Walker(),
                     ]);
                     ?>
-                    <div class="flex items-center gap-6 mt-4 pt-3 border-t border-gray-100">
+                    <div class="flex items-center justify-center gap-6 mt-4 pt-3 border-t border-gray-100">
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn-consult">
                             Get Consultation
                         </a>

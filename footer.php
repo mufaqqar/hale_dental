@@ -1,6 +1,7 @@
 </div>
 </div>
 <footer class="bg-coffGreen pt-16 ">
+<footer class="bg-coffGreen pt-16 rounded-t-[32px]">
     <div class="container mx-auto px-4">
         <div class="grid lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] md:grid-cols-2 grid-cols-1 gap-10">
             <div>
