@@ -29,7 +29,12 @@
     height: auto;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     line-height: 1.2;
   }
 }
@@ -41,7 +46,7 @@
   }
 
   /* ---------- Primary navigation ---------- */
-  .primary-navigation .menu-item > a {
+  .primary-navigation .menu-item>a {
     color: var(--coff_black);
     font-weight: 500;
     padding: 0.5rem 1rem;
@@ -50,11 +55,11 @@
     transition: color 0.2s ease;
   }
 
-  .primary-navigation .menu-item > a:hover {
+  .primary-navigation .menu-item>a:hover {
     color: #3254ac;
   }
 
-  .primary-navigation .current-menu-item > a {
+  .primary-navigation .current-menu-item>a {
     color: #3254ac;
     font-weight: 600;
   }
@@ -135,7 +140,7 @@
   }
 
   @media (max-width: 767px) {
-    .primary-navigation .menu-item > a {
+    .primary-navigation .menu-item>a {
       color: var(--secondary);
       width: 100%;
     }
@@ -158,9 +163,9 @@
     gap: 0.5rem;
   }
 
-  .noissue > .slick-slide,
-  .popular > .slick-slide,
-  .readytoship > .slick-slide {
+  .noissue>.slick-slide,
+  .popular>.slick-slide,
+  .readytoship>.slick-slide {
     padding: 0.25rem;
   }
 
@@ -244,7 +249,7 @@
     justify-content: center;
   }
 
-  .journey-slider .slick-slide > div {
+  .journey-slider .slick-slide>div {
     width: 100%;
   }
 
@@ -474,4 +479,79 @@
     margin-bottom: 0.75rem;
   }
 
+}
+
+/* =========================
+       SMILE SLIDER
+    ========================== */
+
+.smile-slider {
+  width: 100%;
+}
+
+.smile-slider .slick-list {
+  overflow: visible;
+}
+
+.smile-slider .slick-track {
+  display: flex;
+}
+
+.smile-slider .slick-slide {
+  height: auto;
+}
+
+.smile-slider .slick-slide>div {
+  min-height: 100%;
+}
+
+
+/* Desktop */
+@media (min-width: 768px) {
+
+  .smile-slider .slick-slide {
+    width: 390px;
+  }
+
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+
+  .smile-slider .slick-list {
+    overflow: hidden;
+  }
+
+  .smile-slider .slick-slide {
+    width: 90vw;
+  }
+
+  .smile-card {
+    height: 260px !important;
+    border-radius: 30px !important;
+  }
+
+}
+
+
+.testimonial-slider {
+    margin-left: -7px;
+    margin-right: -7px;
+}
+
+.testimonial-slider .slick-list {
+    overflow: hidden;
+}
+
+.testimonial-slider .slick-track {
+    display: flex;
+}
+
+.testimonial-slider .slick-slide {
+    height: auto;
+}
+
+.testimonial-slider .slick-slide > div {
+    height: 100%;
 }

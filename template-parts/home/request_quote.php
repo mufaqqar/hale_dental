@@ -1,25 +1,49 @@
-<section class="py-16 bg-amber-900 text-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-        <span class="inline-block bg-amber-700 text-amber-200 text-sm font-semibold px-4 py-1 rounded-full mb-4">Bulk Orders</span>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Need a Custom Quote?</h2>
-        <p class="text-amber-100 text-lg mb-8 max-w-2xl mx-auto">Whether you're outfitting your office, café, or event, we offer competitive bulk pricing on all our products. Let us know your needs and we'll craft the perfect solution.</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <div class="bg-amber-800/50 rounded-xl p-6">
-                <div class="text-3xl mb-3">📦</div>
-                <h3 class="font-semibold text-lg">Bulk Discounts</h3>
-                <p class="text-amber-200 text-sm mt-2">Save up to 25% on orders over 50 units</p>
-            </div>
-            <div class="bg-amber-800/50 rounded-xl p-6">
-                <div class="text-3xl mb-3">🚚</div>
-                <h3 class="font-semibold text-lg">Free Shipping</h3>
-                <p class="text-amber-200 text-sm mt-2">On all bulk orders within the continental US</p>
-            </div>
-            <div class="bg-amber-800/50 rounded-xl p-6">
-                <div class="text-3xl mb-3">🎨</div>
-                <h3 class="font-semibold text-lg">Custom Blends</h3>
-                <p class="text-amber-200 text-sm mt-2">Create your own signature coffee blend</p>
-            </div>
+<section class="relative w-full overflow-hidden bg-[#b6a19a]">
+    <div class="relative mx-auto flex min-h-[198px] max-w-[1350px] items-center">
+
+        <!-- Left: Heading -->
+        <div class="relative z-20 w-[280px] shrink-0 pl-[8%]">
+            <h2 class="font-serif text-[42px] leading-[1.35] text-white">
+                Free<br>
+                Consultation
+            </h2>
         </div>
-        <a href="#" class="inline-block bg-amber-500 hover:bg-amber-400 text-white font-semibold px-10 py-4 rounded-lg text-lg transition duration-300">Request a Quote</a>
+
+
+        <!-- Center: Description -->
+        <div class="relative z-20 w-[280px] shrink-0">
+            <p class="font-sans text-[17px] leading-[1.9] text-white">
+                Are you ready to<br>
+
+                <strong class="font-semibold">
+                    start your journey
+                </strong>
+
+                <br>
+                to perfection today?
+            </p>
+        </div>
+
+
+        <!-- Clock / Background Image -->
+        <div class="absolute left-[50%] top-1/2 z-10 -translate-x-[15%] -translate-y-1/2">
+            <img
+                src="<?php echo get_template_directory_uri(); ?>/assets/images/consultation-clock.png"
+                alt="Consultation"
+                class="w-[285px] max-w-none"
+            >
+        </div>
+
+
+        <!-- Right Button -->
+        <div class="relative z-30 ml-auto pr-[8%]">
+            <a
+                href="<?php echo esc_url(home_url('/contact/')); ?>"
+                class="inline-flex min-w-[146px] items-center justify-center rounded-full border border-white/80 px-7 py-4 text-[16px] font-medium text-white transition-all duration-300 hover:bg-white hover:text-[#675b57]"
+            >
+                Book now!
+            </a>
+        </div>
+
     </div>
 </section>
