@@ -46,27 +46,27 @@ get_header();
 
                     <ul class="space-y-2 border-l border-gray-300 pl-3 text-[14px] text-gray-500">
                         <li>
-                            <a href="#transforming" class="text-[#315fcf] font-semibold">
+                            <a href="#transforming" class="text-[#315fcf]  ">
                                 Transforming Smiles Since 2009
                             </a>
                         </li>
                         <li>
-                            <a href="#values" class="hover:text-black font-semibold">
+                            <a href="#values" class="hover:text-black  ">
                                 Our Core Values
                             </a>
                         </li>
                         <li>
-                            <a href="#about" class="hover:text-black font-semibold">
+                            <a href="#about" class="hover:text-black  ">
                                 About
                             </a>
                         </li>
                         <li>
-                            <a href="#trustedworldwide" class="hover:text-black font-semibold">
+                            <a href="#trustedworldwide" class="hover:text-black  ">
                                 Recognised for Excellence, Trusted Worldwide
                             </a>
                         </li>
                         <li>
-                            <a href="#certificates" class="hover:text-black font-semibold">
+                            <a href="#certificates" class="hover:text-black  ">
                                 Certificates We Have Earned from All Over The World
                             </a>
                         </li>
@@ -327,7 +327,7 @@ get_header();
                                 <div class="flex-1">
                                     <div class="flex items-center gap-2 mb-2">
                                         <span
-                                            class="bg-blue-600 text-white text-[11px] px-2.5 py-1 rounded-full font-semibold">
+                                            class="bg-blue-600 text-white text-[11px] px-2.5 py-1 rounded-full  ">
                                             Founder
                                         </span>
                                         <span class="text-[18px] text-blue-600 font-bold">
@@ -396,7 +396,7 @@ get_header();
                             <div class="grid md:grid-cols-2">
                                 <!-- Text -->
                                 <div class="p-5 sm:p-7">
-                                    <span class="text-xl text-blue-600 font-semibold">
+                                    <span class="text-xl text-blue-600  ">
                                         The European Awards 2025
                                     </span>
                                     <h3 class="text-2xl sm:text-4xl font-bold mt-2 mb-4">
@@ -415,7 +415,7 @@ get_header();
                                     </p>
                                     <a href="#award-video" class="inline-flex items-center gap-2 mt-5
                                border border-blue-500 text-blue-600
-                               rounded-full px-5 py-2 text-xs font-semibold
+                               rounded-full px-5 py-2 text-xs  
                                hover:bg-blue-600 hover:text-white
                                transition">
                                         ▶ Watch the Video

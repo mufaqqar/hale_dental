@@ -73,7 +73,7 @@
                                 ); ?>
 
                                 <div class="flex flex-wrap items-center gap-2">
-                                    <span class="text-[13px] font-semibold text-[#333]">
+                                    <span class="text-[13px]   text-[#333]">
                                         <?php the_author(); ?>
                                     </span>
                                     <span class="h-[5px] w-[5px] rounded-full bg-[#4169e1]"></span>
@@ -102,7 +102,7 @@
                         <!-- Tags -->
                         <?php if (has_tag()) : ?>
                             <div class="mt-8 flex flex-wrap items-center gap-2 border-t border-[#f0f0f0] pt-6">
-                                <span class="text-[12px] font-semibold text-[#333]">
+                                <span class="text-[12px]   text-[#333]">
                                     Tags:
                                 </span>
                                 <?php
@@ -120,7 +120,7 @@
                             <span class="text-[10px] font-medium uppercase tracking-wider text-[#999]">
                                 Previous Article
                             </span>
-                            <div class="mt-2 text-[13px] font-semibold leading-[1.5] text-[#292929]">
+                            <div class="mt-2 text-[13px]   leading-[1.5] text-[#292929]">
                                 <?php previous_post_link('%link', '&larr; %title'); ?>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                             <span class="text-[10px] font-medium uppercase tracking-wider text-[#999]">
                                 Next Article
                             </span>
-                            <div class="mt-2 text-[13px] font-semibold leading-[1.5] text-[#292929]">
+                            <div class="mt-2 text-[13px]   leading-[1.5] text-[#292929]">
                                 <?php next_post_link('%link', '%title &rarr;'); ?>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
 
                     <!-- SEARCH -->
                     <div class="rounded-[18px] bg-white p-4 shadow-sm sm:p-5">
-                        <h2 class="mb-4 text-[15px] font-semibold text-[#333]">
+                        <h2 class="mb-4 text-[15px]   text-[#333]">
                             Find Your Information
                         </h2>
                         <form method="get" action="<?php echo esc_url(home_url('/')); ?>">
@@ -178,7 +178,7 @@
                             </div>
                             <button
                                 type="submit"
-                                class="mt-4 h-[48px] w-full rounded-[12px] bg-gradient-to-r from-[#5277d7] to-[#35529b] text-[13px] font-semibold text-white transition hover:opacity-90"
+                                class="mt-4 h-[48px] w-full rounded-[12px] bg-gradient-to-r from-[#5277d7] to-[#35529b] text-[13px]   text-white transition hover:opacity-90"
                             >
                                 Search
                             </button>
@@ -187,7 +187,7 @@
 
                     <!-- LAST PUBLISHED -->
                     <div class="rounded-[18px] bg-white p-4 shadow-sm sm:p-5">
-                        <h2 class="mb-4 text-[15px] font-semibold text-[#333]">
+                        <h2 class="mb-4 text-[15px]   text-[#333]">
                             Last Published
                         </h2>
                         <div class="space-y-3">
@@ -222,7 +222,7 @@
                                             >
                                         <?php endif; ?>
                                     </div>
-                                    <h3 class="text-[13px] font-semibold leading-[1.5] text-[#292929]">
+                                    <h3 class="text-[13px]   leading-[1.5] text-[#292929]">
                                         <?php
                                         echo esc_html(
                                             wp_trim_words(

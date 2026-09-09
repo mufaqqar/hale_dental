@@ -218,7 +218,7 @@ get_header();
             <aside class="space-y-5">
                 <!-- SEARCH BOX -->
                 <div class="rounded-[18px] bg-white p-4 shadow-sm sm:p-5">
-                    <h2 class="mb-4 text-[15px] font-semibold text-[#333]">
+                    <h2 class="mb-4 text-[15px]   text-[#333]">
                         Find Your Information
                     </h2>
                     <form method="get" action="<?php echo esc_url(home_url('/')); ?>">
@@ -245,7 +245,7 @@ get_header();
                         </div>
                         <button
                             type="submit"
-                            class="mt-4 h-[48px] w-full rounded-[12px] bg-gradient-to-r from-[#5277d7] to-[#35529b] text-[13px] font-semibold text-white transition hover:opacity-90"
+                            class="mt-4 h-[48px] w-full rounded-[12px] bg-gradient-to-r from-[#5277d7] to-[#35529b] text-[13px]   text-white transition hover:opacity-90"
                         >
                             Search
                         </button>
@@ -256,7 +256,7 @@ get_header();
                      LAST PUBLISHED
                 ========================== -->
                 <div class="rounded-[18px] bg-white p-4 shadow-sm sm:p-5">
-                    <h2 class="mb-4 text-[15px] font-semibold text-[#333]">
+                    <h2 class="mb-4 text-[15px]   text-[#333]">
                         Last Published
                     </h2>
                     <div class="space-y-3">
@@ -295,7 +295,7 @@ get_header();
                                         <?php endif; ?>
                                     </div>
                                     <!-- Post Title -->
-                                    <h3 class="text-[13px] font-semibold leading-[1.5] text-[#292929]">
+                                    <h3 class="text-[13px]   leading-[1.5] text-[#292929]">
                                         <?php
                                         echo esc_html(
                                             wp_trim_words(

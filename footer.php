@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div>
-                <h5 class="text-lg font-semibold text-white mb-6">
+                <h5 class="text-lg   text-white mb-6">
                     Custom Packaging
                 </h5>
                 <ul class="space-y-4">
@@ -39,7 +39,7 @@
                 </ul>
             </div>
             <div>
-                <h5 class="text-lg font-semibold text-white mb-6">
+                <h5 class="text-lg   text-white mb-6">
                     Our Products
                 </h5>
                 <ul class="space-y-4">
@@ -51,7 +51,7 @@
                 </ul>
             </div>
             <div>
-                <h5 class="text-lg font-semibold text-white mb-6">
+                <h5 class="text-lg   text-white mb-6">
                     Get a Quote
                 </h5>
                 <ul class="space-y-4">
@@ -64,7 +64,7 @@
                 </ul>
             </div>
             <div>
-                <h5 class="text-lg font-semibold text-white mb-6">
+                <h5 class="text-lg   text-white mb-6">
                     Connect With Us
                 </h5>
                 <div class="flex gap-5 text-3xl mb-10">
@@ -84,19 +84,19 @@
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
-                <h5 class="text-lg font-semibold text-white mb-5">
+                <h5 class="text-lg   text-white mb-5">
                     Subscribe to our newsletter
                 </h5>
                 <form class="mb-6">
                     <button
-                        class="w-full bg-white hover:bg-black hover:text-white text-secondary py-4 rounded-full transition font-semibold">
+                        class="w-full bg-white hover:bg-black hover:text-white text-secondary py-4 rounded-full transition  ">
                         Sign up
                     </button>
                 </form>
                 <p class="text-sm text-white mb-6">
                     You can unsubscribe at any time.
                 </p>
-                <h6 class="text-sm font-semibold text-white mb-4">
+                <h6 class="text-sm   text-white mb-4">
                     Proud Gold Sponsor of the
                 </h6>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/global-coffee-awards-logo_black.webp"

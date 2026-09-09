@@ -49,7 +49,7 @@ $steps = [
             </div>
         </div>
         <div class="md:w-1/2 w-full">
-            <h4 class="text-xl font-semibold text-white mb-4 flex items-center gap-3 sm:justify-start justify-center">
+            <h4 class="text-xl   text-white mb-4 flex items-center gap-3 sm:justify-start justify-center">
                 <span> Stronger Protection. </span>
                 <span class="block border-b-2 border-white max-w-[61px] w-full"></span>
             </h4>

@@ -85,7 +85,7 @@ $afternoonSlots = [
 
                 <!-- Description -->
                 <p
-                    class="mt-7 max-w-[620px] text-[15px] font-semibold leading-[21px] text-black"
+                    class="mt-7 max-w-[620px] text-[15px]   leading-[21px] text-black"
                 >
                     Speak directly with an expert, discuss your treatment options,
                     and get a clear plan – no obligation.

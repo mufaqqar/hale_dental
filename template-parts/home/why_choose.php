@@ -8,7 +8,7 @@
         <div class="mx-auto mb-[28px] max-w-[900px] text-center">
 
             <h2
-                class="m-0 font-sans md:text-5xl text-3xl font-semibold text-coff_black tracking-tight"
+                class="m-0 font-sans md:text-5xl text-3xl   text-coff_black tracking-tight"
             >
                 Why Choose Dentakay?
             </h2>
@@ -117,7 +117,7 @@
                         <div class="relative z-10 pr-5">
 
                             <h3
-                                class="service-title m-0 font-sans text-[16px] font-semibold leading-[1.25] transition-colors duration-300 md:text-[17px] <?php echo $is_active ? 'text-white' : 'text-[#333]'; ?>"
+                                class="service-title m-0 font-sans text-[16px]   leading-[1.25] transition-colors duration-300 md:text-[17px] <?php echo $is_active ? 'text-white' : 'text-[#333]'; ?>"
                             >
                                 <?php echo esc_html($service['title']); ?>
                             </h3>

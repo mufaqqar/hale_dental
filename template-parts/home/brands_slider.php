@@ -45,7 +45,7 @@
     </div>
 
     <div class="container mx-auto px-4 text-center mt-[82px] mb-[22px]">
-        <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight">
+        <h2 class="md:text-5xl text-3xl   text-coff_black tracking-tight">
             Start Your Transformation
         </h2>
     </div>
@@ -59,7 +59,7 @@
                             d="M12 3.5c-2.1-2-5.7-1.7-7.5.7-1.5 2-1.3 4.4-.6 6.4.7 2 1.4 3.6 1.7 6.3.3 2.5 1.1 4.2 2.5 4.2 1.3 0 1.5-1.4 1.7-3.2.2-1.5.5-2.5 1.2-2.5s1 .9 1.2 2.5c.2 1.8.4 3.2 1.7 3.2 1.4 0 2.2-1.7 2.5-4.2.3-2.7 1-4.3 1.7-6.3.7-2 .9-4.4-.6-6.4C17.7 1.8 14.1 1.5 12 3.5z" />
                     </svg>
                 </div>
-                <h3 class="text-lg font-semibold text-coff_black">
+                <h3 class="text-lg   text-coff_black">
                     Hollywood Smile
                 </h3>
                 <p class="mt-[5px] text-[15px] leading-[1.05] italic text-[#a6a6a6]">
@@ -68,7 +68,7 @@
                 </p>
             </div>
             <a href="#"
-                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px] font-semibold no-underline">
+                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px]   no-underline">
                 Select
             </a>
         </div>
@@ -83,7 +83,7 @@
                     </svg>
                 </div>
 
-                <h3 class="text-lg font-semibold text-coff_black">
+                <h3 class="text-lg   text-coff_black">
                     Dental Implants
                 </h3>
 
@@ -96,7 +96,7 @@
             </div>
 
             <a href="#"
-                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px] font-semibold no-underline">
+                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px]   no-underline">
                 Select
             </a>
 
@@ -116,7 +116,7 @@
                     </svg>
                 </div>
 
-                <h3 class="text-lg font-semibold text-coff_black">
+                <h3 class="text-lg   text-coff_black">
                     Dental Crown
                 </h3>
 
@@ -129,7 +129,7 @@
             </div>
 
             <a href="#"
-                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px] font-semibold no-underline">
+                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px]   no-underline">
                 Select
             </a>
 
@@ -149,7 +149,7 @@
                     </svg>
                 </div>
 
-                <h3 class="text-lg font-semibold text-coff_black">
+                <h3 class="text-lg   text-coff_black">
                     Veneers
                 </h3>
 
@@ -161,7 +161,7 @@
             </div>
 
             <a href="#"
-                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px] font-semibold no-underline">
+                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px]   no-underline">
                 Select
             </a>
 
@@ -181,7 +181,7 @@
                     </svg>
                 </div>
 
-                <h3 class="text-lg font-semibold text-coff_black">
+                <h3 class="text-lg   text-coff_black">
                     Teeth Whitening
                 </h3>
 
@@ -193,7 +193,7 @@
             </div>
 
             <a href="#"
-                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px] font-semibold no-underline">
+                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px]   no-underline">
                 Select
             </a>
 

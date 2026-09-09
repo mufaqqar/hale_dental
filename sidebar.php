@@ -13,13 +13,13 @@
 
     <!-- Search Widget -->
     <div class="bg-dental-off-white rounded-theme p-6">
-        <h4 class="font-heading text-lg font-semibold text-primary-dark mb-4"><?php esc_html_e( 'Search', 'hale-dental' ); ?></h4>
+        <h4 class="font-heading text-lg   text-primary-dark mb-4"><?php esc_html_e( 'Search', 'hale-dental' ); ?></h4>
         <?php get_search_form(); ?>
     </div>
 
     <!-- Categories Widget -->
     <div class="bg-dental-off-white rounded-theme p-6">
-        <h4 class="font-heading text-lg font-semibold text-primary-dark mb-4"><?php esc_html_e( 'Categories', 'hale-dental' ); ?></h4>
+        <h4 class="font-heading text-lg   text-primary-dark mb-4"><?php esc_html_e( 'Categories', 'hale-dental' ); ?></h4>
         <ul class="space-y-2 text-sm">
             <?php wp_list_categories( array(
                 'title_li' => '',
@@ -30,7 +30,7 @@
 
     <!-- Recent Posts Widget -->
     <div class="bg-dental-off-white rounded-theme p-6">
-        <h4 class="font-heading text-lg font-semibold text-primary-dark mb-4"><?php esc_html_e( 'Recent Posts', 'hale-dental' ); ?></h4>
+        <h4 class="font-heading text-lg   text-primary-dark mb-4"><?php esc_html_e( 'Recent Posts', 'hale-dental' ); ?></h4>
         <ul class="space-y-3">
             <?php
             $recent = new WP_Query( array(

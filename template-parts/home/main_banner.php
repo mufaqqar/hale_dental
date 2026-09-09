@@ -12,7 +12,7 @@
     <div class="absolute inset-0 z-[2] flex items-center justify-center px-6 text-center text-white">
         <div class="mx-auto w-full max-w-5xl">
             <div>
-                <h1 class="md:text-5xl text-3xl font-semibold">Your Journey To Perfection!</h1>
+                <h1 class="md:text-5xl text-3xl  ">Your Journey To Perfection!</h1>
                 <p class="md:text-lg text-sm mt-4">Our specialists are here to guide you. Book a complimentary
                     consultation today.</p>
             </div>

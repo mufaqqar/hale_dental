@@ -7,7 +7,7 @@
 
         <!-- Left -->
         <div>
-            <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight">
+            <h2 class="md:text-5xl text-3xl   text-coff_black tracking-tight">
                 New Smiles.<br>
                 New Lives.
             </h2>
@@ -22,7 +22,7 @@
             </p>
 
             <a href="#"
-                class="mt-4 inline-flex h-[43px] items-center justify-center rounded-full border border-[#dedede] px-5 text-[11px] font-semibold text-black transition duration-300 hover:bg-black hover:text-white">
+                class="mt-4 inline-flex h-[43px] items-center justify-center rounded-full border border-[#dedede] px-5 text-[11px]   text-black transition duration-300 hover:bg-black hover:text-white">
                 See More Smiles
             </a>
         </div>

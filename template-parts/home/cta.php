@@ -10,7 +10,7 @@
             <p class="font-sans text-[17px] leading-[1.9] text-white">
                 Are you ready to<br>
 
-                <strong class="font-semibold">
+                <strong class=" ">
                     start your journey
                 </strong>
 

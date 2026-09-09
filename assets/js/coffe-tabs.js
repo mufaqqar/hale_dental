@@ -335,7 +335,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         item.classList.remove(
           "active",
-          "font-semibold",
+          " ",
           "text-[#f3a895]"
         );
 
@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       tab.classList.add(
         "active",
-        "font-semibold",
+        " ",
         "text-[#f3a895]"
       );
 

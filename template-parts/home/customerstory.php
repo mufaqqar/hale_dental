@@ -69,7 +69,7 @@ $testimonials = [
         <!-- Heading -->
         <div class="text-center">
 
-            <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight">
+            <h2 class="md:text-5xl text-3xl   text-coff_black tracking-tight">
                 Real, Life-Changing Transformations
             </h2>
 
@@ -233,7 +233,7 @@ $testimonials = [
 
             <a
                 href="<?php echo esc_url(home_url('/contact/')); ?>"
-                class="rounded-full bg-[#4d7cff] px-7 py-3 text-[13px] font-semibold text-white"
+                class="rounded-full bg-[#4d7cff] px-7 py-3 text-[13px]   text-white"
             >
                 Get Quote Now
             </a>

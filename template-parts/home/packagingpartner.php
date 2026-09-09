@@ -30,7 +30,7 @@
 
             <!-- Face Aesthetic -->
             <button type="button"
-                class="journey-tab active relative h-full min-w-[125px] px-5 text-[13px] font-semibold text-[#f3a895] transition-all duration-300"
+                class="journey-tab active relative h-full min-w-[125px] px-5 text-[13px]   text-[#f3a895] transition-all duration-300"
                 data-tab="face" role="tab" aria-selected="true">
                 Face Aesthetic
             </button>

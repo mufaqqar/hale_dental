@@ -2,13 +2,13 @@
     <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
         <div class="flex-1 space-y-6">
             <div class="flex items-center gap-3">
-                <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight">
+                <h2 class="md:text-5xl text-3xl   text-coff_black tracking-tight">
                     Vitrin Clinic
                 </h2>
                 <div class="min-h-2 w-16 bg-primary"></div>
             </div>
 
-            <h3 class="md:text-4xl text-2xl font-semibold text-[#1A1A1A] leading-tight">
+            <h3 class="md:text-4xl text-2xl   text-[#1A1A1A] leading-tight">
                 A Dental Clinic in Istanbul Built for the World
             </h3>
 
@@ -47,7 +47,7 @@
 
             <div class="flex items-center justify-center gap-12">
                 <div class="text-center">
-                    <p class="text-sm font-semibold text-[#666] mb-2 uppercase tracking-wider">Trusted By Thousands Of
+                    <p class="text-sm   text-[#666] mb-2 uppercase tracking-wider">Trusted By Thousands Of
                         Patients!</p>
                     <div class="flex items-center justify-center gap-8">
                         <div class="flex flex-col items-center">

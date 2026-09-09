@@ -4,11 +4,11 @@
         <div class="flex items-center justify-between mb-10">
 
             <div>
-                <span class="text-secondary uppercase tracking-[4px] text-sm font-semibold">
+                <span class="text-secondary uppercase tracking-[4px] text-sm  ">
                     Latest Blog
                 </span>
 
-                <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight mt-2">
+                <h2 class="md:text-5xl text-3xl   text-coff_black tracking-tight mt-2">
                     Coffee Stories
                 </h2>
             </div>
@@ -36,13 +36,13 @@
 
                 <div class="p-6">
 
-                    <span class="inline-block text-secondary uppercase tracking-[3px] text-xs font-semibold mb-3">
+                    <span class="inline-block text-secondary uppercase tracking-[3px] text-xs   mb-3">
 
                         Brewing Guide
 
                     </span>
 
-                    <h3 class="text-2xl font-semibold text-coff_black mb-3 group-hover:text-secondary transition">
+                    <h3 class="text-2xl   text-coff_black mb-3 group-hover:text-secondary transition">
 
                         Choosing the Perfect Coffee Packaging
 
@@ -56,7 +56,7 @@
                     </p>
 
                     <a href="#"
-                        class="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-4 transition-all">
+                        class="inline-flex items-center gap-2 text-secondary   hover:gap-4 transition-all">
 
                         Read More
 
@@ -82,13 +82,13 @@
 
                 <div class="p-6">
 
-                    <span class="inline-block text-secondary uppercase tracking-[3px] text-xs font-semibold mb-3">
+                    <span class="inline-block text-secondary uppercase tracking-[3px] text-xs   mb-3">
 
                         Coffee Tips
 
                     </span>
 
-                    <h3 class="text-2xl font-semibold text-coff_black mb-3 group-hover:text-secondary transition">
+                    <h3 class="text-2xl   text-coff_black mb-3 group-hover:text-secondary transition">
 
                         Why Freshly Roasted Beans Matter
 
@@ -102,7 +102,7 @@
                     </p>
 
                     <a href="#"
-                        class="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-4 transition-all">
+                        class="inline-flex items-center gap-2 text-secondary   hover:gap-4 transition-all">
 
                         Read More
 
@@ -128,13 +128,13 @@
 
                 <div class="p-6">
 
-                    <span class="inline-block text-secondary uppercase tracking-[3px] text-xs font-semibold mb-3">
+                    <span class="inline-block text-secondary uppercase tracking-[3px] text-xs   mb-3">
 
                         Coffee Packaging
 
                     </span>
 
-                    <h3 class="text-2xl font-semibold text-coff_black mb-3 group-hover:text-secondary transition">
+                    <h3 class="text-2xl   text-coff_black mb-3 group-hover:text-secondary transition">
 
                         Sustainable Packaging for Coffee Brands
 
@@ -148,7 +148,7 @@
                     </p>
 
                     <a href="#"
-                        class="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-4 transition-all">
+                        class="inline-flex items-center gap-2 text-secondary   hover:gap-4 transition-all">
 
                         Read More
 

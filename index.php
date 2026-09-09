@@ -11,7 +11,7 @@
                         </a>
                     <?php endif; ?>
                     <div class="p-6">
-                        <h2 class="text-xl font-semibold mb-2">
+                        <h2 class="text-xl   mb-2">
                             <a href="<?php the_permalink(); ?>" class="text-amber-900 no-underline hover:text-amber-700">
                                 <?php the_title(); ?>
                             </a>

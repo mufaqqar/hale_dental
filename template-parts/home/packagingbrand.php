@@ -1,10 +1,10 @@
 <section class="py-16 bg-[linear-gradient(135deg,_#fbdce0_0%,_#eee6f2_50%,_#d9e4f7_100%)]">
     <div class="container mx-auto px-4">
         <div class="text-center mb-8">
-            <span class="text-secondary font-semibold text-base uppercase tracking-wider">
+            <span class="text-secondary   text-base uppercase tracking-wider">
                 brands of all sizes
             </span>
-            <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight capitalize mt-1">
+            <h2 class="md:text-5xl text-3xl   text-coff_black tracking-tight capitalize mt-1">
                 Custom packaging for brands of all sizes
             </h2>
         </div>
@@ -14,7 +14,7 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/digital-pingrounds.jpg"
                     alt="digital-pingrounds" class="rounded-t-xl" />
                 <div class="p-7">
-                    <h3 class="text-2xl font-semibold text-coff_black mb-1.5">
+                    <h3 class="text-2xl   text-coff_black mb-1.5">
                         Digitally Printed Bags
                     </h3>
                     <p class="text-sm font-normal text-coff_black mb-4">
@@ -42,7 +42,7 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/digital-pingrounds.jpg"
                     alt="digital-pingrounds" class="rounded-t-xl" />
                 <div class="p-7">
-                    <h3 class="text-2xl font-semibold text-coff_black mb-1.5">
+                    <h3 class="text-2xl   text-coff_black mb-1.5">
                         Digitally Printed Bags
                     </h3>
                     <p class="text-sm font-normal text-coff_black mb-4">
@@ -70,7 +70,7 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/digital-pingrounds.jpg"
                     alt="digital-pingrounds" class="rounded-t-xl" />
                 <div class="p-7">
-                    <h3 class="text-2xl font-semibold text-coff_black mb-1.5">
+                    <h3 class="text-2xl   text-coff_black mb-1.5">
                         Digitally Printed Bags
                     </h3>
                     <p class="text-sm font-normal text-coff_black mb-4">
@@ -98,7 +98,7 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/digital-pingrounds.jpg"
                     alt="digital-pingrounds" class="rounded-t-xl" />
                 <div class="p-7">
-                    <h3 class="text-2xl font-semibold text-coff_black mb-1.5">
+                    <h3 class="text-2xl   text-coff_black mb-1.5">
                         Digitally Printed Bags
                     </h3>
                     <p class="text-sm font-normal text-coff_black mb-4">
@@ -126,7 +126,7 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/digital-pingrounds.jpg"
                     alt="digital-pingrounds" class="rounded-t-xl" />
                 <div class="p-7">
-                    <h3 class="text-2xl font-semibold text-coff_black mb-1.5">
+                    <h3 class="text-2xl   text-coff_black mb-1.5">
                         Digitally Printed Bags
                     </h3>
                     <p class="text-sm font-normal text-coff_black mb-4">
@@ -154,7 +154,7 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/digital-pingrounds.jpg"
                     alt="digital-pingrounds" class="rounded-t-xl" />
                 <div class="p-7">
-                    <h3 class="text-2xl font-semibold text-coff_black mb-1.5">
+                    <h3 class="text-2xl   text-coff_black mb-1.5">
                         Digitally Printed Bags
                     </h3>
                     <p class="text-sm font-normal text-coff_black mb-4">

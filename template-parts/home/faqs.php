@@ -38,7 +38,7 @@ $faqs = [
 
         <!-- Heading -->
         <div class="mb-7 text-center">
-            <h2 class="md:text-5xl text-3xl font-semibold text-coff_black tracking-tight">
+            <h2 class="md:text-5xl text-3xl   text-coff_black tracking-tight">
                 Frequently Asked Questions
             </h2>
 
@@ -147,7 +147,7 @@ $faqs = [
 
                         <h3
                             id="answerTitle"
-                            class="text-[13px] font-semibold text-black"
+                            class="text-[13px]   text-black"
                         >
                             Here is your answer;
                         </h3>
