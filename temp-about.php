@@ -15,12 +15,11 @@ get_header();
                 class="absolute right-[18%] top-[-80px] h-[300px] w-[300px] rounded-full bg-[#dce5ff] opacity-80 blur-[90px]">
             </div>
             <div class="relative z-10 flex min-h-[370px] flex-col items-center justify-center">
-                <h1
-                    class="mr-[20%] text-center text-3xl font-bold tracking-[-1.5px] text-black sm:text-4xl md:text-5xl">
+                <h1 class="mr-[20%] text-center text-3xl tracking-[-1.5px] text-coff_black sm:text-4xl md:text-5xl">
                     Beyond Dentistry, We
                 </h1>
                 <h2
-                    class="mt-5 ml-[20%] text-center text-3xl font-bold tracking-[-1.5px] text-black sm:text-4xl md:text-5xl">
+                    class="mt-5 ml-[20%] text-center text-3xl tracking-[-1.5px] text-coff_black sm:text-4xl md:text-5xl">
                     Build Happiness
                 </h2>
             </div>
@@ -40,33 +39,33 @@ get_header();
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-[180px_1fr]">
                 <!-- Table of Contents -->
                 <aside class="hidden lg:block">
-                    <h3 class="mb-3 text-[20px] font-bold text-black">
+                    <h3 class="mb-3 text-[20px] text-coff_black">
                         Table Of Contents
                     </h3>
 
-                    <ul class="space-y-2 border-l border-gray-300 pl-3 text-[14px] text-gray-500">
+                    <ul class="space-y-2 border-l border-gray-300 pl-3 text-[14px] text-secondaryLight">
                         <li>
-                            <a href="#transforming" class="text-[#315fcf]  ">
+                            <a href="#transforming" class="text-primary  ">
                                 Transforming Smiles Since 2009
                             </a>
                         </li>
                         <li>
-                            <a href="#values" class="hover:text-black  ">
+                            <a href="#values" class="hover:text-coff_black  ">
                                 Our Core Values
                             </a>
                         </li>
                         <li>
-                            <a href="#about" class="hover:text-black  ">
+                            <a href="#about" class="hover:text-coff_black  ">
                                 About
                             </a>
                         </li>
                         <li>
-                            <a href="#trustedworldwide" class="hover:text-black  ">
+                            <a href="#trustedworldwide" class="hover:text-coff_black  ">
                                 Recognised for Excellence, Trusted Worldwide
                             </a>
                         </li>
                         <li>
-                            <a href="#certificates" class="hover:text-black  ">
+                            <a href="#certificates" class="hover:text-coff_black  ">
                                 Certificates We Have Earned from All Over The World
                             </a>
                         </li>
@@ -79,16 +78,16 @@ get_header();
                     <!-- INTRO -->
                     <!-- ===================== -->
                     <section id="transforming">
-                        <h1 class="text-[27px] font-bold leading-tight tracking-[-1.2px] text-black sm:text-[32px]">
+                        <h1 class="text-[27px] leading-tight tracking-[1.2px] text-coff_black sm:text-[32px]">
                             Transforming Smiles Since 2009
                         </h1>
-                        <p class="mt-2 max-w-[900px] text-[18px] leading-[1.55]  sm:text-[11px]">
+                        <p class="mt-2 max-w-[900px] text-lg leading-[1.55] text-secondaryLight sm:text-[11px]">
                             At Dentalkay, we redefine excellence in dental care by combining
                             cutting-edge technology with a patient-first approach. Our commitment
                             to innovation ensures that every treatment is performed with precision,
                             efficiency, and the highest standards of comfort.
                         </p>
-                        <p class="mt-1 max-w-[900px] text-[18px] leading-[1.55]  sm:text-[11px]">
+                        <p class="mt-1 max-w-[900px] text-lg leading-[1.55] text-secondaryLight sm:text-[11px]">
                             By integrating advanced techniques with personalized care, we create
                             a seamless experience that prioritizes your well-being and satisfaction.
                             Whether it's a routine check-up or complex procedure, our goal is to
@@ -101,55 +100,55 @@ get_header();
                     <!-- BLUE TIMELINE -->
                     <!-- ===================== -->
                     <div class="relative mt-8">
-                        <div class="absolute left-0 right-0 top-0 h-[3px] rounded-full bg-[#315fcf]"></div>
-                        <div class="absolute right-0 top-[-3px] h-[9px] w-[9px] rounded-full bg-[#315fcf]"></div>
+                        <div class="absolute left-0 right-0 top-0 h-[3px] rounded-full bg-primary"></div>
+                        <div class="absolute right-0 top-[-3px] h-[9px] w-[9px] rounded-full bg-primary"></div>
 
                         <div class="grid grid-cols-2 gap-6 pt-5 sm:grid-cols-5">
                             <div class="text-center">
-                                <p class="text-[14px font-bold] text-gray-500">
+                                <p class="text-[14px font-bold] text-secondaryLight">
                                     Founded in
                                 </p>
-                                <p class="mt-1 text-[18px] font-medium text-gray-700">
+                                <p class="mt-1 text-lg text-coff_black">
                                     2009
                                 </p>
                             </div>
 
                             <div class="text-center">
-                                <p class="text-[14px font-bold] text-gray-500">
+                                <p class="text-[14px font-bold] text-secondaryLight">
                                     International patient
                                     <br>surge
                                 </p>
-                                <p class="mt-1 text-[18px] font-medium text-gray-700">
+                                <p class="mt-1 text-lg text-coff_black">
                                     2015
                                 </p>
                             </div>
 
                             <div class="text-center">
-                                <p class="text-[14px font-bold] text-gray-500">
+                                <p class="text-[14px font-bold] text-secondaryLight">
                                     Dedicated
                                     <br>international clinic
                                 </p>
-                                <p class="mt-1 text-[18px] font-medium text-gray-700">
+                                <p class="mt-1 text-lg text-coff_black">
                                     2018
                                 </p>
                             </div>
 
                             <div class="text-center">
-                                <p class="text-[14px font-bold] text-gray-500">
+                                <p class="text-[14px font-bold] text-secondaryLight">
                                     London consultation
                                     <br>office
                                 </p>
-                                <p class="mt-1 text-[18px] font-medium text-gray-700">
+                                <p class="mt-1 text-lg text-coff_black">
                                     2023
                                 </p>
                             </div>
 
                             <div class="text-center">
-                                <p class="text-[14px font-bold] text-gray-500">
+                                <p class="text-[14px font-bold] text-secondaryLight">
                                     First clinic outside
                                     <br>Türkiye
                                 </p>
-                                <p class="mt-1 text-[18px] font-medium text-gray-700">
+                                <p class="mt-1 text-lg text-coff_black">
                                     2023
                                 </p>
                             </div>
@@ -158,16 +157,16 @@ get_header();
 
                         <!-- Countries -->
                         <div class="mt-2 grid grid-cols-3 text-center text-[9px] font-medium ">
-                            <div class="font-bold text-[20px]">
-                                <span class=" text-[24px]">🔴</span>
+                            <div class="text-xl text-coff_black">
+                                <span class=" text-2xl">🔴</span>
                                 Türkiye
                             </div>
-                            <div class="font-bold text-[20px]">
-                                <span class=" text-[24px]">🇬🇧</span>
+                            <div class="text-xl text-coff_black">
+                                <span class=" text-2xl">🇬🇧</span>
                                 United Kingdom
                             </div>
-                            <div class="font-bold text-[20px]">
-                                <span class=" text-[24px]">🇸🇦</span>
+                            <div class="text-xl text-coff_black">
+                                <span class=" text-2xl">🇸🇦</span>
                                 Saudi Arabia
                             </div>
                         </div>
@@ -180,14 +179,14 @@ get_header();
                     <div class="mt-7 grid grid-cols-1 gap-3 md:grid-cols-2">
                         <!-- Vision -->
                         <div id="vision" class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
-                            <h2 class="text-center text-[24px] font-bold text--coff_black">
+                            <h2 class="text-center text-2xl text-coff_black">
                                 Our Vision
                             </h2>
                             <div class="mt-3 flex gap-2">
-                                <span class="text-[18px] leading-none text-gray-400">
+                                <span class="text-lg text-secondaryLight leading-none">
                                     “
                                 </span>
-                                <p class="text-[18px] leading-[1.6] ">
+                                <p class="text-lg text-secondaryLight leading-[1.6] ">
                                     To be the leading dental tourism brand worldwide, trusted
                                     for our patient-centred approach, advanced technology,
                                     and expertise — delivering 100% patient satisfaction.
@@ -198,20 +197,20 @@ get_header();
 
                         <!-- Mission -->
                         <div id="mission" class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
-                            <h2 class="text-center text-[24px] font-bold text-coff_black">
+                            <h2 class="text-center text-2xl text-coff_black">
                                 Our Mission
                             </h2>
                             <div class="mt-3 flex gap-2">
-                                <span class="text-[18px] leading-none text-gray-400">
+                                <span class="text-lg text-secondaryLight leading-none">
                                     “
                                 </span>
-                                <p class="text-[18px] leading-[1.6] ">
+                                <p class="text-lg text-secondaryLight leading-[1.6] ">
                                     To provide international-standard dental care that is
                                     ethical, innovative, and accessible. With our experience,
                                     state-of-the-art technology, and luxury, comfortable clinics,
                                     we ensure exceptional patient experiences and deliver
                                     beautiful, healthy smiles that patients can trust.
-                               </p>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -221,18 +220,18 @@ get_header();
                     <!-- CORE VALUES -->
                     <!-- ===================== -->
                     <section id="values" class="mt-7">
-                        <h2 class="text-center text-[32px] font-bold text-coff_black">
+                        <h2 class="text-center text-[32px] text-coff_black">
                             Our Core Values
                         </h2>
                         <div class="mt-3 grid grid-cols-1 gap-3 md:grid-cols-2">
                             <!-- Health First -->
                             <div class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
-                                <h3 class="text-center text-[24px] font-bold text-coff_black">
+                                <h3 class="text-center text-2xl text-coff_black">
                                     Health First
                                 </h3>
                                 <div class="mt-2 flex gap-2">
                                     <span class="text-[17px] text-gray-400">“</span>
-                                    <p class="text-[18px] leading-[1.6] ">
+                                    <p class="text-lg text-secondaryLight leading-[1.6] ">
                                         Our patients' oral health always comes first.
                                         Even when there are aesthetic expectations,
                                         our top priority remains the patient's overall
@@ -244,12 +243,12 @@ get_header();
 
                             <!-- Patient Focus -->
                             <div class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
-                                <h3 class="text-center text-[24px] font-bold text-coff_black">
+                                <h3 class="text-center text-2xl text-coff_black">
                                     Patient Focus
                                 </h3>
                                 <div class="mt-2 flex gap-2">
                                     <span class="text-[17px] text-gray-400">“</span>
-                                    <p class="text-[18px] leading-[1.6] ">
+                                    <p class="text-lg text-secondaryLight leading-[1.6] ">
                                         We strive for an excellent patient experience
                                         at every stage, acting with kindness and sincerity,
                                         and always aiming for complete satisfaction.
@@ -260,12 +259,12 @@ get_header();
 
                             <!-- Transparency -->
                             <div class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
-                                <h3 class="text-center text-[24px] font-bold text-coff_black">
+                                <h3 class="text-center text-2xl text-coff_black">
                                     Transparency & Trust
                                 </h3>
                                 <div class="mt-2 flex gap-2">
                                     <span class="text-[17px] text-gray-400">“</span>
-                                    <p class="text-[18px] leading-[1.6] ">
+                                    <p class="text-lg text-secondaryLight leading-[1.6] ">
                                         We keep our patients fully informed, provide the
                                         most appropriate medical solutions, and honour
                                         our commitments in travel and accommodation —
@@ -276,12 +275,12 @@ get_header();
 
                             <!-- Growing Together -->
                             <div class="rounded-[10px] bg-white px-5 py-4 shadow-sm">
-                                <h3 class="text-center text-[24px] font-bold text-coff_black">
+                                <h3 class="text-center text-2xl text-coff_black">
                                     Growing Together
                                 </h3>
                                 <div class="mt-2 flex gap-2">
                                     <span class="text-[17px] text-gray-400">“</span>
-                                    <p class="text-[18px] leading-[1.6] ">
+                                    <p class="text-lg text-secondaryLight leading-[1.6] ">
                                         We see our staff and partners as long-term
                                         collaborators and focus on sharing growth
                                         and development together.
@@ -291,12 +290,12 @@ get_header();
 
                             <!-- Respect -->
                             <div class="rounded-[10px] bg-white px-5 py-4 shadow-sm md:col-span-2">
-                                <h3 class="text-center text-[24px] font-bold text-coff_black">
+                                <h3 class="text-center text-2xl text-coff_black">
                                     Respect for People
                                 </h3>
                                 <div class="mt-2 flex gap-2">
                                     <span class="text-[17px] text-gray-400">“</span>
-                                    <p class="text-[18px] leading-[1.6] ">
+                                    <p class="text-lg text-secondaryLight leading-[1.6] ">
                                         Our management philosophy is built on respect for people.
                                         We create the best possible environment for employee
                                         happiness and growth, supporting every individual to
@@ -312,7 +311,7 @@ get_header();
                     <!-- ABOUT -->
                     <!-- ===================== -->
                     <section class=" py-8" id="about">
-                        <h1 class="text-2xl sm:text-4xl font-bold mb-5">
+                        <h1 class="text-2xl sm:text-4xl mb-5">
                             About
                         </h1>
                         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-6">
@@ -326,21 +325,20 @@ get_header();
                                 <!-- About Content -->
                                 <div class="flex-1">
                                     <div class="flex items-center gap-2 mb-2">
-                                        <span
-                                            class="bg-blue-600 text-white text-[11px] px-2.5 py-1 rounded-full  ">
+                                        <span class="bg-primary text-white text-[11px] px-2.5 py-1 rounded-full  ">
                                             Founder
                                         </span>
-                                        <span class="text-[18px] text-blue-600 font-bold">
+                                        <span class="text-lg text-primary">
                                             Dr. Gülçay Aksoy
                                         </span>
                                     </div>
-                                 <p class="text-[18px] leading-6  mb-3">
+                                    <p class="text-lg text-secondaryLight leading-6  mb-3">
                                         Dr. Gülçay Aksoy is an award-winning medical doctor, researcher,
                                         healthcare professional and international expert whose work
                                         combines scientific knowledge, professional experience and
                                         innovative approaches.
                                     </p>
-                                    <p class="text-[18px] leading-6  mb-3">
+                                    <p class="text-lg text-secondaryLight leading-6  mb-3">
                                         She has more than 15 years of experience in research,
                                         clinical development, international healthcare and
                                         professional education. Her mission is to contribute to better healthcare
@@ -357,33 +355,33 @@ get_header();
                     <!-- =========================
          RECOGNIZED SECTION
     ========================== -->
-                    <section class="max-w-[1180px] mx-auto px-4 sm:px-6 pb-8" id="trustedworldwide">
+                    <section class="container mx-auto px-4 sm:px-6 pb-8" id="trustedworldwide">
                         <div class="text-center mb-6">
                             <h2 class="text-xl sm:text-2xl md:text-4xl font-bold">
                                 Recognised for Excellence, Trusted Worldwide
                             </h2>
-                            <div class="w-16 h-1 bg-blue-600 mx-auto mt-3 rounded-full"></div>
+                            <div class="w-16 h-1 bg-primary mx-auto mt-3 rounded-full"></div>
                         </div>
                         <!-- Recognition Logos -->
                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mb-8">
                             <?php
-            $recognitions = [
-                'Dental Clinic of the Year',
-                'Best Dental Clinic in Europe',
-                'Best Dental Clinic in Türkiye',
-                'European Parliament Recognition',
-                'Ace of Rise',
-                'Miss England'
-            ];
-            foreach ($recognitions as $recognition) :
-            ?>
-                            <div class="bg-white border border-gray-100 rounded-lg
+                            $recognitions = [
+                                'Dental Clinic of the Year',
+                                'Best Dental Clinic in Europe',
+                                'Best Dental Clinic in Türkiye',
+                                'European Parliament Recognition',
+                                'Ace of Rise',
+                                'Miss England'
+                            ];
+                            foreach ($recognitions as $recognition):
+                                ?>
+                                <div class="bg-white border border-gray-100 rounded-lg
                             shadow-sm min-h-[60px] flex items-center
                             justify-center text-center p-2">
-                                <span class="text-[10px] sm:text-[11px] font-medium text-gray-500">
-                                    <?php echo esc_html($recognition); ?>
-                                </span>
-                            </div>
+                                    <span class="text-[10px] sm:text-[11px] font-medium text-secondaryLight">
+                                        <?php echo esc_html($recognition); ?>
+                                    </span>
+                                </div>
                             <?php endforeach; ?>
                         </div>
 
@@ -396,28 +394,25 @@ get_header();
                             <div class="grid md:grid-cols-2">
                                 <!-- Text -->
                                 <div class="p-5 sm:p-7">
-                                    <span class="text-xl text-blue-600  ">
+                                    <span class="text-xl text-primary">
                                         The European Awards 2025
                                     </span>
-                                    <h3 class="text-2xl sm:text-4xl font-bold mt-2 mb-4">
+                                    <h3 class="text-2xl sm:text-4xl mt-2 mb-4">
                                         Dental Clinic of the Year
                                     </h3>
-                                    <p class="text-sm leading-6  mb-4">
+                                    <p class="text-sm leading-6 text-secondaryLight mb-4">
                                         Dentax Dental Clinic has been recognised as the
                                         “Dental Clinic of the Year” at The European Awards.
                                         This prestigious recognition celebrates excellence,
                                         innovation and exceptional standards in dental healthcare.
                                     </p>
-                                    <p class="text-sm leading-6 ">
+                                    <p class="text-sm leading-6 text-secondaryLight">
                                         The award highlights our commitment to providing
                                         high-quality treatment, advanced technology and
                                         outstanding patient care.
                                     </p>
-                                    <a href="#award-video" class="inline-flex items-center gap-2 mt-5
-                               border border-blue-500 text-blue-600
-                               rounded-full px-5 py-2 text-xs  
-                               hover:bg-blue-600 hover:text-white
-                               transition">
+                                    <a href="#award-video"
+                                        class="inline-flex items-center gap-2 mt-5 border border-primary text-primary rounded-full px-5 py-2 text-xs hover:bg-primary hover:text-white transition">
                                         ▶ Watch the Video
                                     </a>
                                 </div>
@@ -445,38 +440,39 @@ get_header();
                     <!-- =========================
          CERTIFICATES
     ========================== -->
-                    <section class="max-w-[1180px] mx-auto px-4 sm:px-6 pb-10" id="certificates">
+                    <section class="container mx-auto px-4 sm:px-6 pb-10" id="certificates">
                         <div class="text-center mb-6">
                             <h2 class="text-xl sm:text-3xl md:text-4xl font-bold">
                                 Certificates We Have Earned from All Over the World
                             </h2>
-                            <div class="w-16 h-1 bg-blue-600 mx-auto mt-3 rounded-full"></div>
+                            <div class="w-16 h-1 bg-primary mx-auto mt-3 rounded-full"></div>
                         </div>
                         <!-- Certificate Grid -->
                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
                             <?php
-            $certificates = [
-                'certificate-1.webp',
-                'certificate-2.jpg',
-                'certificate-3.jpg',
-                'certificate-4.jpg',
-                'certificate-5.jpg',
-                'certificate-6.jpg',
-                'certificate-7.jpg',
-                'certificate-8.jpg',
-                'certificate-9.jpg',
-                'certificate-10.jpg',
-            ];
-            foreach ($certificates as $certificate) :
-            ?>
-                            <div class="bg-white border border-gray-100
+                            $certificates = [
+                                'certificate-1.webp',
+                                'certificate-2.jpg',
+                                'certificate-3.jpg',
+                                'certificate-4.jpg',
+                                'certificate-5.jpg',
+                                'certificate-6.jpg',
+                                'certificate-7.jpg',
+                                'certificate-8.jpg',
+                                'certificate-9.jpg',
+                                'certificate-10.jpg',
+                            ];
+                            foreach ($certificates as $certificate):
+                                ?>
+                                <div class="bg-white border border-gray-100
                             rounded-lg overflow-hidden shadow-sm">
-                                <img src="<?php echo esc_url(
-                            get_template_directory_uri() .
-                            '/assets/images/certificate-1.webp' .
-                            $certificate
-                        ); ?>" alt="International Certificate" class="w-full aspect-[1.4/1] object-contain bg-white">
-                            </div>
+                                    <img src="<?php echo esc_url(
+                                        get_template_directory_uri() .
+                                        '/assets/images/certificate-1.webp' .
+                                        $certificate
+                                    ); ?>" alt="International Certificate"
+                                        class="w-full aspect-[1.4/1] object-contain bg-white">
+                                </div>
                             <?php endforeach; ?>
                         </div>
                     </section>
@@ -485,19 +481,17 @@ get_header();
                     <!-- =========================
          CERTIFICATE DESCRIPTION
     ========================== -->
-                    <section class="max-w-[1180px] mx-auto px-4 sm:px-6 pb-8">
+                    <section class="container mx-auto px-4 sm:px-6 pb-8">
                         <div class="bg-white rounded-xl shadow-sm
                     border border-gray-100 p-6 sm:p-8">
-                            <p class="text-center max-w-[950px] mx-auto
-                      text-[18px] leading-6 ">
+                            <p class="text-center max-w-[950px] mx-auto text-lg text-secondaryLight leading-6 ">
                                 Clinical excellence is supported by a culture of continuous
                                 education and professional development. Our team maintains
                                 internationally recognised standards while continuously
                                 improving knowledge, techniques and patient care.
                             </p>
                             <!-- Accreditation Logos -->
-                            <div class="flex flex-wrap justify-center
-                        items-center gap-4 sm:gap-6 mt-6">
+                            <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6">
                                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/certified-1.webp'); ?>"
                                     alt="Award ceremony" class="w-8 object-cover ">
                                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/certified-1 (2).webp'); ?>"
@@ -516,11 +510,9 @@ get_header();
                     <!-- =========================
          TURQUALITY
     ========================== -->
-                    <section class="max-w-[1180px] mx-auto px-4 sm:px-6 pb-12">
-                        <div class="bg-white rounded-xl shadow-sm
-                    border border-gray-100 p-6 sm:p-8">
-                            <p class="text-center max-w-[950px] mx-auto
-                      text-[18px] leading-6 ">
+                    <section class="container mx-auto px-4 sm:px-6 pb-12">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 sm:p-8">
+                            <p class="text-center max-w-[950px] mx-auto text-lg text-secondaryLight leading-6 ">
                                 Our commitment to quality is further supported by
                                 internationally recognised programmes and professional
                                 standards. We continuously work to improve our services,
@@ -529,20 +521,14 @@ get_header();
                             </p>
                             <div class="flex justify-center mt-6">
 
-                                <div class="border border-blue-300
-                            rounded-md px-8 py-3">
-                                    <span class="text-blue-500 font-bold tracking-wide">
+                                <div class="border border-blue-300 rounded-md px-8 py-3">
+                                    <span class="text-primary tracking-wide">
                                         TURQUALITY
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </section>
-
-
-
-
-
                 </div>
             </div>
         </section>

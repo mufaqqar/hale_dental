@@ -8,7 +8,7 @@
   --coff_black: #111111;
   --coffGreen: #4A7DFF;
   --coffLightGreen: #c7d8c4;
-  --secondaryLight: #6b7280;
+  --secondaryLight: #666;
 }
 
 @layer base {
@@ -70,7 +70,6 @@
     display: inline-block;
     background: linear-gradient(197.05deg, rgb(45 75 153) -42.06%, rgb(74 125 255) 136.49%);
     color: #ffffff;
-    font-weight: 600;
     font-size: 0.95rem;
     line-height: 1;
     padding: 0.75rem 1.6rem;

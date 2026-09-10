@@ -131,7 +131,7 @@
                             >
 
                                 <p
-                                    class="m-0 max-w-[600px] pt-[14px] font-sans text-[13px] font-medium leading-[1.45] text-white md:text-[15px]"
+                                    class="m-0 max-w-[600px] pt-[14px] font-sans text-[13px]  leading-[1.45] text-white md:text-[15px]"
                                 >
                                     <?php echo esc_html($service['content']); ?>
                                 </p>

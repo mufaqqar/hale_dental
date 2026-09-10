@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main id="primary" class="content-area">
-    <h1 class="text-3xl font-bold text-amber-900 mb-8">
+    <h1 class="text-3xl font-bold text-primary mb-8">
         <?php
         if (is_category()) {
             single_cat_title();
@@ -28,11 +28,11 @@
                     <?php endif; ?>
                     <div class="p-6">
                         <h2 class="text-xl   mb-2">
-                            <a href="<?php the_permalink(); ?>" class="text-amber-900 no-underline hover:text-amber-700">
+                            <a href="<?php the_permalink(); ?>" class="text-primary no-underline hover:text-secondary">
                                 <?php the_title(); ?>
                             </a>
                         </h2>
-                        <div class="text-sm text-gray-500 mb-4">
+                        <div class="text-sm text-secondaryLight mb-4">
                             <?php echo get_the_date(); ?>
                         </div>
                         <div class="prose max-w-none">
@@ -47,7 +47,7 @@
             <?php the_posts_pagination(); ?>
         </div>
     <?php else : ?>
-        <p class="text-center text-gray-500"><?php _e('No posts found.', 'hale-coffee'); ?></p>
+        <p class="text-center text-secondaryLight"><?php _e('No posts found.', 'hale-coffee'); ?></p>
     <?php endif; ?>
 </main>
 

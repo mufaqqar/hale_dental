@@ -35,7 +35,7 @@
 
                         <?php $categories = get_the_category(); ?>
                         <?php if (!empty($categories)) : ?>
-                            <span class="mb-4 rounded-full border border-[#4169e1] bg-white/95 px-4 py-1.5 text-[11px] font-medium text-[#4169e1] shadow-sm">
+                            <span class="mb-4 rounded-full border border-[#4169e1] bg-white/95 px-4 py-1.5 text-[11px]  text-[#4169e1] shadow-sm">
                                 <?php echo esc_html($categories[0]->name); ?>
                             </span>
                         <?php endif; ?>
@@ -86,7 +86,7 @@
                             <div class="ml-auto">
                                 <a
                                     href="<?php echo esc_url(home_url('/blog/')); ?>"
-                                    class="text-[12px] font-medium text-[#4169e1] transition hover:text-[#2165ed]"
+                                    class="text-[12px]  text-[#4169e1] transition hover:text-[#2165ed]"
                                 >
                                     ← Back to Blog
                                 </a>
@@ -117,7 +117,7 @@
                     <nav class="grid grid-cols-1 gap-4 sm:grid-cols-2">
 
                         <div class="rounded-[18px] border border-[#e8e8e8] bg-white p-4 shadow-sm transition hover:shadow-md">
-                            <span class="text-[10px] font-medium uppercase tracking-wider text-[#999]">
+                            <span class="text-[10px]  uppercase tracking-wider text-[#999]">
                                 Previous Article
                             </span>
                             <div class="mt-2 text-[13px]   leading-[1.5] text-[#292929]">
@@ -126,7 +126,7 @@
                         </div>
 
                         <div class="rounded-[18px] border border-[#e8e8e8] bg-white p-4 text-right shadow-sm transition hover:shadow-md">
-                            <span class="text-[10px] font-medium uppercase tracking-wider text-[#999]">
+                            <span class="text-[10px]  uppercase tracking-wider text-[#999]">
                                 Next Article
                             </span>
                             <div class="mt-2 text-[13px]   leading-[1.5] text-[#292929]">

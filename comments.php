@@ -28,7 +28,7 @@
     <?php endif; ?>
 
     <?php if (!comments_open() && get_comments_number() && post_type_supports(get_post_type(), 'comments')) : ?>
-        <p class="text-gray-500"><?php _e('Comments are closed.', 'hale-coffee'); ?></p>
+        <p class="text-secondary"><?php _e('Comments are closed.', 'hale-coffee'); ?></p>
     <?php endif; ?>
 
     <?php comment_form(); ?>

@@ -16,7 +16,7 @@
                                 <?php the_title(); ?>
                             </a>
                         </h2>
-                        <div class="text-sm text-gray-500 mb-4">
+                        <div class="text-sm text-secondary mb-4">
                             <?php echo get_the_date(); ?> by <?php the_author(); ?>
                         </div>
                         <div class="prose max-w-none">
@@ -31,7 +31,7 @@
             <?php the_posts_pagination(['class' => 'flex justify-center space-x-2']); ?>
         </div>
     <?php else : ?>
-        <p class="text-center text-gray-500"><?php _e('No posts found.', 'hale-coffee'); ?></p>
+        <p class="text-center text-secondary"><?php _e('No posts found.', 'hale-coffee'); ?></p>
     <?php endif; ?>
 </main>
 

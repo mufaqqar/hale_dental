@@ -32,7 +32,7 @@
                         </li>
                     </ul>
                     <a href="#"
-                        class="text-sm font-medium px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
+                        class="text-sm  px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
                         Explore Digital
                     </a>
                 </div>
@@ -60,7 +60,7 @@
                         </li>
                     </ul>
                     <a href="#"
-                        class="text-sm font-medium px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
+                        class="text-sm  px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
                         Explore Digital
                     </a>
                 </div>
@@ -88,7 +88,7 @@
                         </li>
                     </ul>
                     <a href="#"
-                        class="text-sm font-medium px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
+                        class="text-sm  px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
                         Explore Digital
                     </a>
                 </div>
@@ -116,7 +116,7 @@
                         </li>
                     </ul>
                     <a href="#"
-                        class="text-sm font-medium px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
+                        class="text-sm  px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
                         Explore Digital
                     </a>
                 </div>
@@ -144,7 +144,7 @@
                         </li>
                     </ul>
                     <a href="#"
-                        class="text-sm font-medium px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
+                        class="text-sm  px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
                         Explore Digital
                     </a>
                 </div>
@@ -172,7 +172,7 @@
                         </li>
                     </ul>
                     <a href="#"
-                        class="text-sm font-medium px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
+                        class="text-sm  px-4 py-2 border border-secondary text-white hover:text-coff_black bg-secondary hover:bg-primary hover:border-primary inline-block">
                         Explore Digital
                     </a>
                 </div>

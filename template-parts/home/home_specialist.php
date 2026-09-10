@@ -95,7 +95,7 @@ $afternoonSlots = [
                 <!-- CTA -->
                 <a
                     href="#booking"
-                    class="mt-9 inline-flex w-fit items-center gap-3 text-[14px] font-medium text-[#4380ff] underline underline-offset-2 transition hover:text-[#2165ed]"
+                    class="mt-9 inline-flex w-fit items-center gap-3 text-[14px]  text-[#4380ff] underline underline-offset-2 transition hover:text-[#2165ed]"
                 >
                     Choose a time that works for you and take the first step toward
                     your new smile.
@@ -129,7 +129,7 @@ $afternoonSlots = [
 
                     <div class="flex items-center text-[10px]">
 
-                        <span class="font-medium text-[#111]">
+                        <span class=" text-[#111]">
                             Your appointment will be booked with
                         </span>
 
@@ -186,7 +186,7 @@ $afternoonSlots = [
 
                                 <div class="min-w-0 flex-1">
 
-                                    <div class="text-[11px] font-medium text-[#222]">
+                                    <div class="text-[11px]  text-[#222]">
                                         <?= htmlspecialchars($consultant['name']) ?>
                                     </div>
 
@@ -251,7 +251,7 @@ $afternoonSlots = [
 
                     <button
                         type="button"
-                        class="flex items-center gap-1 text-[12px] font-medium text-black"
+                        class="flex items-center gap-1 text-[12px]  text-black"
                     >
                         September, 2026
 

@@ -17,7 +17,7 @@
                     consultation today.</p>
             </div>
             <div class="lg:mt-12">
-                <a class="inline-block rounded-[48px] px-[25px] py-[13px] text-[18px] leading-[1.5] font-medium text-white transition hover:opacity-90 max-[768px]:px-[15px] max-[768px]:py-[10px] max-[768px]:text-[14px]"
+                <a class="inline-block rounded-[48px] px-[25px] py-[13px] text-[18px] leading-[1.5]  text-white transition hover:opacity-90 max-[768px]:px-[15px] max-[768px]:py-[10px] max-[768px]:text-[14px]"
                     href="/free-consultation/"
                     style="background: linear-gradient(197.05deg, rgb(45 75 153) -42.06%, rgb(74 125 255) 136.49%);">Book
                     free consultation</a>

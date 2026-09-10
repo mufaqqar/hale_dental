@@ -11,7 +11,7 @@
             <?php the_posts_pagination(['class' => 'flex justify-center space-x-2']); ?>
         </div>
     <?php else : ?>
-        <p class="text-center text-gray-500"><?php _e('No posts found.', 'hale-coffee'); ?></p>
+        <p class="text-center text-secondary"><?php _e('No posts found.', 'hale-coffee'); ?></p>
     <?php endif; ?>
 </main>
 

@@ -39,7 +39,7 @@
         <div class="relative z-30 ml-auto pr-[8%]">
             <a
                 href="<?php echo esc_url(home_url('/contact/')); ?>"
-                class="inline-flex min-w-[146px] items-center justify-center rounded-full border border-white/80 px-7 py-4 text-[16px] font-medium text-white transition-all duration-300 hover:bg-white hover:text-[#675b57]"
+                class="inline-flex min-w-[146px] items-center justify-center rounded-full border border-white/80 px-7 py-4 text-[16px]  text-white transition-all duration-300 hover:bg-white hover:text-[#675b57]"
             >
                 Book now!
             </a>

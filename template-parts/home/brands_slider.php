@@ -37,7 +37,7 @@
     </div>
 
     <div class="container mx-auto px-4 text-center mt-6">
-        <p class="text-base leading-[1.55] text-coff_black font-normal">
+        <p class="text-base leading-[1.55] text-secondaryLight font-normal">
             We utilise NIQ standards for data-driven insights and patient satisfaction analysis.
             This partnership validates our transparency and our commitment to
             continuously improving the patient experience through internationally verified data.
@@ -62,7 +62,7 @@
                 <h3 class="text-lg   text-coff_black">
                     Hollywood Smile
                 </h3>
-                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-[#a6a6a6]">
+                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-secondaryLight">
                     A natural, bright smile<br>
                     with premium materials.
                 </p>
@@ -87,7 +87,7 @@
                     Dental Implants
                 </h3>
 
-                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-[#a6a6a6]">
+                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-secondaryLight">
                     Permanent<br>
                     replacements for<br>
                     missing teeth.
@@ -120,7 +120,7 @@
                     Dental Crown
                 </h3>
 
-                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-[#a6a6a6]">
+                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-secondaryLight">
                     Custom-fit restorations<br>
                     for strength and<br>
                     comfort.
@@ -153,7 +153,7 @@
                     Veneers
                 </h3>
 
-                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-[#a6a6a6]">
+                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-secondaryLight">
                     Aligns teeth and jaws<br>
                     orthodontics.
                 </p>
@@ -185,7 +185,7 @@
                     Teeth Whitening
                 </h3>
 
-                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-[#a6a6a6]">
+                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-secondaryLight">
                     Removes deep stains for<br>
                     a lasting shine.
                 </p>
@@ -221,7 +221,7 @@
         </a>
 
     </div>
-    <div class="text-center mt-4 text-xl text-coff_black">
+    <p class="text-center mt-4 text-xl text-secondaryLight">
         Tell us what treatments you're looking for. We'll build you a bespoke package.
-    </div>
+    </p>
 </section>

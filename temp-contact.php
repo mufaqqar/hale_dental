@@ -10,7 +10,7 @@ get_header(); ?>
                 class="absolute right-[18%] top-[-80px] h-[300px] w-[300px] rounded-full bg-[#dce5ff] opacity-80 blur-[90px]">
             </div>
             <div class="relative z-10 flex min-h-[370px] flex-col items-center justify-center">
-                <h1 class=" text-center text-3xl font-bold tracking-[-1.5px] text-black sm:text-4xl md:text-5xl">
+                <h1 class=" text-center text-3xl tracking-[-1.5px] text-coff_black sm:text-4xl md:text-5xl">
                     Contact Us
                 </h1>
 
@@ -37,11 +37,11 @@ get_header(); ?>
             ================================== -->
             <div>
                 <!-- Heading -->
-                <h1 class="text-[25px] sm:text-[32px] font-bold  mb-5">
+                <h1 class="text-2xl sm:text-[32px] text-coff_black mb-5">
                     Contact with Dentakay
                 </h1>
                 <!-- Description -->
-                <div class="text-[18px]  leading-[1.65] ">
+                <div class="text-lg text-secondaryLight">
 
                     <p class="mb-3">
                         Your dental health is an integral part of your overall health
@@ -59,7 +59,7 @@ get_header(); ?>
                         evaluated within the framework of confidentiality and are
                         reviewed only by authorized persons. To contact the Ethics
                         Line:
-                        <a href="mailto:ethic@dentakay.com" class="text-blue-500 hover:underline">
+                        <a href="mailto:ethic@dentakay.com" class="text-primary hover:underline">
                             ethic@dentakay.com
                         </a>
                     </p>
@@ -69,23 +69,23 @@ get_header(); ?>
                 <!-- Contact Details -->
                 <div class="space-y-3 mb-5">
 
-                    <div class="flex items-center gap-3 text-[14px] text-gray-600">
+                    <div class="flex items-center gap-3 text-[14px] text-coff_black">
 
-                        <span class="text-blue-500">
+                        <span class="text-primary">
                             ✉
                         </span>
 
-                        <a href="mailto:info@dentakay.com" class="hover:text-blue-600">
+                        <a href="mailto:info@dentakay.com" class="hover:text-secondary">
                             info@dentakay.com
                         </a>
                     </div>
-                    <div class="flex items-center gap-3 text-[11px] text-gray-600">
+                    <div class="flex items-center gap-3 text-[11px] text-coff_black">
 
-                        <span class="text-blue-500">
+                        <span class="text-primary">
                             ☎
                         </span>
 
-                        <a href="tel:+905415008008" class="hover:text-blue-600">
+                        <a href="tel:+905415008008" class="hover:text-secondary">
                             +90 541 500 80 08
                         </a>
                     </div>
@@ -100,13 +100,12 @@ get_header(); ?>
                             shadow-sm">
                     <!-- Form Heading -->
                     <div class="text-center mb-4">
-                        <h2 class="text-[32px] font-bold ">
+                        <h2 class="text-[32px]">
                             Fill Out the Form Now and Get a
                             Free Initial Consultation
                         </h2>
 
-                        <p class="text-[14px] 
-                                   mt-2">
+                        <p class="text-sm mt-2">
                             We are dedicated to transforming smiles with
                             precision, care, and excellence.
                         </p>
@@ -116,8 +115,7 @@ get_header(); ?>
                         <!-- Name + Phone -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
-                                <label for="full_name" class="block text-[14px] font-medium
-                                           text-gray-700 mb-1">
+                                <label for="full_name" class="block text-sm text-coff_black mb-1">
                                     Full Name
                                 </label>
 
@@ -133,8 +131,7 @@ get_header(); ?>
 
                             <div>
 
-                                <label for="phone" class="block text-[14px] font-medium
-                                           text-gray-700 mb-1">
+                                <label for="phone" class="block text-sm text-coff_black mb-1">
                                     Phone Number
                                 </label>
 
@@ -160,8 +157,7 @@ get_header(); ?>
                         <!-- Email -->
                         <div>
 
-                            <label for="email" class="block text-[14px]
-                                       font-medium text-gray-700 mb-1">
+                            <label for="email" class="block text-sm text-coff_black mb-1">
                                 E-mail
                             </label>
 
@@ -179,8 +175,7 @@ get_header(); ?>
                         <!-- Description -->
                         <div>
 
-                            <label for="description" class="block text-[14px]
-                                       font-medium text-gray-700 mb-1">
+                            <label for="description" class="block text-sm text-coff_black mb-1">
                                 Description
                             </label>
 
@@ -197,11 +192,9 @@ get_header(); ?>
                         <!-- Consent 1 -->
                         <div class="flex gap-2 items-start">
 
-                            <input type="checkbox" id="consent" name="consent" required class="mt-[2px] w-3 h-3
-                                       ">
+                            <input type="checkbox" id="consent" name="consent" required class="mt-[2px] w-3 h-3">
 
-                            <label for="consent" class="text-[12px] 
-                                       leading-4 ">
+                            <label for="consent" class="text-xs leading-4 ">
                                 I consent to receive marketing communications
                                 from Dentakay and its affiliates by call,
                                 SMS, email, WhatsApp or similar channels.
@@ -221,7 +214,7 @@ get_header(); ?>
 
                             <label for="privacy" class="text-[12px] leading-4 ">
                                 I have read the
-                                <a href="#privacy" class="text-blue-500">
+                                <a href="#privacy" class="text-primary">
                                     Privacy Policy
                                 </a>
                                 under the applicable Personal Data Protection
@@ -270,12 +263,11 @@ get_header(); ?>
                 <!-- Map Heading -->
                 <div class="px-5 py-4">
 
-                    <h2 class="text-lg sm:text-xl font-bold text-[#111]">
+                    <h2 class="text-lg sm:text-xl text-coff_black">
                         Find Us
                     </h2>
 
-                    <p class="text-[10px] sm:text-[11px]
-                              text-gray-500 mt-1">
+                    <p class="text-[10px] sm:text-[11px] text-secondaryLight mt-1">
                         Visit Dentakay and our dental care team.
                     </p>
 

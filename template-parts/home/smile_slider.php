@@ -123,7 +123,7 @@
                      BEFORE LABEL
                 ========================== -->
                         <span
-                            class="absolute left-[16px] top-1/2 z-30 -translate-y-1/2 rounded-[3px] bg-black/60 px-[10px] py-[7px] text-[10px] font-medium text-white backdrop-blur-[2px]">
+                            class="absolute left-[16px] top-1/2 z-30 -translate-y-1/2 rounded-[3px] bg-black/60 px-[10px] py-[7px] text-[10px]  text-white backdrop-blur-[2px]">
                             Before
                         </span>
 
@@ -132,7 +132,7 @@
                      AFTER LABEL
                 ========================== -->
                         <span
-                            class="absolute right-[16px] top-1/2 z-30 -translate-y-1/2 rounded-[3px] bg-black/60 px-[10px] py-[7px] text-[10px] font-medium text-white backdrop-blur-[2px]">
+                            class="absolute right-[16px] top-1/2 z-30 -translate-y-1/2 rounded-[3px] bg-black/60 px-[10px] py-[7px] text-[10px]  text-white backdrop-blur-[2px]">
                             After
                         </span>
 

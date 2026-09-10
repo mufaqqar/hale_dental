@@ -1,7 +1,6 @@
 </div>
 </div>
-<footer class="bg-coffGreen pt-16 ">
-<footer class="bg-coffGreen pt-16 rounded-t-[32px]">
+<footer class="bg-primary pt-16 rounded-t-[32px]">
     <div class="container mx-auto px-4">
         <div class="grid lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] md:grid-cols-2 grid-cols-1 gap-10">
             <div>
@@ -15,14 +14,6 @@
                     <a href="#" class="text-white hover:text-secondary underline transition">
                         Leave a Review
                     </a>
-                </div>
-                <div class="flex gap-4 items-center">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/brc-certified.webp" alt=""
-                        class="h-12">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Institute-cyclos.webp" alt=""
-                        class="h-12">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/fda-certified.webp" alt=""
-                        class="h-12">
                 </div>
             </div>
             <div>
@@ -103,10 +94,10 @@
                     alt="Award" class="h-20">
             </div>
         </div>
-        <div class="border-t border-primary mt-14 py-6">
+        <div class="border-t border-white/20 py-6">
             <div class="flex lg:flex-row flex-col justify-between items-center gap-5">
                 <p class="text-white">
-                    Made by Hale Coffee
+                    Made by Ilamdin Dental
                 </p>
                 <div class="flex flex-wrap justify-center gap-7">
                     <a href="#" class="text-white hover:text-secondary transition">
@@ -126,7 +117,7 @@
                     </a>
                 </div>
                 <p class="text-white">
-                    © 2026 Hale Coffee
+                    © 2026 Ilamdin Dental
                 </p>
             </div>
         </div>

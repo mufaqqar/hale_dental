@@ -102,7 +102,7 @@ $faqs = [
                                 ></span>
 
                                 <!-- Question -->
-                                <span class="flex-1 text-xl font-medium leading-5 text-[#171717]">
+                                <span class="flex-1 text-xl  leading-5 text-[#171717]">
                                     <?= htmlspecialchars($faq['question']) ?>
                                 </span>
 
@@ -128,7 +128,7 @@ $faqs = [
                     <div class="mt-3">
                         <a
                             href="#consultation"
-                            class="text-[13px] font-medium text-[#4380ff] transition hover:text-[#2165ed]"
+                            class="text-[13px]  text-[#4380ff] transition hover:text-[#2165ed]"
                         >
                             Ready to transform your smile? Schedule your consultation today!
                         </a>
@@ -154,7 +154,7 @@ $faqs = [
 
                         <p
                             id="answerText"
-                            class="mt-20 md:text-xl text-lg leading-[21px] text-[#555]"
+                            class="mt-5 md:text-xl text-lg leading-[21px] text-secondaryLight"
                         >
                             <?= htmlspecialchars($faqs[0]['answer']) ?>
                         </p>

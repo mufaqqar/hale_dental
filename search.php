@@ -32,7 +32,7 @@
             <?php the_posts_pagination(); ?>
         </div>
     <?php else : ?>
-        <p class="text-center text-gray-500"><?php _e('No results found.', 'hale-coffee'); ?></p>
+        <p class="text-center text-secondary"><?php _e('No results found.', 'hale-coffee'); ?></p>
     <?php endif; ?>
 </main>
 

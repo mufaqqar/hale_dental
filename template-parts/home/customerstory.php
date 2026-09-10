@@ -177,7 +177,7 @@ $testimonials = [
                                     <?php echo esc_html($testimonial['name']); ?>
                                 </h3>
 
-                                <p class="mt-1 text-[10px] font-medium text-black">
+                                <p class="mt-1 text-[10px]  text-black">
                                     <?php echo esc_html($testimonial['service']); ?>
                                 </p>
 

@@ -47,7 +47,7 @@
                         </div>
                     <?php endif; ?>
                     <div>
-                        <span class="text-sm font-medium text-dental-dark-gray group-hover:text-primary transition-colors leading-tight block"><?php the_title(); ?></span>
+                        <span class="text-sm  text-dental-dark-gray group-hover:text-primary transition-colors leading-tight block"><?php the_title(); ?></span>
                         <span class="text-xs text-dental-gray"><?php echo esc_html( get_the_date() ); ?></span>
                     </div>
                 </a>
