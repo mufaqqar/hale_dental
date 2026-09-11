@@ -1,6 +1,16 @@
 <?php
-/** Template Name: Dentalimplants */
+/**
+ * Template Name: Single Treatment
+ * Template Post Type: treatments
+ */
+
 get_header();
+
+// Parse content: extract H2s, build TOC, wrap sections in <section> tags.
+$raw_content  = get_the_content();
+$parsed       = hale_generate_toc_from_content( $raw_content );
+$toc_html     = $parsed['toc'];
+$article_html = $parsed['content'];
 ?>
 
 <section class="bg-[#f5f5f5] pt-32 px-4 sm:px-6 lg:px-8 pb-16">
@@ -17,14 +27,14 @@ get_header();
                 class="relative z-10 mx-auto flex min-h-[370px] w-full max-w-[900px] flex-col items-center justify-center px-4 text-center">
 
                 <h1 class="text-3xl tracking-[-1.5px] text-coff_black sm:text-4xl md:text-5xl">
-                    Dental Implants
+                    <?php the_title(); ?>
                 </h1>
 
-                <p class="mt-5 text-center text-[18px] leading-[1.7] text-coff_black">
-                    A permanent way to replace missing teeth by anchoring artificial roots into the jawbone.
-                    Dental implants restore natural chewing, enhance your smile’s appearance, and help prevent bone
-                    loss.
-                </p>
+                <?php if ( has_excerpt() ) : ?>
+                    <p class="mt-5 text-center text-[18px] leading-[1.7] text-coff_black">
+                        <?php the_excerpt(); ?>
+                    </p>
+                <?php endif; ?>
 
             </div>
         </div>
@@ -36,406 +46,31 @@ get_header();
 
 
         <!-- =========================
-                 LEFT SIDEBAR
+                 LEFT SIDEBAR — Table of Contents
             ========================== -->
-        <aside class="w-1/4">
-
+        <aside class="w-1/5">
             <div class="top-28">
-
-                <h3 class="mb-4 text-[18px] font-semibold text-coff_black">
-                    Article Sections
-                </h3>
-
-                <nav class=" overflow-y-auto pr-2">
-
-                    <ul class="space-y-0">
-
-                        <li>
-                            <a href="#benefits"
-                                class="section-link relative block border-l-2 border-primary px-2.5 py-1.5 text-[14px] leading-[1.4] text-primary">
-                                Benefits of Dental Implants
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#candidates"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Candidates for Dental Implants
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#factors"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Factors Affecting Candidacy
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#special-cases"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Considerations for Special Cases
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#types"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Types of Dental Implants
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#process"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                The Dental Implant Process
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#recovery"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Recovery and Post-Operative Care
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#long-term"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Long-Term Care for Your Dental Implants
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#cost"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Cost Considerations and Insurance Coverage
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#insurance"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Insurance Coverage and Financing
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#technology"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Advances in Dental Implants Technology
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#right-place"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Selecting the Right Place for Dental Implants
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#conclusion"
-                                class="section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary">
-                                Conclusion
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </nav>
-
+                <?php if ( ! empty( $toc_html ) ) : ?>
+                    <?php echo $toc_html; ?>
+                <?php endif; ?>
             </div>
-
         </aside>
 
 
         <!-- =========================
                  CENTER ARTICLE
             ========================== -->
-        <main class="w-1/2">
-
-            <article class="">
-
-                <p class="text-[16px] font-light leading-[1.65] text-coff_black">
-                    From ancient rudimentary methods to the advanced techniques of today,
-                    the evolution of dental implant technology has been nothing short of remarkable.
-                    At Dentakay, we're proud to offer a comprehensive range of dental implant solutions
-                    that are designed to restore your smile and improve your overall oral health.
-                </p>
-
-                <p class="mt-5 text-[16px] leading-[1.65] text-coff_black">
-                    Dental implants are artificial tooth roots made from biocompatible materials,
-                    such as titanium, that are surgically placed into the jawbone. They provide a
-                    durable foundation for crowns, bridges, or dentures, effectively replacing missing teeth.
-                </p>
-
-                <p class="mt-5 text-[16px] leading-[1.65] text-coff_black">
-                    Beyond aesthetics, dental implants play a crucial role in preserving oral health.
-                    When teeth are lost, the jawbone can deteriorate, leading to facial sagging and
-                    other complications. Dental implants help prevent bone loss and maintain facial structure.
-                    Moreover, they restore function, allowing you to eat, speak, and smile with confidence.
-                </p>
-
-                <p class="mt-5 text-[16px] leading-[1.65] text-coff_black">
-                    In this comprehensive guide, we will explore the world of dental implants,
-                    delving into their numerous benefits, the step-by-step procedure involved,
-                    the various types available, and everything you need to know before making an informed decision.
-                </p>
-
-
-                <!-- Benefits -->
-                <section id="benefits" class="scroll-mt-28 mt-8">
-
-                    <h2 class="text-[28px] font-bold leading-[1.3] text-coff_black">
-                        Benefits of Dental Implants
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Dental implants offer numerous advantages over other tooth replacement options:
-                    </p>
-
-
-                    <ul class="mt-4 space-y-5 pl-5">
-
-                        <li class="relative pl-2 text-[18px] leading-[1.65] text-coff_black">
-
-                            <span class="absolute -left-4 top-[11px] h-1.5 w-1.5 rounded-full bg-secondary">
-                            </span>
-
-                            <strong class="font-semibold text-primary">
-                                Improved Aesthetics and Confidence:
-                            </strong>
-
-                            Dental implants can significantly enhance your smile and self-esteem.
-                            They blend seamlessly with your natural teeth, providing a more natural appearance.
-
-                        </li>
-
-
-                        <li class="relative pl-2 text-[18px] leading-[1.65] text-coff_black">
-
-                            <span class="absolute -left-4 top-[11px] h-1.5 w-1.5 rounded-full bg-secondary">
-                            </span>
-
-                            <strong class="font-semibold text-primary">
-                                Restored Functionality for Chewing and Speaking:
-                            </strong>
-
-                            Implants provide a natural feel and function, allowing you to eat and speak
-                            comfortably without the restrictions associated with dentures.
-
-                        </li>
-
-                        <li class="relative pl-2 text-[18px] leading-[1.65] text-coff_black">
-
-                            <span class="absolute -left-4 top-[11px] h-1.5 w-1.5 rounded-full bg-secondary">
-                            </span>
-
-                            <strong class="font-semibold text-primary">
-                                Preservation of Jawbone:
-                            </strong>
-
-                            Dental implants stimulate the jawbone and help reduce bone loss that can occur
-                            after tooth loss.
-
-                        </li>
-
-                    </ul>
-
-                </section>
-
-
-                <!-- Candidates -->
-                <section id="candidates" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Candidates for Dental Implants
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Dental implants may be suitable for adults who have one or more missing teeth
-                        and have sufficient jawbone to support the implant. A professional dental evaluation
-                        is necessary to determine individual suitability.
-                    </p>
-
-                </section>
-
-
-                <!-- Factors -->
-                <section id="factors" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Factors Affecting Candidacy
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Several factors may affect implant candidacy, including bone density,
-                        oral hygiene, existing dental conditions, and overall treatment requirements.
-                    </p>
-
-                </section>
-
-
-                <!-- Special Cases -->
-                <section id="special-cases" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Considerations for Special Cases
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Patients with specific dental or bone-related conditions may require
-                        additional evaluation or preparatory treatment before receiving dental implants.
-                    </p>
-
-                </section>
-
-
-                <!-- Types -->
-                <section id="types" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Types of Dental Implants
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Dental implants can vary based on placement technique, restoration type,
-                        and the patient's individual dental needs.
-                    </p>
-
-                </section>
-
-
-                <!-- Process -->
-                <section id="process" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        The Dental Implant Process
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        The dental implant process generally involves consultation and assessment,
-                        implant placement, healing, and attachment of the final dental restoration.
-                    </p>
-
-                </section>
-
-
-                <!-- Recovery -->
-                <section id="recovery" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Recovery and Post-Operative Care
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Following implant placement, patients receive specific aftercare instructions
-                        designed to support healing and protect the treatment area.
-                    </p>
-
-                </section>
-
-
-                <!-- Long Term -->
-                <section id="long-term" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Long-Term Care for Your Dental Implants
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Maintaining good oral hygiene, attending regular dental appointments,
-                        and following professional care recommendations can help maintain dental implants.
-                    </p>
-
-                </section>
-
-
-                <!-- Cost -->
-                <section id="cost" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Cost Considerations and Insurance Coverage
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        The cost of dental implant treatment can vary depending on the number of implants,
-                        treatment complexity, restoration type, and other individual factors.
-                    </p>
-
-                </section>
-
-
-                <!-- Insurance -->
-                <section id="insurance" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Insurance Coverage and Financing
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Insurance and financing options may vary depending on the provider,
-                        treatment plan, and patient's coverage.
-                    </p>
-
-                </section>
-
-
-                <!-- Technology -->
-                <section id="technology" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Advances in Dental Implants Technology
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Modern digital dentistry, imaging systems, and implant planning technologies
-                        continue to improve the precision and predictability of implant treatment.
-                    </p>
-
-                </section>
-
-
-                <!-- Right Place -->
-                <section id="right-place" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Selecting the Right Place for Dental Implants
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Choosing an experienced dental team and a clinic with appropriate technology,
-                        treatment planning, and patient-care standards is an important part of the process.
-                    </p>
-
-                </section>
-
-
-                <!-- Conclusion -->
-                <section id="conclusion" class="scroll-mt-28 mt-10">
-
-                    <h2 class="text-[28px] font-bold text-coff_black">
-                        Conclusion
-                    </h2>
-
-                    <p class="mt-4 text-[16px] leading-[1.65] text-coff_black">
-                        Dental implants can provide a durable solution for replacing missing teeth
-                        while supporting oral function and appearance. A consultation with a qualified
-                        dental professional can help determine whether implants are appropriate for your needs.
-                    </p>
-
-                </section>
-
+        <main class="w-3/5">
+            <article>
+                <?php echo $article_html; ?>
             </article>
-
         </main>
 
 
         <!-- =========================
                  RIGHT CONSULTATION FORM
             ========================== -->
-        <aside class="w-1/4">
+        <aside class="w-1/5">
 
             <div class="sticky top-28 rounded-[14px] bg-[#f8f8f8] p-3.5 shadow-sm">
 
@@ -567,14 +202,8 @@ get_header();
 
         </aside>
 
-
-
-
-
-
-
-
     </div>
+
 
     <!-- =========================
      FAQ SECTION
@@ -603,7 +232,7 @@ get_header();
                 </span>
 
                 <h2 class="mt-1 text-[20px] font-semibold leading-[1.2] text-coff_black sm:text-[28px]">
-                    Dental Implantstext-coff_black
+                    <?php the_title(); ?>
                 </h2>
 
 
@@ -852,7 +481,7 @@ get_header();
                         question.setAttribute('aria-expanded', 'true');
                         answer.classList.remove('hidden');
 
-                        icon.textContent = '−';
+                        icon.textContent = '\u2212';
 
                     }
 
@@ -899,70 +528,17 @@ get_header();
         });
     </script>
 
-
-
-
 </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Active Section Script -->
+<!-- Active Section Script (Dynamic Scroll-Spy) -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
-        const sections = document.querySelectorAll(
-            '#benefits, #candidates, #factors, #special-cases, #types, #process, #recovery, #long-term, #cost, #insurance, #technology, #right-place, #conclusion'
-        );
-
+        const sections = document.querySelectorAll('article section[id]');
         const links = document.querySelectorAll('.section-link');
+
+        if (!sections.length || !links.length) return;
 
         const observer = new IntersectionObserver(
             (entries) => {

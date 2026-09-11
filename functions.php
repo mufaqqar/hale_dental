@@ -210,3 +210,210 @@ class Hale_Mega_Walker extends Walker_Nav_Menu
         $output .= "\n$indent<ul class=\"" . esc_attr(implode(' ', $classes)) . "\">\n";
     }
 }
+
+
+
+function cptui_register_my_cpts_treatments() {
+
+	/**
+	 * Post Type: Treatments.
+	 */
+
+	$labels = [
+		"name" => esc_html__( "Treatments", "hale-dental" ),
+		"singular_name" => esc_html__( "Treatment", "hale-dental" ),
+	];
+
+	$args = [
+		"label" => esc_html__( "Treatments", "hale-dental" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"rest_namespace" => "wp/v2",
+		"has_archive" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"can_export" => false,
+		"rewrite" => [ "slug" => "treatments", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail", "excerpt", "page-attributes" ],
+		"show_in_graphql" => false,
+	];
+
+	register_post_type( "treatments", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts_treatments' );
+
+
+function cptui_register_my_taxes_treatment_types() {
+
+	/**
+	 * Taxonomy: Treatment Types.
+	 */
+
+	$labels = [
+		"name" => esc_html__( "Treatment Types", "hale-dental" ),
+		"singular_name" => esc_html__( "Treatment Type", "hale-dental" ),
+	];
+
+	
+	$args = [
+		"label" => esc_html__( "Treatment Types", "hale-dental" ),
+		"labels" => $labels,
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'treatment_types', 'with_front' => true, ],
+		"show_admin_column" => false,
+		"show_in_rest" => true,
+		"show_tagcloud" => false,
+		"rest_base" => "treatment_types",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"rest_namespace" => "wp/v2",
+		"show_in_quick_edit" => false,
+		"sort" => false,
+		"show_in_graphql" => false,
+	];
+	register_taxonomy( "treatment_types", [ "treatments" ], $args );
+}
+add_action( 'init', 'cptui_register_my_taxes_treatment_types' );
+
+
+/**
+ * Parse post content: extract H2s, generate TOC, wrap sections.
+ *
+ * @return array{toc: string, content: string}
+ */
+function hale_generate_toc_from_content( $raw_content ) {
+    if ( empty( $raw_content ) ) {
+        return [ 'toc' => '', 'content' => '' ];
+    }
+
+    $doc = new DOMDocument( '1.0', 'UTF-8' );
+    $doc->preserveWhiteSpace = true;
+    $doc->formatOutput     = false;
+
+    // Suppress warnings from malformed HTML
+    libxml_use_internal_errors( true );
+    $doc->loadHTML( '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body>' . $raw_content . '</body></html>' );
+    libxml_clear_errors();
+
+    $body     = $doc->getElementsByTagName( 'body' )->item( 0 );
+    $children = $body->childNodes;
+
+    $toc_items  = [];
+    $output_doc = new DOMDocument( '1.0', 'UTF-8' );
+    $output_doc->preserveWhiteSpace = true;
+    $output_body = $output_doc->createElement( 'body' );
+
+    $current_section = null;
+    $current_wrapper = null;
+    $h2_count        = 0;
+
+    $slugify = function ( $text ) {
+        $text = strtolower( $text );
+        $text = preg_replace( '/[^a-z0-9\s-]/', '', $text );
+        $text = preg_replace( '/[\s-]+/', '-', $text );
+        $text = trim( $text, '-' );
+        return $text;
+    };
+
+    foreach ( $children as $child ) {
+        // Import node into output doc
+        $imported = $output_doc->importNode( $child, true );
+
+        // Check if this is an H2
+        $is_h2 = false;
+        if ( $child->nodeType === XML_ELEMENT_NODE && strtoupper( $child->nodeName ) === 'H2' ) {
+            $is_h2 = true;
+        }
+
+        if ( $is_h2 ) {
+            $h2_count++;
+            $heading_text = trim( $child->textContent );
+            $slug         = $slugify( $heading_text );
+            if ( empty( $slug ) ) {
+                $slug = 'section-' . $h2_count;
+            }
+
+            // Build TOC item
+            $toc_items[] = [
+                'slug'  => $slug,
+                'text'  => $heading_text,
+                'count' => $h2_count,
+            ];
+
+            // Close previous section if open
+            if ( $current_wrapper ) {
+                $output_body->appendChild( $current_wrapper );
+            }
+
+            // Start new section
+            $current_section = $output_doc->createElement( 'section' );
+            $current_section->setAttribute( 'id', $slug );
+            $current_section->setAttribute( 'class', 'scroll-mt-28 mt-10' );
+            $current_wrapper = $current_section;
+
+            $current_section->appendChild( $imported );
+        } elseif ( $current_wrapper ) {
+            // Append to current section
+            $current_wrapper->appendChild( $imported );
+        } else {
+            // Before any H2 — append directly to body (intro content)
+            $output_body->appendChild( $imported );
+        }
+    }
+
+    // Close last section
+    if ( $current_wrapper ) {
+        $output_body->appendChild( $current_wrapper );
+    }
+
+    // Build TOC HTML
+    $toc_html = '';
+    if ( ! empty( $toc_items ) ) {
+        $toc_html .= '<h3 class="mb-4 text-[18px] font-semibold text-coff_black">Article Sections</h3>';
+        $toc_html .= '<nav class="overflow-y-auto pr-2"><ul class="space-y-0">';
+
+        foreach ( $toc_items as $item ) {
+            $is_first   = ( $item['count'] === 1 );
+            $link_class = $is_first
+                ? 'section-link relative block border-l-2 border-primary px-2.5 py-1.5 text-[14px] leading-[1.4] text-primary'
+                : 'section-link relative block border-l-2 border-transparent px-2.5 py-1.5 text-[14px] leading-[1.4] text-coff_black transition hover:text-primary';
+
+            $toc_html .= '<li>';
+            $toc_html .= '<a href="#' . esc_attr( $item['slug'] ) . '" class="' . esc_attr( $link_class ) . '">';
+            $toc_html .= esc_html( $item['text'] );
+            $toc_html .= '</a>';
+            $toc_html .= '</li>';
+        }
+
+        $toc_html .= '</ul></nav>';
+    }
+
+    // Extract inner HTML of body
+    $final_content = '';
+    foreach ( $output_body->childNodes as $node ) {
+        $final_content .= $output_doc->saveHTML( $node );
+    }
+
+    return [
+        'toc'     => $toc_html,
+        'content' => $final_content,
+    ];
+}
