@@ -201,10 +201,26 @@ class Hale_Mega_Walker extends Walker_Nav_Menu
             return;
         }
 
+        $output_before = strlen($output);
         parent::start_el($output, $item, $depth, $args, $id);
 
-        if ($depth === 0 && $this->current_is_mega) {
-            $output = str_replace('class="menu-item', 'class="menu-item menu-item-mega', $output);
+        if ($depth === 0) {
+            $item_html = substr($output, $output_before);
+            $has_children = in_array('menu-item-has-children', (array) $item->classes, true);
+
+            if ($this->current_is_mega) {
+                $item_html = str_replace('class="menu-item', 'class="menu-item menu-item-mega', $item_html);
+            }
+
+            if ($this->current_is_mega || $has_children) {
+                $item_html = str_replace(
+                    '</a>',
+                    '<span class="hale-menu-indicator"><i class="fa-solid fa-chevron-down"></i></span></a>',
+                    $item_html
+                );
+            }
+
+            $output = substr_replace($output, $item_html, $output_before);
         }
     }
 
