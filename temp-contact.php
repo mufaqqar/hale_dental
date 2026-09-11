@@ -2,7 +2,6 @@
 /** Template Name: Contact */
 get_header(); ?>
 
-
 <section class="bg-[#f5f5f5] pt-32 px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-[1250px] rounded-[28px] bg-white p-4 sm:p-5">
         <div class="relative min-h-[370px] overflow-hidden rounded-[18px] bg-[#f7f7f7]">
@@ -18,10 +17,6 @@ get_header(); ?>
         </div>
     </div>
 </section>
-
-
-
-
 
 
 
