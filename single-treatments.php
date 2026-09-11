@@ -42,7 +42,7 @@ $article_html = $parsed['content'];
 
 
     <!-- Main Article Area -->
-    <div class="flex flex-col gap-10 lg:flex-row lg:gap-8 mt-10">
+    <div class="container mx-auto px-4 flex flex-col gap-10 lg:flex-row lg:gap-8 mt-10">
 
 
         <!-- =========================
