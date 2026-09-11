@@ -80,8 +80,8 @@ get_header(); ?>
                             ☎
                         </span>
 
-                        <a href="tel:+905415008008" class="hover:text-secondary">
-                            +90 541 500 80 08
+                        <a href="tel:+923347006122" class="hover:text-secondary">
+                          +92 334 7006122
                         </a>
                     </div>
                 </div>
