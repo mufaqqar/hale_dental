@@ -63,7 +63,8 @@
   }
 
   .menu-item-mega:hover > .mega-panel,
-  .menu-item-mega:focus-within > .mega-panel {
+  .menu-item-mega:focus-within > .mega-panel,
+  .menu-item-mega.open > .mega-panel {
     display: block;
   }
 

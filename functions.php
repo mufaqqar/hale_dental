@@ -99,7 +99,7 @@ function hale_coffee_enqueue_assets()
         'hale-navigation',
         get_template_directory_uri() . '/assets/js/navigation.js',
         [],
-        wp_get_theme()->get('Version'),
+        filemtime( get_template_directory() . '/assets/js/navigation.js' ),
         true
     );
 

@@ -18,6 +18,21 @@
       });
     }
 
+    /* Mega menu hover grace: keep the panel open while moving across the gap */
+    document.querySelectorAll('.primary-navigation .menu-item-mega').forEach(function (item) {
+      var timer;
+      item.addEventListener('mouseenter', function () {
+        clearTimeout(timer);
+        item.classList.add('open');
+      });
+      item.addEventListener('mouseleave', function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          item.classList.remove('open');
+        }, 300);
+      });
+    });
+
     /* Mobile: toggle sub-menus / mega panels on click */
     var isMobile = function () { return window.innerWidth < 768; };
 
