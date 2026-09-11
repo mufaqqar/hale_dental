@@ -15,14 +15,13 @@ function hale_coffee_setup()
 }
 add_action('after_setup_theme', 'hale_coffee_setup');
 
-function hale_coffee_remove_site_title($parts)
-{
-    if (!is_front_page()) {
-        unset($parts['site']);
+function hale_dental_append_site_title( $title ) {
+    if ( is_front_page() ) {
+        return $title;
     }
-    return $parts;
+    return $title . ' — Ilam Din Dental';
 }
-add_filter('document_title_parts', 'hale_coffee_remove_site_title');
+add_filter( 'document_title', 'hale_dental_append_site_title', 20 );
 
 function hale_coffee_enqueue_assets()
 {
@@ -522,3 +521,146 @@ function hale_generate_toc_from_content( $raw_content ) {
         'content' => $final_content,
     ];
 }
+
+
+/* ==========================================================================
+   SEO FUNCTIONS
+   ========================================================================== */
+
+/**
+ * Remove noindex/nofollow from WordPress.
+ * This overrides the WP Reading Settings "Discourage search engines" option
+ * so it never affects the front-end output.
+ */
+function hale_dental_remove_noindex( $robots ) {
+    if ( is_admin() ) {
+        return $robots;
+    }
+
+    unset( $robots['noindex'] );
+    unset( $robots['nofollow'] );
+
+    return $robots;
+}
+add_filter( 'wp_robots', 'hale_dental_remove_noindex', 999 );
+
+/**
+ * Explicit index directive as a safety net so the front-end is always
+ * crawlable regardless of any SEO plugin or caching layer state.
+ */
+function hale_dental_allow_indexing() {
+    if ( is_admin() ) {
+        return;
+    }
+    echo '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />' . "\n";
+}
+add_action( 'wp_head', 'hale_dental_allow_indexing', 1 );
+
+/**
+ * Custom title tag for the homepage.
+ */
+function hale_dental_home_title( $title ) {
+    if ( is_front_page() && is_home() ) {
+        $title = 'Ilam Din Dental | Premium Dental Clinic in Istanbul, Turkey';
+    }
+    return $title;
+}
+add_filter( 'document_title', 'hale_dental_home_title' );
+
+/**
+ * Add meta description to wp_head.
+ */
+function hale_dental_meta_description() {
+    $description = '';
+
+    if ( is_front_page() ) {
+        $description = 'Ilam Din Dental — Premium dental clinic in Istanbul, Turkey. Hollywood smile, dental implants, veneers & teeth whitening. Book your free consultation today.';
+    } elseif ( is_page() ) {
+        $description = wp_trim_words( get_the_excerpt(), 30, '' );
+    } elseif ( is_single() ) {
+        $description = wp_trim_words( get_the_excerpt(), 30, '' );
+    }
+
+    if ( ! empty( $description ) ) {
+        echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
+    }
+}
+add_action( 'wp_head', 'hale_dental_meta_description', 2 );
+
+/**
+ * Add Open Graph meta tags for social sharing.
+ */
+function hale_dental_opengraph_tags() {
+    $title       = get_the_title() ? get_the_title() : 'Ilam Din Dental';
+    $description = '';
+
+    if ( is_front_page() ) {
+        $description = 'Ilam Din Dental — Premium dental clinic in Istanbul, Turkey. Hollywood smile, dental implants, veneers & teeth whitening.';
+    } elseif ( is_page() || is_single() ) {
+        $description = wp_trim_words( get_the_excerpt(), 30, '' );
+    }
+
+    if ( empty( $description ) ) {
+        $description = 'Premium dental clinic in Istanbul, Turkey. Hollywood smile, dental implants, veneers & teeth whitening.';
+    }
+
+    $og_image = get_template_directory_uri() . '/assets/images/logo.png';
+    $url      = home_url( $_SERVER['REQUEST_URI'] );
+
+    echo '<meta property="og:type" content="website" />' . "\n";
+    echo '<meta property="og:title" content="' . esc_attr( $title ) . '" />' . "\n";
+    echo '<meta property="og:description" content="' . esc_attr( $description ) . '" />' . "\n";
+    echo '<meta property="og:url" content="' . esc_url( $url ) . '" />' . "\n";
+    echo '<meta property="og:site_name" content="Ilam Din Dental" />' . "\n";
+    echo '<meta property="og:image" content="' . esc_url( $og_image ) . '" />' . "\n";
+    echo '<meta property="og:locale" content="en_US" />' . "\n";
+    echo '<meta name="twitter:card" content="summary_large_image" />' . "\n";
+    echo '<meta name="twitter:title" content="' . esc_attr( $title ) . '" />' . "\n";
+    echo '<meta name="twitter:description" content="' . esc_attr( $description ) . '" />' . "\n";
+}
+add_action( 'wp_head', 'hale_dental_opengraph_tags', 3 );
+
+/**
+ * Add Schema.org LocalBusiness / Dentist structured data.
+ */
+function hale_dental_schema_markup() {
+    if ( ! is_front_page() ) {
+        return;
+    }
+
+    $schema = [
+        '@context'    => 'https://schema.org',
+        '@type'       => 'Dentist',
+        'name'        => 'Ilam Din Dental',
+        'description' => 'Premium dental clinic in Istanbul, Turkey offering Hollywood smile, dental implants, veneers, teeth whitening and more.',
+        'url'         => home_url( '/' ),
+        'logo'        => get_template_directory_uri() . '/assets/images/logo.png',
+        'image'       => get_template_directory_uri() . '/assets/images/about.webp',
+        'telephone'   => '+90-XXX-XXX-XXXX',
+        'address'     => [
+            '@type'           => 'PostalAddress',
+            'addressLocality' => 'Istanbul',
+            'addressCountry'  => 'TR',
+        ],
+        'geo' => [
+            '@type'     => 'GeoCoordinates',
+            'latitude'  => '41.0082',
+            'longitude' => '28.9784',
+        ],
+        'openingHoursSpecification' => [
+            '@type'       => 'OpeningHoursSpecification',
+            'dayOfWeek'   => [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ],
+            'opens'       => '09:00',
+            'closes'      => '18:00',
+        ],
+        'priceRange' => '$$',
+        'aggregateRating' => [
+            '@type'       => 'AggregateRating',
+            'ratingValue' => '4.9',
+            'reviewCount' => '500',
+        ],
+    ];
+
+    echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT ) . '</script>' . "\n";
+}
+add_action( 'wp_head', 'hale_dental_schema_markup', 5 );

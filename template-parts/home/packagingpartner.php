@@ -17,8 +17,8 @@
 
         <!-- Description -->
         <p class="mx-auto mt-5 max-w-[600px] text-[13px] leading-[1.8] text-white/90 md:text-[14px]">
-            For the price of one tooth in your country, get your entire mouth treated at Dental Centre
-            Turkey Natural Clinic! Solve dental issues for good with implants.
+            For the price of one tooth in your country, get your entire mouth treated at Ilam Din Dental
+            Turkey! Solve dental issues for good with implants.
         </p>
 
 
@@ -75,7 +75,7 @@
             <div class="journey-slide shrink-0 overflow-hidden rounded-[17px] transition-all duration-500"
                 data-category="face">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/journey/face-1.jpg"
-                    alt="Face transformation" class="h-full w-full object-cover">
+                    alt="Before and after smile transformation" class="h-full w-full object-cover">
             </div>
 
             <!-- =================================
@@ -84,7 +84,7 @@
             <div class="journey-slide shrink-0 overflow-hidden rounded-[17px] transition-all duration-500"
                 data-category="face">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/journey/face-2.jpg"
-                    alt="Face transformation" class="h-full w-full object-cover">
+                    alt="Before and after smile transformation" class="h-full w-full object-cover">
             </div>
 
             <!-- =================================
@@ -93,7 +93,7 @@
             <div class="journey-slide shrink-0 overflow-hidden rounded-[18px] border border-white/5 transition-all duration-500"
                 data-category="face">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/journey/face-main.jpg"
-                    alt="Before and after face transformation" class="h-full w-full object-cover">
+                    alt="Before and after smile makeover at Ilam Din Dental" class="h-full w-full object-cover">
             </div>
 
             <!-- =================================
@@ -102,7 +102,7 @@
             <div class="journey-slide journey-slide-active shrink-0 overflow-hidden rounded-[17px] transition-all duration-500"
                 data-category="face">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/journey/face-3.jpg"
-                    alt="Face transformation" class="h-full w-full object-cover">
+                    alt="Before and after smile transformation" class="h-full w-full object-cover">
             </div>
 
             <!-- =================================
@@ -111,7 +111,7 @@
             <div class="journey-slide shrink-0 overflow-hidden rounded-[17px] transition-all duration-500"
                 data-category="face">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/journey/face-4.jpg"
-                    alt="Face transformation" class="h-full w-full object-cover">
+                    alt="Before and after smile transformation" class="h-full w-full object-cover">
             </div>
 
             <!-- =================================
@@ -120,7 +120,7 @@
             <div class="journey-slide shrink-0 overflow-hidden rounded-[17px] transition-all duration-500"
                 data-category="face">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/journey/face-5.jpg"
-                    alt="Face transformation" class="h-full w-full object-cover">
+                    alt="Before and after smile transformation" class="h-full w-full object-cover">
             </div>
             <!-- =================================
                  SLIDE 7
@@ -128,7 +128,7 @@
             <div class="journey-slide shrink-0 overflow-hidden rounded-[17px] transition-all duration-500"
                 data-category="face">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/journey/face-5.jpg"
-                    alt="Face transformation" class="h-full w-full object-cover">
+                    alt="Before and after smile transformation" class="h-full w-full object-cover">
             </div>
 
         </div>

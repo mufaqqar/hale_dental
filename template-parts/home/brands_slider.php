@@ -2,35 +2,35 @@
 
     <div class="container mx-auto px-4 py-5 bg-white rounded-[23px] grid md:grid-cols-8 grid-cols-2 items-center justify-between gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
         <div class="flex items-center justify-center h-[35px] w-[117px]">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/1.svg" alt="" width="117" height="35"
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/1.svg" alt="Dental certification partner" width="117" height="35"
                 class="w-full h-full" />
         </div>
         <div class="flex items-center justify-center h-[35px] w-[117px]">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/2.svg" alt="" width="117" height="35"
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/2.svg" alt="Dental technology partner" width="117" height="35"
                 class="w-full h-full" />
         </div>
         <div class="flex items-center justify-center h-[35px] w-[117px]">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/3.webp" alt="" width="117" height="35"
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/3.webp" alt="Dental quality partner" width="117" height="35"
                 class="w-full h-full" />
         </div>
         <div class="flex items-center justify-center h-[35px] w-[117px]">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/4.svg" alt="" width="117" height="35"
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/4.svg" alt="Dental accreditation partner" width="117" height="35"
                 class="w-full h-full" />
         </div>
         <div class="flex items-center justify-center h-[35px] w-[117px]">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/5.webp" alt="" width="117" height="35"
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/5.webp" alt="Dental materials partner" width="117" height="35"
                 class="w-full h-full" />
         </div>
         <div class="flex items-center justify-center h-[35px] w-[117px]">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/6.svg" alt="" width="117" height="35"
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/6.svg" alt="Dental standards partner" width="117" height="35"
                 class="w-full h-full" />
         </div>
         <div class="flex items-center justify-center h-[35px] w-[117px]">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/7.svg" alt="" width="117" height="35"
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/7.svg" alt="Dental health partner" width="117" height="35"
                 class="w-full h-full" />
         </div>
         <div class="flex items-center justify-center h-[35px] w-[117px]">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/8.svg" alt="" width="117" height="35"
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/8.svg" alt="Dental patient care partner" width="117" height="35"
                 class="w-full h-full" />
         </div>
 

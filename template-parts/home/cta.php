@@ -18,7 +18,7 @@
                 to perfection today?
             </p>
         <!-- Clock / Background Image -->
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/clock.webp" alt="Consultation"
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/clock.webp" alt="Book your free dental consultation"
             class="hidden h-[200px] w-auto max-w-none md:block md:-ml-[60px]">
 
 

@@ -160,7 +160,7 @@ get_header();
                 <p class="text-[16px] font-light leading-[1.65] text-coff_black">
                     From ancient rudimentary methods to the advanced techniques of today,
                     the evolution of dental implant technology has been nothing short of remarkable.
-                    At Dentakay, we're proud to offer a comprehensive range of dental implant solutions
+                    At Ilam Din Dental, we're proud to offer a comprehensive range of dental implant solutions
                     that are designed to restore your smile and improve your overall oral health.
                 </p>
 
@@ -526,7 +526,7 @@ get_header();
                                     class="mt-0.5 h-3 w-3 shrink-0 accent-primary">
 
                                 <span>
-                                    I consent to receive marketing communications from Dentakay
+                                    I consent to receive marketing communications from Ilam Din Dental
                                     and its affiliates by call, SMS, email, WhatsApp or similar channels.
                                 </span>
 

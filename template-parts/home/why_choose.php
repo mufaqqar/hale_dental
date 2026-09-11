@@ -10,7 +10,7 @@
             <h2
                 class="m-0 font-sans md:text-5xl text-3xl   text-coff_black tracking-tight"
             >
-                Why Choose Dentakay?
+                Why Choose Ilam Din Dental?
             </h2>
 
             <p

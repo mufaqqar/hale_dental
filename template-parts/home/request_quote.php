@@ -29,7 +29,7 @@
         <div class="absolute left-[50%] top-1/2 z-10 -translate-x-[15%] -translate-y-1/2">
             <img
                 src="<?php echo get_template_directory_uri(); ?>/assets/images/consultation-clock.png"
-                alt="Consultation"
+                alt="Book your free dental consultation"
                 class="w-[285px] max-w-none"
             >
         </div>

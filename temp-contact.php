@@ -33,7 +33,7 @@ get_header(); ?>
             <div>
                 <!-- Heading -->
                 <h1 class="text-2xl sm:text-[32px] text-coff_black mb-5">
-                    Contact with Dentakay
+                    Contact with Ilam Din Dental
                 </h1>
                 <!-- Description -->
                 <div class="text-lg text-secondaryLight">
@@ -191,7 +191,7 @@ get_header(); ?>
 
                             <label for="consent" class="text-xs leading-4 ">
                                 I consent to receive marketing communications
-                                from Dentakay and its affiliates by call,
+                                from Ilam Din Dental and its affiliates by call,
                                 SMS, email, WhatsApp or similar channels.
                                 My data is managed responsibly. Read our
                                 Privacy Policy for help on opting out.
@@ -263,7 +263,7 @@ get_header(); ?>
                     </h2>
 
                     <p class="text-[10px] sm:text-[11px] text-secondaryLight mt-1">
-                        Visit Dentakay and our dental care team.
+                        Visit Ilam Din Dental and our dental care team.
                     </p>
 
                 </div>
@@ -272,9 +272,9 @@ get_header(); ?>
                 <!-- Google Map -->
                 <div class="w-full h-[300px] sm:h-[380px] lg:h-[450px]">
 
-                    <iframe src="https://www.google.com/maps?q=Dentakay%20Dental%20Clinic%20Turkey&output=embed"
+                    <iframe src="https://www.google.com/maps?q=Ilam%20Din%20Dental%20Clinic%20Istanbul%20Turkey&output=embed"
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade" title="Dentakay Location"></iframe>
+                        referrerpolicy="no-referrer-when-downgrade" title="Ilam Din Dental Location"></iframe>
 
                 </div>
 

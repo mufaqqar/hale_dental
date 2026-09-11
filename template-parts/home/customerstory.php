@@ -75,7 +75,7 @@ $testimonials = [
 
             <p class="mx-auto mt-5 max-w-[900px] text-lg text-coff_black leading-relaxed">
                 Experience the impact of expert care through the voices of our patients.
-                Watch real testimonials from those who trusted Dentakay for their smile makeover.
+                Watch real testimonials from those who trusted Ilam Din Dental for their smile makeover.
             </p>
 
         </div>

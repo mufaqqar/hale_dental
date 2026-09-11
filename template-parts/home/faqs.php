@@ -43,7 +43,7 @@ $faqs = [
             </h2>
 
             <p class="mt-4 text-lg text-coff_black leading-relaxed">
-                Looking for more information about Dentakay? You can find it here.
+                Looking for more information about Ilam Din Dental? You can find it here.
             </p>
         </div>
 

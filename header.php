@@ -23,7 +23,7 @@
                             <?php else: ?>
                                 <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center">
                                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png"
-                                        alt="Logo" height="54" width="72" />
+                                        alt="Ilam Din Dental - Dental Clinic in Istanbul" height="54" width="72" />
                                 </a>
                             <?php endif; ?>
                         </div>

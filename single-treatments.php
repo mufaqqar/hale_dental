@@ -146,7 +146,7 @@ $article_html = $parsed['content'];
                                 E-Mail
                             </label>
 
-                            <input id="email" type="email" name="email" placeholder="dentakay@dentakay.com"
+                            <input id="email" type="email" name="email" placeholder="your@email.com"
                                 class="h-[38px] w-full rounded-[8px] border border-transparent bg-[#f6f6f6] px-3 text-[12px] text-coff_black outline-none transition focus:border-primary">
 
                         </div>
@@ -161,7 +161,7 @@ $article_html = $parsed['content'];
                                     class="mt-0.5 h-3 w-3 shrink-0 accent-primary">
 
                                 <span>
-                                    I consent to receive marketing communications from Dentakay
+                                    I consent to receive marketing communications from Ilam Din Dental
                                     and its affiliates by call, SMS, email, WhatsApp or similar channels.
                                 </span>
 

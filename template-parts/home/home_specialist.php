@@ -76,11 +76,11 @@ $afternoonSlots = [
 
 
                 <!-- Heading -->
-                <h1
+                <h2
                     class="mt-2 text-[29px] font-bold leading-[1.15] tracking-[-1.5px] text-black"
                 >
                     Book A 1-to-1 Consultation With a Specialist
-                </h1>
+                </h2>
 
 
                 <!-- Description -->
@@ -178,7 +178,7 @@ $afternoonSlots = [
                                 <div class="h-7 w-7 shrink-0 overflow-hidden rounded-full bg-[#f0dce3]">
                                     <img
                                         src="<?= get_template_directory_uri() ?>/assets/images/<?= $consultant['image'] ?>"
-                                        alt=""
+                                        alt="<?= htmlspecialchars($consultant['name']) ?> - Dental Consultant"
                                         class="h-full w-full object-cover"
                                         onerror="this.style.display='none'"
                                     >

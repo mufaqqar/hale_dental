@@ -17,7 +17,7 @@
         <div class="max-w-[430px] md:ml-auto">
             <p class="text-lg text-coff_black leading-relaxed max-w-xl">
                 From a single veneer to a complete smile transformation
-                Vitrin Clinic offers the full spectrum of cosmetic and
+                Ilam Din Dental offers the full spectrum of cosmetic and
                 restorative dental treatments for international patients.
             </p>
 

@@ -3,7 +3,7 @@
         <div class="flex-1 space-y-6">
             <div class="flex items-center gap-3">
                 <h2 class="md:text-5xl text-3xl   text-coff_black tracking-tight">
-                    Vitrin Clinic
+                    Ilam Din Dental
                 </h2>
                 <div class="min-h-2 w-16 bg-primary"></div>
             </div>
@@ -13,9 +13,9 @@
             </h3>
 
             <p class="text-lg text-coff_black leading-relaxed max-w-xl">
-                Since 2007, Vitrin Clinic is a leading dental clinic in Turkey, located in the heart of Istanbul and
+                Since 2007, Ilam Din Dental is a leading dental clinic in Turkey, located in the heart of Istanbul and
                 designed from the ground up to serve international patients. From your first remote consultation to your
-                final result, every step of your experience at Vitrin Clinic is managed with precision, warmth, and full
+                final result, every step of your experience at Ilam Din Dental is managed with precision, warmth, and full
                 transparency.
             </p>
 
