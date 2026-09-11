@@ -42,11 +42,11 @@
   }
 
   /* Mega menu */
-  .menu-item-mega {
+  .primary-navigation .menu-item-has-children.menu-item-mega {
     position: static;
   }
 
-  .menu-item-mega > .mega-sub-menu {
+  .menu-item-mega > .mega-panel {
     display: none;
     position: absolute;
     top: 100%;
@@ -56,29 +56,90 @@
     width: min(1200px, 92vw);
     background: #ffffff;
     border-radius: 1rem;
+    border: 1px solid #eef0f3;
     box-shadow: 0 25px 60px rgba(17, 17, 17, 0.15);
     padding: 1.5rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem 2rem;
     z-index: 100;
   }
 
-  .menu-item-mega:hover > .mega-sub-menu,
-  .menu-item-mega:focus-within > .mega-sub-menu {
-    display: grid;
-  }
-
-  .mega-sub-menu li a {
+  .menu-item-mega:hover > .mega-panel,
+  .menu-item-mega:focus-within > .mega-panel {
     display: block;
-    padding: 0.45rem 0;
-    color: var(--secondary);
-    font-size: 0.95rem;
-    border-radius: 0;
   }
 
-  .mega-sub-menu li a:hover {
-    color: var(--coffGreen);
-    opacity: 1;
+  .mega-treatments-panel {
+    display: block;
+  }
+
+  /* Panel header */
+  .mega-panel-header {
+    padding-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--coff_black);
+    border-bottom: 1px solid #eef0f3;
+  }
+
+  /* 4 rows x 3 columns grid of treatment items */
+  .mega-treatments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.125rem 1.5rem;
+  }
+
+  /* Treatment item */
+  .mega-treat-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    transition: background 0.2s ease;
+  }
+
+  .mega-treat-item:hover {
+    background: #f6f8ff;
+  }
+
+  .mega-treat-thumb {
+    flex: 0 0 auto;
+    width: 72px;
+    height: 72px;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    background: #eef1f6;
+  }
+
+  .mega-treat-placeholder {
+    display: inline-block;
+    background: linear-gradient(135deg, #eef1f6, #dfe5f0);
+  }
+
+  .mega-treat-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .mega-treat-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--primary);
+  }
+
+  .mega-treat-desc {
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: #858d9d;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 
@@ -86,21 +147,80 @@
 @media (max-width: 767px) {
 
   .primary-navigation .sub-menu,
-  .primary-navigation .mega-sub-menu {
+  .primary-navigation .mega-panel {
     display: none;
     padding-left: 1.25rem;
   }
 
   .primary-navigation .sub-menu.open,
-  .primary-navigation .mega-sub-menu.open {
+  .primary-navigation .mega-panel.open {
     display: block;
   }
 
   .primary-navigation .sub-menu li a,
-  .primary-navigation .mega-sub-menu li a {
+  .primary-navigation .mega-panel li a {
     display: block;
     padding: 0.5rem 1rem;
     color: var(--secondary);
     border-left: 2px solid var(--coffLightGreen);
+  }
+
+  /* Mobile treatments panel */
+  .mega-panel-header {
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--coff_black);
+    padding: 0.5rem 0 0.75rem;
+  }
+
+  .mega-treatments-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .mega-treat-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+  }
+
+  .mega-treat-thumb {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    border-radius: 0.625rem;
+    object-fit: cover;
+    background: #eef1f6;
+  }
+
+  .mega-treat-placeholder {
+    display: inline-block;
+    background: linear-gradient(135deg, #eef1f6, #dfe5f0);
+  }
+
+  .mega-treat-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .mega-treat-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--primary);
+  }
+
+  .mega-treat-desc {
+    margin-top: 0.2rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: #858d9d;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

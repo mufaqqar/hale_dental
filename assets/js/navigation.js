@@ -26,7 +26,7 @@
         if (!isMobile()) return;
         e.preventDefault();
         var parent = this.parentElement;
-        var sub = parent.querySelector(':scope > .sub-menu, :scope > .mega-sub-menu');
+        var sub = parent.querySelector(':scope > .sub-menu, :scope > .mega-panel');
         if (sub) {
           sub.classList.toggle('open');
         }

@@ -91,7 +91,7 @@ function hale_coffee_enqueue_assets()
         'hale-mega-menu',
         get_template_directory_uri() . '/assets/css/mega-menu.css',
         ['hale-coffee-style'],
-        wp_get_theme()->get('Version')
+        filemtime( get_template_directory() . '/assets/css/mega-menu.css' )
     );
 
     // Navigation JS for mega menu & mobile toggle
@@ -186,11 +186,19 @@ function hale_mega_menu_save($menu_id, $menu_item_db_id, $args)
 class Hale_Mega_Walker extends Walker_Nav_Menu
 {
     private $current_is_mega = false;
+    private $skipping_children = false;
+    private $panel_rendered = false;
 
     public function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
     {
-        if ($depth === 0 && $args->theme_location === 'primary') {
+        if ($depth === 0 && isset($args->theme_location) && $args->theme_location === 'primary') {
             $this->current_is_mega = (bool) get_post_meta($item->ID, '_menu_item_mega', true);
+            $this->skipping_children = false;
+            $this->panel_rendered = false;
+        }
+
+        if ($this->skipping_children && $depth > 0) {
+            return;
         }
 
         parent::start_el($output, $item, $depth, $args, $id);
@@ -200,14 +208,95 @@ class Hale_Mega_Walker extends Walker_Nav_Menu
         }
     }
 
+    public function end_el(&$output, $item, $depth = 0, $args = array())
+    {
+        if ($this->skipping_children && $depth > 0) {
+            return;
+        }
+
+        if ($depth === 0 && $this->current_is_mega && ! $this->panel_rendered) {
+            $output .= $this->render_treatments_panel();
+        }
+
+        $this->skipping_children = false;
+        parent::end_el($output, $item, $depth, $args);
+    }
+
     public function start_lvl(&$output, $depth = 0, $args = array())
     {
-        $classes = array('sub-menu');
-        if ($depth === 0 && $this->current_is_mega && $args->theme_location === 'primary') {
-            $classes[] = 'mega-sub-menu';
+        if ($depth === 0 && $this->current_is_mega && isset($args->theme_location) && $args->theme_location === 'primary') {
+            $this->skipping_children = true;
+            $this->panel_rendered = true;
+            $output .= $this->render_treatments_panel();
+            return;
         }
-        $indent  = str_repeat("\t", $depth);
-        $output .= "\n$indent<ul class=\"" . esc_attr(implode(' ', $classes)) . "\">\n";
+        parent::start_lvl($output, $depth, $args);
+    }
+
+    public function end_lvl(&$output, $depth = 0, $args = array())
+    {
+        if ($depth === 0 && $this->current_is_mega) {
+            return;
+        }
+        parent::end_lvl($output, $depth, $args);
+    }
+
+    /**
+     * Render the dynamic Treatments mega menu panel.
+     */
+    private function render_treatments_panel()
+    {
+        $treatments = get_posts(array(
+            'post_type'      => 'treatments',
+            'posts_per_page' => 12,
+            'post_status'    => 'publish',
+            'orderby'        => 'menu_order',
+            'order'          => 'ASC',
+            'no_found_rows'  => true,
+        ));
+
+        if (empty($treatments)) {
+            return '';
+        }
+
+        $html = '<div class="mega-panel mega-treatments-panel">';
+        $html .= '<div class="mega-panel-header">Treatments</div>';
+        $html .= '<div class="mega-treatments-grid">';
+
+        foreach ($treatments as $treatment) {
+            $id    = (int) $treatment->ID;
+            $title = get_the_title($id);
+            $url   = get_permalink($id);
+            $thumb = get_the_post_thumbnail($id, array(72, 72), array(
+                'class'   => 'mega-treat-thumb',
+                'loading' => 'lazy',
+                'alt'     => esc_attr($title),
+            ));
+
+            if (empty($thumb)) {
+                $thumb = '<span class="mega-treat-thumb mega-treat-placeholder"></span>';
+            }
+
+            if (has_excerpt($id)) {
+                $description = get_the_excerpt($id);
+            } else {
+                $description = wp_trim_words(get_post_field('post_content', $id), 24);
+            }
+            $description = wp_trim_words($description, 16, '…');
+
+            $html .= '<a href="' . esc_url($url) . '" class="mega-treat-item" title="' . esc_attr($title) . '">';
+            $html .= $thumb;
+            $html .= '<span class="mega-treat-info">';
+            $html .= '<span class="mega-treat-title">' . esc_html($title) . '</span>';
+            $html .= '<span class="mega-treat-desc">' . esc_html($description) . '</span>';
+            $html .= '</span>';
+            $html .= '</a>';
+        }
+
+        $html .= '</div>';
+        $html .= '</div>';
+
+        return $html;
     }
 }
 
