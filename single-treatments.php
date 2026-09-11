@@ -7,9 +7,9 @@
 get_header();
 
 // Parse content: extract H2s, build TOC, wrap sections in <section> tags.
-$raw_content  = get_the_content();
-$parsed       = hale_generate_toc_from_content( $raw_content );
-$toc_html     = $parsed['toc'];
+$raw_content = get_the_content();
+$parsed = hale_generate_toc_from_content($raw_content);
+$toc_html = $parsed['toc'];
 $article_html = $parsed['content'];
 ?>
 
@@ -30,7 +30,7 @@ $article_html = $parsed['content'];
                     <?php the_title(); ?>
                 </h1>
 
-                <?php if ( has_excerpt() ) : ?>
+                <?php if (has_excerpt()): ?>
                     <p class="mt-5 text-center text-[18px] leading-[1.7] text-coff_black">
                         <?php the_excerpt(); ?>
                     </p>
@@ -48,9 +48,9 @@ $article_html = $parsed['content'];
         <!-- =========================
                  LEFT SIDEBAR — Table of Contents
             ========================== -->
-        <aside class="w-1/5">
+        <aside class="md:w-1/5 w-full">
             <div class="top-28">
-                <?php if ( ! empty( $toc_html ) ) : ?>
+                <?php if (!empty($toc_html)): ?>
                     <?php echo $toc_html; ?>
                 <?php endif; ?>
             </div>
@@ -60,7 +60,7 @@ $article_html = $parsed['content'];
         <!-- =========================
                  CENTER ARTICLE
             ========================== -->
-        <main class="w-3/5">
+        <main class="md:w-3/5 w-full">
             <article>
                 <?php echo $article_html; ?>
             </article>
@@ -70,7 +70,7 @@ $article_html = $parsed['content'];
         <!-- =========================
                  RIGHT CONSULTATION FORM
             ========================== -->
-        <aside class="w-1/5">
+        <aside class="md:w-1/5 w-full">
 
             <div class="sticky top-28 rounded-[14px] bg-[#f8f8f8] p-3.5 shadow-sm">
 

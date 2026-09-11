@@ -83,7 +83,7 @@ function hale_coffee_enqueue_assets()
         'hale-coffee-style',
         get_template_directory_uri() . '/assets/css/style.css',
         ['font-awesome'],
-        wp_get_theme()->get('Version')
+        filemtime( get_template_directory() . '/assets/css/style.css' )
     );
 
     // Mega Menu CSS
