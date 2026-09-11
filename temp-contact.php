@@ -47,15 +47,15 @@ get_header(); ?>
                     </p>
 
                     <p class="mb-3">
-                        Ethics has been established to enable the secure and
+                        Ilamdindental has been established to enable the secure and
                         confidential reporting of situations that are considered to
                         be contrary to our company's ethical values, business
                         principles, and applicable legislation. All reports are
                         evaluated within the framework of confidentiality and are
-                        reviewed only by authorized persons. To contact the Ethics
+                        reviewed only by authorized persons. To contact the Ilamdindental
                         Line:
-                        <a href="mailto:ethic@dentakay.com" class="text-primary hover:underline">
-                            ethic@dentakay.com
+                        <a href="mailto:info@ilamdindental.com" class="text-primary hover:underline">
+                            info@ilamdindental.com
                         </a>
                     </p>
 
@@ -70,8 +70,8 @@ get_header(); ?>
                             ✉
                         </span>
 
-                        <a href="mailto:info@dentakay.com" class="hover:text-secondary">
-                            info@dentakay.com
+                        <a href="mailto:info@ilamdindental.com" class="hover:text-secondary">
+                            info@ilamdindental.com
                         </a>
                     </div>
                     <div class="flex items-center gap-3 text-[11px] text-coff_black">

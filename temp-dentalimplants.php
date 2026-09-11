@@ -511,7 +511,7 @@ get_header();
                                 E-Mail
                             </label>
 
-                            <input id="email" type="email" name="email" placeholder="dentakay@dentakay.com"
+                            <input id="email" type="email" name="email" placeholder="ilamdindental@ilamdindental.com"
                                 class="h-[38px] w-full rounded-[8px] border border-transparent bg-[#f6f6f6] px-3 text-[12px] text-coff_black outline-none transition focus:border-primary">
 
                         </div>
