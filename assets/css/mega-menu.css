@@ -54,7 +54,7 @@
   }
 
   .primary-navigation .menu-item-has-children > .sub-menu li a:hover {
-    background: #f5f1e8;
+    background: #f6f8ff;
     color: var(--coffGreen);
     opacity: 1;
   }

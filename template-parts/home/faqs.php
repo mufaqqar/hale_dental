@@ -73,7 +73,7 @@ $faqs = [
                             id="faqSearch"
                             type="text"
                             placeholder="Search something you wonder"
-                            class="w-full bg-transparent text-[13px] text-[#222] outline-none placeholder:text-[#b6b6b6]"
+                            class="w-full bg-transparent text-sm text-[#222] outline-none placeholder:text-[#b6b6b6]"
                         >
                     </div>
 
@@ -147,7 +147,7 @@ $faqs = [
 
                         <h3
                             id="answerTitle"
-                            class="text-[13px]   text-black"
+                            class="text-lg text-black"
                         >
                             Here is your answer;
                         </h3>

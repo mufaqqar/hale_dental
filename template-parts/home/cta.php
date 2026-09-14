@@ -2,17 +2,17 @@
     <div class="max-w-[1116px] mx-auto px-4 flex min-h-[430px] flex-col items-center pt-10 pb-4 text-center md:min-h-0 md:grid md:h-[198px] md:grid-cols-4 md:items-center md:gap-4 md:px-0 md:py-0 md:text-left">
 
         <!-- Left: Heading -->
-            <h2 class="font-serif text-[42px] leading-[1.35] text-white">
+            <h2 class="font-serif text-[42px] text-white">
                 Free<br>
                 Consultation
             </h2>
         <!-- Center: Description -->
-            <p class="font-sans text-[17px] leading-[1.9] text-white">
+            <p class="text-[17px] text-white">
                 Are you ready to<br>
 
-                <strong class=" ">
+                <span class=" ">
                     start your journey
-                </strong>
+                </span>
 
                 <br>
                 to perfection today?
