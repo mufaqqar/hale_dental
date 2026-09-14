@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="absolute inset-0 z-[2] flex items-center justify-center px-6 text-center text-white">
-        <div class="mx-auto w-full max-w-5xl">
+        <div class="mx-auto w-full max-w-5xl mt-32">
             <div>
                 <h1 class="md:text-5xl text-3xl  ">Your Journey To The Perfect Smile Starts Here!</h1>
                 <p class="md:text-lg text-sm mt-4">Our dental specialists in Istanbul are here to guide you. Book a complimentary
