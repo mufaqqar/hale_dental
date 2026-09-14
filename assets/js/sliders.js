@@ -7,7 +7,7 @@ jQuery(function ($) {
   }
 
   $('.brand-slider').slick({
-    slidesToShow: 6,
+    slidesToShow: 8,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2500,
