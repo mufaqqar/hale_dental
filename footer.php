@@ -5,12 +5,12 @@
         <div class="grid lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] md:grid-cols-2 grid-cols-1 gap-10">
             <div>
                 <a href="<?php echo home_url(); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Ilam Din Dental - Dental Clinic in Istanbul"
-                        class="w-56 mb-8">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png"
+                        alt="Ilam Din Dental - Dental Clinic in Istanbul" class="w-56 mb-8">
                 </a>
                 <div class="mb-8">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/trustpilot.png" alt="Ilam Din Dental - Trustpilot Reviews"
-                        class="mb-3">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/trustpilot.png"
+                        alt="Ilam Din Dental - Trustpilot Reviews" class="mb-3">
                     <a href="#" class="text-white hover:text-secondary underline transition">
                         Leave a Review
                     </a>
@@ -119,6 +119,14 @@
         </div>
     </div>
 </footer>
+<button id="openQuotePopup"
+    class="right-5 py-5 opacity-100 pointer-events-auto sm:block hidden fixed top-1/2 -translate-y-1/2 h-[365px] bg-secondary/30 text-white backdrop-blur-[30px] text-2xl rounded-[19px] z-[999] [writing-mode:vertical-rl] transition-all duration-500 ease-in-out">
+    <span>Get a Quote</span>
+</button>
+<div id="quotePopup" class="fixed inset-0 w-full bg-transparent flex flex-col items-end justify-center z-50 
+     translate-x-full opacity-0 pointer-events-none transition-all duration-500 ease-in-out">
+    <?php get_template_part('template-parts/main-popup'); ?>
+</div>
 
 <?php wp_footer(); ?>
 </body>

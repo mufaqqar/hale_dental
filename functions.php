@@ -106,6 +106,20 @@ function hale_coffee_enqueue_assets()
         'ajaxUrl'     => admin_url('admin-ajax.php'),
         'templateUri' => get_template_directory_uri(),
     ));
+
+    // Quote popup JS
+    wp_enqueue_script(
+        'hale-quote-popup',
+        get_template_directory_uri() . '/assets/js/quote-popup.js',
+        ['jquery'],
+        filemtime( get_template_directory() . '/assets/js/quote-popup.js' ),
+        true
+    );
+
+    wp_localize_script('hale-quote-popup', 'haleQuote', array(
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+        'nonce'   => wp_create_nonce('hale_contact_nonce'),
+    ));
 }
 add_action('wp_enqueue_scripts', 'hale_coffee_enqueue_assets');
 
@@ -118,29 +132,68 @@ function hale_contact_submit_handler()
         wp_send_json_error('Invalid request');
     }
 
+    if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'hale_contact_nonce')) {
+        wp_send_json_error('Security check failed.');
+    }
+
     $fullname = isset($_POST['fullname']) ? sanitize_text_field(wp_unslash($_POST['fullname'])) : '';
     $phone    = isset($_POST['phone']) ? sanitize_text_field(wp_unslash($_POST['phone'])) : '';
     $email    = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
-    $product  = isset($_POST['product']) ? sanitize_text_field(wp_unslash($_POST['product'])) : '';
+    $treatment = isset($_POST['treatment']) ? sanitize_text_field(wp_unslash($_POST['treatment'])) : '';
+    $colors   = isset($_POST['colors']) ? sanitize_text_field(wp_unslash($_POST['colors'])) : '';
+    $length   = isset($_POST['length']) ? sanitize_text_field(wp_unslash($_POST['length'])) : '';
+    $width    = isset($_POST['width']) ? sanitize_text_field(wp_unslash($_POST['width'])) : '';
+    $depth    = isset($_POST['depth']) ? sanitize_text_field(wp_unslash($_POST['depth'])) : '';
+    $unit     = isset($_POST['unit']) ? sanitize_text_field(wp_unslash($_POST['unit'])) : '';
     $message  = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
+    $agree    = isset($_POST['agree']) && $_POST['agree'] !== '';
 
     if (empty($fullname) || empty($phone) || !is_email($email) || empty($message)) {
         wp_send_json_error('Please fill in all required fields.');
     }
 
-    $to = get_option('admin_email');
+    if (!$agree) {
+        wp_send_json_error('Please accept the data storage notice.');
+    }
+
+    $dimensions = trim(sprintf('%s x %s x %s', $length, $width, $depth), ' x');
+    if ($dimensions !== '' && $unit !== '') {
+        $dimensions .= ' ' . $unit;
+    }
+
+    $to      = get_option('admin_email');
     $subject = sprintf('New quote request from %s', $fullname);
-    $body = sprintf(
-        "Name: %s\nPhone: %s\nEmail: %s\nProduct: %s\n\nMessage:\n%s",
+    $body    = sprintf(
+        "Name: %s\nPhone: %s\nEmail: %s\nTreatment: %s\nColors: %s\nDimensions: %s\n\nMessage:\n%s",
         $fullname,
         $phone,
         $email,
-        $product,
+        $treatment,
+        $colors ? $colors : '-',
+        $dimensions !== '' ? $dimensions : '-',
         $message
     );
     $headers = array('Reply-To: ' . $email);
 
-    $sent = wp_mail($to, $subject, $body, $headers);
+    $attachments = array();
+
+    if (!empty($_FILES['file']['name']) && !empty($_FILES['file']['tmp_name'])) {
+        require_once ABSPATH . 'wp-admin/includes/file.php';
+
+        $uploaded = wp_handle_upload($_FILES['file'], array('test_form' => false));
+
+        if (isset($uploaded['file']) && !isset($uploaded['error'])) {
+            $attachments[] = $uploaded['file'];
+        }
+    }
+
+    $sent = wp_mail($to, $subject, $body, $headers, $attachments);
+
+    if (!empty($attachments)) {
+        foreach ($attachments as $attachment) {
+            wp_delete_file($attachment);
+        }
+    }
 
     if ($sent) {
         wp_send_json_success('Message sent');
