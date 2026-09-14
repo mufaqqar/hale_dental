@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --primary: #2D4B99;
-  --secondary: #4A7DFF;
+  --primary: #010311;
+  --secondary: #268ca1;
   --coff_black: #111111;
   --coffGreen: #4A7DFF;
   --coffLightGreen: #c7d8c4;
@@ -48,7 +48,7 @@
 
   /* ---------- Primary navigation ---------- */
   .primary-navigation .menu-item>a {
-    color: var(--coff_black);
+    color: var(--primary);
     font-weight: 500;
     padding: 0.5rem 1rem;
     display: inline-block;
@@ -57,18 +57,18 @@
   }
 
   .primary-navigation .menu-item>a:hover {
-    color: #3254ac;
+    color: var(--secondary);
   }
 
   .primary-navigation .current-menu-item>a {
-    color: #3254ac;
+    color: var(--secondary);
     font-weight: 600;
   }
 
   /* ---------- Header CTA button (per Header.png) ---------- */
   .btn-consult {
     display: inline-block;
-    background: linear-gradient(197.05deg, rgb(45 75 153) -42.06%, rgb(74 125 255) 136.49%);
+    background: linear-gradient(197.05deg, var(--primary) -42.06%, var(--secondary) 136.49%);
     color: #ffffff;
     font-size: 0.95rem;
     line-height: 1;
@@ -79,7 +79,7 @@
   }
 
   .btn-consult:hover {
-    background: #2a4690;
+     background: linear-gradient(197.05deg, var(--secondary) -42.06%, var(--secondary) 136.49%);
     color: #ffffff;
   }
 
@@ -89,7 +89,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--secondary);
+    color: var(--primary);
     font-weight: 500;
     cursor: pointer;
   }
@@ -100,7 +100,7 @@
   }
 
   .lang-switch:hover {
-    color: #3254ac;
+    color: var(--secondary);
   }
 
   .lang-switch.open i {
@@ -129,14 +129,14 @@
   .lang-switch .lang-options a {
     display: block;
     padding: 0.5rem 1rem;
-    color: var(--secondary);
+    color: var(--primary);
     font-size: 0.9rem;
     border-radius: 0;
   }
 
   .lang-switch .lang-options a:hover {
     background: #f5f1e8;
-    color: #3254ac;
+    color: var(--secondary);
   }
 
   @media (max-width: 767px) {

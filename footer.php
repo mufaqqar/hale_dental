@@ -8,13 +8,7 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png"
                         alt="Ilam Din Dental - Dental Clinic in Istanbul" class="w-56 mb-8">
                 </a>
-                <div class="mb-8">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/trustpilot.png"
-                        alt="Ilam Din Dental - Trustpilot Reviews" class="mb-3">
-                    <a href="#" class="text-white hover:text-secondary underline transition">
-                        Leave a Review
-                    </a>
-                </div>
+
             </div>
             <div>
                 <h5 class="text-lg   text-white mb-6">
@@ -120,7 +114,7 @@
     </div>
 </footer>
 <button id="openQuotePopup"
-    class="right-5 py-5 opacity-100 pointer-events-auto sm:block hidden fixed top-1/2 -translate-y-1/2 h-[365px] bg-secondary/30 text-white backdrop-blur-[30px] text-2xl rounded-[19px] z-[999] [writing-mode:vertical-rl] transition-all duration-500 ease-in-out">
+    class="right-5 !py-5 opacity-100 pointer-events-auto sm:block hidden fixed top-1/2 -translate-y-1/2 h-[365px] bg-black/30 text-white backdrop-blur-[30px] text-2xl rounded-[19px] z-[999] [writing-mode:vertical-rl] transition-all duration-500 ease-in-out">
     <span>Get a Quote</span>
 </button>
 <div id="quotePopup" class="fixed inset-0 w-full bg-transparent flex flex-col items-end justify-center z-50 

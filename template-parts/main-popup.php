@@ -1,8 +1,8 @@
-<div class="sm:max-w-[830px] w-full md:pr-8 rounded-[19px] bg-white/30 backdrop-blur-[10px] px-3 sm:px-5 py-6 md:py-10">
+<div class="sm:max-w-[830px] w-full md:pr-8 rounded-[19px] bg-black/30 backdrop-blur-[10px] px-3 sm:px-5 py-6 md:py-10">
     <div class="pb-5 w-full flex flex-row justify-between items-center">
-        <h2 class="md:text-[28px] md:leading-normal text-2xl font-bold text-title_Clr">
+        <h2 class="md:text-[28px] md:leading-normal text-2xl text-white">
             Get Custom Quote</h2>
-        <button type="button" class="text-title_Clr cursor-pointer" id="closeQuote_Popup">
+        <button type="button" class="text-white cursor-pointer" id="closeQuote_Popup">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <!-- Close -->
                 <path id="closeIcon" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -116,7 +116,7 @@
             <div>
                 <input type="file" id="fileInput" name="file" style="display:none;">
                 <button type="button" id="uploadBtn"
-                    class="flex items-center text-nowrap whitespace-nowrap justify-center px-12 py-3 font-medium text-white bg-[#53B6C9] hover:bg-secondary-dark rounded-full">
+                    class="flex items-center text-nowrap whitespace-nowrap justify-center px-12 py-3 font-medium text-white bg-secondary hover:bg-primary rounded-full">
                     Attached File
                 </button>
             </div>

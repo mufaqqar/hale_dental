@@ -25,8 +25,8 @@ $dates = [];
 for ($i = 0; $i < 7; $i++) {
     $date = (clone $today)->modify("+$i days");
     $dates[] = [
-        'day'   => $date->format('j'),
-        'name'  => $dayNames[(int)$date->format('w')],
+        'day' => $date->format('j'),
+        'name' => $dayNames[(int) $date->format('w')],
         'is_today' => $i === 0,
     ];
 }
@@ -56,7 +56,7 @@ $afternoonSlots = [
 
 ?>
 
-<section class="min-h-screen bg-white py-6">
+<section class="py-16">
     <div class="mx-auto max-w-[1110px] px-7">
 
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-[1.45fr_1fr]">
@@ -66,12 +66,12 @@ $afternoonSlots = [
                  LEFT SIDE
             ========================================================== -->
 
-            <div class="flex flex-col justify-center pt-16 lg:pt-20">
+            <div class="flex flex-col">
 
                 <!-- Hero image -->
-                <div class="overflow-hidden rounded-[15px]">
+                <div class="overflow-hidden rounded-[15px] h-full">
                     <img src="<?= get_template_directory_uri() ?>/assets/images/consultation.webp"
-                        alt="Dental consultation" class="h-[231px] w-full object-cover">
+                        alt="Dental consultation" class="h-full w-full object-cover">
                 </div>
 
 
