@@ -1,31 +1,32 @@
 <section class="relative w-full overflow-hidden bg-[#b6a19a]">
-    <div class="max-w-[1116px] mx-auto px-4 flex min-h-[430px] flex-col items-center pt-10 pb-4 text-center md:min-h-0 md:grid md:h-[198px] md:grid-cols-4 md:items-center md:gap-4 md:px-0 md:py-0 md:text-left">
+    <div
+        class="max-w-[1116px] mx-auto px-4 flex min-h-[430px] flex-col items-center pt-10 pb-4 text-center md:min-h-0 md:grid md:h-[198px] md:grid-cols-4 md:items-center md:gap-4 md:px-0 md:py-0 md:text-left">
 
         <!-- Left: Heading -->
-            <h2 class="font-serif text-[42px] text-white">
-                Free<br>
-                Consultation
-            </h2>
+        <h2 class="font-serif text-[42px] text-white">
+            Free<br>
+            Consultation
+        </h2>
         <!-- Center: Description -->
-            <p class="text-[17px] text-white">
-                Are you ready to<br>
+        <p class="text-[17px] text-white">
+            Are you ready to<br>
 
-                <span class=" ">
-                    start your journey
-                </span>
+            <span class=" ">
+                start your journey
+            </span>
 
-                <br>
-                to perfection today?
-            </p>
+            <br>
+            to perfection today?
+        </p>
         <!-- Clock / Background Image -->
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/clock.webp" alt="Book your free dental consultation"
-            class="hidden h-[200px] w-auto max-w-none md:block md:-ml-[60px]">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/clock.webp"
+            alt="Book your free dental consultation" class="hidden h-[200px] w-auto max-w-none md:block md:-ml-[60px]">
 
 
         <!-- Right Button -->
-        <div class="relative z-30 ml-auto pr-[8%]">
+        <div class="relative z-30 md:ml-auto md:pr-[8%]">
             <a href="<?php echo esc_url(home_url('/contact/')); ?>"
-                class="inline-flex min-w-[146px] items-center justify-center rounded-full border border-white/80 px-7 py-4 text-[16px]  text-white transition-all duration-300 hover:bg-white hover:text-[#675b57]">
+                class="inline-flex min-w-[146px] items-center justify-center rounded-full border border-white/80 px-7 py-4 text-base  text-white transition-all duration-300 hover:bg-white hover:text-[#675b57]">
                 Book now!
             </a>
         </div>
