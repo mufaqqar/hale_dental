@@ -113,8 +113,7 @@
         </div>
     </div>
 </footer>
-<button id="openQuotePopup"
-    class="right-5 !py-5 opacity-100 pointer-events-auto sm:block hidden fixed top-1/2 -translate-y-1/2 h-[365px] bg-black/30 text-white backdrop-blur-[30px] text-2xl rounded-[19px] z-[999] [writing-mode:vertical-rl] transition-all duration-500 ease-in-out">
+<button id="openQuotePopup" class="qoute_btn">
     <span>Get a Quote</span>
 </button>
 <div id="quotePopup" class="fixed inset-0 w-full bg-transparent flex flex-col items-end justify-center z-50 

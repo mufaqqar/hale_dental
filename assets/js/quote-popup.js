@@ -24,11 +24,13 @@ jQuery(function ($) {
     function openPopup() {
         popup.removeClass('translate-x-full opacity-0 pointer-events-none');
         popup.addClass('translate-x-0 opacity-100 pointer-events-auto');
+        openBtn.addClass('popup-open');
     }
 
     function closePopup() {
         popup.addClass('translate-x-full opacity-0 pointer-events-none');
         popup.removeClass('translate-x-0 opacity-100 pointer-events-auto');
+        openBtn.removeClass('popup-open');
     }
 
     openBtn.on('click', openPopup);
