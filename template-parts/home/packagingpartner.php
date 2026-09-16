@@ -6,12 +6,12 @@
     <div class="relative z-10 mx-auto w-full max-w-[900px] px-4 text-center">
 
         <!-- Small heading -->
-        <h2 class="m-0 font-serif text-[32px] font-bold leading-[1.1] text-[#f3a895] md:text-[38px]">
+        <h2 class="m-0  text-[32px] font-bold leading-[1.1] text-[#f3a895] md:text-[38px]">
             Your Transformation Journey
         </h2>
 
         <!-- Main heading -->
-        <h3 class="m-0 mt-1 font-serif text-[30px] font-normal leading-[1.1] text-white md:text-[38px]">
+        <h3 class="m-0 mt-1  text-[30px] font-normal leading-[1.1] text-white md:text-[38px]">
             Before &amp; After in Turkey
         </h3>
 

@@ -3,7 +3,7 @@
 
         <!-- Left: Heading -->
         <div class="relative z-20 w-[280px] shrink-0 pl-[8%]">
-            <h2 class="font-serif text-[42px] text-white">
+            <h2 class=" text-[42px] text-white">
                 Free<br>
                 Consultation
             </h2>
