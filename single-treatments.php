@@ -202,8 +202,10 @@ $article_html = $parsed['content'];
                     of the surgeon and hospital. But let’s give you some approximate numbers. The average price for a
                     nose job in Turkey varies from £2,300 to £3,500.</p>
             </div>
-            <div class="lg:col-span-6"><img src="/rhinoplasty/image-434.webp" alt="Rhinoplasty all-inclusive package"
-                    class="w-full rounded-[18px] object-cover"></div>
+            <div class="lg:col-span-6">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-434.webp" alt="Rhinoplasty all-inclusive package"
+                    class="w-full rounded-[18px] object-cover" />
+                </div>
         </div>
         <p class="mt-8 text-base text-white">This includes:</p>
         <ul class="mt-3 grid gap-2 text-base  text-white/85 md:grid-cols-2">
@@ -535,7 +537,7 @@ $article_html = $parsed['content'];
 <section class="bg-white py-16">
     <div class="container mx-auto px-4">
         <div class="grid items-center gap-10 lg:grid-cols-12">
-            <div class="flex justify-center lg:col-span-5"><img src="/rhinoplasty/Group-1171275957.webp"
+            <div class="flex justify-center lg:col-span-5"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/Group-1171275957.webp"
                     alt="Before a nose job in Turkey" class="w-full max-w-[420px] object-contain"></div>
             <div class="lg:col-span-7">
                 <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
@@ -627,9 +629,12 @@ $article_html = $parsed['content'];
                     are highly recommended for reducing edema and accelerating healing. Gentle massages for the first 6
                     months post-op reportedly help reshaping and settling the nose.</p>
             </div>
-            <div class="flex flex-col gap-4"><img src="/rhinoplasty/image-435-1.webp" alt=""
-                    class="w-full rounded-[20px] object-cover"><img src="/rhinoplasty/image-436-1.webp" alt=""
-                    class="w-full rounded-[20px] object-cover"></div>
+            <div class="flex flex-col gap-4">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-435-1.webp" alt=""
+                    class="w-full rounded-[20px] object-cover">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-436-1.webp" alt=""
+                    class="w-full rounded-[20px] object-cover">
+                </div>
         </div>
     </div>
 </section>
@@ -710,7 +715,7 @@ $article_html = $parsed['content'];
                     </li>
                 </ul>
             </div>
-            <div class="flex justify-center"><img src="/rhinoplasty/image-447.webp" alt="Rhinoplasty aftercare"
+            <div class="flex justify-center"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-447.webp" alt="Rhinoplasty aftercare"
                     class="w-full rounded-[24px] object-cover"></div>
         </div>
     </div>
