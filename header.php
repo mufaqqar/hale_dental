@@ -10,7 +10,7 @@
 <body <?php body_class('antialiased'); ?>>
     <?php wp_body_open(); ?>
     <div id="page" class="min-h-screen flex flex-col">
-        <header id="masthead" class="sticky top-0 z-[9999] py-4">
+        <header id="masthead" class="sticky top-0 z-[9999] sm:py-4 py-2">
             <div class="container mx-auto md:px-0 px-2">
                 <div class="flex items-stretch justify-between sm:gap-4 gap-2">
                     <div class="flex items-center justify-between gap-4 w-full bg-white sm:px-4 px-2 rounded-xl">
@@ -21,9 +21,14 @@
                                     <?php the_custom_logo(); ?>
                                 </a>
                             <?php else: ?>
-                                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center">
+                                <a href="<?php echo esc_url(home_url('/')); ?>" class="sm:inline-flex hidden items-center ">
                                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png"
                                         alt="Ilam Din Dental - Dental Clinic in Istanbul" height="54" width="72" />
+                                </a>
+                                <a href="<?php echo esc_url(home_url('/')); ?>"
+                                    class="sm:hidden inline-flex items-center sm:h-[54px]">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png"
+                                        alt="Ilam Din Dental - Dental Clinic in Istanbul" height="30" width="42" />
                                 </a>
                             <?php endif; ?>
                         </div>
@@ -60,8 +65,8 @@
                         </div>
                     </div>
                     <!-- Mobile hamburger -->
-                    <button class="menu-toggle lg:hidden text-coff_black text-2xl p-2 bg-white px-4 rounded-xl" aria-label="Toggle menu"
-                        aria-expanded="false">
+                    <button class="menu-toggle lg:hidden text-coff_black text-2xl p-2 bg-white px-4 rounded-xl"
+                        aria-label="Toggle menu" aria-expanded="false">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
