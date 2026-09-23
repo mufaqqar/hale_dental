@@ -134,6 +134,20 @@ function hale_coffee_enqueue_assets()
         'ajaxUrl' => admin_url('admin-ajax.php'),
         'nonce'   => wp_create_nonce('hale_assessment_nonce'),
     ));
+
+    // Detailed consultation form JS
+    wp_enqueue_script(
+        'hale-dental-consultation',
+        get_template_directory_uri() . '/assets/js/dental-consultation.js',
+        ['jquery'],
+        filemtime( get_template_directory() . '/assets/js/dental-consultation.js' ),
+        true
+    );
+
+    wp_localize_script('hale-dental-consultation', 'haleConsultation', array(
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+        'nonce'   => wp_create_nonce('hale_consultation_nonce'),
+    ));
 }
 add_action('wp_enqueue_scripts', 'hale_coffee_enqueue_assets');
 
@@ -304,6 +318,115 @@ function hale_assessment_submit_handler()
 }
 add_action('wp_ajax_nopriv_hale_assessment_submit', 'hale_assessment_submit_handler');
 add_action('wp_ajax_hale_assessment_submit', 'hale_assessment_submit_handler');
+
+/**
+ * Detailed online dental consultation form handler (multi-file upload).
+ */
+function hale_consultation_submit_handler()
+{
+    if (!isset($_POST['action']) || $_POST['action'] !== 'hale_consultation_submit') {
+        wp_send_json_error('Invalid request');
+    }
+
+    if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'hale_consultation_nonce')) {
+        wp_send_json_error('Security check failed.');
+    }
+
+    $fullname    = isset($_POST['fullname']) ? sanitize_text_field(wp_unslash($_POST['fullname'])) : '';
+    $email       = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+    $phone       = isset($_POST['phone']) ? sanitize_text_field(wp_unslash($_POST['phone'])) : '';
+    $concern     = isset($_POST['concern']) ? sanitize_textarea_field(wp_unslash($_POST['concern'])) : '';
+    $conditions  = isset($_POST['conditions']) ? sanitize_textarea_field(wp_unslash($_POST['conditions'])) : '';
+    $medications = isset($_POST['medications']) ? sanitize_textarea_field(wp_unslash($_POST['medications'])) : '';
+    $has_xray    = isset($_POST['has_xray']) ? sanitize_text_field(wp_unslash($_POST['has_xray'])) : '';
+    $has_cbct    = isset($_POST['has_cbct']) ? sanitize_text_field(wp_unslash($_POST['has_cbct'])) : '';
+    $consent_accurate = isset($_POST['consent_accurate']) && $_POST['consent_accurate'] !== '';
+    $consent_fee      = isset($_POST['consent_fee']) && $_POST['consent_fee'] !== '';
+
+    if (empty($fullname) || empty($phone) || !is_email($email) || empty($concern) || empty($conditions) || empty($medications)) {
+        wp_send_json_error('Please fill in all required fields.');
+    }
+
+    if (!$consent_accurate || !$consent_fee) {
+        wp_send_json_error('Please accept both consent statements.');
+    }
+
+    if (empty($_FILES['photos']['name'][0])) {
+        wp_send_json_error('Please upload at least one dental photograph.');
+    }
+
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+
+    $attachments = array();
+
+    $upload_file = function ($file) use (&$attachments) {
+        if (empty($file['name']) || empty($file['tmp_name'])) {
+            return;
+        }
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+            return;
+        }
+        if ($file['size'] > 5242880) {
+            wp_send_json_error('One of the uploaded files exceeds the 5MB limit.');
+        }
+        $uploaded = wp_handle_upload($file, array('test_form' => false));
+        if (isset($uploaded['file']) && !isset($uploaded['error'])) {
+            $attachments[] = $uploaded['file'];
+        }
+    };
+
+    foreach ($_FILES['photos']['name'] as $key => $name) {
+        $upload_file(array(
+            'name'     => $_FILES['photos']['name'][$key],
+            'type'     => $_FILES['photos']['type'][$key],
+            'tmp_name' => $_FILES['photos']['tmp_name'][$key],
+            'error'    => $_FILES['photos']['error'][$key],
+            'size'     => $_FILES['photos']['size'][$key],
+        ));
+    }
+
+    if ($has_xray === 'yes' && !empty($_FILES['xray']['name'])) {
+        $upload_file($_FILES['xray']);
+    }
+
+    if ($has_cbct === 'yes' && !empty($_FILES['cbct']['name'])) {
+        $upload_file($_FILES['cbct']);
+    }
+
+    if (empty($attachments)) {
+        wp_send_json_error('Could not upload the dental records. Please try again.');
+    }
+
+    $to      = get_option('admin_email');
+    $subject = sprintf('Detailed dental consultation request from %s (€50)', $fullname);
+    $body    = sprintf(
+        "Name: %s\nEmail: %s\nPhone / WhatsApp: %s\n\nDental Concern:\n%s\n\nMedical Conditions:\n%s\n\nCurrent Medications:\n%s\n\nHas X-ray/OPG: %s\nHas CBCT: %s\n\nFiles attached: %d",
+        $fullname,
+        $email,
+        $phone,
+        $concern,
+        $conditions,
+        $medications,
+        ($has_xray === 'yes') ? 'Yes' : 'No',
+        ($has_cbct === 'yes') ? 'Yes' : 'No',
+        count($attachments)
+    );
+    $headers = array('Reply-To: ' . $email);
+
+    $sent = wp_mail($to, $subject, $body, $headers, $attachments);
+
+    foreach ($attachments as $attachment) {
+        wp_delete_file($attachment);
+    }
+
+    if ($sent) {
+        wp_send_json_success('Your consultation details have been received. You will be contacted shortly to arrange the €50 consultation payment.');
+    }
+
+    wp_send_json_error('Could not send your form. Please try again later.');
+}
+add_action('wp_ajax_nopriv_hale_consultation_submit', 'hale_consultation_submit_handler');
+add_action('wp_ajax_hale_consultation_submit', 'hale_consultation_submit_handler');
 
 /**
  * Mega Menu Support
