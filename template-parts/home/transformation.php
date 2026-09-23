@@ -4,176 +4,119 @@
             Start Your Transformation
         </h2>
     </div>
-    <div class="container mx-auto px-4 grid md:grid-cols-6 grid-cols-1 gap-5">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 grid-cols-1 gap-5">
         <div
-            class="h-[177px] bg-white rounded-[12px] overflow-hidden shadow-[0_3px_9px_rgba(0,0,0,0.08)] flex flex-col">
-            <div class="flex-1 p-3">
-                <div class="w-[34px] h-[34px] rounded-[8px] bg-[#f4f4f4] flex items-center justify-center mb-[11px]">
-                    <svg class="w-[18px] h-[18px] text-primary" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 3.5c-2.1-2-5.7-1.7-7.5.7-1.5 2-1.3 4.4-.6 6.4.7 2 1.4 3.6 1.7 6.3.3 2.5 1.1 4.2 2.5 4.2 1.3 0 1.5-1.4 1.7-3.2.2-1.5.5-2.5 1.2-2.5s1 .9 1.2 2.5c.2 1.8.4 3.2 1.7 3.2 1.4 0 2.2-1.7 2.5-4.2.3-2.7 1-4.3 1.7-6.3.7-2 .9-4.4-.6-6.4C17.7 1.8 14.1 1.5 12 3.5z" />
-                    </svg>
-                </div>
-                <h3 class="text-lg   text-coff_black">
-                    Hollywood Smile
-                </h3>
-                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-secondaryLight">
-                    A natural, bright smile<br>
-                    with premium materials.
-                </p>
-            </div>
-            <a href="#"
-                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px]   no-underline">
-                Select
-            </a>
-        </div>
-        <div
-            class="h-[177px] bg-white rounded-[12px] overflow-hidden shadow-[0_3px_9px_rgba(0,0,0,0.08)] flex flex-col">
-            <div class="flex-1 p-3">
+            class="group relative w-full h-[300px] sm:h-[300px] lg:h-[350px] overflow-hidden rounded-[30px] bg-[#d9dde0]">
+            <!-- Image -->
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-435-1.webp"
+                alt="Same-Day Dentistry" class="absolute inset-0 w-full h-full
+               object-cover
+               object-center">
 
-                <div class="w-[34px] h-[34px] rounded-[8px] bg-[#f4f4f4] flex items-center justify-center mb-[11px]">
-                    <svg class="w-[18px] h-[18px] text-primary" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 3.5c-2.1-2-5.7-1.7-7.5.7-1.5 2-1.3 4.4-.6 6.4.7 2 1.4 3.6 1.7 6.3.3 2.5 1.1 4.2 2.5 4.2 1.3 0 1.5-1.4 1.7-3.2.2-1.5.5-2.5 1.2-2.5s1 .9 1.2 2.5c.2 1.8.4 3.2 1.7 3.2 1.4 0 2.2-1.7 2.5-4.2.3-2.7 1-4.3 1.7-6.3.7-2 .9-4.4-.6-6.4C17.7 1.8 14.1 1.5 12 3.5z" />
-                    </svg>
-                </div>
+            <!-- Glass Card -->
+            <div class="absolute
+               left-[6%] right-[6%]
+               bottom-[8%]
+               min-h-[240px] lg:min-h-[288px]
+               flex flex-col items-center justify-center
+               rounded-[27px]
+               border border-white/50
+               bg-white/[0.62]
+               backdrop-blur-[14px]
+               shadow-[0_12px_35px_rgba(0,0,0,0.18)]
+               px-5 py-7
+               md:px-10">
 
-                <h3 class="text-lg   text-coff_black">
-                    Dental Implants
+                <h3 class="m-0
+                   text-[24px] sm:text-[30px] lg:text-[36px]
+                   font-bold
+                   leading-[1.15]
+                   text-[#151515]
+                   text-center">
+                    Same-Day Dentistry
                 </h3>
 
-                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-secondaryLight">
-                    Permanent<br>
-                    replacements for<br>
-                    missing teeth.
+                <p class="mt-4 mb-0
+                   max-w-[900px]
+                   text-[16px] sm:text-[19px] lg:text-[23px]
+                   leading-[1.25]
+                   font-normal
+                   text-[#171717]
+                   text-center">
+                    Same-day dentistry represents a significant advancement in
+                    dental efficiency, utilising CAD/CAM tech
                 </p>
+
+                <a href="#" class="mt-6 lg:mt-7
+                   h-[48px] lg:h-[57px]
+                   min-w-[180px] lg:min-w-[220px]
+                   inline-flex items-center justify-center
+                   rounded-full
+                   bg-white
+                   px-7
+                   text-[17px] lg:text-[20px]
+                   font-bold
+                   text-[#14a9df]
+                   no-underline
+                   shadow-[0_3px_10px_rgba(0,0,0,0.10)]
+                   transition-all duration-300
+                   hover:bg-[#14a9df]
+                   hover:text-white">
+                    See Details
+                </a>
 
             </div>
 
-            <a href="#"
-                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px]   no-underline">
-                Select
-            </a>
-
         </div>
-
-
-        <!-- CARD -->
         <div
-            class="h-[177px] bg-white rounded-[12px] overflow-hidden shadow-[0_3px_9px_rgba(0,0,0,0.08)] flex flex-col">
+            class="group relative w-full h-[300px] sm:h-[300px] lg:h-[250] overflow-hidden rounded-[30px] bg-[#d9dde0]">
+            <!-- Image -->
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-435-1.webp"
+                alt="Same-Day Dentistry" class="absolute inset-0 w-full h-full
+               object-cover
+               object-center">
 
-            <div class="flex-1 p-3">
+            <!-- Glass Card -->
+            <div class="absolute
+               left-[6%] right-[6%]
+               bottom-[8%]
+               min-h-[240px] lg:min-h-[288px]
+               flex flex-col items-center justify-center
+               rounded-[27px]
+               border border-white/50
+               bg-white/[0.62]
+               backdrop-blur-[14px]
+               shadow-[0_12px_35px_rgba(0,0,0,0.18)]
+               px-5 py-7
+               md:px-10">
 
-                <div class="w-[34px] h-[34px] rounded-[8px] bg-[#f4f4f4] flex items-center justify-center mb-[11px]">
-                    <svg class="w-[18px] h-[18px] text-primary" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 3.5c-2.1-2-5.7-1.7-7.5.7-1.5 2-1.3 4.4-.6 6.4.7 2 1.4 3.6 1.7 6.3.3 2.5 1.1 4.2 2.5 4.2 1.3 0 1.5-1.4 1.7-3.2.2-1.5.5-2.5 1.2-2.5s1 .9 1.2 2.5c.2 1.8.4 3.2 1.7 3.2 1.4 0 2.2-1.7 2.5-4.2.3-2.7 1-4.3 1.7-6.3.7-2 .9-4.4-.6-6.4C17.7 1.8 14.1 1.5 12 3.5z" />
-                    </svg>
-                </div>
-
-                <h3 class="text-lg   text-coff_black">
-                    Dental Crown
+                <h3 class="m-0
+                   text-[24px] sm:text-[30px] lg:text-[36px]
+                   font-bold
+                   leading-[1.15]
+                   text-[#151515]
+                   text-center">
+                    Same-Day Dentistry
                 </h3>
 
-                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-secondaryLight">
-                    Custom-fit restorations<br>
-                    for strength and<br>
-                    comfort.
+                <p class="mt-4 mb-0
+                   max-w-[900px]
+                   text-[16px] sm:text-[19px] lg:text-[23px]
+                   leading-[1.25]
+                   font-normal
+                   text-[#171717]
+                   text-center">
+                    Same-day dentistry represents a significant advancement in
+                    dental efficiency, utilising CAD/CAM tech
                 </p>
 
-            </div>
+                <a href="#" class="mt-6 lg:mt-7 btn-consult">
+                    See Details
+                </a>
 
-            <a href="#"
-                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px]   no-underline">
-                Select
-            </a>
+            </div>
 
         </div>
-
-
-        <!-- CARD -->
-        <div
-            class="h-[177px] bg-white rounded-[12px] overflow-hidden shadow-[0_3px_9px_rgba(0,0,0,0.08)] flex flex-col">
-
-            <div class="flex-1 p-3">
-
-                <div class="w-[34px] h-[34px] rounded-[8px] bg-[#f4f4f4] flex items-center justify-center mb-[11px]">
-                    <svg class="w-[18px] h-[18px] text-primary" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 3.5c-2.1-2-5.7-1.7-7.5.7-1.5 2-1.3 4.4-.6 6.4.7 2 1.4 3.6 1.7 6.3.3 2.5 1.1 4.2 2.5 4.2 1.3 0 1.5-1.4 1.7-3.2.2-1.5.5-2.5 1.2-2.5s1 .9 1.2 2.5c.2 1.8.4 3.2 1.7 3.2 1.4 0 2.2-1.7 2.5-4.2.3-2.7 1-4.3 1.7-6.3.7-2 .9-4.4-.6-6.4C17.7 1.8 14.1 1.5 12 3.5z" />
-                    </svg>
-                </div>
-
-                <h3 class="text-lg   text-coff_black">
-                    Veneers
-                </h3>
-
-                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-secondaryLight">
-                    Aligns teeth and jaws<br>
-                    orthodontics.
-                </p>
-
-            </div>
-
-            <a href="#"
-                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px]   no-underline">
-                Select
-            </a>
-
-        </div>
-
-
-        <!-- CARD -->
-        <div
-            class="h-[177px] bg-white rounded-[12px] overflow-hidden shadow-[0_3px_9px_rgba(0,0,0,0.08)] flex flex-col">
-
-            <div class="flex-1 p-3">
-
-                <div class="w-[34px] h-[34px] rounded-[8px] bg-[#f4f4f4] flex items-center justify-center mb-[11px]">
-                    <svg class="w-[18px] h-[18px] text-primary" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 3.5c-2.1-2-5.7-1.7-7.5.7-1.5 2-1.3 4.4-.6 6.4.7 2 1.4 3.6 1.7 6.3.3 2.5 1.1 4.2 2.5 4.2 1.3 0 1.5-1.4 1.7-3.2.2-1.5.5-2.5 1.2-2.5s1 .9 1.2 2.5c.2 1.8.4 3.2 1.7 3.2 1.4 0 2.2-1.7 2.5-4.2.3-2.7 1-4.3 1.7-6.3.7-2 .9-4.4-.6-6.4C17.7 1.8 14.1 1.5 12 3.5z" />
-                    </svg>
-                </div>
-
-                <h3 class="text-lg   text-coff_black">
-                    Teeth Whitening
-                </h3>
-
-                <p class="mt-[5px] text-[15px] leading-[1.05] italic text-secondaryLight">
-                    Removes deep stains for<br>
-                    a lasting shine.
-                </p>
-
-            </div>
-
-            <a href="#"
-                class="h-[33px] shrink-0 flex items-center justify-center bg-primary hover:bg-secondary text-white text-[12px]   no-underline">
-                Select
-            </a>
-
-        </div>
-
-
-        <!-- FIND ALL -->
-        <a href="#"
-            class="h-[177px] rounded-[12px] bg-primary hover:bg-secondary p-3 flex flex-col justify-between text-white no-underline transition-colors">
-
-            <div class="w-[34px] h-[34px] rounded-[8px] bg-white flex items-center justify-center">
-
-                <svg class="w-[18px] h-[18px] text-primary" viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M12 3.5c-2.1-2-5.7-1.7-7.5.7-1.5 2-1.3 4.4-.6 6.4.7 2 1.4 3.6 1.7 6.3.3 2.5 1.1 4.2 2.5 4.2 1.3 0 1.5-1.4 1.7-3.2.2-1.5.5-2.5 1.2-2.5s1 .9 1.2 2.5c.2 1.8.4 3.2 1.7 3.2 1.4 0 2.2-1.7 2.5-4.2.3-2.7 1-4.3 1.7-6.3.7-2 .9-4.4-.6-6.4C17.7 1.8 14.1 1.5 12 3.5z" />
-                </svg>
-
-            </div>
-
-            <span class="text-[18px] leading-[1.2] font-medium">
-                Find All<br>
-                Dental Treatments
-            </span>
-
-        </a>
 
     </div>
     <p class="text-center mt-4 text-xl text-secondaryLight">
