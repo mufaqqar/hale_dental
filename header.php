@@ -51,19 +51,14 @@
                                 Get Consultation
                             </a>
                         </div>
-                    </div>
-                    <!-- Right: CTA + language (desktop) -->
-                    <div class="hidden lg:flex items-center gap-6 shrink-0 bg-white sm:px-4 px-2 rounded-xl">
-                        <div class="lang-switch" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
-                            <span>English</span>
-                            <i class="fa-solid fa-chevron-down"></i>
-                            <div class="lang-options">
-                                <a href="#">English</a>
-                                <a href="#">Español</a>
-                                <a href="#">Français</a>
-                            </div>
+                        <div class="hidden lg:flex items-center gap-6 shrink-0">
+                            <a href="<?php echo esc_url(home_url('/free-consultation/')); ?>" class="btn-consult">
+                               Free Consultation
+                            </a>
                         </div>
                     </div>
+                    <!-- Right: CTA + language (desktop) -->
+                   
                     <!-- Mobile hamburger -->
                     <button class="menu-toggle lg:hidden text-coff_black text-2xl p-2 bg-white px-4 rounded-xl"
                         aria-label="Toggle menu" aria-expanded="false">
@@ -83,18 +78,14 @@
                     ]);
                     ?>
                     <div class="flex items-center justify-center gap-6 mt-4 pt-3 border-t border-gray-100">
-                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn-consult">
+                        <a href="<?php echo esc_url(home_url('/appointment/')); ?>" class="btn-consult">
                             Get Consultation
                         </a>
-                        <div class="lang-switch" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
-                            <span>English</span>
-                            <i class="fa-solid fa-chevron-down"></i>
-                            <div class="lang-options">
-                                <a href="#">English</a>
-                                <a href="#">Español</a>
-                                <a href="#">Français</a>
-                            </div>
-                        </div>
+                        
+                        <a href="<?php echo esc_url(home_url('/free-consultation/')); ?>" class="btn-consult">
+                               Free Consultation
+                        </a>
+                        
                     </div>
                 </div>
             </div>
