@@ -76,13 +76,13 @@ $afternoonSlots = [
 
 
                 <!-- Heading -->
-                <h2 class="mt-2 text-[29px] font-bold leading-[1.15] text-black">
+                <h2 class="mt-2 text-2xl text-black">
                     Book A 1-to-1 Consultation With a Specialist
                 </h2>
 
 
                 <!-- Description -->
-                <p class="mt-7 max-w-[620px] text-[15px]   leading-[21px] text-black">
+                <p class="mt-7 max-w-[620px] text-base text-black">
                     Speak directly with an expert, discuss your treatment options,
                     and get a clear plan – no obligation.
                 </p>
@@ -90,7 +90,7 @@ $afternoonSlots = [
 
                 <!-- CTA -->
                 <a href="#booking"
-                    class="mt-9 inline-flex w-fit items-center gap-3 text-[14px]  text-[#4380ff] underline underline-offset-2 transition hover:text-[#2165ed]">
+                    class="mt-9 inline-flex w-fit items-center gap-3 text-sm  text-secondary underline underline-offset-2 transition hover:text-primary">
                     Choose a time that works for you and take the first step toward
                     your new smile.
 
@@ -119,11 +119,11 @@ $afternoonSlots = [
                             Your appointment will be booked with
                         </span>
 
-                        <button id="selectedConsultantText" type="button" class="ml-1 text-[#5d65a7] hover:underline">
+                        <button id="selectedConsultantText" type="button" class="ml-1 text-secondary hover:underline">
                             DrLamis
                         </button>
 
-                        <button id="changeConsultant" type="button" class="ml-2 text-[#5265bd] hover:underline">
+                        <button id="changeConsultant" type="button" class="ml-2 text-secondary hover:underline">
                             Change
                         </button>
 

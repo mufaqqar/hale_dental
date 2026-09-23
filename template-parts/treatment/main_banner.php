@@ -24,7 +24,7 @@
                     receiving the latest technology, expert anesthesiologists and
                     private nurses at your hospital and hotel.
                 </p>
-                <div class="lg:mt-12 mt-10 mx-auto w-fit">
+                <div class="lg:mt-12 mt-10 md:ml-0 md:mr-auto mx-auto w-fit">
                     <a class="inline-flex rounded-[48px] px-[25px] py-[13px] text-lg bg-secondary hover:bg-primary  text-white transition hover:opacity-80"
                         href="/free-consultation/">Book
                         Book free consultation</a>

@@ -89,7 +89,7 @@ $faqs = [
                             <button
                                 type="button"
                                 class="faq-item group flex min-h-[57px] w-full items-center gap-3 px-3 text-left transition-colors duration-200
-                                <?= $index === 0 ? 'bg-[#eaf0ff]' : 'bg-white hover:bg-[#f8faff]' ?>"
+                                <?= $index === 0 ? 'bg-amber-50' : 'bg-white hover:bg-amber-50' ?>"
                                 data-index="<?= $index ?>"
                                 data-question="<?= htmlspecialchars(strtolower($faq['question'])) ?>"
                                 data-answer="<?= htmlspecialchars($faq['answer']) ?>"
@@ -98,7 +98,7 @@ $faqs = [
                                 <!-- Dot -->
                                 <span
                                     class="faq-dot flex h-[18px] w-[18px] shrink-0 rounded-full
-                                    <?= $index === 0 ? 'bg-[#6794ff]' : 'bg-[#b6caff]' ?>"
+                                    <?= $index === 0 ? 'bg-amber-200' : 'bg-amber-100' ?>"
                                 ></span>
 
                                 <!-- Question -->
@@ -128,7 +128,7 @@ $faqs = [
                     <div class="mt-3">
                         <a
                             href="#consultation"
-                            class="text-[13px]  text-[#4380ff] transition hover:text-[#2165ed]"
+                            class="text-[13px]  text-secondary transition hover:text-primary"
                         >
                             Ready to transform your smile? Schedule your consultation today!
                         </a>
@@ -140,7 +140,7 @@ $faqs = [
                 <!-- RIGHT ANSWER -->
                 <div
                     id="faqAnswer"
-                    class="min-h-[490px] rounded-[14px] bg-[#eaf0ff] px-8 py-8 lg:-ml-[34px] lg:pl-[72px]"
+                    class="min-h-[490px] rounded-[14px] bg-amber-50 px-8 py-8 lg:-ml-[34px] lg:pl-[72px]"
                 >
 
                     <div class="max-w-[310px]">
