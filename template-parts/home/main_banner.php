@@ -1,19 +1,21 @@
-<section class="relative min-h-screen w-full overflow-hidden"
-    style="max-height: 800px; background: linear-gradient(91deg, rgb(0, 70, 80) 0%, rgba(0, 70, 80, 0) 236%);">
+<section class="relative min-h-screen w-full overflow-hidden">
     <div class="absolute inset-0 z-0 overflow-hidden">
         <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline preload="auto"
-            aria-hidden="true" poster="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-poster.jpg">
-            <source src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/videos/video.mp4" type="video/mp4">
+            aria-hidden="true"
+            poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/hero-poster.jpg">
+            <source src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/video.mp4"
+                type="video/mp4">
         </video>
         <div class="absolute inset-0 z-[1]"
-            style="background: linear-gradient(91deg, rgb(0, 70, 80) 0%, rgba(0, 70, 80, 0) 236%), radial-gradient(66.49% 105.16% at 70.36% 47.07%, rgba(0, 70, 80, 0) 0%, rgba(0, 70, 80, 0.2) 100%); filter: brightness(0.5);">
+            style="background: linear-gradient(91deg, rgb(1, 3, 17, 1) 0%, rgba(0, 70, 80, 0) 236%), radial-gradient(66.49% 105.16% at 70.36% 47.07%, rgba(0, 70, 80, 0) 0%, rgba(0, 70, 80, 0.2) 100%); filter: brightness(0.5);">
         </div>
     </div>
     <div class="absolute inset-0 z-[2] flex items-center justify-center px-6 text-center text-white">
         <div class="mx-auto w-full max-w-5xl mt-32">
             <div>
                 <h1 class="md:text-5xl text-3xl  ">Your Journey To The Perfect Smile Starts Here!</h1>
-                <p class="md:text-lg text-sm mt-4">Our dental specialists in Istanbul are here to guide you. Book a complimentary
+                <p class="md:text-lg text-sm mt-4">Our dental specialists in Istanbul are here to guide you. Book a
+                    complimentary
                     consultation today.</p>
             </div>
             <div class="lg:mt-12">

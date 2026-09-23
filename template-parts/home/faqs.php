@@ -89,7 +89,7 @@ $faqs = [
                             <button
                                 type="button"
                                 class="faq-item group flex min-h-[57px] w-full items-center gap-3 px-3 text-left transition-colors duration-200
-                                <?= $index === 0 ? 'bg-[#eaf0ff]' : 'bg-white hover:bg-[#f8faff]' ?>"
+                                <?= $index === 0 ? 'bg-amber-50' : 'bg-white hover:bg-[#f8faff]' ?>"
                                 data-index="<?= $index ?>"
                                 data-question="<?= htmlspecialchars(strtolower($faq['question'])) ?>"
                                 data-answer="<?= htmlspecialchars($faq['answer']) ?>"
@@ -140,7 +140,7 @@ $faqs = [
                 <!-- RIGHT ANSWER -->
                 <div
                     id="faqAnswer"
-                    class="min-h-[490px] rounded-[14px] bg-[#eaf0ff] px-8 py-8 lg:-ml-[34px] lg:pl-[72px]"
+                    class="min-h-[490px] rounded-[14px] bg-amber-50 px-8 py-8 lg:-ml-[34px] lg:pl-[72px]"
                 >
 
                     <div class="max-w-[310px]">

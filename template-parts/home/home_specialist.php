@@ -228,7 +228,7 @@ $afternoonSlots = [
                     <?php foreach ($dates as $index => $date): ?>
 
                         <button type="button" data-date="<?= $date['day'] ?>" class="date-button group flex h-[45px] flex-1 flex-col items-center justify-center rounded-[5px] border border-[#f0f0f0] bg-white shadow-[0_1px_5px_rgba(0,0,0,0.05)] transition
-                            <?= $date['is_today'] ? 'active-date !border-[#574e8c] !bg-[#574e8c] !text-white' : '' ?>">
+                            <?= $date['is_today'] ? 'active-date !border-secondary !bg-secondary !text-white' : '' ?>">
 
                             <span class="date-number text-[12px] leading-4
                                 <?= $date['is_today'] ? 'text-white' : 'text-[#999]' ?>">
@@ -274,7 +274,7 @@ $afternoonSlots = [
                             <?php foreach ($morningSlots as $slot): ?>
 
                                 <button type="button"
-                                    class="time-slot h-[28px] rounded-[3px] border border-[#4c4290] bg-white text-[9px] text-[#423b85] transition hover:bg-[#4c4290] hover:text-white"
+                                    class="time-slot h-[28px] rounded-[3px] border border-secondary bg-white text-[9px] text-secondary transition hover:bg-secondary hover:text-white"
                                     data-time="<?= $slot ?>">
                                     <?= $slot ?>
                                 </button>
@@ -307,7 +307,7 @@ $afternoonSlots = [
                             <?php foreach ($afternoonSlots as $slot): ?>
 
                                 <button type="button"
-                                    class="time-slot h-[28px] rounded-[3px] border border-[#4c4290] bg-white text-[9px] text-[#423b85] transition hover:bg-[#4c4290] hover:text-white"
+                                    class="time-slot h-[28px] rounded-[3px] border border-secondary bg-white text-[9px] text-secondary transition hover:bg-secondary hover:text-white"
                                     data-time="<?= $slot ?>">
                                     <?= $slot ?>
                                 </button>
@@ -440,8 +440,8 @@ $afternoonSlots = [
 
                     date.classList.remove(
                         'active-date',
-                        '!border-[#574e8c]',
-                        '!bg-[#574e8c]',
+                        '!border-secondary',
+                        '!bg-secondary',
                         '!text-white'
                     );
 
@@ -464,8 +464,8 @@ $afternoonSlots = [
 
                 this.classList.add(
                     'active-date',
-                    '!border-[#574e8c]',
-                    '!bg-[#574e8c]'
+                    '!border-secondary',
+                    '!bg-secondary'
                 );
 
                 const number = this.querySelector('.date-number');
@@ -499,7 +499,7 @@ $afternoonSlots = [
                 document.querySelectorAll('.time-slot').forEach(item => {
 
                     item.classList.remove(
-                        'bg-[#4c4290]',
+                        'bg-secondary',
                         'text-white'
                     );
 
@@ -510,7 +510,7 @@ $afternoonSlots = [
                 this.classList.remove('bg-white');
 
                 this.classList.add(
-                    'bg-[#4c4290]',
+                    'bg-secondary',
                     'text-white'
                 );
 
