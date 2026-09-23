@@ -10,7 +10,7 @@ get_header(); ?>
                 <h1 class="text-3xl tracking-[-1.5px] text-coff_black sm:text-4xl md:text-5xl">
                     DETAILED ONLINE DENTAL CONSULTATION
                 </h1>
-                <p class="mt-4 text-lg font-semibold text-primary sm:text-xl">
+                <p class="mt-4 text-lg   text-primary sm:text-xl">
                     Professional Dental Consultation — €50
                 </p>
             </div>
@@ -36,7 +36,7 @@ get_header(); ?>
                      PATIENT INFORMATION
                 ================================== -->
                 <div>
-                    <h2 class="mb-4 flex items-center gap-2 text-xl font-semibold text-coff_black">
+                    <h2 class="mb-4 flex items-center gap-2 text-xl   text-coff_black">
                         <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">1</span>
                         Patient Information
                     </h2>
@@ -83,7 +83,7 @@ get_header(); ?>
                      MEDICAL INFORMATION
                 ================================== -->
                 <div>
-                    <h2 class="mb-4 flex items-center gap-2 text-xl font-semibold text-coff_black">
+                    <h2 class="mb-4 flex items-center gap-2 text-xl   text-coff_black">
                         <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">2</span>
                         Medical Information
                     </h2>
@@ -113,7 +113,7 @@ get_header(); ?>
                      DENTAL RECORDS
                 ================================== -->
                 <div>
-                    <h2 class="mb-4 flex items-center gap-2 text-xl font-semibold text-coff_black">
+                    <h2 class="mb-4 flex items-center gap-2 text-xl   text-coff_black">
                         <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">3</span>
                         Dental Records
                     </h2>
@@ -214,7 +214,7 @@ get_header(); ?>
                      CONSENT
                 ================================== -->
                 <div>
-                    <h2 class="mb-4 flex items-center gap-2 text-xl font-semibold text-coff_black">
+                    <h2 class="mb-4 flex items-center gap-2 text-xl   text-coff_black">
                         <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">4</span>
                         Consent
                     </h2>

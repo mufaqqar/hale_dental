@@ -42,7 +42,7 @@ get_header();
 
             <div class="top-28">
 
-                <h3 class="mb-4 text-[18px] font-semibold text-coff_black">
+                <h3 class="mb-4 text-[18px]   text-coff_black">
                     Article Sections
                 </h3>
 
@@ -203,7 +203,7 @@ get_header();
                             <span class="absolute -left-4 top-[11px] h-1.5 w-1.5 rounded-full bg-secondary">
                             </span>
 
-                            <strong class="font-semibold text-primary">
+                            <strong class="  text-primary">
                                 Improved Aesthetics and Confidence:
                             </strong>
 
@@ -218,7 +218,7 @@ get_header();
                             <span class="absolute -left-4 top-[11px] h-1.5 w-1.5 rounded-full bg-secondary">
                             </span>
 
-                            <strong class="font-semibold text-primary">
+                            <strong class="  text-primary">
                                 Restored Functionality for Chewing and Speaking:
                             </strong>
 
@@ -232,7 +232,7 @@ get_header();
                             <span class="absolute -left-4 top-[11px] h-1.5 w-1.5 rounded-full bg-secondary">
                             </span>
 
-                            <strong class="font-semibold text-primary">
+                            <strong class="  text-primary">
                                 Preservation of Jawbone:
                             </strong>
 
@@ -459,7 +459,7 @@ get_header();
                 <!-- Form Card -->
                 <div class="rounded-[12px] bg-white p-3">
 
-                    <h3 class="text-[17px] font-semibold leading-[1.25] text-coff_black">
+                    <h3 class="text-[17px]   leading-[1.25] text-coff_black">
                         Get a Free Initial Consultation
                     </h3>
 
@@ -553,7 +553,7 @@ get_header();
 
                         <!-- Submit -->
                         <button type="submit"
-                            class="mt-2 h-[38px] w-full rounded-[8px] bg-primary px-3 text-[13px] font-semibold text-white transition hover:opacity-90">
+                            class="mt-2 h-[38px] w-full rounded-[8px] bg-primary px-3 text-[13px]   text-white transition hover:opacity-90">
 
                             Book Online Consultation
 
@@ -602,7 +602,7 @@ get_header();
                     Frequently Asked Questions
                 </span>
 
-                <h2 class="mt-1 text-[20px] font-semibold leading-[1.2] text-coff_black sm:text-[28px]">
+                <h2 class="mt-1 text-[20px]   leading-[1.2] text-coff_black sm:text-[28px]">
                     Dental Implantstext-coff_black
                 </h2>
 
@@ -640,7 +640,7 @@ get_header();
                         class="faq-question flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
                         aria-expanded="false">
 
-                        <span class="text-[16px] font-semibold leading-[1.4] text-coff_black">
+                        <span class="text-[16px]   leading-[1.4] text-coff_black">
                             How long does the dental implant process take?
                         </span>
 
@@ -668,7 +668,7 @@ get_header();
                         class="faq-question flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
                         aria-expanded="false">
 
-                        <span class="text-[16px] font-semibold leading-[1.4] text-coff_black">
+                        <span class="text-[16px]   leading-[1.4] text-coff_black">
                             What happens if I don't have enough bone for implants?
                         </span>
 
@@ -696,7 +696,7 @@ get_header();
                         class="faq-question flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
                         aria-expanded="false">
 
-                        <span class="text-[16px] font-semibold leading-[1.4] text-coff_black">
+                        <span class="text-[16px]   leading-[1.4] text-coff_black">
                             Are dental implants suitable for people with medical conditions?
                         </span>
 
@@ -724,7 +724,7 @@ get_header();
                         class="faq-question flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
                         aria-expanded="false">
 
-                        <span class="text-[16px] font-semibold leading-[1.4] text-coff_black">
+                        <span class="text-[16px]   leading-[1.4] text-coff_black">
                             How should I care for my dental implants to ensure they last?
                         </span>
 
@@ -752,7 +752,7 @@ get_header();
                         class="faq-question flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
                         aria-expanded="false">
 
-                        <span class="text-[16px] font-semibold leading-[1.4] text-coff_black">
+                        <span class="text-[16px]   leading-[1.4] text-coff_black">
                             Can dental implants replace all of my teeth and how does it work?
                         </span>
 
@@ -781,7 +781,7 @@ get_header();
                         class="faq-question flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
                         aria-expanded="false">
 
-                        <span class="text-[16px] font-semibold leading-[1.4] text-coff_black">
+                        <span class="text-[16px]   leading-[1.4] text-coff_black">
                             What is the success rate of dental implants?
                         </span>
 

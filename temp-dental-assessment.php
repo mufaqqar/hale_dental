@@ -33,7 +33,7 @@ get_header(); ?>
                      PATIENT INFORMATION
                 ================================== -->
                 <div>
-                    <h2 class="mb-4 flex items-center gap-2 text-xl font-semibold text-coff_black">
+                    <h2 class="mb-4 flex items-center gap-2 text-xl   text-coff_black">
                         <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">1</span>
                         Patient Information
                     </h2>
@@ -70,7 +70,7 @@ get_header(); ?>
                      DENTAL INFORMATION
                 ================================== -->
                 <div>
-                    <h2 class="mb-4 flex items-center gap-2 text-xl font-semibold text-coff_black">
+                    <h2 class="mb-4 flex items-center gap-2 text-xl   text-coff_black">
                         <span class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">2</span>
                         Dental Information
                     </h2>
@@ -97,7 +97,7 @@ get_header(); ?>
 
                         <!-- Queue preview -->
                         <div id="assessment_photo_queue" class="mt-3 hidden">
-                            <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-secondaryLight">Selected photos</p>
+                            <p class="mb-2 text-xs   uppercase tracking-wide text-secondaryLight">Selected photos</p>
                             <ul id="assessment_photo_list" class="grid grid-cols-2 gap-2 sm:grid-cols-3"></ul>
                         </div>
 

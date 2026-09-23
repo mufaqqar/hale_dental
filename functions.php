@@ -768,7 +768,7 @@ function hale_generate_toc_from_content( $raw_content ) {
     // Build TOC HTML
     $toc_html = '';
     if ( ! empty( $toc_items ) ) {
-        $toc_html .= '<h3 class="mb-4 text-[18px] font-semibold text-coff_black">Article Sections</h3>';
+        $toc_html .= '<h3 class="mb-4 text-[18px]   text-coff_black">Article Sections</h3>';
         $toc_html .= '<nav class="overflow-y-auto pr-2"><ul class="space-y-0">';
 
         foreach ( $toc_items as $item ) {

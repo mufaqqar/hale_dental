@@ -191,7 +191,7 @@ $article_html = $parsed['content'];
         <div class="grid items-center gap-10 lg:grid-cols-12">
             <div class="lg:col-span-6">
                 <h2
-                    class="text-center font-serif text-[28px] leading-[1.2] font-semibold text-white md:text-[52px] lg:text-left">
+                    class="text-center font-serif text-[28px] leading-[1.2]   text-white md:text-[52px] lg:text-left">
                     <span class="">Rhinoplasty Cost Turkey:</span><br>How Much is the All-Inclusive
                     Package?
                 </h2>
@@ -271,7 +271,7 @@ $article_html = $parsed['content'];
 <section class="bg-[linear-gradient(180deg,#f3f3f3_0%,#ffffff_100%)] py-16">
     <div class="container mx-auto px-4">
         <div class="mx-auto max-w-3xl text-center">
-            <h2 class="font-serif text-[28px] leading-[1.2] font-semibold text-secondary md:text-[52px]"><span
+            <h2 class="font-serif text-[28px] leading-[1.2]   text-secondary md:text-[52px]"><span
                     class="">Rhinoplasty Packages</span> <!-- -->in Turkey</h2>
             <p class="mt-5 text-base text-secondaryLight">Most Turkish clinics offer all-inclusive travel
                 packages, so there are no hidden costs. However, consider that rhinoplasty shouldn’t be done on a
@@ -281,7 +281,7 @@ $article_html = $parsed['content'];
         </div>
         <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div class="relative rounded-[20px] border p-6 border-primary/10 bg-white">
-                <h3 class="font-serif text-xl font-semibold text-secondary">Free - Rider</h3>
+                <h3 class="font-serif text-xl   text-secondary">Free - Rider</h3>
                 <div class="mt-1 text-base  text-secondaryLight">Package</div>
                 <ul class="mt-5 space-y-3">
                     <li class="flex items-start gap-2 text-sm text-secondaryLight">
@@ -346,7 +346,7 @@ $article_html = $parsed['content'];
             </div>
             <div
                 class="relative rounded-[20px] border p-6 border-secondary bg-secondary shadow-[0_20px_50px_rgba(0,0,0,0.2)]">
-                <h3 class="font-serif text-xl font-semibold text-white">Touristic</h3>
+                <h3 class="font-serif text-xl   text-white">Touristic</h3>
                 <div class="mt-1 text-base  text-secondary">Package</div>
                 <ul class="mt-5 space-y-3">
                     <li class="flex items-start gap-2 text-[14px] text-white/90">
@@ -410,7 +410,7 @@ $article_html = $parsed['content'];
                     Appointment</a>
             </div>
             <div class="relative rounded-[20px] border p-6 border-primary/10 bg-white">
-                <h3 class="font-serif text-xl font-semibold text-secondary">VIP</h3>
+                <h3 class="font-serif text-xl   text-secondary">VIP</h3>
                 <div class="mt-1 text-base  text-secondaryLight">Package</div>
                 <ul class="mt-5 space-y-3">
                     <li class="flex items-start gap-2 text-sm text-secondaryLight">
@@ -467,7 +467,7 @@ $article_html = $parsed['content'];
                     Appointment</a>
             </div>
             <div class="relative rounded-[20px] border p-6 border-primary/10 bg-white">
-                <h3 class="font-serif text-xl font-semibold text-secondary">Standard</h3>
+                <h3 class="font-serif text-xl   text-secondary">Standard</h3>
                 <div class="mt-1 text-base  text-secondaryLight">Package</div>
                 <ul class="mt-5 space-y-3">
                     <li class="flex items-start gap-2 text-sm text-secondaryLight">
