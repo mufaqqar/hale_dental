@@ -47,7 +47,7 @@
                         </nav>
                         <!-- Right: CTA + language (desktop) -->
                         <div class="hidden lg:flex items-center gap-6 shrink-0">
-                            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn-consult">
+                            <a href="<?php echo esc_url(home_url('/appointment/')); ?>" class="btn-consult">
                                 Get Consultation
                             </a>
                         </div>
