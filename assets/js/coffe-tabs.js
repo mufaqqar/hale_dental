@@ -898,7 +898,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (itemIndex === index) {
 
                 item.classList.remove('bg-white');
-                item.classList.add('bg-[#eaf0ff]');
+                item.classList.add('bg-amber-50');
 
                 dot.classList.remove('bg-[#b6caff]');
                 dot.classList.add('bg-[#6794ff]');
@@ -907,7 +907,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             } else {
 
-                item.classList.remove('bg-[#eaf0ff]');
+                item.classList.remove('bg-amber-50');
                 item.classList.add('bg-white');
 
                 dot.classList.remove('bg-[#6794ff]');
