@@ -5,7 +5,7 @@
         <div class="grid lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] md:grid-cols-2 grid-cols-1 gap-10">
             <div>
                 <a href="<?php echo home_url(); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png"
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/dental-logo.png"
                         alt="Ilam Din Dental - Dental Clinic in Istanbul" class="w-56 mb-8">
                 </a>
 

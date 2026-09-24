@@ -22,12 +22,12 @@
                                 </a>
                             <?php else: ?>
                                 <a href="<?php echo esc_url(home_url('/')); ?>" class="sm:inline-flex hidden items-center ">
-                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png"
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/dental-logo.png"
                                         alt="Ilam Din Dental - Dental Clinic in Istanbul" height="54" width="72" />
                                 </a>
                                 <a href="<?php echo esc_url(home_url('/')); ?>"
                                     class="sm:hidden inline-flex items-center sm:h-[54px]">
-                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/logo.png"
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/dental-logo.png"
                                         alt="Ilam Din Dental - Dental Clinic in Istanbul" height="30" width="42" />
                                 </a>
                             <?php endif; ?>

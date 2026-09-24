@@ -427,7 +427,7 @@ $stats = [
                                     rounded-full
                                     border
                                     border-white/20
-                                    bg-[#2a3d52]
+                                    bg-white/20
                                     px-5
                                     pr-12
                                     text-[13px]
