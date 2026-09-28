@@ -1090,16 +1090,16 @@ h1,
   bottom: 0px;
 }
 
+.\!bottom-3 {
+  bottom: 0.75rem !important;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
 
 .bottom-\[-100px\] {
   bottom: -100px;
-}
-
-.bottom-\[8\%\] {
-  bottom: 8%;
 }
 
 .left-0 {
@@ -1132,10 +1132,6 @@ h1,
 
 .left-\[50\%\] {
   left: 50%;
-}
-
-.left-\[6\%\] {
-  left: 6%;
 }
 
 .left-\[8\%\] {
@@ -1172,10 +1168,6 @@ h1,
 
 .right-\[18\%\] {
   right: 18%;
-}
-
-.right-\[6\%\] {
-  right: 6%;
 }
 
 .right-\[8px\] {
@@ -1216,14 +1208,6 @@ h1,
 
 .top-\[7px\] {
   top: 7px;
-}
-
-.bottom-3 {
-  bottom: 0.75rem;
-}
-
-.\!bottom-3 {
-  bottom: 0.75rem !important;
 }
 
 .z-0 {
@@ -1727,10 +1711,6 @@ h1,
   min-height: 230px;
 }
 
-.min-h-\[240px\] {
-  min-height: 240px;
-}
-
 .min-h-\[24px\] {
   min-height: 24px;
 }
@@ -2050,10 +2030,6 @@ h1,
 
 .max-w-\[430px\] {
   max-width: 430px;
-}
-
-.max-w-\[480px\] {
-  max-width: 480px;
 }
 
 .max-w-\[505px\] {
@@ -2925,10 +2901,6 @@ h1,
 
 .bg-white\/95 {
   background-color: rgb(255 255 255 / 0.95);
-}
-
-.bg-white\/\[0\.62\] {
-  background-color: rgb(255 255 255 / 0.62);
 }
 
 .bg-yellow-50 {
@@ -4989,6 +4961,10 @@ h1,
     margin-left: auto;
   }
 
+  .md\:mr-0 {
+    margin-right: 0px;
+  }
+
   .md\:mr-auto {
     margin-right: auto;
   }
@@ -5112,11 +5088,6 @@ h1,
   .md\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
-  }
-
-  .md\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
   }
 
   .md\:px-12 {
@@ -5262,16 +5233,8 @@ h1,
     margin-left: -34px;
   }
 
-  .lg\:ml-auto {
-    margin-left: auto;
-  }
-
   .lg\:mt-12 {
     margin-top: 3rem;
-  }
-
-  .lg\:mt-7 {
-    margin-top: 1.75rem;
   }
 
   .lg\:block {
@@ -5290,16 +5253,8 @@ h1,
     display: none;
   }
 
-  .lg\:h-\[350px\] {
-    height: 350px;
-  }
-
   .lg\:h-\[450px\] {
     height: 450px;
-  }
-
-  .lg\:min-h-\[288px\] {
-    min-height: 288px;
   }
 
   .lg\:min-h-\[560px\] {
@@ -5352,6 +5307,10 @@ h1,
 
   .lg\:grid-cols-\[minmax\(0\2c 1fr\)_310px\] {
     grid-template-columns: minmax(0,1fr) 310px;
+  }
+
+  .lg\:grid-cols-\[minmax\(0\2c 1fr\)_680px\] {
+    grid-template-columns: minmax(0,1fr) 680px;
   }
 
   .lg\:grid-cols-\[minmax\(0\2c 1fr\)_480px\] {

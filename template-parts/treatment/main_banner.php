@@ -1,18 +1,21 @@
-<section class="relative min-h-[750px] h-full w-full overflow-hidden "
-    style="background: linear-gradient(91deg, rgb(0, 70, 80) 0%, rgba(0, 70, 80, 0) 236%);">
+<section class="relative min-h-[750px] h-full w-full overflow-hidden ">
     <div class="absolute inset-0 z-0 overflow-hidden">
         <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline preload="auto"
             aria-hidden="true"
             poster="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/hero-poster.jpg">
             <source src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/videos/video.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-0 z-[1]"
-            style="background: linear-gradient(91deg, rgb(0, 70, 80) 0%, rgba(0, 70, 80, 0) 236%), radial-gradient(66.49% 105.16% at 70.36% 47.07%, rgba(0, 70, 80, 0) 0%, rgba(0, 70, 80, 0.2) 100%); filter: brightness(0.5);">
+        <div class="absolute inset-0 z-[1] bg-secondary opacity-[0.78]">
         </div>
     </div>
     <div class="relative z-10 w-full">
-        <div class="container mx-auto px-4 w-full pt-40 pb-12 h-full flex md:flex-row flex-col gap-6 items-center">
-            <div class="md:w-1/2 w-full text-white sm:text-left text-center">
+        <div class="container mx-auto px-4  grid
+                grid-cols-1
+                lg:grid-cols-[minmax(0,1fr)_480px]
+                gap-10
+                lg:gap-12
+                items-center pt-40 pb-12 h-full">
+            <div class="text-white sm:text-left text-center">
                 <h1 class="md:text-5xl text-3xl">
                     Awarded Rhinoplasty
                     <br>
@@ -30,88 +33,282 @@
                         Book free consultation</a>
                 </div>
             </div>
-            <div class="md:w-1/2 w-full">
+            <div class="">
                 <!-- =========================
                     CONSULTATION FORM
                 ========================= -->
-                <div class="w-full max-w-[505px] rounded-[24px] bg-secondary px-8 py-8 shadow-2xl md:px-8 md:py-8">
+                <div class="
+                    w-full
+                    md:ml-auto
+                    md:mr-0
+                    rounded-[24px]
+                    border
+                    border-white/30
+                    bg-secondary/75
+                    backdrop-blur-[14px]
+                    shadow-[0_15px_50px_rgba(0,0,0,0.20)]
+                    p-5
+                    sm:p-7
+                    lg:p-7
+                ">
 
-                    <form action="#" method="POST" class="w-full">
+                    <form action="" method="post" class="space-y-3">
 
                         <!-- Name -->
-                        <div class="mb-3">
-                            <input type="text" name="name" placeholder="Name Surname"
-                                class="sm:h-[55px] h-[40px] w-full rounded-full border border-white/30 bg-transparent px-6 text-sm placeholder:text-white text-white outline-none focus:border-white/60"
-                                required>
+                        <div>
+                            <label for="implant-name" class="sr-only">
+                                Name Surname
+                            </label>
+
+                            <input id="implant-name" type="text" name="name" placeholder="Name Surname" required class="
+                                w-full
+                                h-[50px]
+                                rounded-full
+                                border
+                                border-white/20
+                                bg-white/10
+                                px-5
+                                text-[13px]
+                                text-white
+                                placeholder:text-white/55
+                                outline-none
+                                transition-all
+                                duration-300
+                                focus:border-white/50
+                                focus:bg-white/15
+                            ">
                         </div>
+
 
                         <!-- Phone -->
-                        <div class="mb-3">
-                            <div
-                                class="flex sm:h-[55px] h-[40px] w-full items-center rounded-full border border-white/30 bg-transparent px-6">
+                        <div class="relative">
 
-                                <!-- Pakistan Flag -->
-                                <span class="mr-2 flex items-center gap-1 text-sm placeholder:text-white text-white">
+                            <label for="implant-phone" class="sr-only">
+                                Phone
+                            </label>
+
+                            <div class="
+                                flex
+                                items-center
+                                w-full
+                                h-[50px]
+                                rounded-full
+                                border
+                                border-white/20
+                                bg-white/10
+                                overflow-hidden
+                                focus-within:border-white/50
+                            ">
+
+                                <div class="
+                                    flex
+                                    items-center
+                                    gap-2
+                                    pl-5
+                                    pr-2
+                                    shrink-0
+                                    text-[13px]
+                                    text-white
+                                ">
                                     <span class="text-[17px]">🇵🇰</span>
                                     <span>+92</span>
-                                </span>
+                                </div>
 
-                                <input type="tel" name="phone" placeholder=""
-                                    class="h-full min-w-0 flex-1 bg-transparent text-sm placeholder:text-white text-white outline-none"
-                                    required>
+                                <input id="implant-phone" type="tel" name="phone" placeholder="Phone number" required
+                                    class="
+                                    flex-1
+                                    h-full
+                                    bg-transparent
+                                    border-0
+                                    outline-none
+                                    px-2
+                                    pr-5
+                                    text-[13px]
+                                    text-white
+                                    placeholder:text-white/55
+                                ">
+
                             </div>
+
                         </div>
+
 
                         <!-- Email -->
-                        <div class="mb-3">
-                            <input type="email" name="email" placeholder="E-mail"
-                                class="sm:h-[55px] h-[40px] w-full rounded-full border border-white/30 bg-transparent px-6 text-sm placeholder:text-white text-white outline-none focus:border-white/60"
-                                required>
+                        <div>
+
+                            <label for="implant-email" class="sr-only">
+                                E-mail
+                            </label>
+
+                            <input id="implant-email" type="email" name="email" placeholder="E-mail" required class="
+                                w-full
+                                h-[50px]
+                                rounded-full
+                                border
+                                border-white/20
+                                bg-white/10
+                                px-5
+                                text-[13px]
+                                text-white
+                                placeholder:text-white/55
+                                outline-none
+                                transition-all
+                                duration-300
+                                focus:border-white/50
+                                focus:bg-white/15
+                            ">
+
                         </div>
 
-                        <!-- Treatment -->
-                        <div class="mb-3">
-                            <select name="treatment"
-                                class="sm:h-[55px] h-[40px] w-full appearance-none rounded-full border border-white/30 bg-transparent px-6 text-sm placeholder:text-white font-medium text-white outline-none focus:border-white/60"
-                                required>
-                                <option value="Rhinoplasty" selected class="bg-secondary">
-                                    Rhinoplasty
-                                </option>
-                                <option value="Hair Transplant" class="bg-secondary">
-                                    Hair Transplant
-                                </option>
-                                <option value="Dentistry" class="bg-secondary">
-                                    Dentistry
-                                </option>
-                                <option value="Breast Surgery" class="bg-secondary">
-                                    Breast Surgery
-                                </option>
-                            </select>
+
+                        <!-- Service -->
+                        <div>
+
+                            <label for="implant-service" class="sr-only">
+                                Select Service
+                            </label>
+
+                            <div class="relative">
+
+                                <select id="implant-service" name="service" required class="
+                                    appearance-none
+                                    w-full
+                                    h-[50px]
+                                    rounded-full
+                                    border
+                                    border-white/20
+                                    bg-white/20
+                                    px-5
+                                    pr-12
+                                    text-[13px]
+                                    text-white/60
+                                    outline-none
+                                    focus:border-white/50
+                                ">
+                                    <option value="" selected disabled>
+                                        Select Service
+                                    </option>
+
+                                    <option value="single-implant">
+                                        Single Dental Implant
+                                    </option>
+
+                                    <option value="all-on-4">
+                                        All-on-4 Dental Implants
+                                    </option>
+
+                                    <option value="all-on-6">
+                                        All-on-6 Dental Implants
+                                    </option>
+
+                                    <option value="veneers">
+                                        Dental Veneers
+                                    </option>
+
+                                    <option value="crowns">
+                                        Dental Crowns
+                                    </option>
+
+                                </select>
+
+                                <!-- Arrow -->
+                                <svg class="
+                                    pointer-events-none
+                                    absolute
+                                    right-5
+                                    top-1/2
+                                    -translate-y-1/2
+                                    w-4
+                                    h-4
+                                    text-white/60
+                                " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg>
+
+                            </div>
+
                         </div>
+
 
                         <!-- Message -->
-                        <div class="mb-4">
-                            <input type="text" name="topic" placeholder="Please specify the topic:"
-                                class="sm:h-[55px] h-[40px] w-full rounded-full border border-white/30 bg-transparent px-6 text-sm placeholder:text-white text-white outline-none focus:border-white/60">
+                        <div>
+
+                            <label for="implant-message" class="sr-only">
+                                Please specify the topic
+                            </label>
+
+                            <input id="implant-message" type="text" name="message"
+                                placeholder="Please specify the topic..." class="
+                                w-full
+                                h-[50px]
+                                rounded-full
+                                border
+                                border-white/20
+                                bg-white/10
+                                px-5
+                                text-[13px]
+                                text-white
+                                placeholder:text-white/55
+                                outline-none
+                                transition-all
+                                duration-300
+                                focus:border-white/50
+                                focus:bg-white/15
+                            ">
+
                         </div>
 
+
                         <!-- Consent -->
-                        <div class="mb-5 flex items-start gap-3">
+                        <div class="
+                            flex
+                            items-start
+                            gap-2
+                            pt-2
+                        ">
 
-                            <input id="consent" type="checkbox" name="consent" required
-                                class="mt-[2px] h-[14px] w-[14px] shrink-0 cursor-pointer accent-primary">
+                            <input id="implant-consent" type="checkbox" name="consent" required class="
+                                mt-[3px]
+                                shrink-0
+                                w-[13px]
+                                h-[13px]
+                                accent-coffGreen
+                                cursor-pointer
+                            ">
 
-                            <label for="consent" class="cursor-pointer text-xs italic leading-[1.35] text-white/90">
-                                I agree to receive treatment information, special offers, and follow-up
-                                communications from Natural Clinic via email and other digital channels.
-                                I understand I can unsubscribe at any time.
+                            <label for="implant-consent" class="
+                                text-[9px]
+                                sm:text-[10px]
+                                leading-[1.35]
+                                italic
+                                text-white/75
+                                cursor-pointer
+                            ">
+                                I agree to receive treatment information, special
+                                offers, and follow-up communications from Ilam Din
+                                Dental via email and other digital channels. I
+                                understand I can unsubscribe at any time.
                             </label>
 
                         </div>
 
+
                         <!-- Submit -->
-                        <button type="submit"
-                            class="h-[53px] w-full rounded-full bg-primary hover:bg-white hover:text-primary hover:border-primary px-6 text-base text-white transition-all duration-300 hover:shadow-lg">
+                        <button type="submit" class="
+                            w-full
+                            h-[48px]
+                            mt-2
+                            rounded-full
+                            bg-coffGreen
+                            hover:bg-[#3459c9]
+                            text-white
+                            text-[14px]
+                            font-semibold
+                            transition-all
+                            duration-300
+                            shadow-[0_5px_20px_rgba(0,0,0,0.12)]
+                            hover:shadow-[0_8px_25px_rgba(0,0,0,0.20)]
+                        ">
                             Apply now
                         </button>
 

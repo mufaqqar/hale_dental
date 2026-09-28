@@ -6,7 +6,7 @@ $banner_content = $banner_info['content'] ?? '';
 $banner_link    = $banner_info['link'] ?? '';
 ?>
 
-<section class="relative min-h-screen w-full overflow-hidden">
+<section class="relative min-h-[750px] h-full w-full overflow-hidden ">
 
     <!-- Background Video -->
     <div class="absolute inset-0 z-0 overflow-hidden">
@@ -22,8 +22,7 @@ $banner_link    = $banner_info['link'] ?? '';
 
         <!-- Overlay -->
         <div
-            class="absolute inset-0 z-[1]"
-            style="background: linear-gradient(91deg, rgb(1, 3, 17, 1) 0%, rgba(0, 70, 80, 0) 236%), radial-gradient(66.49% 105.16% at 70.36% 47.07%, rgba(0, 70, 80, 0) 0%, rgba(0, 70, 80, 0.2) 100%); filter: brightness(0.5);">
+            class="absolute inset-0 z-[1] bg-secondary opacity-[0.78]">
         </div>
 
     </div>

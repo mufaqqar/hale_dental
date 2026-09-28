@@ -73,12 +73,9 @@ $stats = [
     <div class="
             relative
             z-10
-            w-full
-            max-w-[1200px]
+            container
             mx-auto
-            px-5
-            sm:px-8
-            lg:px-10
+            px-4
             py-12
             lg:py-14
         ">
@@ -290,8 +287,8 @@ $stats = [
             ========================== -->
             <div class="
                     w-full
-                    max-w-[480px]
-                    lg:ml-auto
+                    md:ml-auto
+                    md:mr-0
                     rounded-[24px]
                     border
                     border-white/30
