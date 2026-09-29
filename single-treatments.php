@@ -17,145 +17,303 @@ $article_html = $parsed['content'];
 <?php get_template_part('template-parts/treatment/about'); ?>
 <?php get_template_part('template-parts/home/cta'); ?>
 <?php get_template_part('template-parts/home/customerstory'); ?>
-<section class="bg-primary py-16">
-    <div class="container mx-auto px-4 flex md:flex-row flex-col gap-6 items-center">
-        <div class="md:w-1/2 w-full">
-            <div class="relative w-full overflow-hidden rounded-xl aspect-video">
-                <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/watch?v=vUHfclgd5qE"
-                    title="Video" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
+<?php
+/*
+ * Video Section
+ */
+$video_section = get_field('video_section');
+
+if ($video_section):
+
+    $video_title = $video_section['title'] ?? '';
+    $video_description = $video_section['description'] ?? '';
+    $video_url = $video_section['videourl'] ?? '';
+
+    ?>
+
+    <section class="bg-primary py-16">
+        <div class="container mx-auto px-4 flex md:flex-row flex-col gap-6 items-center">
+
+            <!-- Video -->
+            <?php if ($video_url): ?>
+
+                <div class="md:w-1/2 w-full">
+                    <div class="relative w-full overflow-hidden rounded-xl aspect-video">
+
+                        <?php
+                        /*
+                         * Convert normal YouTube URLs into embed URLs.
+                         *
+                         * Example:
+                         * https://www.youtube.com/watch?v=vUHfclgd5qE
+                         *
+                         * becomes:
+                         * https://www.youtube.com/embed/vUHfclgd5qE
+                         */
+                        $embed_url = $video_url;
+
+                        if (strpos($video_url, 'youtube.com/watch') !== false) {
+
+                            $youtube_id = '';
+
+                            parse_str(
+                                parse_url($video_url, PHP_URL_QUERY) ?? '',
+                                $youtube_params
+                            );
+
+                            if (!empty($youtube_params['v'])) {
+                                $youtube_id = $youtube_params['v'];
+                            }
+
+                            if ($youtube_id) {
+                                $embed_url = 'https://www.youtube.com/embed/' . $youtube_id;
+                            }
+
+                        } elseif (strpos($video_url, 'youtu.be/') !== false) {
+
+                            $youtube_id = trim(
+                                parse_url($video_url, PHP_URL_PATH),
+                                '/'
+                            );
+
+                            if ($youtube_id) {
+                                $embed_url = 'https://www.youtube.com/embed/' . $youtube_id;
+                            }
+                        }
+                        ?>
+
+                        <iframe class="absolute inset-0 h-full w-full" src="<?php echo esc_url($embed_url); ?>"
+                            title="<?php echo esc_attr($video_title ?: 'Video'); ?>" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+                </div>
+
+            <?php endif; ?>
+
+
+            <!-- Content -->
+            <div class="md:w-1/2 w-full">
+
+                <?php if ($video_title): ?>
+                    <h2 class="md:text-5xl text-3xl text-white tracking-tight">
+                        <?php echo esc_html($video_title); ?>
+                    </h2>
+                <?php endif; ?>
+
+                <?php if ($video_description): ?>
+                    <div class="text-lg text-white leading-relaxed max-w-xl mt-4">
+                        <?php echo wp_kses_post($video_description); ?>
+                    </div>
+                <?php endif; ?>
+
             </div>
+
         </div>
-        <div class="md:w-1/2 w-full">
-            <h2 class="md:text-5xl text-3xl text-white tracking-tight">
-                At a Glance:
-                Your Rhinoplasty Abroad
-            </h2>
-            <p class="text-lg text-white leading-relaxed max-w-xl">
-                With 56,650 nose surgeries in 2022 according to ISAPS, Turkey is the 2nd country in the world in number
-                of
-                rhinoplasties, only behind Brazil. This trend has turned Turkish plastic surgeons into some of the most
-                skilled in the world in the last 15 years. Due to ever-growing demand, Turkish clinics have become
-                expert
-                hosts on top of impeccable plastic surgeons. Natural Clinic’s Turkey rhinoplasty package ensures a
-                seamless
-                experience and all-inclusive travel:
-            </p>
+    </section>
+
+<?php endif; ?>
+
+
+<?php
+/*
+ * Sniffing Section
+ */
+$sniffing_section = get_field('sniffing_section');
+
+if ($sniffing_section):
+
+    $sniffing_title = $sniffing_section['title'] ?? '';
+    $sniffing_description = $sniffing_section['description'] ?? '';
+    $sniffing_image = $sniffing_section['image'] ?? '';
+    $sniffing_cards = $sniffing_section['card'] ?? [];
+
+    ?>
+
+    <section class="bg-white py-16">
+
+        <div class="container mx-auto px-4">
+
+            <!-- Top Content -->
+            <div class="grid items-center gap-10 lg:grid-cols-12">
+
+                <?php if ($sniffing_image): ?>
+
+                    <div class="hidden lg:col-span-4 lg:block">
+
+                        <img src="<?php echo esc_url($sniffing_image); ?>" alt="<?php echo esc_attr($sniffing_title); ?>"
+                            class="w-full rounded-[20px] object-cover" />
+
+                    </div>
+
+                <?php endif; ?>
+
+
+                <div class="<?php echo $sniffing_image ? 'lg:col-span-8' : 'lg:col-span-12'; ?>">
+
+                    <?php if ($sniffing_title): ?>
+
+                        <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
+                            <?php echo nl2br(esc_html($sniffing_title)); ?>
+                        </h2>
+
+                    <?php endif; ?>
+
+
+                    <?php if ($sniffing_description): ?>
+
+                        <div class="mt-5 text-base text-secondaryLight">
+                            <?php echo wp_kses_post($sniffing_description); ?>
+                        </div>
+
+                    <?php endif; ?>
+
+                </div>
+
+            </div>
+
+
+            <!-- Cards -->
+            <?php if (!empty($sniffing_cards)): ?>
+
+                <div class="mt-8 grid gap-6 md:grid-cols-2">
+
+                    <?php foreach ($sniffing_cards as $card):
+
+                        $card_title = $card['title'] ?? '';
+                        $card_subtitle = $card['subtitle'] ?? '';
+                        $card_description = $card['description'] ?? '';
+
+                        ?>
+
+                        <div class="rounded-2xl border border-secondary/10 bg-amber-50 p-6 md:p-8">
+
+                            <?php if ($card_title): ?>
+
+                                <h4 class="text-xl text-coff_black mb-3">
+                                    <?php echo esc_html($card_title); ?>
+                                </h4>
+
+                            <?php endif; ?>
+
+
+                            <?php if ($card_subtitle): ?>
+
+                                <h5 class="text-sm">
+                                    <?php echo esc_html($card_subtitle); ?>
+                                </h5>
+
+                            <?php endif; ?>
+
+
+                            <?php if ($card_description): ?>
+
+                                <div class="mt-3 text-base text-secondaryLight">
+                                    <?php echo wp_kses_post($card_description); ?>
+                                </div>
+
+                            <?php endif; ?>
+
+                        </div>
+
+                    <?php endforeach; ?>
+
+                </div>
+
+            <?php endif; ?>
+
         </div>
-    </div>
-</section>
-<section class="bg-white py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid items-center gap-10 lg:grid-cols-12">
-            <div class="hidden lg:col-span-4 lg:block">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-433.webp"
-                    alt="Nasal reshaping techniques" class="w-full rounded-[20px] object-cover" />
-            </div>
-            <div class="lg:col-span-8">
-                <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
-                    Sniffing Out <br>2 Nasal Reshaping Techniques</h2>
-                <p class="mt-5 text-base text-secondaryLight">Modern medicine has developed 2 nose surgery
-                    techniques, employed by cosmetic surgeons all around the world.</p>
-                <p class="mt-3 text-base text-secondaryLight">Depending on the patient’s preferences and
-                    condition, one technique might be better than the other. Important considerations include the
-                    patient’s nose type and the budget allocated to the rhinoplasty cost Turkey.</p>
-            </div>
-        </div>
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
-            <div class="rounded-2xl border border-secondary/10 bg-amber-50 p-6 md:p-8">
-                <h4 class="text-xl text-coff_black mb-3">Open Rhinoplasty</h4>
-                <h5 class="text-sm ">Technique</h5>
-                <p class="mt-3 text-base  text-secondaryLight">The open rhinoplasty technique involves an
-                    incision between the nostrils (columella), allowing for maximum visibility and full access to the
-                    underlying tissue by the surgeon.</p>
-                <p class="mt-3 text-base  text-secondaryLight">This technique allows for greater plastic
-                    flexibility and more accurate results. On the downside, it requires a longer recovery time due to
-                    incisions. Scars and swelling will also be initially more visible.</p>
-            </div>
-            <div class="rounded-2xl border border-secondary/10 bg-amber-50 p-6 md:p-8">
-                <h4 class="text-xl text-coff_black mb-3">Closed Or Endonasal</h4>
-                <h5 class="text-sm ">Rhinoplasty</h5>
-                <p class="mt-3 text-base  text-secondaryLight">The closed or endonasal technique does not
-                    involve incisions, as all plastic manipulation is performed by accessing the underlying tissue
-                    through the nostrils. This technique allows for minimal scarring and swelling. It also has a shorter
-                    recovery time. However, it limits the surgeon’s visibility, and does not allow for all types of
-                    plastic changes.</p>
-            </div>
-        </div>
-    </div>
-</section>
+
+    </section>
+
+<?php endif; ?>
 <?php get_template_part('template-parts/home/cta'); ?>
 
-<section class="bg-white py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid items-center gap-10 lg:grid-cols-12">
-            <div class="lg:col-span-7">
-                <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
-                    Are You Suitable for Rhinoplasty?</h2>
-                <p class="mt-5 text-base text-secondaryLight">Rhinoplasty surgery can have very positive results
-                    under certain conditions.</p>
-                <div class="mt-5 rounded-[16px] border border-secondary bg-white p-5">
-                    <h4 class="text-secondary">The ideal candidate includes:</h4>
-                    <ul class="mt-2 space-y-2 text-base yLight">
-                        <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5"
-                                class="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true">
-                                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                            <span>Patients who have achieved full facial growth</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5"
-                                class="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true">
-                                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                            <span>Patients in good overall health</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5"
-                                class="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true">
-                                <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                            <span>Patients with clear, realistic expectations</span>
-                        </li>
-                    </ul>
+<?php
+$suitable_section = get_field('suitable_section');
+
+if (!empty($suitable_section)):
+
+    $title = $suitable_section['title'] ?? '';
+    $description = $suitable_section['description'] ?? '';
+    $image = $suitable_section['image'] ?? '';
+    $benefits = $suitable_section['benefits'] ?? '';
+    $losses = $suitable_section['losses'] ?? '';
+
+    // Handle ACF image field whether it returns Array, URL, or ID
+    $image_url = '';
+
+    if (is_array($image)) {
+        $image_url = $image['url'] ?? '';
+    } elseif (is_numeric($image)) {
+        $image_url = wp_get_attachment_image_url($image, 'full');
+    } elseif (is_string($image)) {
+        $image_url = $image;
+    }
+    ?>
+
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid items-center gap-10 lg:grid-cols-12">
+
+                <!-- Content -->
+                <div class="lg:col-span-7">
+
+                    <?php if (!empty($title)): ?>
+                        <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
+                            <?php echo esc_html($title); ?>
+                        </h2>
+                    <?php endif; ?>
+
+                    <?php if (!empty($description)): ?>
+                        <div class="mt-5 text-base text-secondaryLight">
+                            <?php echo wp_kses_post($description); ?>
+                        </div>
+                    <?php endif; ?>
+
+
+                    <!-- Benefits -->
+                    <?php if (!empty($benefits)): ?>
+                        <div class="mt-5 rounded-[16px] border border-secondary bg-white p-5">
+
+                            <div class="acf-benefits text-base yLight">
+                                <?php echo wp_kses_post($benefits); ?>
+                            </div>
+
+                        </div>
+                    <?php endif; ?>
+
+
+                    <!-- Losses / Contraindications -->
+                    <?php if (!empty($losses)): ?>
+                        <div class="mt-4 rounded-[16px] border border-primary/10 bg-white p-5">
+
+                            <div class="acf-losses text-base yLight">
+                                <?php echo wp_kses_post($losses); ?>
+                            </div>
+
+                        </div>
+                    <?php endif; ?>
+
                 </div>
-                <div class="mt-4 rounded-[16px] border border-primary/10 bg-white p-5">
-                    <h4 class="text-secondary">Nose reshaping surgery is contraindicated for:</h4>
-                    <ul class="mt-2 space-y-2 text-base yLight">
-                        <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#9aa3a3" stroke-width="2.5"
-                                class="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true">
-                                <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
-                            </svg>
-                            <span>Patients taking certain medications (ex: blood thinners)</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#9aa3a3" stroke-width="2.5"
-                                class="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true">
-                                <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
-                            </svg>
-                            <span>Patients suffering from certain medical conditions (ex: heart disease)</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#9aa3a3" stroke-width="2.5"
-                                class="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true">
-                                <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
-                            </svg>
-                            <span>Patients under psychological distress</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="flex justify-center lg:col-span-5">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-432.jpg"
-                    alt="Rhinoplasty candidate" class="w-full max-w-[428px] rounded-[24px] object-cover">
+
+
+                <!-- Image -->
+                <?php if (!empty($image_url)): ?>
+                    <div class="flex justify-center lg:col-span-5">
+                        <img src="<?php echo esc_url($image_url); ?>"
+                            alt="<?php echo esc_attr($title ?: 'Suitable candidate'); ?>"
+                            class="w-full max-w-[428px] rounded-[24px] object-cover">
+                    </div>
+                <?php endif; ?>
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+<?php endif; ?>
 
 <section class="bg-[linear-gradient(170deg,#d9d9d945_0%,#FFFFFF_100%)] py-16">
     <div class="container mx-auto px-4">
@@ -190,8 +348,7 @@ $article_html = $parsed['content'];
     <div class="container mx-auto px-4">
         <div class="grid items-center gap-10 lg:grid-cols-12">
             <div class="lg:col-span-6">
-                <h2
-                    class="text-center font-serif text-[28px] leading-[1.2]   text-white md:text-[52px] lg:text-left">
+                <h2 class="text-center font-serif text-[28px] leading-[1.2]   text-white md:text-[52px] lg:text-left">
                     <span class="">Rhinoplasty Cost Turkey:</span><br>How Much is the All-Inclusive
                     Package?
                 </h2>
@@ -203,9 +360,9 @@ $article_html = $parsed['content'];
                     nose job in Turkey varies from £2,300 to £3,500.</p>
             </div>
             <div class="lg:col-span-6">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-434.webp" alt="Rhinoplasty all-inclusive package"
-                    class="w-full rounded-[18px] object-cover" />
-                </div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-434.webp"
+                    alt="Rhinoplasty all-inclusive package" class="w-full rounded-[18px] object-cover" />
+            </div>
         </div>
         <p class="mt-8 text-base text-white">This includes:</p>
         <ul class="mt-3 grid gap-2 text-base  text-white/85 md:grid-cols-2">
@@ -271,8 +428,8 @@ $article_html = $parsed['content'];
 <section class="bg-[linear-gradient(180deg,#f3f3f3_0%,#ffffff_100%)] py-16">
     <div class="container mx-auto px-4">
         <div class="mx-auto max-w-3xl text-center">
-            <h2 class="font-serif text-[28px] leading-[1.2]   text-secondary md:text-[52px]"><span
-                    class="">Rhinoplasty Packages</span> <!-- -->in Turkey</h2>
+            <h2 class="font-serif text-[28px] leading-[1.2]   text-secondary md:text-[52px]"><span class="">Rhinoplasty
+                    Packages</span> <!-- -->in Turkey</h2>
             <p class="mt-5 text-base text-secondaryLight">Most Turkish clinics offer all-inclusive travel
                 packages, so there are no hidden costs. However, consider that rhinoplasty shouldn’t be done on a
                 budget. It is a serious procedure that will greatly affect your life. When it comes to healthcare,
@@ -340,8 +497,7 @@ $article_html = $parsed['content'];
                         </svg>
                         <span>Sightseeing</span>
                     </li>
-                </ul><a href="#hero-zone"
-                    class="mt-8 inline-flex w-full btn-consult justify-center">Book
+                </ul><a href="#hero-zone" class="mt-8 inline-flex w-full btn-consult justify-center">Book
                     Appointment</a>
             </div>
             <div
@@ -405,8 +561,7 @@ $article_html = $parsed['content'];
                         </svg>
                         <span>Sightseeing</span>
                     </li>
-                </ul><a href="#hero-zone"
-                    class="mt-8 inline-flex w-full btn-consult justify-center">Book
+                </ul><a href="#hero-zone" class="mt-8 inline-flex w-full btn-consult justify-center">Book
                     Appointment</a>
             </div>
             <div class="relative rounded-[20px] border p-6 border-primary/10 bg-white">
@@ -462,8 +617,7 @@ $article_html = $parsed['content'];
                         </svg>
                         <span>Unlimited Sightseeing</span>
                     </li>
-                </ul><a href="#hero-zone"
-                    class="mt-8 inline-flex w-full btn-consult justify-center">Book
+                </ul><a href="#hero-zone" class="mt-8 inline-flex w-full btn-consult justify-center">Book
                     Appointment</a>
             </div>
             <div class="relative rounded-[20px] border p-6 border-primary/10 bg-white">
@@ -526,8 +680,7 @@ $article_html = $parsed['content'];
                         </svg>
                         <span>Sightseeing</span>
                     </li>
-                </ul><a href="#hero-zone"
-                    class="mt-8 inline-flex w-full btn-consult justify-center">Book
+                </ul><a href="#hero-zone" class="mt-8 inline-flex w-full btn-consult justify-center">Book
                     Appointment</a>
             </div>
         </div>
@@ -537,7 +690,8 @@ $article_html = $parsed['content'];
 <section class="bg-white py-16">
     <div class="container mx-auto px-4">
         <div class="grid items-center gap-10 lg:grid-cols-12">
-            <div class="flex justify-center lg:col-span-5"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/Group-1171275957.webp"
+            <div class="flex justify-center lg:col-span-5"><img
+                    src="<?php echo get_template_directory_uri(); ?>/assets/images/Group-1171275957.webp"
                     alt="Before a nose job in Turkey" class="w-full max-w-[420px] object-contain"></div>
             <div class="lg:col-span-7">
                 <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
@@ -632,9 +786,9 @@ $article_html = $parsed['content'];
             <div class="flex flex-col gap-4">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-435-1.webp" alt=""
                     class="w-full rounded-[20px] object-cover">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-436-1.webp" alt=""
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-436-1.webp" alt=""
                     class="w-full rounded-[20px] object-cover">
-                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -715,8 +869,9 @@ $article_html = $parsed['content'];
                     </li>
                 </ul>
             </div>
-            <div class="flex justify-center"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-447.webp" alt="Rhinoplasty aftercare"
-                    class="w-full rounded-[24px] object-cover"></div>
+            <div class="flex justify-center"><img
+                    src="<?php echo get_template_directory_uri(); ?>/assets/images/image-447.webp"
+                    alt="Rhinoplasty aftercare" class="w-full rounded-[24px] object-cover"></div>
         </div>
     </div>
 </section>
