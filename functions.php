@@ -10,7 +10,10 @@ function hale_coffee_setup()
 
     register_nav_menus([
         'primary' => __('Primary Menu', 'hale-coffee'),
-        'footer' => __('Footer Menu', 'hale-coffee'),
+        'footer_quick' => __('Quick Links Menu', 'hale-coffee'),
+        'footer_contact' => __('Get in Touch Menu', 'hale-coffee'),
+        'footer_treatments' => __('Treatments Menu', 'hale-coffee'),
+        'privacy_menu' => __('Privacy Links', 'hale-coffee'),
     ]);
 }
 add_action('after_setup_theme', 'hale_coffee_setup');
@@ -456,6 +459,24 @@ function hale_mega_menu_save($menu_id, $menu_item_db_id, $args)
 {
     $value = isset($_POST['menu-item-mega'][$menu_item_db_id]) ? 1 : 0;
     update_post_meta($menu_item_db_id, '_menu_item_mega', $value);
+}
+
+/**
+ * Footer Menu
+ */
+
+// Apply footer link styling to the footer menu locations
+add_filter('nav_menu_link_attributes', 'hale_footer_menu_link_class', 10, 3);
+function hale_footer_menu_link_class($atts, $item, $args)
+{
+    $locations = ['footer_quick', 'footer_contact', 'footer_treatments', 'privacy_menu'];
+
+    if (isset($args->theme_location) && in_array($args->theme_location, $locations, true)) {
+        $classes = isset($atts['class']) ? $atts['class'] : '';
+        $atts['class'] = trim($classes . ' text-white hover:text-white/75 transition');
+    }
+
+    return $atts;
 }
 
 // Custom Mega Menu Walker

@@ -6,6 +6,20 @@ if (!empty($home_info)):
     $title = $home_info['title'] ?? '';
     $subtitle = $home_info['subtitle'] ?? '';
     $description = $home_info['description'] ?? '';
+    $image = $home_info['image'] ?? '';
+
+    $image_url = '';
+    if (is_array($image)) {
+        $image_url = $image['url'] ?? '';
+    } elseif (is_numeric($image)) {
+        $image_url = wp_get_attachment_image_url((int) $image, 'full') ?: '';
+    } elseif (is_string($image)) {
+        $image_url = $image;
+    }
+
+    if ($image_url && !preg_match('#^(https?:)?//#', $image_url)) {
+        $image_url = get_template_directory_uri() . '/' . ltrim($image_url, '/');
+    }
     ?>
 
     <section class="w-full bg-[#FAFAFA] py-16">
@@ -55,14 +69,16 @@ if (!empty($home_info)):
 
 
             <!-- Image -->
-            <div class="flex-1 w-full relative">
-                <div class="relative">
+            <?php if (!empty($image_url)): ?>
+                <div class="flex-1 w-full relative">
+                    <div class="relative">
 
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/face/4.webp'); ?>"
-                        alt="<?php echo esc_attr($title ?: 'Dental clinic'); ?>" class="w-full object-cover">
+                        <img src="<?php echo esc_url($image_url); ?>"
+                            alt="<?php echo esc_attr($title ?: 'Dental clinic'); ?>" class="w-full object-cover">
 
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
 
         </div>
     </section>

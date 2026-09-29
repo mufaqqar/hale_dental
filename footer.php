@@ -14,40 +14,43 @@
                 <h5 class="text-lg   text-white mb-6">
                     Treatments
                 </h5>
-                <ul class="space-y-4">
-                    <li><a href="#/" class="text-white hover:text-secondary transition">Hollywood Smile</a></li>
-                    <li><a href="#/" class="text-white hover:text-secondary transition">Dental Implants</a></li>
-                    <li><a href="#/" class="text-white hover:text-secondary transition">Dental Crowns</a></li>
-                    <li><a href="#/" class="text-white hover:text-secondary transition">Veneers</a></li>
-                    <li><a href="#/" class="text-white hover:text-secondary transition">Teeth Whitening</a></li>
-                    <li><a href="#/" class="text-white hover:text-secondary transition">Root Canal</a></li>
-                </ul>
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'footer_treatments',
+                    'menu_class' => 'space-y-4 list-none m-0 p-0',
+                    'container' => false,
+                    'fallback_cb' => false,
+                    'depth' => 1,
+                ]);
+                ?>
             </div>
             <div>
                 <h5 class="text-lg   text-white mb-6">
                     Quick Links
                 </h5>
-                <ul class="space-y-4">
-                    <li><a href="#/" class="text-white hover:text-secondary transition">About Us</a></li>
-                    <li><a href="#/" class="text-white hover:text-secondary transition">Blog</a></li>
-                    <li><a href="#/" class="text-white hover:text-secondary transition">Treatments</a></li>
-                    <li><a href="#/" class="text-white hover:text-secondary transition">Before & After</a></li>
-                    <li><a href="#/" class="text-white hover:text-secondary transition">Free Consultation</a></li>
-                    <li><a href="#/" class="text-white hover:text-secondary transition">FAQ</a></li>
-                </ul>
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'footer_quick',
+                    'menu_class' => 'space-y-4 list-none m-0 p-0',
+                    'container' => false,
+                    'fallback_cb' => false,
+                    'depth' => 1,
+                ]);
+                ?>
             </div>
             <div>
                 <h5 class="text-lg   text-white mb-6">
                     Get in Touch
                 </h5>
-                <ul class="space-y-4">
-                    <li><a href="#" class="text-white hover:text-secondary transition">Contact Us</a></li>
-                    <li><a href="#" class="text-white hover:text-secondary transition">Get a Quote</a></li>
-                    <li><a href="#" class="text-white hover:text-secondary transition">Book Consultation</a></li>
-                    <li><a href="#" class="text-white hover:text-secondary transition">Patient Care</a></li>
-                    <li><a href="#" class="text-white hover:text-secondary transition">Aftercare Support</a></li>
-                    <li><a href="#" class="text-white hover:text-secondary transition">How To Order</a></li>
-                </ul>
+                <?php
+                wp_nav_menu([
+                    'theme_location' => 'footer_contact',
+                    'menu_class' => 'space-y-4 list-none m-0 p-0',
+                    'container' => false,
+                    'fallback_cb' => false,
+                    'depth' => 1,
+                ]);
+                ?>
             </div>
             <div>
                 <h5 class="text-lg   text-white mb-6">
@@ -89,22 +92,16 @@
                 <p class="text-white">
                     Made by Ilamdin Dental
                 </p>
-                <div class="flex flex-wrap justify-center gap-7">
-                    <a href="#" class="text-white hover:text-secondary transition">
-                        Cookies Policy
-                    </a>
-                    <a href="#" class="text-white hover:text-secondary transition">
-                        Privacy Policy
-                    </a>
-                    <a href="#" class="text-white hover:text-secondary transition">
-                        Shipping Policy
-                    </a>
-                    <a href="#" class="text-white hover:text-secondary transition">
-                        Returns & Refunds
-                    </a>
-                    <a href="#" class="text-white hover:text-secondary transition">
-                        Sitemap
-                    </a>
+                <div class="">
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'privacy_menu',
+                        'menu_class' => 'flex flex-wrap justify-center gap-7',
+                        'container' => false,
+                        'fallback_cb' => false,
+                        'depth' => 1,
+                    ]);
+                    ?>
                 </div>
                 <p class="text-white">
                     © 2026 Ilam Din Dental
