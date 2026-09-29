@@ -89,7 +89,7 @@ $afternoonSlots = [
 
 
                 <!-- CTA -->
-                <a href="#booking"
+                <a href="<?php echo esc_url(home_url('/appointment')); ?>"
                     class="mt-9 inline-flex w-fit items-center gap-3 text-sm  text-secondary underline underline-offset-2 transition hover:text-primary">
                     Choose a time that works for you and take the first step toward
                     your new smile.

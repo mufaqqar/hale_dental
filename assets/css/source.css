@@ -68,7 +68,7 @@
   }
 
   /* ---------- Primary navigation ---------- */
-  .primary-navigation .menu-item > a {
+  .primary-navigation .menu-item>a {
     color: var(--primary);
     font-weight: 500;
     padding: 0.5rem 1rem;
@@ -77,11 +77,11 @@
     transition: color 0.2s ease;
   }
 
-  .primary-navigation .menu-item > a:hover {
+  .primary-navigation .menu-item>a:hover {
     color: var(--secondary);
   }
 
-  .primary-navigation .current-menu-item > a {
+  .primary-navigation .current-menu-item>a {
     color: var(--secondary);
     font-weight: 600;
   }
@@ -89,11 +89,9 @@
   /* ---------- Header CTA button (per Header.png) ---------- */
   .btn-consult {
     display: inline-block;
-    background: linear-gradient(
-      197.05deg,
-      var(--primary) -42.06%,
-      var(--secondary) 136.49%
-    );
+    background: linear-gradient(197.05deg,
+        var(--primary) -42.06%,
+        var(--secondary) 136.49%);
     color: #ffffff;
     font-size: 0.95rem;
     line-height: 1;
@@ -104,11 +102,9 @@
   }
 
   .btn-consult:hover {
-    background: linear-gradient(
-      197.05deg,
-      var(--secondary) -42.06%,
-      var(--secondary) 136.49%
-    );
+    background: linear-gradient(197.05deg,
+        var(--secondary) -42.06%,
+        var(--secondary) 136.49%);
     color: #ffffff;
   }
 
@@ -169,7 +165,7 @@
   }
 
   @media (max-width: 767px) {
-    .primary-navigation .menu-item > a {
+    .primary-navigation .menu-item>a {
       color: var(--secondary);
       width: 100%;
     }
@@ -192,9 +188,9 @@
     gap: 0.5rem;
   }
 
-  .noissue > .slick-slide,
-  .popular > .slick-slide,
-  .readytoship > .slick-slide {
+  .noissue>.slick-slide,
+  .popular>.slick-slide,
+  .readytoship>.slick-slide {
     padding: 0.25rem;
   }
 
@@ -278,7 +274,7 @@
     justify-content: center;
   }
 
-  .journey-slider .slick-slide > div {
+  .journey-slider .slick-slide>div {
     width: 100%;
   }
 
@@ -531,7 +527,7 @@
   height: auto;
 }
 
-.smile-slider .slick-slide > div {
+.smile-slider .slick-slide>div {
   min-height: 100%;
 }
 
@@ -575,7 +571,7 @@
   height: auto;
 }
 
-.testimonial-slider .slick-slide > div {
+.testimonial-slider .slick-slide>div {
   height: 100%;
 }
 
@@ -684,4 +680,12 @@
 .post-content .aligncenter {
   margin-left: auto;
   margin-right: auto;
+}
+
+.video-card {
+  @apply w-full overflow-hidden rounded-xl md:w-1/4;
+}
+
+.video-card video {
+  @apply block h-auto w-full rounded-xl;
 }

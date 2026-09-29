@@ -1,163 +1,197 @@
-<section class="w-full bg-[#f5f5f5] py-[60px] md:py-[70px]">
+<?php
+/**
+ * Why Choose Section
+ *
+ * ACF Structure:
+ *
+ * why_choose
+ * ├── title
+ * ├── description
+ * └── list (Repeater)
+ *     ├── title
+ *     ├── description
+ *     └── image
+ */
 
-    <div class="mx-auto w-full max-w-[1100px] px-5">
+$why_choose = get_field('why_choose');
 
-        <!-- =========================================
+if ($why_choose):
+
+    $section_title = $why_choose['title'] ?? '';
+    $section_description = $why_choose['description'] ?? '';
+    $services = $why_choose['list'] ?? [];
+
+    ?>
+
+    <section class="w-full bg-[#f5f5f5] py-[60px] md:py-[70px]">
+
+        <div class="mx-auto w-full max-w-[1100px] px-5">
+
+            <!-- =========================================
              SECTION HEADER
         ========================================== -->
-        <div class="mx-auto mb-[28px] max-w-[900px] text-center">
+            <?php if ($section_title || $section_description): ?>
 
-            <h2
-                class="m-0 font-sans md:text-5xl text-3xl   text-coff_black tracking-tight"
-            >
-                Why Choose Ilam Din Dental?
-            </h2>
+                <div class="mx-auto mb-[28px] max-w-[900px] text-center">
 
-            <p
-                class="mx-auto mt-[20px] max-w-[850px] font-sans text-lg text-coff_black leading-relaxed"
-            >
-                We focus on delivering high-quality dental care with a process that's
-                transparent, reliable, and built around your needs. Here's what makes us
-                different:
-            </p>
+                    <?php if ($section_title): ?>
 
-        </div>
+                        <h2 class="m-0 font-sans text-3xl tracking-tight text-coff_black md:text-5xl">
+                            <?php echo esc_html($section_title); ?>
+                        </h2>
+
+                    <?php endif; ?>
 
 
-        <!-- =========================================
-             services WRAPPER
-        ========================================== -->
-        <div
-            id="services"
-            class="overflow-hidden rounded-[14px] bg-white"
-        >
+                    <?php if ($section_description): ?>
 
-            <?php
-
-            $services = [
-
-                [
-                    'title'   => 'Precision with Modern Technology',
-                    'content' => 'Our modern tech-monitored approach gives you the natural-looking smile you dreamed of.',
-                    'image'   => 'images/service1.webp',
-                ],
-
-                [
-                    'title'   => 'Trusted by Patients Worldwide',
-                    'content' => 'Patients from around the world trust our experienced dental teams to provide high-quality treatment and beautiful, natural-looking results.',
-                    'image'   => 'images/service1.webp',
-                ],
-
-                [
-                    'title'   => 'Specialists for Every Treatment',
-                    'content' => 'Our experienced specialists provide dedicated expertise across cosmetic, restorative, and advanced dental treatments.',
-                    'image'   => 'images/service1.webp',
-                ],
-
-                [
-                    'title'   => 'Dedicated Aftercare',
-                    'content' => 'Our support does not end when your treatment is complete. We provide dedicated aftercare to help you throughout your smile journey.',
-                    'image'   => 'images/service1.webp',
-                ],
-
-                [
-                    'title'   => 'Smile Guarantee',
-                    'content' => 'We are committed to delivering high-quality dental treatment and helping you achieve a smile you can feel confident about.',
-                    'image'   => 'images/service1.webp',
-                ],
-
-            ];
-
-
-            foreach ($services as $index => $service):
-
-                $image_url = get_template_directory_uri() . '/assets/' . $service['image'];
-
-                $is_active = ($index === 0);
-
-            ?>
-
-                <!-- =========================================
-                     service ITEM
-                ========================================== -->
-                <div
-                    class="service-item relative border-b border-[#dedede] last:border-b-0"
-                    data-service-item
-                >
-
-                    <!-- =====================================
-                         service BUTTON
-                    ====================================== -->
-                    <button
-                        type="button"
-                        class="service-button relative flex min-h-[61px] w-full items-center justify-between overflow-hidden px-[18px] py-[16px] text-left md:min-h-[61px]"
-                        data-service-button
-                        aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>"
-                    >
-
-                        <!-- =================================
-                             BACKGROUND IMAGE
-                        ================================== -->
-                        <div
-                            class="service-bg absolute inset-0 z-0 <?php echo $is_active ? 'opacity-100' : 'opacity-0'; ?>"
-                            style="
-                                background-image:
-                                linear-gradient(
-                                    rgba(0, 0, 0, 0.48),
-                                    rgba(0, 0, 0, 0.48)
-                                ),
-                                url('<?php echo esc_url($image_url); ?>');
-                            "
-                        ></div>
-
-
-                        <!-- =================================
-                             service CONTENT
-                        ================================== -->
-                        <div class="relative z-10 pr-5">
-
-                            <h3
-                                class="service-title m-0 font-sans text-[16px]   leading-[1.25] transition-colors duration-300 md:text-[17px] <?php echo $is_active ? 'text-white' : 'text-[#333]'; ?>"
-                            >
-                                <?php echo esc_html($service['title']); ?>
-                            </h3>
-
-
-                            <!-- =================================
-                                 DESCRIPTION
-                            ================================== -->
-                            <div
-                                class="service-answer overflow-hidden transition-all duration-[400ms] ease-in-out <?php echo $is_active ? 'max-h-[100px] opacity-100' : 'max-h-0 opacity-0'; ?>"
-                            >
-
-                                <p
-                                    class="m-0 max-w-[600px] pt-[14px] font-sans text-[13px]  leading-[1.45] text-white md:text-[15px]"
-                                >
-                                    <?php echo esc_html($service['content']); ?>
-                                </p>
-
-                            </div>
-
+                        <div class="mx-auto mt-[20px] max-w-[850px] font-sans text-lg leading-relaxed text-coff_black">
+                            <?php echo wp_kses_post($section_description); ?>
                         </div>
 
-
-                        <!-- =================================
-                             ICON
-                        ================================== -->
-                        <span
-                            class="service-icon relative z-10 flex h-[20px] w-[20px] shrink-0 items-center justify-center font-sans text-[20px] font-normal leading-none text-black transition-transform duration-300"
-                        >
-                            <?php echo $is_active ? '−' : '+'; ?>
-                        </span>
-
-                    </button>
+                    <?php endif; ?>
 
                 </div>
 
-            <?php endforeach; ?>
+            <?php endif; ?>
+
+
+            <!-- =========================================
+             SERVICES WRAPPER
+        ========================================== -->
+            <?php if (!empty($services)): ?>
+
+                <div id="services" class="overflow-hidden rounded-[14px] bg-white">
+
+                    <?php foreach ($services as $index => $service): ?>
+
+                        <?php
+
+                        /*
+                         * Get repeater fields
+                         */
+                        $title = $service['title'] ?? '';
+
+                        $description = $service['description'] ?? '';
+
+                        $image = $service['image'] ?? '';
+
+
+                        /*
+                         * Handle ACF Image field.
+                         *
+                         * Works with:
+                         * 1. Image Array
+                         * 2. Image URL
+                         * 3. Image ID
+                         */
+                        $image_url = '';
+
+                        if (is_array($image)) {
+
+                            $image_url = $image['url'] ?? '';
+
+                        } elseif (is_numeric($image)) {
+
+                            $image_url = wp_get_attachment_image_url(
+                                (int) $image,
+                                'full'
+                            );
+
+                        } elseif (is_string($image)) {
+
+                            $image_url = $image;
+
+                        }
+
+
+                        /*
+                         * First item is open by default
+                         */
+                        $is_active = ($index === 0);
+
+                        ?>
+
+                        <!-- =========================================
+                         SERVICE ITEM
+                    ========================================== -->
+                        <div class="service-item relative border-b border-[#dedede] last:border-b-0" data-service-item>
+
+                            <!-- =====================================
+                             SERVICE BUTTON
+                        ====================================== -->
+                            <button type="button"
+                                class="service-button relative flex min-h-[61px] w-full items-center justify-between overflow-hidden px-[18px] py-[16px] text-left md:min-h-[61px]"
+                                data-service-button aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>">
+
+                                <!-- =================================
+                                 BACKGROUND IMAGE
+                            ================================== -->
+                                <div class="service-bg absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-opacity duration-300 <?php echo $is_active ? 'opacity-100' : 'opacity-0'; ?>"
+                                    <?php if ($image_url): ?> style="
+                                        background-image:
+                                        linear-gradient(
+                                            rgba(0, 0, 0, 0.48),
+                                            rgba(0, 0, 0, 0.48)
+                                        ),
+                                        url('<?php echo esc_url($image_url); ?>');
+                                    " <?php endif; ?>></div>
+
+
+                                <!-- =================================
+                                 SERVICE CONTENT
+                            ================================== -->
+                                <div class="relative z-10 pr-5">
+
+                                    <?php if ($title): ?>
+
+                                        <h3
+                                            class="service-title m-0 font-sans text-[16px] leading-[1.25] transition-colors duration-300 md:text-[17px] <?php echo $is_active ? 'text-white' : 'text-[#333]'; ?>">
+                                            <?php echo esc_html($title); ?>
+                                        </h3>
+
+                                    <?php endif; ?>
+
+
+                                    <!-- =================================
+                                     DESCRIPTION
+                                ================================== -->
+                                    <?php if ($description): ?>
+
+                                        <div
+                                            class="service-answer overflow-hidden transition-all duration-[400ms] ease-in-out <?php echo $is_active ? 'max-h-[100px] opacity-100' : 'max-h-0 opacity-0'; ?>">
+
+                                            <div
+                                                class="m-0 max-w-[600px] pt-[14px] font-sans text-[13px] leading-[1.45] text-white md:text-[15px]">
+                                                <?php echo wp_kses_post($description); ?>
+                                            </div>
+
+                                        </div>
+
+                                    <?php endif; ?>
+
+                                </div>
+
+
+                                <!-- =================================
+                                 ICON
+                            ================================== -->
+                                <span
+                                    class="service-icon relative z-10 flex h-[20px] w-[20px] shrink-0 items-center justify-center font-sans text-[20px] font-normal leading-none transition-all duration-300 <?php echo $is_active ? 'text-white' : 'text-black'; ?>">
+                                    <?php echo $is_active ? '−' : '+'; ?>
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    <?php endforeach; ?>
+
+                </div>
+
+            <?php endif; ?>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
+<?php endif; ?>
