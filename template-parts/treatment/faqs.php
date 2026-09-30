@@ -59,7 +59,7 @@ $faqs = [
                     <!-- Search -->
                     <div class="mb-3 flex h-[45px] items-center bg-white px-4">
                         <svg
-                            class="mr-3 h-[17px] w-[17px] shrink-0 text-[#333]"
+                            class="mr-3 h-[17px] w-[17px] shrink-0 text-coff_black"
                             fill="none"
                             stroke="currentColor"
                             stroke-width="1.5"
@@ -73,7 +73,7 @@ $faqs = [
                             id="faqSearch"
                             type="text"
                             placeholder="Search something you wonder"
-                            class="w-full bg-transparent text-sm text-[#222] outline-none placeholder:text-[#b6b6b6]"
+                            class="w-full bg-transparent text-sm text-coff_black outline-none placeholder:text-[#b6b6b6]"
                         >
                     </div>
 
@@ -89,7 +89,7 @@ $faqs = [
                             <button
                                 type="button"
                                 class="faq-item group flex min-h-[57px] w-full items-center gap-3 px-3 text-left transition-colors duration-200
-                                <?= $index === 0 ? 'bg-amber-50' : 'bg-white hover:bg-amber-50' ?>"
+                                <?= $index === 0 ? 'bg-gray-200' : 'bg-white hover:bg-gray-200' ?>"
                                 data-index="<?= $index ?>"
                                 data-question="<?= htmlspecialchars(strtolower($faq['question'])) ?>"
                                 data-answer="<?= htmlspecialchars($faq['answer']) ?>"
@@ -97,18 +97,18 @@ $faqs = [
 
                                 <!-- Dot -->
                                 <span
-                                    class="faq-dot flex h-[18px] w-[18px] shrink-0 rounded-full
-                                    <?= $index === 0 ? 'bg-amber-200' : 'bg-amber-100' ?>"
+                                    class="faq-dot flex h-[18px] w-[18px] shrink-0 rounded-full 
+                                    <?= $index === 0 ? 'bg-gray-400' : 'bg-gray-300' ?>"
                                 ></span>
 
                                 <!-- Question -->
-                                <span class="flex-1 text-xl  leading-5 text-[#171717]">
+                                <span class="flex-1 text-xl  leading-5 text-coff_black">
                                     <?= htmlspecialchars($faq['question']) ?>
                                 </span>
 
                                 <!-- Arrow -->
                                 <svg
-                                    class="faq-arrow h-5 w-5 shrink-0 text-[#73a0ff] transition-transform duration-200"
+                                    class="faq-arrow h-5 w-5 shrink-0 text-coffGreen transition-transform duration-200"
                                     fill="none"
                                     stroke="currentColor"
                                     stroke-width="1.5"
@@ -127,7 +127,7 @@ $faqs = [
                     <!-- Bottom CTA -->
                     <div class="mt-3">
                         <a
-                            href="#consultation"
+                            href="<?php echo esc_url(home_url('/contact/')); ?>"
                             class="text-[13px]  text-secondary transition hover:text-primary"
                         >
                             Ready to transform your smile? Schedule your consultation today!
@@ -140,14 +140,14 @@ $faqs = [
                 <!-- RIGHT ANSWER -->
                 <div
                     id="faqAnswer"
-                    class="min-h-[490px] rounded-[14px] bg-amber-50 px-8 py-8 lg:-ml-[34px] lg:pl-[72px]"
+                    class="min-h-[490px] rounded-[14px] bg-gray-200 px-8 py-8 lg:-ml-[34px] lg:pl-[72px]"
                 >
 
                     <div class="max-w-[310px]">
 
                         <h3
                             id="answerTitle"
-                            class="text-lg text-black"
+                            class="text-lg text-coff_black"
                         >
                             Here is your answer;
                         </h3>
