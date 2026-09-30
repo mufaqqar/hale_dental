@@ -742,3 +742,81 @@
 .video-card video {
   @apply block h-auto w-full rounded-xl;
 }
+
+
+/* Brand logo tabs */
+
+.brand-logo {
+    width: 117px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    opacity: 0.95;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.brand-logo:hover {
+    opacity: 0.95;
+}
+
+.brand-logo.is-active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+
+/* Brand content */
+
+.brand-content {
+    display: none;
+}
+
+.brand-content.is-active {
+    display: block;
+    animation: brandFadeIn 0.4s ease;
+}
+
+
+/* Smooth content animation */
+
+@keyframes brandFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.smile-card {
+    position: relative;
+}
+
+.smile-card [data-before-after],
+.smile-card [data-divider],
+.smile-card [data-handle] {
+    touch-action: none;
+}
+
+.smile-card [data-divider],
+.smile-card [data-handle] {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.smile-card img {
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}

@@ -780,20 +780,21 @@ h1,
 /* ---------- Hero video ---------- */
 
 /* Full-bleed background media: always covers the whole section, so the
-   file is never letterboxed and no player chrome is rendered on top. */
+     file is never letterboxed and no player chrome is rendered on top. */
+
 .hero-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   pointer-events: none;
-  user-select: none;
-}
-
-.Main_slider .video_overlay iframe {
-  pointer-events: inherit;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 /* ---------- Brand / category sliders (fallback when slick is not loaded) ---------- */
@@ -838,22 +839,14 @@ h1,
 }
 
 .brand-logo:hover,
-.brand-logo:focus-visible,
-.brand-logo.is-active {
+  .brand-logo:focus-visible,
+  .brand-logo.is-active {
   opacity: 1;
 }
 
 .brand-logo:focus-visible {
   outline: 2px solid var(--secondary);
   outline-offset: 4px;
-}
-
-.brand-slider-text {
-  transition: opacity 0.2s ease;
-}
-
-.brand-slider-text.is-fading {
-  opacity: 0;
 }
 
 /* ---------- Tabs (packaging partner) ---------- */
@@ -2191,6 +2184,10 @@ h1,
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.cursor-ew-resize {
+  cursor: ew-resize;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -2884,6 +2881,11 @@ h1,
 
 .bg-coff_black {
   background-color: var(--coff_black);
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
 .bg-gray-200 {
@@ -4489,6 +4491,84 @@ h1,
   height: auto;
   width: 100%;
   border-radius: 0.75rem;
+}
+
+/* Brand logo tabs */
+
+.brand-logo {
+  width: 117px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  opacity: 0.95;
+  transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.brand-logo:hover {
+  opacity: 0.95;
+}
+
+.brand-logo.is-active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Brand content */
+
+.brand-content {
+  display: none;
+}
+
+.brand-content.is-active {
+  display: block;
+  animation: brandFadeIn 0.4s ease;
+}
+
+/* Smooth content animation */
+
+@keyframes brandFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.smile-card {
+  position: relative;
+}
+
+.smile-card [data-before-after],
+.smile-card [data-divider],
+.smile-card [data-handle] {
+  touch-action: none;
+}
+
+.smile-card [data-divider],
+.smile-card [data-handle] {
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.smile-card img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 .placeholder\:text-\[\#b6b6b6\]::-moz-placeholder {
