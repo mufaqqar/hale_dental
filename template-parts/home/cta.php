@@ -25,7 +25,7 @@
 
         <!-- Right Button -->
         <div class="relative z-30 md:ml-auto md:pr-[8%] md:mt-0 mt-10">
-            <a href="<?php echo esc_url(home_url('/contact/')); ?>"
+            <a href="<?php echo esc_url(home_url('/contact-us')); ?>"
                 class="inline-flex min-w-[146px] items-center justify-center rounded-full border border-white/80 px-7 py-4 text-base  text-white transition-all duration-300 hover:bg-white hover:text-[#675b57]">
                 Book now!
             </a>

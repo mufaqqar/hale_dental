@@ -12,7 +12,7 @@ $related_treatments = get_posts([
 ?>
 
 <section class="relative overflow-hidden bg-[#FAFAFA] py-14 md:py-20">
-    <div class="container relative z-10">
+    <div class="container mx-auto px-4 relative z-10">
         <div class="text-center">
             <div
                 class="mb-4 flex items-center justify-center gap-[clamp(12px,1.4vw,20px)] text-[clamp(0.72rem,0.82vw,0.84rem)] font-semibold uppercase tracking-[0.2em] text-coff_black">
@@ -79,7 +79,7 @@ $related_treatments = get_posts([
                     your teeth, plus any X-ray you already have. An implant surgeon reviews your
                     case and replies with a realistic, itemised plan — how many implants you need, which system will be
                     used, what it costs with hotel and transfers included, and how many days you'll be in Istanbul.
-                    No obligation, no pressure, no cost.</p><a href="<?php echo esc_url(home_url('/contact/')); ?>"
+                    No obligation, no pressure, no cost.</p><a href="<?php echo esc_url(home_url('/contact-us')); ?>"
                     class="nc-shine group mt-8 inline-flex items-center gap-3 rounded-full bg-coffGreen py-2 pr-2 pl-8 text-[16px] font-semibold whitespace-nowrap text-white ring-1 ring-white/60 shadow-[0_12px_32px_rgba(74,125,255,0.45)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(74,125,255,0.6)] hover:brightness-110"><span
                         class="relative z-10">Get My Free Implant Plan</span><span
                         class="relative z-10 grid size-11 shrink-0 place-items-center rounded-full bg-white text-coffGreen shadow-[0_2px_8px_rgba(17,17,17,0.14)] transition-transform duration-300 group-hover:translate-x-0.5"><svg

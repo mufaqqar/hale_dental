@@ -127,7 +127,7 @@ $faqs = [
                     <!-- Bottom CTA -->
                     <div class="mt-3">
                         <a
-                            href="<?php echo esc_url(home_url('/contact/')); ?>"
+                            href="<?php echo esc_url(home_url('/contact-us')); ?>"
                             class="text-[13px]  text-secondary transition hover:text-primary"
                         >
                             Ready to transform your smile? Schedule your consultation today!

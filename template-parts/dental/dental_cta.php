@@ -72,7 +72,7 @@ $highlights = [
 
                         </ul>
                         <div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3"><a
-                                href="<?php echo esc_url(home_url('/contact/')); ?>"
+                                href="<?php echo esc_url(home_url('/contact-us')); ?>"
                                 class="inline-flex items-center gap-2.5 rounded-full bg-coffGreen px-6 py-3 text-sm font-semibold whitespace-nowrap text-white shadow-[0_8px_20px_rgba(74,125,255,0.28)] transition hover:-translate-y-0.5 hover:brightness-110">Get
                                 My Free Quote<svg width="17" height="17" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="1.9" stroke-linecap="round"

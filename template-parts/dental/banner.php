@@ -206,7 +206,7 @@ $stats = [
                 <!-- CTA -->
                 <div class="mt-8">
 
-                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="
+                    <a href="<?php echo esc_url(home_url('/contact-us')); ?>" class="
                             inline-flex
                             items-center
                             justify-center

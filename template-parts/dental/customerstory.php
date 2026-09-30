@@ -1,182 +1,81 @@
+<!-- =========================================
+             GET VIDEO TESTIMONIALS
+        ========================================== -->
+
 <?php
-$testimonials = [
 
-    [
-        'name' => 'JOEL T.',
-        'service' => 'Dental Veneers',
-        'category' => 'laminate-veneers',
-        'image' => get_template_directory_uri() . '/assets/images/review.webp',
-        'video' => get_template_directory_uri() . '/assets/videos/video.mp4',
-    ],
+$testimonial_query = new WP_Query([
+    'post_type' => 'video_testimonails',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'orderby' => 'date',
+    'order' => 'DESC',
+]);
 
-    [
-        'name' => 'EYMAN H.',
-        'service' => 'Dental Veneers',
-        'category' => 'laminate-veneers',
-        'image' => get_template_directory_uri() . '/assets/images/review.webp',
-        'video' => get_template_directory_uri() . '/assets/videos/video.mp4',
-    ],
-
-    [
-        'name' => 'ANDA I.',
-        'service' => 'Dental Veneers',
-        'category' => 'laminate-veneers',
-        'image' => get_template_directory_uri() . '/assets/images/review.webp',
-        'video' => get_template_directory_uri() . '/assets/videos/video.mp4',
-    ],
-
-    [
-        'name' => 'LIZA N.',
-        'service' => 'Dental Veneers',
-        'category' => 'laminate-veneers',
-        'image' => get_template_directory_uri() . '/assets/images/review.webp',
-        'video' => get_template_directory_uri() . '/assets/videos/video.mp4',
-    ],
-
-    // Dental Implants
-    [
-        'name' => 'JOHN D.',
-        'service' => 'Dental Implants',
-        'category' => 'dental-implants',
-        'image' => get_template_directory_uri() . '/assets/images/review.webp',
-        'video' => get_template_directory_uri() . '/assets/videos/video.mp4',
-    ],
-
-    // Dental Crowns
-    [
-        'name' => 'SARAH M.',
-        'service' => 'Dental Crowns',
-        'category' => 'dental-crowns',
-        'image' => get_template_directory_uri() . '/assets/images/review.webp',
-        'video' => get_template_directory_uri() . '/assets/videos/video.mp4',
-    ],
-
-    // Whitening
-    [
-        'name' => 'DAVID K.',
-        'service' => 'Whitening',
-        'category' => 'whitening',
-        'image' => get_template_directory_uri() . '/assets/images/review.webp',
-        'video' => get_template_directory_uri() . '/assets/videos/video.mp4',
-    ],
-];
 ?>
 
-<section class="bg-[#f7f7f7] py-10">
-
-    <div class="mx-auto max-w-[1000px] px-5">
-
-        <!-- Heading -->
-        <div class="text-center">
-
-            <h2 class="md:text-5xl text-3xl   text-coff_black tracking-tight">
-                Real, Life-Changing Transformations
-            </h2>
-
-            <p class="mx-auto mt-5 max-w-[900px] text-lg text-coff_black leading-relaxed">
-                Experience the impact of expert care through the voices of our patients.
-                Watch real testimonials from those who trusted Ilam Din Dental for their smile makeover.
-            </p>
-
-        </div>
-        <!-- =====================================
-             SLICK SLIDER
-        ====================================== -->
-
-        <div class="relative mt-6">
-            <!-- Previous Arrow -->
-            <button type="button"
-                class="testimonial-prev absolute left-[-16px] top-1/2 z-30 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md"
-                aria-label="Previous">
-                <svg class="h-4 w-4 text-[#4d7cff]" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path d="M15 18l-6-6 6-6" />
-                </svg>
-            </button>
-
-
-            <!-- Slick -->
-            <div id="testimonial-slider" class="testimonial-slider">
-
-                <?php foreach ($testimonials as $testimonial): ?>
-
-                    <div class="testimonial-slide px-[7px]"
-                        data-category="<?php echo esc_attr($testimonial['category']); ?>">
-
-                        <div class="testimonial-card group relative aspect-[0.68] overflow-hidden rounded-[10px] bg-[#ddd]">
-
-                            <!-- Video -->
-                            <video class="testimonial-video absolute inset-0 h-full w-full object-cover" preload="metadata"
-                                playsinline>
-                                <source src="<?php echo esc_url($testimonial['video']); ?>" type="video/mp4">
-                            </video>
-
-
-                            <!-- Poster image -->
-                            <img src="<?php echo esc_url($testimonial['image']); ?>"
-                                alt="<?php echo esc_attr($testimonial['name']); ?>"
-                                class="testimonial-image absolute inset-0 h-full w-full object-cover">
-
-
-                            <!-- Top gradient -->
-                            <div class="absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-black/20 to-transparent">
-                            </div>
-
-
-                            <!-- Name -->
-                            <div class="absolute left-3 top-3 z-20">
-
-                                <h3 class="text-sm font-bold leading-none text-black">
-                                    <?php echo esc_html($testimonial['name']); ?>
-                                </h3>
-
-                                <p class="mt-1 text-xs  text-black">
-                                    <?php echo esc_html($testimonial['service']); ?>
-                                </p>
-
-                            </div>
-
-
-                            <!-- Play -->
-                            <button type="button"
-                                class="testimonial-play absolute right-3 top-3 z-30 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm transition hover:scale-110 hover:bg-white"
-                                aria-label="Play testimonial">
-                                <svg class="ml-0.5 h-3.5 w-3.5 text-[#4d7cff]" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                <?php endforeach; ?>
-
+<?php if ($testimonial_query->have_posts()): ?>
+    <section class="bg-[#f7f7f7] py-10">
+        <div class="container mx-auto px-4">
+            <div class="mx-auto mb-7 max-w-[1000px] text-center">
+                <h2 class="text-3xl tracking-tight text-coff_black md:text-5xl">
+                    Real, Life-Changing Transformations
+                </h2>
+                <p class="mx-auto mt-5 max-w-[900px] text-lg leading-relaxed text-coff_black">
+                    Experience the impact of expert care through the voices of our patients.
+                    Watch real testimonials from those who trusted Ilam Din Dental for their smile makeover.
+                </p>
             </div>
-
-
-            <!-- Next Arrow -->
-            <button type="button"
-                class="testimonial-next absolute right-[-16px] top-1/2 z-30 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md"
-                aria-label="Next">
-                <svg class="h-4 w-4 text-[#4d7cff]" fill="none" stroke="currentColor" stroke-width="2"
-                    viewBox="0 0 24 24">
-                    <path d="M9 18l6-6-6-6" />
-                </svg>
-            </button>
-
+            <div class="relative mt-6">
+                <button type="button"
+                    class="testimonial-prev absolute left-[-16px] top-1/2 z-30 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md"
+                    aria-label="Previous">
+                    <svg class="h-4 w-4 text-[#4d7cff]" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <div id="testimonial-slider" class="testimonial-slider flex flex-col gap-6 md:flex-row">
+                    <?php while ($testimonial_query->have_posts()): ?>
+                        <?php
+                        $testimonial_query->the_post();
+                        $video_url = get_field(
+                            'video_url',
+                            get_the_ID()
+                        );
+                        ?>
+                        <?php if ($video_url): ?>
+                            <div class="video-card px-2">
+                                <video autoplay muted loop playsinline preload="metadata" class="w-full">
+                                    <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        <?php endif; ?>
+                    <?php endwhile; ?>
+                </div>
+                <button type="button"
+                    class="testimonial-next absolute right-[-16px] top-1/2 z-30 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md"
+                    aria-label="Next">
+                    <svg class="h-4 w-4 text-[#4d7cff]" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+            <div class="mt-5 flex justify-center">
+                <a href="<?php echo esc_url(home_url('/contact-us')); ?>" class="btn-consult">
+                    Get Quote Now
+                </a>
+            </div>
         </div>
+    </section>
+<?php endif; ?>
 
 
-        <!-- CTA -->
-        <div class="mt-5 flex justify-center">
-
-            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn-consult">
-                Get Quote Now
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
+<?php
+/*
+ * Reset the global post data
+ */
+wp_reset_postdata();
+?>

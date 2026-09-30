@@ -64,7 +64,7 @@ $testimonial_query = new WP_Query([
                 </button>
             </div>
             <div class="mt-5 flex justify-center">
-                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn-consult">
+                <a href="<?php echo esc_url(home_url('/contact-us')); ?>" class="btn-consult">
                     Get Quote Now
                 </a>
             </div>
