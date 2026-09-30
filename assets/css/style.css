@@ -779,6 +779,23 @@ h1,
 
 /* ---------- Hero video ---------- */
 
+/* Full-bleed background media: always covers the whole section, so the
+   file is never letterboxed and no player chrome is rendered on top. */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.Main_slider .video_overlay iframe {
+  pointer-events: inherit;
+}
+
 /* ---------- Brand / category sliders (fallback when slick is not loaded) ---------- */
 
 .brand-slider:not(.slick-initialized),

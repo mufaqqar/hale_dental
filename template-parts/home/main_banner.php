@@ -4,6 +4,29 @@ $banner_info = get_field('banner_info');
 $banner_title   = $banner_info['title'] ?? '';
 $banner_content = $banner_info['content'] ?? '';
 $banner_link    = $banner_info['link'] ?? '';
+$banner_video   = $banner_info['video'] ?? '';
+
+/**
+ * Hero video: a self-hosted file keeps the player chrome (YouTube logo,
+ * captions, music title) off the page. Resolved in this order:
+ * 1. "video" field inside the existing ACF "banner_info" group
+ * 2. assets/videos/video.mp4 shipped with the theme
+ */
+if (is_array($banner_video)) {
+    $banner_video = $banner_video['url'] ?? '';
+}
+
+if (empty($banner_video)) {
+    $local_video = get_template_directory() . '/assets/videos/video.mp4';
+    if (file_exists($local_video)) {
+        $banner_video = get_template_directory_uri() . '/assets/videos/video.mp4';
+    }
+}
+
+$local_poster = get_template_directory() . '/assets/images/heroimage.png';
+$banner_poster = file_exists($local_poster)
+    ? get_template_directory_uri() . '/assets/images/heroimage.png'
+    : '';
 ?>
 
 <section class="relative min-h-[750px] h-full w-full overflow-hidden ">
@@ -11,14 +34,15 @@ $banner_link    = $banner_info['link'] ?? '';
     <!-- Background Video -->
     <div class="absolute inset-0 z-0 overflow-hidden">
 
-        <iframe
-            class="absolute inset-0 h-full w-full object-cover pointer-events-none"
-            src="https://www.youtube-nocookie.com/embed/a4HdkGehk5A?autoplay=1&mute=1&loop=1&playlist=a4HdkGehk5A&playsinline=1&controls=0&rel=0"
-            title="Hero Video"
-            frameborder="0"
-            allow="autoplay; encrypted-media"
-            allowfullscreen>
-        </iframe>
+        <?php if ($banner_video) : ?>
+            <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"
+                poster="<?php echo esc_url($banner_poster); ?>" disablepictureinpicture disableremoteplayback>
+                <source src="<?php echo esc_url($banner_video); ?>" type="video/mp4">
+            </video>
+        <?php elseif ($banner_poster) : ?>
+            <img class="hero-video" src="<?php echo esc_url($banner_poster); ?>" alt="" aria-hidden="true"
+                width="1920" height="1080" fetchpriority="high">
+        <?php endif; ?>
 
         <!-- Overlay -->
         <div
