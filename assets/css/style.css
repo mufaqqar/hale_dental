@@ -5537,3 +5537,86 @@ h1,
     font-size: 54px;
   }
 }
+
+.\[\&_li\]\:flex li {
+  display: flex;
+}
+
+.\[\&_li\]\:items-start li {
+  align-items: flex-start;
+}
+
+.\[\&_li\]\:gap-2 li {
+  gap: 0.5rem;
+}
+
+.\[\&_li\]\:before\:mt-0\.5 li::before {
+  content: var(--tw-content);
+  margin-top: 0.125rem;
+}
+
+.\[\&_li\]\:before\:h-4 li::before {
+  content: var(--tw-content);
+  height: 1rem;
+}
+
+.\[\&_li\]\:before\:w-4 li::before {
+  content: var(--tw-content);
+  width: 1rem;
+}
+
+.\[\&_li\]\:before\:shrink-0 li::before {
+  content: var(--tw-content);
+  flex-shrink: 0;
+}
+
+.\[\&_li\]\:before\:font-bold li::before {
+  content: var(--tw-content);
+  font-weight: 700;
+}
+
+.\[\&_li\]\:before\:text-\[\#268ca1\] li::before {
+  content: var(--tw-content);
+  --tw-text-opacity: 1;
+  color: rgb(38 140 161 / var(--tw-text-opacity, 1));
+}
+
+.\[\&_li\]\:before\:content-\[\'\2713\'\] li::before {
+  --tw-content: '✓';
+  content: var(--tw-content);
+}
+
+.\[\&_p\:last-child\]\:mb-0 p:last-child {
+  margin-bottom: 0px;
+}
+
+.\[\&_p\]\:mb-4 p {
+  margin-bottom: 1rem;
+}
+
+.\[\&_ul\]\:mt-3 ul {
+  margin-top: 0.75rem;
+}
+
+.\[\&_ul\]\:grid ul {
+  display: grid;
+}
+
+.\[\&_ul\]\:gap-2 ul {
+  gap: 0.5rem;
+}
+
+.\[\&_ul\]\:text-base ul {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.\[\&_ul\]\:text-white\/85 ul {
+  color: rgb(255 255 255 / 0.85);
+}
+
+@media (min-width: 768px) {
+  .\[\&_ul\]\:md\:grid-cols-2 ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

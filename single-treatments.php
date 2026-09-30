@@ -314,117 +314,146 @@ if (!empty($suitable_section)):
     </section>
 
 <?php endif; ?>
+<?php
+$surgeon_section = get_field('surgeon_section');
 
-<section class="bg-[linear-gradient(170deg,#d9d9d945_0%,#FFFFFF_100%)] py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid gap-10 lg:grid-cols-2">
-            <div>
-                <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
-                    Best <span class="">Rhinoplasty Surgeon</span> <!-- -->in Turkey</h2>
-                <p class="mt-5 text-base text-secondaryLight">There are many high-quality plastic surgeons
-                    specialized in rhinoplasty in the country, which makes it hard to single out the best rhinoplasty
-                    surgeon in Turkey.</p>
-                <p class="mt-4 text-base text-secondaryLight">Furthermore, each surgeon has its own style and
-                    technique. Our advice is to check results and go for the one you like most. It’s also important to
-                    verify your surgeon’s diplomas and associations. Rather than trusting online banners, contact the
-                    associations directly.</p>
-            </div>
-            <div>
-                <p class="text-base text-secondaryLight">Here is a list of the best associations your Turkish
-                    plastic surgeon should be a member of:</p>
-                <ul class="mt-4 list-disc space-y-2 pl-5 text-base  text-secondary">
-                    <li>Aesthetic Plastic Surgery Society (EPCD)</li>
-                    <li>American Academy of Cosmetic Surgery (AACS)</li>
-                    <li>International Society of Aesthetic and Plastic Surgery (ISAPS)</li>
-                    <li>The European Board of Plastic and Reconstructive Surgery (EBOPRAS)</li>
-                    <li>The European Society of Plastic, Reconstructive and Aesthetic Surgery</li>
-                    <li>Turkish Plastic Reconstructive and Aesthetic Surgery Association (TPRCD)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="bg-primary py-16 geo-hide-price">
-    <div class="container mx-auto px-4">
-        <div class="grid items-center gap-10 lg:grid-cols-12">
-            <div class="lg:col-span-6">
-                <h2 class="text-center font-serif text-[28px] leading-[1.2]   text-white md:text-[52px] lg:text-left">
-                    <span class="">Rhinoplasty Cost Turkey:</span><br>How Much is the All-Inclusive
-                    Package?
-                </h2>
-                <p class="mt-5 text-base  text-white/75">There is no direct answer to how much is a nose
-                    job in Turkey. There are hundreds of clinics, hospitals and surgeons in Istanbul, and they range
-                    from standard to world-class, charging just a few thousand or tens of thousands. Establishing the
-                    exact cost of rhinoplasty in Turkey requires consultation for the technique and surgery type on top
-                    of the surgeon and hospital. But let’s give you some approximate numbers. The average price for a
-                    nose job in Turkey varies from £2,300 to £3,500.</p>
-            </div>
-            <div class="lg:col-span-6">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-434.webp"
-                    alt="Rhinoplasty all-inclusive package" class="w-full rounded-[18px] object-cover" />
+if (!empty($surgeon_section)):
+
+    $title = $surgeon_section['title'] ?? '';
+    $description = $surgeon_section['description'] ?? '';
+    $associationslist = $surgeon_section['associationslist'] ?? '';
+    ?>
+
+    <section class="bg-[linear-gradient(170deg,#d9d9d945_0%,#FFFFFF_100%)] py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid gap-10 lg:grid-cols-2">
+
+                <!-- Left Content -->
+                <div>
+                    <?php if (!empty($title)): ?>
+                        <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
+                            <?php echo esc_html($title); ?>
+                        </h2>
+                    <?php endif; ?>
+
+                    <?php if (!empty($description)): ?>
+                        <div class="mt-5 text-base text-secondaryLight">
+                            <?php echo wp_kses_post($description); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <!-- Right Content -->
+                <div>
+                    <?php if (!empty($associationslist)): ?>
+                        <div class="text-base text-secondaryLight">
+                            <?php echo wp_kses_post($associationslist); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
             </div>
         </div>
-        <p class="mt-8 text-base text-white">This includes:</p>
-        <ul class="mt-3 grid gap-2 text-base  text-white/85 md:grid-cols-2">
-            <li class="flex items-start gap-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5" class="mt-0.5 h-4 w-4 shrink-0"
-                    aria-hidden="true">
-                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-                <span>The complete anesthetic procedure, pre-op tests and evaluations</span>
-            </li>
-            <li class="flex items-start gap-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5" class="mt-0.5 h-4 w-4 shrink-0"
-                    aria-hidden="true">
-                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-                <span>Surgery in a modern private facility</span>
-            </li>
-            <li class="flex items-start gap-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5" class="mt-0.5 h-4 w-4 shrink-0"
-                    aria-hidden="true">
-                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-                <span>The whole hospitalization and overnight</span>
-            </li>
-            <li class="flex items-start gap-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5" class="mt-0.5 h-4 w-4 shrink-0"
-                    aria-hidden="true">
-                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-                <span>All post-operative care, painkillers and medication</span>
-            </li>
-            <li class="flex items-start gap-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5" class="mt-0.5 h-4 w-4 shrink-0"
-                    aria-hidden="true">
-                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-                <span>Hotel accommodation during your entire stay in Istanbul</span>
-            </li>
-            <li class="flex items-start gap-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5" class="mt-0.5 h-4 w-4 shrink-0"
-                    aria-hidden="true">
-                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-                <span>All transfers and inner-city rides</span>
-            </li>
-            <li class="flex items-start gap-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5" class="mt-0.5 h-4 w-4 shrink-0"
-                    aria-hidden="true">
-                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-                <span>Daily check-ups by nurses at the hospital and hotel room</span>
-            </li>
-            <li class="flex items-start gap-2">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#268ca1" stroke-width="2.5" class="mt-0.5 h-4 w-4 shrink-0"
-                    aria-hidden="true">
-                    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-                <span>12-month follow-up</span>
-            </li>
-        </ul>
-    </div>
-</section>
+    </section>
+
+<?php endif; ?>
+<?php
+$treatment_cost = get_field('treatment_cost');
+
+if (!empty($treatment_cost)):
+
+    $title = $treatment_cost['title'] ?? '';
+    $description = $treatment_cost['description'] ?? '';
+    $image = $treatment_cost['image'] ?? '';
+    $includes = $treatment_cost['includes'] ?? '';
+
+    // Handle ACF image field regardless of return format
+    $image_url = '';
+    $image_alt = '';
+
+    if (is_array($image)) {
+        $image_url = $image['url'] ?? '';
+        $image_alt = $image['alt'] ?? '';
+    } elseif (is_numeric($image)) {
+        $image_url = wp_get_attachment_image_url($image, 'full');
+        $image_alt = get_post_meta($image, '_wp_attachment_image_alt', true);
+    } elseif (is_string($image)) {
+        $image_url = $image;
+    }
+
+    // Fallback alt text
+    if (empty($image_alt)) {
+        $image_alt = !empty($title) ? wp_strip_all_tags($title) : 'Treatment cost';
+    }
+    ?>
+
+    <section class="bg-primary py-16 geo-hide-price">
+        <div class="container mx-auto px-4">
+
+            <div class="grid items-center gap-10 lg:grid-cols-12">
+
+                <!-- Left Content -->
+                <div class="lg:col-span-6">
+
+                    <?php if (!empty($title)): ?>
+                        <h2 class="text-center font-serif text-[28px] leading-[1.2] text-white md:text-[52px] lg:text-left">
+                            <?php echo esc_html($title); ?>
+                        </h2>
+                    <?php endif; ?>
+
+                    <?php if (!empty($description)): ?>
+                        <div class="mt-5 text-base text-white/75
+                                [&_p]:mb-4
+                                [&_p:last-child]:mb-0">
+                            <?php echo wp_kses_post($description); ?>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+
+                <!-- Image -->
+                <div class="lg:col-span-6">
+
+                    <?php if (!empty($image_url)): ?>
+                        <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image_alt); ?>"
+                            class="w-full rounded-[18px] object-cover" />
+                    <?php endif; ?>
+
+                </div>
+
+            </div>
+
+            <!-- Includes -->
+            <?php if (!empty($includes)): ?>
+                <div class="mt-8 text-base text-white
+                        [&_p]:mb-4
+                        [&_p:last-child]:mb-0
+                        [&_ul]:mt-3
+                        [&_ul]:grid
+                        [&_ul]:gap-2
+                        [&_ul]:text-base
+                        [&_ul]:text-white/85
+                        [&_ul]:md:grid-cols-2
+                        [&_li]:flex
+                        [&_li]:items-start
+                        [&_li]:gap-2
+                        [&_li]:before:mt-0.5
+                        [&_li]:before:h-4
+                        [&_li]:before:w-4
+                        [&_li]:before:shrink-0
+                        [&_li]:before:content-['✓']
+                        [&_li]:before:text-[#268ca1]
+                        [&_li]:before:font-bold">
+
+                    <?php echo wp_kses_post($includes); ?>
+
+                </div>
+            <?php endif; ?>
+
+        </div>
+    </section>
+
+<?php endif; ?>
 <section class="bg-[linear-gradient(180deg,#f3f3f3_0%,#ffffff_100%)] py-16">
     <div class="container mx-auto px-4">
         <div class="mx-auto max-w-3xl text-center">
@@ -687,193 +716,139 @@ if (!empty($suitable_section)):
     </div>
 </section>
 <?php get_template_part('template-parts/home/cta'); ?>
-<section class="bg-white py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid items-center gap-10 lg:grid-cols-12">
-            <div class="flex justify-center lg:col-span-5"><img
-                    src="<?php echo get_template_directory_uri(); ?>/assets/images/Group-1171275957.webp"
-                    alt="Before a nose job in Turkey" class="w-full max-w-[420px] object-contain"></div>
-            <div class="lg:col-span-7">
-                <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
-                    What to Think About <br><span class="">Before a Nose Job in Turkey?</span>
-                </h2>
-                <p class="mt-5 text-base text-secondaryLight">If you’re thinking of getting a nose job in
-                    Turkey, you might want to check if your clinic complies with ISO standards and is certified by the
-                    Turkish Ministry of Health.</p>
-                <p class="mt-4 text-base text-secondaryLight">All independent clinics and hospitals providing
-                    plastic surgery in Turkey must be certified by the Ministry of Health.</p>
-                <p class="mt-4 text-base text-secondaryLight">Furthermore, you might want to check if your
-                    surgeons are members of important surgical associations such as ISAPS and EBOPRAS.</p>
+<?php
+$think_about = get_field('think_about');
+
+if ($think_about):
+    $title = $think_about['title'] ?? '';
+    $description = $think_about['description'] ?? '';
+    $image = $think_about['image'] ?? '';
+    ?>
+
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid items-center gap-10 lg:grid-cols-12">
+
+                <div class="flex justify-center lg:col-span-5">
+                    <?php if ($image): ?>
+                        <img src="<?php echo esc_url($image['url'] ?? $image); ?>"
+                            alt="<?php echo esc_attr($image['alt'] ?? $title); ?>" class="w-full max-w-[420px] object-contain">
+                    <?php endif; ?>
+                </div>
+
+                <div class="lg:col-span-7">
+
+                    <?php if ($title): ?>
+                        <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
+                            <?php echo wp_kses_post($title); ?>
+                        </h2>
+                    <?php endif; ?>
+
+                    <?php if ($description): ?>
+                        <div class="mt-5 text-base text-secondaryLight">
+                            <?php echo wp_kses_post($description); ?>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+
             </div>
         </div>
-    </div>
-</section>
-<section class="bg-[linear-gradient(170deg,#FFFDF1_0%,#FFFFFF_100%)] py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid items-start gap-10 lg:grid-cols-2">
-            <div>
-                <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
-                    How to Succeed <br><span class="">Post-Op Recovery</span></h2>
-                <p class="mt-5 text-base text-secondaryLight">The first week post-op is crucial in determining
-                    results. For this reason, it is important you strictly follow all your surgeon’s instructions.</p>
-                <p class="mt-3 text-base text-secondaryLight">Below, you will find a brief guide to use as
-                    general considerations. This focuses on the most important instructions for the first days after
-                    surgery:</p>
-                <ul class="mt-4 space-y-2 text-base y">
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Take at least 1 week off work</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Use ice and cold badges to reduce swelling</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Take all prescribed medication</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Sleep with your head up for the first 3-4 days</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Do gentle exercises as instructed by your surgeon</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Avoid scratching or touching the surgical area</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Avoid spicy food</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Avoid smoking and drinking alcohol</span>
-                    </li>
-                </ul>
-                <p class="mt-4 text-base text-secondaryLight">Regarding showering: You may shower from the
-                    second day without wetting the nasal plaster or bands inside your nose.</p>
-                <p class="mt-3 text-base text-secondaryLight">Regarding massages: Lymphatic massages on the face
-                    are highly recommended for reducing edema and accelerating healing. Gentle massages for the first 6
-                    months post-op reportedly help reshaping and settling the nose.</p>
-            </div>
-            <div class="flex flex-col gap-4">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-435-1.webp" alt=""
-                    class="w-full rounded-[20px] object-cover">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/image-436-1.webp" alt=""
-                    class="w-full rounded-[20px] object-cover">
+    </section>
+
+<?php endif; ?>
+<?php
+$recovery_section = get_field('recovery_section');
+
+if ($recovery_section):
+    $title = $recovery_section['title'] ?? '';
+    $description = $recovery_section['description'] ?? '';
+    $images = $recovery_section['images'] ?? [];
+    ?>
+
+    <section class="bg-[linear-gradient(170deg,#FFFDF1_0%,#FFFFFF_100%)] py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid items-start gap-10 lg:grid-cols-2">
+
+                <!-- Content -->
+                <div>
+
+                    <?php if ($title): ?>
+                        <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
+                            <?php echo wp_kses_post($title); ?>
+                        </h2>
+                    <?php endif; ?>
+
+                    <?php if ($description): ?>
+                        <div class="mt-5 text-base text-secondaryLight">
+                            <?php echo wp_kses_post($description); ?>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+
+                <!-- Gallery -->
+                <?php if (!empty($images)): ?>
+                    <div class="flex flex-col gap-4">
+
+                        <?php foreach ($images as $image): ?>
+                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $title); ?>"
+                                class="w-full rounded-[20px] object-cover">
+                        <?php endforeach; ?>
+
+                    </div>
+                <?php endif; ?>
+
             </div>
         </div>
-    </div>
-</section>
-<section class="bg-white py-16">
-    <div class="container mx-auto px-4">
-        <div class="grid items-center gap-10 lg:grid-cols-2">
-            <div>
-                <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
-                    Important <br><span class="">Aftercare Instructions</span></h2>
-                <p class="mt-5 text-base text-secondaryLight">Rhinoplasty is an important procedure that
-                    requires time and care for recovery. Other than the above-mentioned instructions, here are a set of
-                    aftercare bullet points for the longer-term recovery:</p>
-                <ul class="mt-4 space-y-2 text-base y">
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Avoid sports for at least 1 month</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Avoid high-intensity training for 3 months</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Follow a nutritious diet</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Drink plenty of water</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>If you have to sneeze, do it with your mouth open</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Do not blow your nose for 2 weeks after surgery</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Avoid heat, saunas, hot showers and sun exposure for at least 1 month. Use 50-factor
-                            sun creams for at least 2 months</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Do not wear any kind of glasses for 2 months after surgery. Contact lenses can be
-                            worn after the 3rd day</span>
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <svg viewBox="0 0 24 24" fill="#268ca1" class="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5" fill="#268ca1" opacity="0.15"></rect>
-                            <rect x="7" y="11" width="10" height="2.5" rx="1.25" fill="#268ca1"></rect>
-                        </svg>
-                        <span>Do not drive on the first week after surgery</span>
-                    </li>
-                </ul>
+    </section>
+
+<?php endif; ?>
+
+<?php
+$instructions_section = get_field('instructions_section');
+
+if ($instructions_section):
+
+    $title = $instructions_section['title'] ?? '';
+    $description = $instructions_section['description'] ?? '';
+    $image = $instructions_section['images'] ?? '';
+    ?>
+
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid items-center gap-10 lg:grid-cols-2">
+
+                <!-- Content -->
+                <div>
+
+                    <?php if ($title): ?>
+                        <h2 class="md:text-5xl text-3xl text-coff_black tracking-tight">
+                            <?php echo wp_kses_post($title); ?>
+                        </h2>
+                    <?php endif; ?>
+
+                    <?php if ($description): ?>
+                        <div class="mt-5 text-base text-secondaryLight">
+                            <?php echo wp_kses_post($description); ?>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+
+                <!-- Image -->
+                <?php if ($image): ?>
+                    <div class="flex justify-center">
+                        <img src="<?php echo esc_url($image['url'] ?? $image); ?>"
+                            alt="<?php echo esc_attr($image['alt'] ?? $title); ?>" class="w-full rounded-[24px] object-cover">
+                    </div>
+                <?php endif; ?>
+
             </div>
-            <div class="flex justify-center"><img
-                    src="<?php echo get_template_directory_uri(); ?>/assets/images/image-447.webp"
-                    alt="Rhinoplasty aftercare" class="w-full rounded-[24px] object-cover"></div>
         </div>
-    </div>
-</section>
+    </section>
+
+<?php endif; ?>
+
 <?php get_template_part('template-parts/treatment/faqs'); ?>
 <?php get_footer(); ?>
