@@ -1,4 +1,16 @@
 <?php
+$exploring_cta = get_field('exploring_cta');
+
+if (!$exploring_cta) {
+    return;
+}
+
+$exploring_subtitle    = $exploring_cta['subtitle'] ?? '';
+$exploring_title       = $exploring_cta['title'] ?? '';
+$exploring_description = $exploring_cta['description'] ?? '';
+$exploring_cta_title   = $exploring_cta['cta_title'] ?? '';
+$exploring_cta_desc    = $exploring_cta['cta_description'] ?? '';
+
 $treatments_archive = get_post_type_archive_link('treatments');
 
 $related_treatments = get_posts([
@@ -13,20 +25,25 @@ $related_treatments = get_posts([
 
 <section class="relative overflow-hidden bg-[#FAFAFA] py-14 md:py-20">
     <div class="container mx-auto px-4 relative z-10">
-        <div class="text-center">
-            <div
-                class="mb-4 flex items-center justify-center gap-[clamp(12px,1.4vw,20px)] text-[clamp(0.72rem,0.82vw,0.84rem)] font-semibold uppercase tracking-[0.2em] text-coff_black">
-                <span aria-hidden="true" class="h-px w-[clamp(24px,3vw,52px)] bg-coffGreen"></span>Keep
-                Exploring<span aria-hidden="true" class="h-px w-[clamp(24px,3vw,52px)] bg-coffGreen"></span>
-            </div>
-            <h2
-                class="mx-auto font-serif text-[clamp(1.9rem,3.3vw,3.2rem)] leading-[1.1] font-bold tracking-[-0.03em] text-coff_black">
-                Every Stage of Your Implant, Explained</h2>
-            <p class="mx-auto mt-4 max-w-[52ch] text-[17px] leading-[1.55] text-secondaryLight">Each stage has its own
-                guide,
-                from the first consultation to the crown that
-                finishes the case. Read as much as you like — or skip it and let a surgeon tell you which stages
-                actually apply to you.</p>
+<div class="text-center">
+    <?php if ($exploring_subtitle): ?>
+        <div
+            class="mb-4 flex items-center justify-center gap-[clamp(12px,1.4vw,20px)] text-[clamp(0.72rem,0.82vw,0.84rem)] font-semibold uppercase tracking-[0.2em] text-coff_black">
+            <span aria-hidden="true" class="h-px w-[clamp(24px,3vw,52px)] bg-coffGreen"></span><?php
+            echo esc_html($exploring_subtitle); ?><span
+                aria-hidden="true" class="h-px w-[clamp(24px,3vw,52px)] bg-coffGreen"></span>
+        </div>
+    <?php endif; ?>
+    <?php if ($exploring_title): ?>
+        <h2
+            class="mx-auto font-serif text-[clamp(1.9rem,3.3vw,3.2rem)] leading-[1.1] font-bold tracking-[-0.03em] text-coff_black">
+            <?php echo esc_html($exploring_title); ?></h2>
+    <?php endif; ?>
+    <?php if ($exploring_description): ?>
+        <div
+            class="mx-auto mt-4 max-w-[52ch] text-[17px] leading-[1.55] text-secondaryLight [&amp;_p]:m-0">
+            <?php echo wp_kses_post($exploring_description); ?></div>
+    <?php endif; ?>
 
             <?php if ($treatments_archive || ! empty($related_treatments)): ?>
 
@@ -72,14 +89,16 @@ $related_treatments = get_posts([
                         <path d="M18.6 15l.8 2.3 2.3.8-2.3.8-.8 2.3-.8-2.3-2.3-.8 2.3-.8z" opacity="0.7"></path>
                     </svg>Personalised Care, Just for You
                 </p>
-                <h3
-                    class="mx-auto m-0 max-w-[22ch] font-serif text-[clamp(1.5rem,2.2vw,2.1rem)] leading-[1.15] font-bold tracking-[-0.02em] text-white">
-                    Get Your Single Implant Plan — Free, in 24 Hours</h3>
-                <p class="mx-auto mt-4 mb-0 max-w-[58ch] text-[15px] leading-[1.6] text-white/75">Send a few photos of
-                    your teeth, plus any X-ray you already have. An implant surgeon reviews your
-                    case and replies with a realistic, itemised plan — how many implants you need, which system will be
-                    used, what it costs with hotel and transfers included, and how many days you'll be in Istanbul.
-                    No obligation, no pressure, no cost.</p><a href="<?php echo esc_url(home_url('/contact-us')); ?>"
+                <?php if ($exploring_cta_title): ?>
+                    <h3
+                        class="mx-auto m-0 max-w-[22ch] font-serif text-[clamp(1.5rem,2.2vw,2.1rem)] leading-[1.15] font-bold tracking-[-0.02em] text-white">
+                        <?php echo esc_html($exploring_cta_title); ?></h3>
+                <?php endif; ?>
+                <?php if ($exploring_cta_desc): ?>
+                    <p
+                        class="mx-auto mt-4 mb-0 max-w-[58ch] text-[15px] leading-[1.6] text-white/75"><?php
+                        echo esc_html($exploring_cta_desc); ?></p>
+                <?php endif; ?><a href="<?php echo esc_url(home_url('/contact-us')); ?>"
                     class="nc-shine group mt-8 inline-flex items-center gap-3 rounded-full bg-coffGreen py-2 pr-2 pl-8 text-[16px] font-semibold whitespace-nowrap text-white ring-1 ring-white/60 shadow-[0_12px_32px_rgba(74,125,255,0.45)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(74,125,255,0.6)] hover:brightness-110"><span
                         class="relative z-10">Get My Free Implant Plan</span><span
                         class="relative z-10 grid size-11 shrink-0 place-items-center rounded-full bg-white text-coffGreen shadow-[0_2px_8px_rgba(17,17,17,0.14)] transition-transform duration-300 group-hover:translate-x-0.5"><svg

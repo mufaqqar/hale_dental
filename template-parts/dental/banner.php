@@ -1,6 +1,26 @@
 <?php
-$theme_uri = get_template_directory_uri();
+$banner = get_field('banner');
+
+if (!$banner) {
+    return;
+}
+
 $treatments_archive = get_post_type_archive_link('treatments');
+
+$banner_title       = $banner['title'] ?? '';
+$banner_subtitle    = $banner['subtitle'] ?? '';
+$banner_description = $banner['description'] ?? '';
+$banner_url         = $banner['url'] ?? '';
+$banner_image       = $banner['image'] ?? '';
+
+$banner_image_url = '';
+if (is_array($banner_image)) {
+    $banner_image_url = $banner_image['url'] ?? '';
+} elseif (is_numeric($banner_image)) {
+    $banner_image_url = wp_get_attachment_image_url((int) $banner_image, 'full');
+} elseif (is_string($banner_image)) {
+    $banner_image_url = $banner_image;
+}
 
 $stats = [
     [
@@ -20,8 +40,8 @@ $stats = [
     ],
     [
         'value' => '4.6',
-        'label' => 'Google Rating',
-        'icon' => '<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z" />',
+    'label' => 'Google Rating',
+    'icon' => '<path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z" />',
     ],
 ];
 ?>
@@ -34,14 +54,18 @@ $stats = [
     ========================== -->
     <div class="absolute inset-0">
 
-        <img src="<?php echo esc_url($theme_uri . '/assets/images/heroimage.png'); ?>" alt="" class="
-                absolute
-                inset-0
-                w-full
-                h-full
-                object-cover
-                object-center
-            ">
+        <?php if ($banner_image_url): ?>
+
+            <img src="<?php echo esc_url($banner_image_url); ?>" alt="" class="
+                    absolute
+                    inset-0
+                    w-full
+                    h-full
+                    object-cover
+                    object-center
+                ">
+
+        <?php endif; ?>
 
         <!-- Dark teal overlay -->
         <div class="
@@ -153,80 +177,86 @@ $stats = [
                 </div>
 
 
-                <!-- Heading -->
-                <h1 class="
-                        max-w-[700px]
-                        font-serif
-                        font-normal
-                        text-[38px]
-                        sm:text-[48px]
-                        lg:text-[50px]
-                        xl:text-[54px]
-                        leading-[1.05]
-                        tracking-[-0.02em]
-                        text-white
-                    ">
-                    Single Dental Implant in Turkey
-                </h1>
+<!-- Heading -->
+    <?php if ($banner_title): ?>
+        <h1 class="
+                max-w-[700px]
+                font-serif
+                font-normal
+                text-[38px]
+                sm:text-[48px]
+                lg:text-[50px]
+                xl:text-[54px]
+                leading-[1.05]
+                tracking-[-0.02em]
+                text-white
+            ">
+            <?php echo esc_html($banner_title); ?>
+        </h1>
+    <?php endif; ?>
 
 
-                <!-- Subheading -->
-                <h2 class="
-                        mt-5
-                        font-serif
-                        font-normal
-                        text-[21px]
-                        sm:text-[24px]
-                        lg:text-[22px]
-                        leading-[1.3]
-                        text-white/90
-                    ">
-                    One Missing Tooth, Replaced at the Root
-                </h2>
+    <!-- Subheading -->
+    <?php if ($banner_subtitle): ?>
+        <h2 class="
+                    mt-5
+                    font-serif
+                    font-normal
+                    text-[21px]
+                    sm:text-[24px]
+                    lg:text-[22px]
+                    leading-[1.3]
+                    text-white/90
+                ">
+            <?php echo esc_html($banner_subtitle); ?>
+        </h2>
+    <?php endif; ?>
 
 
-                <!-- Description -->
-                <p class="
-                        mt-10
-                        max-w-[670px]
+    <!-- Description -->
+    <?php if ($banner_description): ?>
+        <div class="
+                    mt-10
+                    max-w-[670px]
+                    text-[15px]
+                    sm:text-[16px]
+                    leading-[1.6]
+                    text-white/80
+                    [&amp;_p]:m-0
+                ">
+            <?php echo wp_kses_post($banner_description); ?>
+        </div>
+    <?php endif; ?>
+
+
+    <!-- CTA -->
+    <?php if ($banner_url): ?>
+
+        <div class="mt-8">
+
+            <a href="<?php echo esc_url(home_url($banner_url)); ?>" class="
+                        inline-flex
+                        items-center
+                        justify-center
+                        min-h-[48px]
+                        px-6
+                        sm:px-7
+                        rounded-full
+                        bg-white/85
+                        hover:bg-white
                         text-[15px]
-                        sm:text-[16px]
-                        leading-[1.6]
-                        text-white/80
+                        font-medium
+                        text-[var(--secondary)]
+                        transition-all
+                        duration-300
+                        shadow-[0_5px_20px_rgba(0,0,0,0.08)]
                     ">
-                    A single implant replaces the root and the tooth without
-                    shaving down the healthy teeth beside it, unlike a bridge.
-                    The Swiss option is <strong class="text-white">€230</strong>,
-                    and Osstem, Hiossen, Nobel or Straumann are available up to
-                    €900. Placement is planned on a CBCT scan and usually takes
-                    under an hour.
-                </p>
+                See What a Single Implant Costs
+            </a>
 
+        </div>
 
-                <!-- CTA -->
-                <div class="mt-8">
-
-                    <a href="<?php echo esc_url(home_url('/contact-us')); ?>" class="
-                            inline-flex
-                            items-center
-                            justify-center
-                            min-h-[48px]
-                            px-6
-                            sm:px-7
-                            rounded-full
-                            bg-white/85
-                            hover:bg-white
-                            text-[15px]
-                            font-medium
-                            text-[var(--secondary)]
-                            transition-all
-                            duration-300
-                            shadow-[0_5px_20px_rgba(0,0,0,0.08)]
-                        ">
-                        See What a Single Implant Costs
-                    </a>
-
-                </div>
+    <?php endif; ?>
 
 
                 <!-- =========================
