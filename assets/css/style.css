@@ -560,8 +560,6 @@ html {
 
 body {
   font-family:
-      "El Messiri",
-      "Cal Sans",
       "Poppins",
       "Open Sans",
       sans-serif;
@@ -584,6 +582,13 @@ h1,
   h5,
   h6 {
   line-height: 1.2;
+  font-family:
+      "El Messiri",
+      "Cal Sans",
+      "Poppins",
+      "Open Sans",
+      sans-serif;
+  font-weight: 600;
 }
 
 .container {
