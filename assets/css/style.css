@@ -798,6 +798,47 @@ h1,
   padding: 0.25rem;
 }
 
+/* ---------- Brand slider (click a logo to swap the description) ---------- */
+
+.brand-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 117px;
+  height: 35px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.brand-logo:hover,
+.brand-logo:focus-visible,
+.brand-logo.is-active {
+  opacity: 1;
+}
+
+.brand-logo:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 4px;
+}
+
+.brand-slider-text {
+  transition: opacity 0.2s ease;
+}
+
+.brand-slider-text.is-fading {
+  opacity: 0;
+}
+
 /* ---------- Tabs (packaging partner) ---------- */
 
 .tab-btn.active {

@@ -1,7 +1,93 @@
 /**
  * Hale Coffee - Slick sliders
  */
+
+/**
+ * Brands slider: swaps the description under the slider for the brand
+ * that is clicked (or moved to by autoplay / swipe).
+ */
+function initBrandSlider() {
+  const $slider = $('.brand-slider');
+  const textEl = document.getElementById('brand-slider-text');
+
+  if (!$slider.length || !textEl) {
+    return;
+  }
+
+  const normalize = (value) => (value || '').replace(/\s+/g, ' ').trim();
+  let current = normalize(textEl.innerHTML);
+  let fadeTimer = null;
+
+  const render = (value) => {
+    const next = value || '';
+
+    if (normalize(next) === current) {
+      return;
+    }
+
+    current = normalize(next);
+    textEl.classList.add('is-fading');
+    window.clearTimeout(fadeTimer);
+    fadeTimer = window.setTimeout(() => {
+      textEl.innerHTML = next;
+      textEl.classList.remove('is-fading');
+    }, 200);
+  };
+
+  const activate = (logo) => {
+    if (!logo) {
+      return;
+    }
+
+    // Slick duplicates slides when infinite is on; data-slick-index maps a
+    // clone back to its original slide so the highlight always lands on the
+    // logo the visitor can actually see.
+    const $slide = $(logo).closest('.slick-slide');
+    const slideIndex = $slide.data('slick-index');
+    const index = typeof slideIndex === 'number' ? slideIndex : $slider.find('.brand-logo').index(logo);
+    const $target = $slider.find('.brand-logo').eq(Math.max(index, 0));
+
+    $slider.find('.brand-logo').removeClass('is-active').attr('aria-pressed', 'false');
+    $target.addClass('is-active').attr('aria-pressed', 'true');
+    render(logo.getAttribute('data-brand-text'));
+  };
+
+  $slider.on('click', '.brand-logo', function (event) {
+    event.preventDefault();
+    activate(this);
+  });
+
+  $slider.on('keydown', '.brand-logo', function (event) {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
+      return;
+    }
+
+    event.preventDefault();
+
+    const $cloned = $slider.find('.slick-slide:not(.slick-cloned) .brand-logo');
+    const $logos = $cloned.length ? $cloned : $slider.find('.brand-logo');
+    const count = $logos.length;
+    const startIndex = $(this).closest('.slick-slide').data('slick-index');
+    const index = typeof startIndex === 'number' ? startIndex : $logos.index(this);
+    const next = (index + (event.key === 'ArrowRight' ? 1 : -1) + count) % count;
+
+    $logos.eq(next).trigger('focus');
+    activate($logos.eq(next).get(0));
+  });
+
+  if ($.fn.slick && $slider.hasClass('slick-initialized')) {
+    $slider.on('afterChange', function () {
+      const $logos = $slider.find('.brand-logo');
+      const index = $slider.slick('slickCurrentSlide');
+
+      activate($logos.eq(index < 0 ? 0 : index).get(0));
+    });
+  }
+}
+
 jQuery(function ($) {
+  initBrandSlider();
+
   if (!$.fn.slick) {
     return;
   }
@@ -15,7 +101,7 @@ jQuery(function ($) {
     arrows: false,
     dots: false,
     infinite: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
     responsive: [
       { breakpoint: 1200, settings: { slidesToShow: 4 } },
       { breakpoint: 992, settings: { slidesToShow: 3 } },

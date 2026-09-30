@@ -658,6 +658,94 @@ function cptui_register_my_cpts_treatments() {
 add_action( 'init', 'cptui_register_my_cpts_treatments' );
 
 
+function cptui_register_my_cpts_brands() {
+
+	/**
+	 * Post Type: Brands.
+	 */
+
+	$labels = [
+		"name" => esc_html__( "Brands", "hale-dental" ),
+		"singular_name" => esc_html__( "Brand", "hale-dental" ),
+	];
+
+	$args = [
+		"label" => esc_html__( "Brands", "hale-dental" ),
+		"labels" => $labels,
+		"description" => esc_html__( "Partner / accreditation logos used by the homepage brands slider.", "hale-dental" ),
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "brands",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"rest_namespace" => "wp/v2",
+		"has_archive" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"can_export" => false,
+		"rewrite" => [ "slug" => "brands", "with_front" => true ],
+		"query_var" => true,
+		"supports" => [ "title", "editor", "thumbnail", "excerpt", "page-attributes" ],
+		"show_in_graphql" => false,
+	];
+
+	register_post_type( "brands", $args );
+}
+
+add_action( 'init', 'cptui_register_my_cpts_brands' );
+
+
+/**
+ * ACF field group for the brands CPT: the description shown under the
+ * logo when the brand is selected in the homepage brands slider.
+ */
+function hale_brands_acf_field_group() {
+
+	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+		return;
+	}
+
+	acf_add_local_field_group( [
+		'key'              => 'group_hale_brand_details',
+		'title'            => 'Brand Details',
+		'fields'           => [
+			[
+				'key'           => 'field_hale_brand_description',
+				'label'         => 'Slider description',
+				'name'          => 'brand_description',
+				'type'          => 'textarea',
+				'rows'          => 4,
+				'toolbar'       => 'basic',
+				'new_lines'     => 'wpautop',
+				'instructions'  => 'Displayed below the logo while this brand is selected in the homepage brands slider.',
+			],
+		],
+		'location'         => [
+			[
+				[
+					'param'    => 'post_type',
+					'operator' => '==',
+					'value'    => 'brands',
+				],
+			],
+		],
+		'position'         => 'normal',
+		'style'            => 'default',
+		'label_placement'  => 'top',
+		'instruction_placement' => 'label',
+		'active'           => true,
+	] );
+}
+
+add_action( 'acf/init', 'hale_brands_acf_field_group' );
+
+
 function cptui_register_my_taxes_treatment_types() {
 
 	/**
