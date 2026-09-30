@@ -791,8 +791,9 @@ if ($recovery_section):
                 <?php if (!empty($images)): ?>
                     <div class="flex flex-col gap-4">
 
-                        <?php foreach ($images as $image): ?>
-                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $title); ?>"
+                        <?php foreach ($images as $image):
+                            ?>
+                            <img src="<?php echo esc_url($image); ?>" alt=""
                                 class="w-full rounded-[20px] object-cover">
                         <?php endforeach; ?>
 
