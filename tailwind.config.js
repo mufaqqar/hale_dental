@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Cal Sans"', 'Poppins', 'Open Sans', 'system-ui', 'sans-serif'],
+        sans: ['"El Messiri"', '"Cal Sans"', 'Poppins', 'Open Sans', 'sans-serif'],
+        serif: ['"El Messiri"', '"Cal Sans"', 'sans-serif'],
       },
       colors: {
         primary: 'var(--primary)',

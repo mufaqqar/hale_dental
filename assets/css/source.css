@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "El Messiri";
+  src: url("../fonts/ElMessiri-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --primary: #010311;
   --secondary: #1c2e42;
@@ -18,13 +26,10 @@
 
   body {
     font-family:
+      "El Messiri",
       "Cal Sans",
       "Poppins",
       "Open Sans",
-      system-ui,
-      -apple-system,
-      "Segoe UI",
-      Roboto,
       sans-serif;
     color: var(--coff_black);
     background-color: #ffffff;
