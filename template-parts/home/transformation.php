@@ -65,17 +65,17 @@ if ($transformations) :
 
                     <!-- Glass Card -->
                     <div
-                        class="absolute left-3 right-3 !bottom-3 flex flex-col items-center justify-center rounded-[27px] border border-white/50 bg-white/10 backdrop-blur-[14px] shadow-[0_12px_35px_rgba(0,0,0,0.18)] px-5 py-5">
+                        class="absolute left-3 right-3 !bottom-3 flex flex-col items-center justify-center rounded-[27px] border border-white/50 bg-black/30 backdrop-blur-[14px] shadow-[0_12px_35px_rgba(0,0,0,0.18)] px-5 py-5">
 
                         <?php if ($card_title) : ?>
-                            <h3 class="text-lg text-coff_black text-center">
+                            <h3 class="text-lg text-white text-center">
                                 <?php echo esc_html($card_title); ?>
                             </h3>
                         <?php endif; ?>
 
 
                         <?php if ($card_content) : ?>
-                            <div class="text-sm text-secondaryLight text-center">
+                            <div class="text-sm !text-white/90 text-center">
                                 <?php echo apply_filters('the_content', $card_content); ?>
                             </div>
                         <?php endif; ?>
