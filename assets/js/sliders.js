@@ -42,7 +42,7 @@ jQuery(function ($) {
          * Initialize Slick
          */
         $slider.slick({
-            slidesToShow: visible(8),
+            slidesToShow: visible(6),
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 2000,
