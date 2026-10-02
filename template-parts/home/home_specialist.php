@@ -18,18 +18,9 @@ $consultants = [
     ],
 ];
 
-$today = new DateTime();
+$today = new DateTime('today');
 $dayNames = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-
-$dates = [];
-for ($i = 0; $i < 7; $i++) {
-    $date = (clone $today)->modify("+$i days");
-    $dates[] = [
-        'day' => $date->format('j'),
-        'name' => $dayNames[(int) $date->format('w')],
-        'is_today' => $i === 0,
-    ];
-}
+$monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 $morningSlots = [
     '09:00',
@@ -53,6 +44,39 @@ $afternoonSlots = [
     '12:45',
     '13:15',
 ];
+
+$booking_days = 7;
+
+$dates = [];
+for ($i = 0; $i < $booking_days; $i++) {
+    $date = (clone $today)->modify("+$i days");
+    $dates[] = [
+        'value'    => $date->format('Y-m-d'),
+        'day'      => $date->format('j'),
+        'name'     => $dayNames[(int) $date->format('w')],
+        'label'    => sprintf('%s %s, %s', $dayNames[(int) $date->format('w')], $date->format('j'), $date->format('Y')),
+        'is_today' => $i === 0,
+    ];
+}
+
+$current_month = sprintf('%s, %s', $monthNames[(int) $today->format('n')], $today->format('Y'));
+
+$timezone_label = 'Africa/Accra - GMT (+00:00)';
+$lead_minutes   = 60;
+$cutoff         = (clone $today)->modify("+{$lead_minutes} minutes");
+
+$filter_slots = function ($slots) use ($today, $cutoff) {
+    return array_values(array_filter($slots, function ($slot) use ($today, $cutoff) {
+        $slot_date = new DateTime($today->format('Y-m-d') . ' ' . $slot);
+
+        return $slot_date >= $cutoff;
+    }));
+};
+
+$morning_available   = $filter_slots($morningSlots);
+$afternoon_available = $filter_slots($afternoonSlots);
+
+$default_consultant = 'DrLamis';
 
 ?>
 
@@ -108,26 +132,36 @@ $afternoonSlots = [
                  RIGHT SIDE - BOOKING
             ========================================================== -->
 
-            <div id="booking" class="relative min-h-[575px] border-t border-[#e8e8e8] pt-4">
+            <div id="booking"
+                class="booking-widget relative border-t border-[#e8e8e8] pt-4"
+                data-default-consultant="<?= esc_attr($default_consultant) ?>"
+                data-today="<?= esc_attr($today->format('Y-m-d')) ?>"
+                data-lead-minutes="<?= (int) $lead_minutes ?>">
 
                 <!-- Appointment header -->
-                <div class="border-b border-[#e8e8e8] pb-4">
+                <div class="flex items-center justify-between gap-3 border-b border-[#e8e8e8] pb-4">
 
-                    <div class="flex items-center text-sm">
+                    <div class="flex min-w-0 items-center text-sm">
 
-                        <span class=" text-coff_black">
+                        <span class="text-coff_black">
                             Your appointment will be booked with
                         </span>
 
-                        <button id="selectedConsultantText" type="button" class="ml-1 text-secondary hover:underline">
-                            DrLamis
+                        <button id="selectedConsultantText" type="button"
+                            class="ml-1 truncate text-secondary hover:underline">
+                            <?= esc_html($default_consultant) ?>
                         </button>
 
-                        <button id="changeConsultant" type="button" class="ml-2 text-secondary hover:underline">
+                        <button id="changeConsultant" type="button"
+                            class="ml-2 shrink-0 text-secondary hover:underline">
                             Change
                         </button>
 
                     </div>
+
+                    <span id="bookingStepLabel" class="shrink-0 text-[10px] uppercase tracking-[0.08em] text-[#999]">
+                        Step 1 of 2
+                    </span>
 
                 </div>
 
@@ -145,24 +179,24 @@ $afternoonSlots = [
 
                             <button type="button"
                                 class="consultant-option flex w-full items-center gap-3 px-5 py-3 text-left hover:bg-[#f7f7f7]"
-                                data-name="<?= htmlspecialchars($consultant['name']) ?>" data-index="<?= $index ?>">
+                                data-name="<?= esc_attr($consultant['name']) ?>" data-index="<?= $index ?>">
 
                                 <!-- Avatar -->
                                 <div class="h-7 w-7 shrink-0 overflow-hidden rounded-full bg-[#f0dce3]">
-                                    <img src="<?= get_template_directory_uri() ?>/assets/images/<?= $consultant['image'] ?>"
-                                        alt="<?= htmlspecialchars($consultant['name']) ?> - Dental Consultant"
+                                    <img src="<?= get_template_directory_uri() ?>/assets/images/<?= esc_attr($consultant['image']) ?>"
+                                        alt="<?= esc_attr($consultant['name']) ?> - Dental Consultant"
                                         class="h-full w-full object-cover" onerror="this.style.display='none'">
                                 </div>
 
                                 <div class="min-w-0 flex-1">
 
-                                    <div class="text-[11px]  text-[#222]">
-                                        <?= htmlspecialchars($consultant['name']) ?>
+                                    <div class="text-[11px] text-[#222]">
+                                        <?= esc_html($consultant['name']) ?>
                                     </div>
 
                                     <?php if ($consultant['description']): ?>
                                         <div class="mt-1 text-[9px] text-[#777]">
-                                            <?= htmlspecialchars($consultant['description']) ?>
+                                            <?= esc_html($consultant['description']) ?>
                                         </div>
                                     <?php endif; ?>
 
@@ -181,151 +215,287 @@ $afternoonSlots = [
                 </div>
 
 
-                <!-- Timezone -->
-                <div class="mt-[18px]">
+                <!-- =====================================================
+                     STEP 1 - PICK A DATE AND TIME
+                ====================================================== -->
 
-                    <button type="button"
-                        class="flex h-[32px] w-full items-center justify-between rounded-[2px] border border-[#ddd] bg-white px-2 text-[10px] text-[#222]">
-                        <span>
-                            Africa/Accra - GMT (+00:00)
+                <div id="bookingStepOne">
+
+                    <!-- Timezone -->
+                    <div class="mt-[18px]">
+
+                        <div
+                            class="flex h-[32px] w-full items-center justify-between rounded-[2px] border border-[#ddd] bg-[#fafafa] px-2 text-[10px] text-[#222]">
+                            <span>
+                                <?= esc_html($timezone_label) ?>
+                            </span>
+
+                            <svg class="h-3 w-3 text-[#aaa]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Month -->
+                    <div class="mt-4 flex items-center justify-center">
+
+                        <div class="flex items-center gap-1 text-[12px] text-black">
+                            <?= esc_html($current_month) ?>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Dates -->
+                    <div class="mt-4 flex items-center gap-[5px]">
+
+                        <?php foreach ($dates as $date): ?>
+
+                            <button type="button" data-date="<?= esc_attr($date['value']) ?>"
+                                data-label="<?= esc_attr($date['label']) ?>" aria-pressed="false"
+                                class="date-button group flex h-[45px] flex-1 flex-col items-center justify-center rounded-[5px] border border-[#f0f0f0] bg-white shadow-[0_1px_5px_rgba(0,0,0,0.05)] transition hover:border-secondary
+                                <?= $date['is_today'] ? 'active-date !border-secondary !bg-secondary' : '' ?>">
+
+                                <span
+                                    class="date-number text-[12px] leading-4 <?= $date['is_today'] ? 'text-white' : 'text-[#999]' ?>">
+                                    <?= esc_html($date['day']) ?>
+                                </span>
+
+                                <span
+                                    class="date-name text-[8px] leading-3 <?= $date['is_today'] ? 'text-white' : 'text-[#aaa]' ?>">
+                                    <?= esc_html($date['name']) ?>
+                                </span>
+
+                            </button>
+
+                        <?php endforeach; ?>
+
+                    </div>
+
+
+                    <!-- =====================================================
+                         TIME SLOTS
+                    ====================================================== -->
+
+                    <div id="slotsContainer" class="pb-1">
+
+                        <!-- Morning -->
+                        <div id="morningGroup" class="mt-9 <?= empty($morning_available) ? 'hidden' : '' ?>">
+
+                            <div class="relative mb-5 flex items-center">
+
+                                <div class="h-px flex-1 bg-[#e6e6e6]"></div>
+
+                                <span class="bg-white px-3 text-[10px] text-[#777]">
+                                    Morning
+                                </span>
+
+                                <div class="h-px flex-1 bg-[#e6e6e6]"></div>
+
+                            </div>
+
+
+                            <div class="grid grid-cols-5 gap-x-[7px] gap-y-[6px]">
+
+                                <?php foreach ($morningSlots as $slot): ?>
+
+                                    <?php $slot_open = !in_array($slot, $morning_available, true); ?>
+
+                                    <button type="button" <?= $slot_open ? 'disabled' : '' ?>
+                                        class="time-slot h-[28px] rounded-[3px] border text-[9px] transition
+                                        <?= $slot_open ? 'cursor-not-allowed border-[#e6e6e6] bg-white text-[#c4c4c4] line-through' : 'border-secondary bg-white text-secondary hover:bg-secondary hover:text-white' ?>"
+                                        data-time="<?= esc_attr($slot) ?>">
+                                        <?= esc_html($slot) ?>
+                                    </button>
+
+                                <?php endforeach; ?>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Afternoon -->
+                        <div id="afternoonGroup" class="mt-8 <?= empty($afternoon_available) ? 'hidden' : '' ?>">
+
+                            <div class="relative mb-5 flex items-center">
+
+                                <div class="h-px flex-1 bg-[#e6e6e6]"></div>
+
+                                <span class="bg-white px-3 text-[10px] text-[#777]">
+                                    Afternoon
+                                </span>
+
+                                <div class="h-px flex-1 bg-[#e6e6e6]"></div>
+
+                            </div>
+
+                            <div class="grid grid-cols-5 gap-x-[7px]">
+
+                                <?php foreach ($afternoonSlots as $slot): ?>
+
+                                    <?php $slot_open = !in_array($slot, $afternoon_available, true); ?>
+
+                                    <button type="button" <?= $slot_open ? 'disabled' : '' ?>
+                                        class="time-slot h-[28px] rounded-[3px] border text-[9px] transition
+                                        <?= $slot_open ? 'cursor-not-allowed border-[#e6e6e6] bg-white text-[#c4c4c4] line-through' : 'border-secondary bg-white text-secondary hover:bg-secondary hover:text-white' ?>"
+                                        data-time="<?= esc_attr($slot) ?>">
+                                        <?= esc_html($slot) ?>
+                                    </button>
+
+                                <?php endforeach; ?>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- No slots -->
+                    <div id="noSlots"
+                        class="mt-6 hidden min-h-[160px] flex-col items-center justify-center gap-1 bg-[#f3f3f3] py-10 text-center">
+                        <span class="text-[12px] text-[#4f4f4f]">
+                            No slots available for this day
                         </span>
+                        <span class="text-[10px] text-[#8a8a8a]">
+                            Please pick another date.
+                        </span>
+                    </div>
 
-                        <svg class="h-3 w-3 text-[#999]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="1.5">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
 
+                    <!-- Continue (enabled once a time is chosen) -->
+                    <button id="bookingContinue" type="button" disabled
+                        class="mt-6 h-[44px] w-full rounded-[3px] bg-secondary text-[12px] text-white opacity-40 transition">
+                        Continue
                     </button>
-
-                </div>
-
-
-                <!-- Month -->
-                <div class="mt-4 flex items-center justify-center">
-
-                    <button type="button" class="absolute left-0 mt-1 text-[18px] text-[#bbb] hover:text-black">
-                        ‹
-                    </button>
-
-                    <button type="button" class="flex items-center gap-1 text-[12px]  text-black">
-                        September, 2026
-
-                        <svg class="h-3 w-3" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="m7 10 5 5 5-5H7Z" />
-                        </svg>
-                    </button>
-
-                    <button type="button" class="absolute right-0 mt-1 text-[18px] text-coff_black">
-                        ›
-                    </button>
-
-                </div>
-
-
-                <!-- Dates -->
-                <div class="mt-4 flex items-center gap-[5px]">
-
-                    <?php foreach ($dates as $index => $date): ?>
-
-                        <button type="button" data-date="<?= $date['day'] ?>" class="date-button group flex h-[45px] flex-1 flex-col items-center justify-center rounded-[5px] border border-[#f0f0f0] bg-white shadow-[0_1px_5px_rgba(0,0,0,0.05)] transition
-                            <?= $date['is_today'] ? 'active-date !border-secondary !bg-secondary !text-white' : '' ?>">
-
-                            <span class="date-number text-[12px] leading-4
-                                <?= $date['is_today'] ? 'text-white' : 'text-[#999]' ?>">
-                                <?= $date['day'] ?>
-                            </span>
-
-                            <span class="date-name text-[8px] leading-3
-                                <?= $date['is_today'] ? 'text-white' : 'text-[#aaa]' ?>">
-                                <?= $date['name'] ?>
-                            </span>
-
-                        </button>
-
-                    <?php endforeach; ?>
 
                 </div>
 
 
                 <!-- =====================================================
-                     TIME SLOTS
+                     STEP 2 - YOUR DETAILS
                 ====================================================== -->
 
-                <div id="slotsContainer">
+                <div id="bookingStepTwo" class="hidden">
 
-                    <!-- Morning -->
-                    <div class="mt-9">
+                    <!-- Summary -->
+                    <div class="mt-5 border border-[#eee] bg-[#fafafa] px-4 py-3">
 
-                        <div class="relative mb-5 flex items-center">
+                        <div class="flex items-start justify-between gap-3">
 
-                            <div class="h-px flex-1 bg-[#e6e6e6]"></div>
+                            <div class="min-w-0">
 
-                            <span class="bg-white px-3 text-[10px] text-[#777]">
-                                Morning
-                            </span>
+                                <div class="text-[9px] uppercase tracking-[0.08em] text-[#999]">
+                                    Your appointment
+                                </div>
 
-                            <div class="h-px flex-1 bg-[#e6e6e6]"></div>
+                                <div id="bookingSummary" class="mt-1 text-[12px] text-black">
+                                    --
+                                </div>
 
-                        </div>
+                                <div id="bookingSummaryConsultant" class="mt-0.5 text-[10px] text-[#777]">
+                                    --
+                                </div>
 
+                            </div>
 
-                        <div class="grid grid-cols-5 gap-x-[7px] gap-y-[6px]">
-
-                            <?php foreach ($morningSlots as $slot): ?>
-
-                                <button type="button"
-                                    class="time-slot h-[28px] rounded-[3px] border border-secondary bg-white text-[9px] text-secondary transition hover:bg-secondary hover:text-white"
-                                    data-time="<?= $slot ?>">
-                                    <?= $slot ?>
-                                </button>
-
-                            <?php endforeach; ?>
+                            <button id="bookingEdit" type="button"
+                                class="shrink-0 text-[10px] text-secondary underline underline-offset-2 hover:text-black">
+                                Change
+                            </button>
 
                         </div>
 
                     </div>
 
 
-                    <!-- Afternoon -->
-                    <div class="mt-8">
+                    <form id="bookingForm" class="mt-5" novalidate>
 
-                        <div class="relative mb-5 flex items-center">
+                        <p class="mb-4 text-[11px] text-[#555]">
+                            Almost done – tell us how to reach you.
+                        </p>
 
-                            <div class="h-px flex-1 bg-[#e6e6e6]"></div>
+                        <div class="space-y-3">
 
-                            <span class="bg-white px-3 text-[10px] text-[#777]">
-                                Afternoon
-                            </span>
+                            <div>
+                                <label for="bookingName" class="mb-1 block text-[10px] text-[#555]">Full name *</label>
+                                <input id="bookingName" name="fullname" type="text" required autocomplete="name"
+                                    class="h-[38px] w-full rounded-[3px] border border-[#ddd] bg-white px-3 text-[12px] text-black outline-none transition focus:border-secondary">
+                                <span class="booking-error hidden text-[10px] text-red-500">Please enter your name.</span>
+                            </div>
 
-                            <div class="h-px flex-1 bg-[#e6e6e6]"></div>
+                            <div>
+                                <label for="bookingEmail" class="mb-1 block text-[10px] text-[#555]">Email *</label>
+                                <input id="bookingEmail" name="email" type="email" required autocomplete="email"
+                                    class="h-[38px] w-full rounded-[3px] border border-[#ddd] bg-white px-3 text-[12px] text-black outline-none transition focus:border-secondary">
+                                <span class="booking-error hidden text-[10px] text-red-500">Please enter a valid email.</span>
+                            </div>
+
+                            <div>
+                                <label for="bookingPhone" class="mb-1 block text-[10px] text-[#555]">Phone / WhatsApp *</label>
+                                <input id="bookingPhone" name="phone" type="tel" required autocomplete="tel"
+                                    class="h-[38px] w-full rounded-[3px] border border-[#ddd] bg-white px-3 text-[12px] text-black outline-none transition focus:border-secondary">
+                                <span class="booking-error hidden text-[10px] text-red-500">Please enter your phone number.</span>
+                            </div>
+
+                            <div>
+                                <label for="bookingMessage" class="mb-1 block text-[10px] text-[#555]">Short message</label>
+                                <textarea id="bookingMessage" name="message" rows="3" maxlength="1000"
+                                    placeholder="Anything we should know before your consultation?"
+                                    class="w-full resize-none rounded-[3px] border border-[#ddd] bg-white px-3 py-2 text-[12px] text-black outline-none transition focus:border-secondary"></textarea>
+                            </div>
 
                         </div>
 
+                        <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-                        <div class="grid grid-cols-5 gap-x-[7px]">
+                        <button id="bookingSubmit" type="submit"
+                            class="mt-5 h-[44px] w-full rounded-[3px] bg-secondary text-[12px] text-white transition hover:bg-black">
+                            Confirm booking
+                        </button>
 
-                            <?php foreach ($afternoonSlots as $slot): ?>
+                        <p id="bookingFormMsg" class="mt-3 hidden text-[11px]"></p>
 
-                                <button type="button"
-                                    class="time-slot h-[28px] rounded-[3px] border border-secondary bg-white text-[9px] text-secondary transition hover:bg-secondary hover:text-white"
-                                    data-time="<?= $slot ?>">
-                                    <?= $slot ?>
-                                </button>
+                        <p class="mt-3 text-[9px] leading-4 text-[#8a8a8a]">
+                            We will confirm your appointment by phone or email. No payment is required now.
+                        </p>
 
-                            <?php endforeach; ?>
-
-                        </div>
-
-                    </div>
+                    </form>
 
                 </div>
 
 
-                <!-- No slots -->
-                <div id="noSlots" class="absolute inset-0 hidden items-center justify-center bg-[#f3f3f3]">
-                    <span class="mt-10 text-[12px] text-[#4f4f4f]">
-                        No slots available
-                    </span>
+                <!-- =====================================================
+                     SUCCESS
+                ====================================================== -->
+
+                <div id="bookingSuccess" class="hidden py-10 text-center">
+
+                    <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#e8f7f4]">
+                        <svg class="h-6 w-6 text-[#5bd7c5]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="m4 12 5 5L20 6" />
+                        </svg>
+                    </div>
+
+                    <h3 class="mt-4 text-[15px] text-black">
+                        Request received
+                    </h3>
+
+                    <p id="bookingSuccessMsg" class="mx-auto mt-2 max-w-[300px] text-[11px] leading-5 text-[#666]">
+                        Thank you – our team will confirm your appointment shortly.
+                    </p>
+
+                    <button id="bookingRestart" type="button"
+                        class="mt-5 text-[11px] text-secondary underline underline-offset-2 hover:text-black">
+                        Book another appointment
+                    </button>
+
                 </div>
 
             </div>
@@ -335,262 +505,3 @@ $afternoonSlots = [
     </div>
 </section>
 
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-
-        const dropdown = document.getElementById('consultantDropdown');
-        const changeButton = document.getElementById('changeConsultant');
-        const consultantText = document.getElementById('selectedConsultantText');
-
-        const options = document.querySelectorAll('.consultant-option');
-        const checks = document.querySelectorAll('.consultant-check');
-
-        const dateButtons = document.querySelectorAll('.date-button');
-        const slotsContainer = document.getElementById('slotsContainer');
-        const noSlots = document.getElementById('noSlots');
-
-        let selectedConsultant = 'DrLamis';
-        let selectedDate = '<?= $today->format('j') ?>';
-        let selectedTime = null;
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Consultant dropdown
-        |--------------------------------------------------------------------------
-        */
-
-        function openDropdown() {
-            dropdown.classList.remove('hidden');
-        }
-
-        function closeDropdown() {
-            dropdown.classList.add('hidden');
-        }
-
-        changeButton.addEventListener('click', function (e) {
-
-            e.stopPropagation();
-
-            if (dropdown.classList.contains('hidden')) {
-                openDropdown();
-            } else {
-                closeDropdown();
-            }
-
-        });
-
-
-        consultantText.addEventListener('click', function (e) {
-
-            e.stopPropagation();
-
-            openDropdown();
-
-        });
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Select consultant
-        |--------------------------------------------------------------------------
-        */
-
-        options.forEach(option => {
-
-            option.addEventListener('click', function () {
-
-                selectedConsultant = this.dataset.name;
-
-                consultantText.textContent = selectedConsultant;
-
-                // Remove all checks
-                checks.forEach(check => {
-                    check.classList.add('hidden');
-                });
-
-                // Show selected check
-                const selectedCheck = this.querySelector('.consultant-check');
-
-                if (selectedCheck) {
-                    selectedCheck.classList.remove('hidden');
-                }
-
-                closeDropdown();
-
-                showSlots();
-
-            });
-
-        });
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Date selection
-        |--------------------------------------------------------------------------
-        */
-
-        dateButtons.forEach(button => {
-
-            button.addEventListener('click', function () {
-
-                dateButtons.forEach(date => {
-
-                    date.classList.remove(
-                        'active-date',
-                        '!border-secondary',
-                        '!bg-secondary',
-                        '!text-white'
-                    );
-
-                    date.classList.add('bg-white');
-
-                    const number = date.querySelector('.date-number');
-                    const name = date.querySelector('.date-name');
-
-                    number.classList.remove('text-white', 'text-[#ff3c66]');
-                    name.classList.remove('text-white');
-
-                    number.classList.add('text-[#999]');
-                    name.classList.add('text-[#aaa]');
-
-                });
-
-
-                // Activate clicked date
-                this.classList.remove('bg-white');
-
-                this.classList.add(
-                    'active-date',
-                    '!border-secondary',
-                    '!bg-secondary'
-                );
-
-                const number = this.querySelector('.date-number');
-                const name = this.querySelector('.date-name');
-
-                number.classList.remove('text-[#999]');
-                name.classList.remove('text-[#aaa]');
-
-                number.classList.add('text-white');
-                name.classList.add('text-white');
-
-                selectedDate = this.dataset.date;
-
-                showSlots();
-
-            });
-
-        });
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Time selection
-        |--------------------------------------------------------------------------
-        */
-
-        document.querySelectorAll('.time-slot').forEach(slot => {
-
-            slot.addEventListener('click', function () {
-
-                document.querySelectorAll('.time-slot').forEach(item => {
-
-                    item.classList.remove(
-                        'bg-secondary',
-                        'text-white'
-                    );
-
-                    item.classList.add('bg-white');
-
-                });
-
-                this.classList.remove('bg-white');
-
-                this.classList.add(
-                    'bg-secondary',
-                    'text-white'
-                );
-
-                selectedTime = this.dataset.time;
-
-                console.log({
-                    consultant: selectedConsultant,
-                    date: selectedDate,
-                    time: selectedTime
-                });
-
-            });
-
-        });
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Availability states
-        |--------------------------------------------------------------------------
-        */
-
-        function showSlots() {
-
-            slotsContainer.classList.remove('hidden');
-
-            noSlots.classList.remove('flex');
-            noSlots.classList.add('hidden');
-
-        }
-
-
-        function showNoSlots() {
-
-            slotsContainer.classList.add('hidden');
-
-            noSlots.classList.remove('hidden');
-            noSlots.classList.add('flex');
-
-        }
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Close dropdown when clicking outside
-        |--------------------------------------------------------------------------
-        */
-
-        document.addEventListener('click', function (event) {
-
-            if (
-                !dropdown.contains(event.target) &&
-                event.target !== changeButton &&
-                event.target !== consultantText
-            ) {
-                closeDropdown();
-            }
-
-        });
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Default selected consultant
-        |--------------------------------------------------------------------------
-        */
-
-        options.forEach(option => {
-
-            if (option.dataset.name === 'DrLamis') {
-
-                const check = option.querySelector('.consultant-check');
-
-                if (check) {
-                    check.classList.remove('hidden');
-                }
-
-            }
-
-        });
-
-    });
-</script>
