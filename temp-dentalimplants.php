@@ -3,7 +3,7 @@
 get_header();
 ?>
 <?php get_template_part('template-parts/dental/banner'); ?>
-<?php get_template_part('template-parts/dental/smile_slider'); ?>
+<!-- <?php //get_template_part('template-parts/dental/smile_slider'); ?> -->
 <?php get_template_part('template-parts/dental/customerstory'); ?>
 <?php get_template_part('template-parts/dental/about'); ?>
 <?php get_template_part('template-parts/dental/dental_cta'); ?>

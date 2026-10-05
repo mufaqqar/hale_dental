@@ -5,7 +5,7 @@
     <?php get_template_part('template-parts/home/brands_slider'); ?>
     <?php get_template_part('template-parts/home/transformation'); ?>
     <?php get_template_part('template-parts/home/home_about'); ?>
-    <?php get_template_part('template-parts/home/smile_slider'); ?>
+    <!-- <?php //get_template_part('template-parts/home/smile_slider'); ?> -->
     <?php get_template_part('template-parts/home/why_choose'); ?>
     <!-- <?php //get_template_part('template-parts/home/packagingpartner'); ?> -->
     <?php get_template_part('template-parts/home/customerstory'); ?>
