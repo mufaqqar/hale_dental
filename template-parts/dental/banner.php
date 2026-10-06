@@ -229,8 +229,7 @@ $stats = [
                         transition-all
                         duration-300
                         shadow-[0_5px_20px_rgba(0,0,0,0.08)]
-                    ">
-                See What a Single Implant Costs
+                    ">Free Consultation                          
             </a>
 
         </div>
