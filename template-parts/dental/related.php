@@ -5,69 +5,56 @@ if (!$exploring_cta) {
     return;
 }
 
-$exploring_subtitle    = $exploring_cta['subtitle'] ?? '';
-$exploring_title       = $exploring_cta['title'] ?? '';
+$exploring_subtitle = $exploring_cta['subtitle'] ?? '';
+$exploring_title = $exploring_cta['title'] ?? '';
 $exploring_description = $exploring_cta['description'] ?? '';
-$exploring_cta_title   = $exploring_cta['cta_title'] ?? '';
-$exploring_cta_desc    = $exploring_cta['cta_description'] ?? '';
+$exploring_cta_title = $exploring_cta['cta_title'] ?? '';
+$exploring_cta_desc = $exploring_cta['cta_description'] ?? '';
 
 $treatments_archive = get_post_type_archive_link('treatments');
 
 $related_treatments = get_posts([
-    'post_type'      => 'treatments',
+    'post_type' => 'treatments',
     'posts_per_page' => 6,
-    'post_status'    => 'publish',
-    'orderby'        => 'menu_order',
-    'order'          => 'ASC',
-    'no_found_rows'  => true,
+    'post_status' => 'publish',
+    'orderby' => 'menu_order',
+    'order' => 'ASC',
+    'no_found_rows' => true,
 ]);
 ?>
 
 <section class="relative overflow-hidden bg-[#FAFAFA] py-14 md:py-20">
     <div class="container mx-auto px-4 relative z-10">
-<div class="text-center">
-    <?php if ($exploring_subtitle): ?>
-        <div
-            class="mb-4 flex items-center justify-center gap-[clamp(12px,1.4vw,20px)] text-[clamp(0.72rem,0.82vw,0.84rem)] font-semibold uppercase tracking-[0.2em] text-coff_black">
-            <span aria-hidden="true" class="h-px w-[clamp(24px,3vw,52px)] bg-coffGreen"></span><?php
-            echo esc_html($exploring_subtitle); ?><span
-                aria-hidden="true" class="h-px w-[clamp(24px,3vw,52px)] bg-coffGreen"></span>
-        </div>
-    <?php endif; ?>
-    <?php if ($exploring_title): ?>
-        <h2
-            class="mx-auto font-serif text-[clamp(1.9rem,3.3vw,3.2rem)] leading-[1.1] font-bold tracking-[-0.03em] text-coff_black">
-            <?php echo esc_html($exploring_title); ?></h2>
-    <?php endif; ?>
-    <?php if ($exploring_description): ?>
-        <div
-            class="mx-auto mt-4 max-w-[52ch] text-[17px] leading-[1.55] text-secondaryLight [&amp;_p]:m-0">
-            <?php echo wp_kses_post($exploring_description); ?></div>
-    <?php endif; ?>
+        <div class="text-center">
+            <?php if ($exploring_subtitle): ?>
+                <div
+                    class="mb-4 flex items-center justify-center gap-[clamp(12px,1.4vw,20px)] text-[clamp(0.72rem,0.82vw,0.84rem)] font-semibold uppercase tracking-[0.2em] text-coff_black">
+                    <span aria-hidden="true" class="h-px w-[clamp(24px,3vw,52px)] bg-coffGreen"></span><?php
+                    echo esc_html($exploring_subtitle); ?><span aria-hidden="true"
+                        class="h-px w-[clamp(24px,3vw,52px)] bg-coffGreen"></span>
+                </div>
+            <?php endif; ?>
+            <?php if ($exploring_title): ?>
+                <h2
+                    class="mx-auto font-serif text-[clamp(1.9rem,3.3vw,3.2rem)] leading-[1.1] font-bold tracking-[-0.03em] text-coff_black">
+                    <?php echo esc_html($exploring_title); ?>
+                </h2>
+            <?php endif; ?>
+            <?php if ($exploring_description): ?>
+                <div class="mx-auto mt-4 max-w-[52ch] text-[17px] leading-[1.55] text-secondaryLight [&amp;_p]:m-0">
+                    <?php echo wp_kses_post($exploring_description); ?>
+                </div>
+            <?php endif; ?>
 
-            <?php if ($treatments_archive || ! empty($related_treatments)): ?>
+            <?php if ($treatments_archive || !empty($related_treatments)): ?>
 
                 <div class="mx-auto mt-8 flex max-w-[1160px] flex-wrap justify-center gap-3">
-
-                    <?php if ($treatments_archive): ?>
-
-                        <a href="<?php echo esc_url($treatments_archive); ?>"
-                            class="group inline-flex items-center gap-3 rounded-2xl border border-coff_black/10 bg-white px-5 py-3.5 font-serif text-[16px] font-semibold tracking-[-0.01em] text-coff_black shadow-[0_4px_14px_rgba(17,17,17,0.04)] transition hover:-translate-y-0.5 hover:border-coffGreen/45 hover:shadow-[0_10px_24px_rgba(74,125,255,0.18)]">All
-                            Dental Implant Options<svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
-                                aria-hidden="true"
-                                class="text-coffGreen transition-transform duration-300 group-hover:translate-x-1">
-                                <path d="M5 12h13M13 6l6 6-6 6"></path>
-                            </svg></a>
-
-                    <?php endif; ?>
-
                     <?php foreach ($related_treatments as $treatment): ?>
 
                         <a href="<?php echo esc_url(get_permalink($treatment)); ?>"
                             class="group inline-flex items-center gap-3 rounded-2xl border border-coff_black/10 bg-white px-5 py-3.5 font-serif text-[16px] font-semibold tracking-[-0.01em] text-coff_black shadow-[0_4px_14px_rgba(17,17,17,0.04)] transition hover:-translate-y-0.5 hover:border-coffGreen/45 hover:shadow-[0_10px_24px_rgba(74,125,255,0.18)]"><?php echo esc_html(get_the_title($treatment)); ?><svg
-                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
                                 class="text-coffGreen transition-transform duration-300 group-hover:translate-x-1">
                                 <path d="M5 12h13M13 6l6 6-6 6"></path>
                             </svg></a>
@@ -92,12 +79,12 @@ $related_treatments = get_posts([
                 <?php if ($exploring_cta_title): ?>
                     <h3
                         class="mx-auto m-0 max-w-[22ch] font-serif text-[clamp(1.5rem,2.2vw,2.1rem)] leading-[1.15] font-bold tracking-[-0.02em] text-white">
-                        <?php echo esc_html($exploring_cta_title); ?></h3>
+                        <?php echo esc_html($exploring_cta_title); ?>
+                    </h3>
                 <?php endif; ?>
                 <?php if ($exploring_cta_desc): ?>
-                    <p
-                        class="mx-auto mt-4 mb-0 max-w-[58ch] text-[15px] leading-[1.6] text-white/75"><?php
-                        echo esc_html($exploring_cta_desc); ?></p>
+                    <p class="mx-auto mt-4 mb-0 max-w-[58ch] text-[15px] leading-[1.6] text-white/75"><?php
+                    echo esc_html($exploring_cta_desc); ?></p>
                 <?php endif; ?><a href="<?php echo esc_url(home_url('/contact-us')); ?>"
                     class="nc-shine group mt-8 inline-flex items-center gap-3 rounded-full bg-coffGreen py-2 pr-2 pl-8 text-[16px] font-semibold whitespace-nowrap text-white ring-1 ring-white/60 shadow-[0_12px_32px_rgba(74,125,255,0.45)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(74,125,255,0.6)] hover:brightness-110"><span
                         class="relative z-10">Get My Free Implant Plan</span><span

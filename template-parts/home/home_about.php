@@ -22,7 +22,16 @@ if (!empty($home_info)):
     }
     ?>
 
-    <section class="w-full bg-[#FAFAFA] py-16">
+    <section class="relative overflow-hidden w-full bg-[#FAFAFA] py-16">
+        <div aria-hidden="true" class="absolute inset-0 left-[44%] hidden lg:block">
+            <?php if ($image_url): ?>
+                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($title ?: 'Dental clinic'); ?>" loading="lazy" decoding="async"
+                    class="h-full w-full object-cover">
+            <?php endif; ?>
+            <span
+                class="absolute inset-0 bg-[linear-gradient(90deg,#FAFAFA_0%,rgba(250,250,250,0.75)_8%,rgba(250,250,250,0.45)_16%,rgba(250,250,250,0.2)_26%,rgba(250,250,250,0.06)_36%,transparent_46%)]"></span><span
+                class="absolute inset-x-0 bottom-0 h-[22%] bg-[linear-gradient(180deg,transparent_0%,rgba(250,250,250,0.5)_70%,#FAFAFA_100%)]"></span>
+        </div>
         <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
             <!-- Content -->
@@ -68,18 +77,7 @@ if (!empty($home_info)):
             </div>
 
 
-            <!-- Image -->
-            <?php if (!empty($image_url)): ?>
-                <div class="flex-1 w-full relative">
-                    <div class="relative">
-
-                        <img src="<?php echo esc_url($image_url); ?>"
-                            alt="<?php echo esc_attr($title ?: 'Dental clinic'); ?>" class="w-full object-cover">
-
-                    </div>
-                </div>
-            <?php endif; ?>
-
+           
         </div>
     </section>
 
