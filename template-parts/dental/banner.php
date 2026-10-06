@@ -148,32 +148,12 @@ $stats = [
                     <span class="text-white/30">/</span>
 
                     <span class="text-white">
-                        Single Dental Implant
+                      <?php the_title()?>
                     </span>
 
                 </div>
 
 
-                <!-- Badge -->
-                <div class="
-                        inline-flex
-                        items-center
-                        rounded-full
-                        border
-                        border-white/50
-                        px-4
-                        py-2
-                        text-[9px]
-                        sm:text-[10px]
-                        font-semibold
-                        tracking-[0.13em]
-                        uppercase
-                        text-white
-                        mb-7
-                    ">
-                    SINGLE IMPLANT IN ISTANBUL
-                   
-                </div>
 
 
 <!-- Heading -->
