@@ -594,376 +594,411 @@ document.addEventListener('DOMContentLoaded', function () {
 
 jQuery(document).ready(function ($) {
 
+  /*
+  |--------------------------------------------------------------------------
+  | INITIALIZE SLICK
+  |--------------------------------------------------------------------------
+  */
+
+  const $slider = $('#testimonial-slider');
+
+  $slider.slick({
+
+    slidesToShow: 4,
+    slidesToScroll: 1,
+
+    infinite: false,
+
+    arrows: true,
+
+    prevArrow: $('.testimonial-prev'),
+    nextArrow: $('.testimonial-next'),
+
+    dots: false,
+
+    speed: 500,
+
+    adaptiveHeight: false,
+
+    responsive: [
+
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1.5,
+          slidesToScroll: 1
+        }
+      }
+
+    ]
+
+  });
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | TAB FILTER
+  |--------------------------------------------------------------------------
+  */
+
+  $('.testimonial-tab').on('click', function () {
+
+    const category = $(this).data('tab');
+
+
     /*
-    |--------------------------------------------------------------------------
-    | INITIALIZE SLICK
-    |--------------------------------------------------------------------------
+    | Active tab
     */
 
-    const $slider = $('#testimonial-slider');
+    $('.testimonial-tab')
+      .removeClass('is-active border-[#4d7cff] text-[#4d7cff]')
+      .addClass('border-[#222] text-[#222]');
 
-    $slider.slick({
+    $(this)
+      .addClass('is-active border-[#4d7cff] text-[#4d7cff]')
+      .removeClass('border-[#222] text-[#222]');
 
-        slidesToShow: 4,
-        slidesToScroll: 1,
 
-        infinite: false,
+    /*
+    | Stop all videos
+    */
 
-        arrows: true,
+    $('.testimonial-video').each(function () {
 
-        prevArrow: $('.testimonial-prev'),
-        nextArrow: $('.testimonial-next'),
+      this.pause();
+      this.currentTime = 0;
 
-        dots: false,
+      $(this)
+        .addClass('hidden');
 
-        speed: 500,
+      $(this)
+        .closest('.testimonial-card')
+        .find('.testimonial-image')
+        .removeClass('hidden');
 
-        adaptiveHeight: false,
-
-        responsive: [
-
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1
-                }
-            },
-
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            },
-
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1.5,
-                    slidesToScroll: 1
-                }
-            }
-
-        ]
+      $(this)
+        .closest('.testimonial-card')
+        .find('.testimonial-play')
+        .removeClass('hidden');
 
     });
 
 
     /*
     |--------------------------------------------------------------------------
-    | TAB FILTER
+    | FILTER SLICK
     |--------------------------------------------------------------------------
     */
 
-    $('.testimonial-tab').on('click', function () {
-
-        const category = $(this).data('tab');
+    $slider.slick('slickUnfilter');
 
 
-        /*
-        | Active tab
-        */
+    if (category !== 'all') {
 
-        $('.testimonial-tab')
-            .removeClass('is-active border-[#4d7cff] text-[#4d7cff]')
-            .addClass('border-[#222] text-[#222]');
+      $slider.slick(
+        'slickFilter',
+        function () {
 
-        $(this)
-            .addClass('is-active border-[#4d7cff] text-[#4d7cff]')
-            .removeClass('border-[#222] text-[#222]');
-
-
-        /*
-        | Stop all videos
-        */
-
-        $('.testimonial-video').each(function () {
-
-            this.pause();
-            this.currentTime = 0;
-
-            $(this)
-                .addClass('hidden');
-
-            $(this)
-                .closest('.testimonial-card')
-                .find('.testimonial-image')
-                .removeClass('hidden');
-
-            $(this)
-                .closest('.testimonial-card')
-                .find('.testimonial-play')
-                .removeClass('hidden');
-
-        });
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | FILTER SLICK
-        |--------------------------------------------------------------------------
-        */
-
-        $slider.slick('slickUnfilter');
-
-
-        if (category !== 'all') {
-
-            $slider.slick(
-                'slickFilter',
-                function () {
-
-                    return $(this)
-                        .data('category') === category;
-
-                }
-            );
+          return $(this)
+            .data('category') === category;
 
         }
+      );
 
-
-        /*
-        | Go back to first slide
-        */
-
-        $slider.slick('slickGoTo', 0);
-
-
-        /*
-        | Refresh layout
-        */
-
-        $slider.slick('setPosition');
-
-    });
+    }
 
 
     /*
-    |--------------------------------------------------------------------------
-    | PLAY VIDEO INSIDE CARD
-    |--------------------------------------------------------------------------
+    | Go back to first slide
     */
 
-    $(document).on('click', '.testimonial-play', function (e) {
-
-        e.preventDefault();
-
-        const $button = $(this);
-        const $card = $button.closest('.testimonial-card');
-
-        const video = $card.find('.testimonial-video')[0];
-        const $image = $card.find('.testimonial-image');
-
-
-        /*
-        | Stop all other videos
-        */
-
-        $('.testimonial-video').each(function () {
-
-            if (this !== video) {
-
-                this.pause();
-                this.currentTime = 0;
-
-                $(this).addClass('hidden');
-
-                $(this)
-                    .closest('.testimonial-card')
-                    .find('.testimonial-image')
-                    .removeClass('hidden');
-
-                $(this)
-                    .closest('.testimonial-card')
-                    .find('.testimonial-play')
-                    .removeClass('hidden');
-
-            }
-
-        });
-
-
-        /*
-        | Start selected video
-        */
-
-        $image.addClass('hidden');
-
-        $(video).removeClass('hidden');
-
-        $button.addClass('hidden');
-
-        video.play();
-
-    });
+    $slider.slick('slickGoTo', 0);
 
 
     /*
-    |--------------------------------------------------------------------------
-    | VIDEO FINISHED
-    |--------------------------------------------------------------------------
+    | Refresh layout
     */
 
-    $(document).on('ended', '.testimonial-video', function () {
+    $slider.slick('setPosition');
 
-        const $video = $(this);
-        const $card = $video.closest('.testimonial-card');
+  });
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | PLAY VIDEO INSIDE CARD
+  |--------------------------------------------------------------------------
+  */
+
+  $(document).on('click', '.testimonial-play', function (e) {
+
+    e.preventDefault();
+
+    const $button = $(this);
+    const $card = $button.closest('.testimonial-card');
+
+    const video = $card.find('.testimonial-video')[0];
+    const $image = $card.find('.testimonial-image');
+
+
+    /*
+    | Stop all other videos
+    */
+
+    $('.testimonial-video').each(function () {
+
+      if (this !== video) {
 
         this.pause();
         this.currentTime = 0;
 
-        $video.addClass('hidden');
+        $(this).addClass('hidden');
 
-        $card
-            .find('.testimonial-image')
-            .removeClass('hidden');
+        $(this)
+          .closest('.testimonial-card')
+          .find('.testimonial-image')
+          .removeClass('hidden');
 
-        $card
-            .find('.testimonial-play')
-            .removeClass('hidden');
+        $(this)
+          .closest('.testimonial-card')
+          .find('.testimonial-play')
+          .removeClass('hidden');
+
+      }
 
     });
 
 
     /*
-    |--------------------------------------------------------------------------
-    | PAUSE VIDEO WHEN SLIDE CHANGES
-    |--------------------------------------------------------------------------
+    | Start selected video
     */
 
-    $slider.on('beforeChange', function () {
+    $image.addClass('hidden');
 
-        $('.testimonial-video').each(function () {
+    $(video).removeClass('hidden');
 
-            this.pause();
-            this.currentTime = 0;
+    $button.addClass('hidden');
 
-            $(this).addClass('hidden');
+    video.play();
 
-            $(this)
-                .closest('.testimonial-card')
-                .find('.testimonial-image')
-                .removeClass('hidden');
+  });
 
-            $(this)
-                .closest('.testimonial-card')
-                .find('.testimonial-play')
-                .removeClass('hidden');
 
-        });
+  /*
+  |--------------------------------------------------------------------------
+  | VIDEO FINISHED
+  |--------------------------------------------------------------------------
+  */
+
+  $(document).on('ended', '.testimonial-video', function () {
+
+    const $video = $(this);
+    const $card = $video.closest('.testimonial-card');
+
+    this.pause();
+    this.currentTime = 0;
+
+    $video.addClass('hidden');
+
+    $card
+      .find('.testimonial-image')
+      .removeClass('hidden');
+
+    $card
+      .find('.testimonial-play')
+      .removeClass('hidden');
+
+  });
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | PAUSE VIDEO WHEN SLIDE CHANGES
+  |--------------------------------------------------------------------------
+  */
+
+  $slider.on('beforeChange', function () {
+
+    $('.testimonial-video').each(function () {
+
+      this.pause();
+      this.currentTime = 0;
+
+      $(this).addClass('hidden');
+
+      $(this)
+        .closest('.testimonial-card')
+        .find('.testimonial-image')
+        .removeClass('hidden');
+
+      $(this)
+        .closest('.testimonial-card')
+        .find('.testimonial-play')
+        .removeClass('hidden');
 
     });
+
+  });
 
 });
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    const items = document.querySelectorAll('.faq-item');
-    const search = document.getElementById('faqSearch');
-    const answerText = document.getElementById('answerText');
-    const answerBox = document.getElementById('faqAnswer');
+  const items = document.querySelectorAll('.faq-item');
+  const search = document.getElementById('faqSearch');
+  const answerText = document.getElementById('answerText');
+  const answerBox = document.getElementById('faqAnswer');
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | Change active FAQ
-    |--------------------------------------------------------------------------
-    */
+  /*
+  |--------------------------------------------------------------------------
+  | Change active FAQ
+  |--------------------------------------------------------------------------
+  */
 
-    function activateFAQ(index) {
+  function activateFAQ(index) {
 
-        const selected = items[index];
+    const selected = items[index];
 
-        if (!selected) return;
-
-
-        // Update answer with small fade animation
-        answerText.classList.add('opacity-0', 'translate-y-1');
-
-        setTimeout(() => {
-            answerText.textContent = selected.dataset.answer;
-
-            answerText.classList.remove('opacity-0', 'translate-y-1');
-        }, 120);
+    if (!selected) return;
 
 
-        // Update FAQ buttons
-        items.forEach((item, itemIndex) => {
+    // Update answer with small fade animation
+    answerText.classList.add('opacity-0', 'translate-y-1');
 
-            const dot = item.querySelector('.faq-dot');
-            const arrow = item.querySelector('.faq-arrow');
+    setTimeout(() => {
+      answerText.textContent = selected.dataset.answer;
 
-            if (itemIndex === index) {
-
-                item.classList.remove('bg-white');
-                item.classList.add('bg-amber-50');
-
-                dot.classList.remove('bg-[#b6caff]');
-                dot.classList.add('bg-[#6794ff]');
-
-                arrow.classList.add('translate-x-0.5');
-
-            } else {
-
-                item.classList.remove('bg-amber-50');
-                item.classList.add('bg-white');
-
-                dot.classList.remove('bg-[#6794ff]');
-                dot.classList.add('bg-[#b6caff]');
-
-                arrow.classList.remove('translate-x-0.5');
-            }
-        });
-    }
+      answerText.classList.remove('opacity-0', 'translate-y-1');
+    }, 120);
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | FAQ click
-    |--------------------------------------------------------------------------
-    */
+    // Update FAQ buttons
+    items.forEach((item, itemIndex) => {
+
+      const dot = item.querySelector('.faq-dot');
+      const arrow = item.querySelector('.faq-arrow');
+
+      if (itemIndex === index) {
+
+        item.classList.remove('bg-white');
+        item.classList.add('bg-amber-50');
+
+        dot.classList.remove('bg-[#b6caff]');
+        dot.classList.add('bg-[#6794ff]');
+
+        arrow.classList.add('translate-x-0.5');
+
+      } else {
+
+        item.classList.remove('bg-amber-50');
+        item.classList.add('bg-white');
+
+        dot.classList.remove('bg-[#6794ff]');
+        dot.classList.add('bg-[#b6caff]');
+
+        arrow.classList.remove('translate-x-0.5');
+      }
+    });
+  }
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | FAQ click
+  |--------------------------------------------------------------------------
+  */
+
+  items.forEach((item) => {
+
+    item.addEventListener('click', function () {
+
+      const index = Number(this.dataset.index);
+
+      activateFAQ(index);
+
+    });
+
+  });
+
+
+  /*
+  |--------------------------------------------------------------------------
+  | Search
+  |--------------------------------------------------------------------------
+  */
+
+  search.addEventListener('input', function () {
+
+    const value = this.value.trim().toLowerCase();
 
     items.forEach((item) => {
 
-        item.addEventListener('click', function () {
+      const question = item.dataset.question;
 
-            const index = Number(this.dataset.index);
+      if (question.includes(value)) {
 
-            activateFAQ(index);
+        item.classList.remove('hidden');
 
-        });
+      } else {
 
-    });
+        item.classList.add('hidden');
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | Search
-    |--------------------------------------------------------------------------
-    */
-
-    search.addEventListener('input', function () {
-
-        const value = this.value.trim().toLowerCase();
-
-        items.forEach((item) => {
-
-            const question = item.dataset.question;
-
-            if (question.includes(value)) {
-
-                item.classList.remove('hidden');
-
-            } else {
-
-                item.classList.add('hidden');
-
-            }
-
-        });
+      }
 
     });
+
+  });
+
+});
+
+
+jQuery(document).ready(function ($) {
+
+  $('#transformation-slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    infinite: true,
+    arrows: true,
+    dots: false,
+    autoplay: true,
+    speed: 500,
+
+    prevArrow: $('.transformation-prev'),
+    nextArrow: $('.transformation-next'),
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
 
 });

@@ -1,35 +1,51 @@
 <?php
 
-$faqs = [
-    [
-        'question' => 'How much can I save on dental treatment?',
-        'answer' => 'Patients typically save 50-70% compared to dental costs in the UK, US, and Europe. Our pricing remains competitive while using premium materials and working with specialist dentists, making high-quality care more accessible.'
-    ],
-    [
-        'question' => 'How do I get a treatment plan?',
-        'answer' => 'Simply book a consultation with our dental team. After assessing your needs, our specialists will create a personalised treatment plan based on your goals and requirements.'
-    ],
-    [
-        'question' => 'What’s included in your dental packages?',
-        'answer' => 'Our dental packages can include consultations, treatment, premium materials, specialist dental care, and aftercare. The exact package depends on your individual treatment plan.'
-    ],
-    [
-        'question' => 'How does your quality compare to UK or US dental clinics?',
-        'answer' => 'We work with experienced specialist dentists and use high-quality materials and modern dental technology to provide treatment comparable to leading international clinics.'
-    ],
-    [
-        'question' => 'Will I receive aftercare when I return home?',
-        'answer' => 'Yes. We provide detailed aftercare guidance and remain available to support you after your treatment. We can also coordinate with your local dentist where appropriate.'
-    ],
-    [
-        'question' => 'Is the consultation really free?',
-        'answer' => 'Yes. Your initial consultation is completely free and allows our team to understand your needs and discuss the most suitable treatment options.'
-    ],
-    [
-        'question' => 'How do I book my treatment?',
-        'answer' => 'You can book your treatment by contacting our team and arranging your consultation. Once your treatment plan is confirmed, we will help you schedule your appointment.'
-    ],
-];
+/**
+ * Get FAQs based on the current treatment slug.
+ *
+ * Example:
+ * Treatment: Orthodontics
+ * Slug: orthodontics
+ *
+ * FAQ Type:
+ * faq_types -> orthodontics
+ */
+
+$treatment_slug = get_post_field('post_name', get_the_ID());
+
+$faqs = [];
+
+if ($treatment_slug) {
+
+    $faq_query = new WP_Query([
+        'post_type'      => 'faq',
+        'posts_per_page' => -1,
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC',
+
+        'tax_query'      => [
+            [
+                'taxonomy' => 'faq_types',
+                'field'    => 'slug',
+                'terms'    => $treatment_slug,
+            ],
+        ],
+    ]);
+
+    if ($faq_query->have_posts()) {
+
+        while ($faq_query->have_posts()) {
+            $faq_query->the_post();
+
+            $faqs[] = [
+                'question' => get_the_title(),
+                'answer'   => get_the_content(),
+            ];
+        }
+
+        wp_reset_postdata();
+    }
+}
 
 ?>
 
