@@ -56,7 +56,7 @@ $stats = [
 
         <?php if ($banner_image_url): ?>
 
-            <img src="<?php echo esc_url($banner_image_url); ?>" alt="" class="
+        <img src="<?php echo esc_url($banner_image_url); ?>" alt="" class="
                     absolute
                     inset-0
                     w-full
@@ -86,7 +86,9 @@ $stats = [
             "></div>
 
         <!-- Bottom fade -->
-        <div class="absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(180deg,transparent_0%,rgba(255,255,255,0.18)_45%,rgba(255,255,255,0.4)_72%,rgba(255,255,255,0.7)_93%,#ffffff_100%)]"></div>
+        <div
+            class="absolute inset-x-0 bottom-0 h-20 bg-[linear-gradient(180deg,transparent_0%,rgba(255,255,255,0.18)_45%,rgba(255,255,255,0.4)_72%,rgba(255,255,255,0.7)_93%,#ffffff_100%)]">
+        </div>
 
     </div>
 
@@ -138,17 +140,13 @@ $stats = [
                     <span class="text-white/30">/</span>
 
                     <a href="<?php echo esc_url($treatments_archive); ?>" class="hover:text-white transition-colors">
-                        Dental Treatments
+                        Treatments
                     </a>
 
                     <span class="text-white/30">/</span>
 
-                    <span class="text-white/80">Dental Implants</span>
-
-                    <span class="text-white/30">/</span>
-
                     <span class="text-white">
-                      <?php the_title()?>
+                        <?php the_title()?>
                     </span>
 
                 </div>
@@ -156,9 +154,9 @@ $stats = [
 
 
 
-<!-- Heading -->
-    <?php if ($banner_title): ?>
-        <h1 class="
+                <!-- Heading -->
+                <?php if ($banner_title): ?>
+                <h1 class="
                 max-w-[700px]
                 font-serif
                 font-normal
@@ -170,14 +168,14 @@ $stats = [
                 tracking-[-0.02em]
                 text-white
             ">
-            <?php echo esc_html($banner_title); ?>
-        </h1>
-    <?php endif; ?>
+                    <?php echo esc_html($banner_title); ?>
+                </h1>
+                <?php endif; ?>
 
 
-    <!-- Subheading -->
-    <?php if ($banner_subtitle): ?>
-        <h2 class="
+                <!-- Subheading -->
+                <?php if ($banner_subtitle): ?>
+                <h2 class="
                     mt-5
                     font-serif
                     font-normal
@@ -187,14 +185,14 @@ $stats = [
                     leading-[1.3]
                     text-white/90
                 ">
-            <?php echo esc_html($banner_subtitle); ?>
-        </h2>
-    <?php endif; ?>
+                    <?php echo esc_html($banner_subtitle); ?>
+                </h2>
+                <?php endif; ?>
 
 
-    <!-- Description -->
-    <?php if ($banner_description): ?>
-        <div class="
+                <!-- Description -->
+                <?php if ($banner_description): ?>
+                <div class="
                     mt-10
                     max-w-[670px]
                     text-[15px]
@@ -203,17 +201,17 @@ $stats = [
                     text-white/80
                     [&amp;_p]:m-0
                 ">
-            <?php echo wp_kses_post($banner_description); ?>
-        </div>
-    <?php endif; ?>
+                    <?php echo wp_kses_post($banner_description); ?>
+                </div>
+                <?php endif; ?>
 
 
-    <!-- CTA -->
-    <?php if ($banner_url): ?>
+                <!-- CTA -->
+                <?php if ($banner_url): ?>
 
-        <div class="mt-8">
+                <div class="mt-8">
 
-            <a href="<?php echo esc_url(home_url($banner_url)); ?>" class="
+                    <a href="<?php echo esc_url(home_url($banner_url)); ?>" class="
                         inline-flex
                         items-center
                         justify-center
@@ -229,12 +227,12 @@ $stats = [
                         transition-all
                         duration-300
                         shadow-[0_5px_20px_rgba(0,0,0,0.08)]
-                    ">Free Consultation                          
-            </a>
+                    ">Free Consultation
+                    </a>
 
-        </div>
+                </div>
 
-    <?php endif; ?>
+                <?php endif; ?>
 
 
                 <!-- =========================
@@ -252,9 +250,9 @@ $stats = [
 
                     <?php foreach ($stats as $stat): ?>
 
-                        <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3">
 
-                            <div class="
+                        <div class="
                                     shrink-0
                                     w-[32px]
                                     h-[32px]
@@ -265,23 +263,23 @@ $stats = [
                                     items-center
                                     justify-center
                                 ">
-                                <svg class="w-[15px] h-[15px] text-white/80" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.5">
-                                    <?php echo $stat['icon']; ?>
-                                </svg>
-                            </div>
-
-                            <div>
-                                <div class="text-[14px] font-semibold text-white">
-                                    <?php echo esc_html($stat['value']); ?>
-                                </div>
-
-                                <div class="text-[10px] text-white/65">
-                                    <?php echo esc_html($stat['label']); ?>
-                                </div>
-                            </div>
-
+                            <svg class="w-[15px] h-[15px] text-white/80" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5">
+                                <?php echo $stat['icon']; ?>
+                            </svg>
                         </div>
+
+                        <div>
+                            <div class="text-[14px] font-semibold text-white">
+                                <?php echo esc_html($stat['value']); ?>
+                            </div>
+
+                            <div class="text-[10px] text-white/65">
+                                <?php echo esc_html($stat['label']); ?>
+                            </div>
+                        </div>
+
+                    </div>
 
                     <?php endforeach; ?>
 
