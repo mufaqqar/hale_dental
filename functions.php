@@ -1,5 +1,7 @@
 <?php
 
+require_once get_template_directory() . '/inc/booking.php';
+
 function hale_coffee_setup()
 {
     add_theme_support('title-tag');
@@ -445,79 +447,6 @@ function hale_consultation_submit_handler()
 add_action('wp_ajax_nopriv_hale_consultation_submit', 'hale_consultation_submit_handler');
 add_action('wp_ajax_hale_consultation_submit', 'hale_consultation_submit_handler');
 
-/**
- * Consultation booking request from the home page booking widget.
- */
-function hale_booking_submit_handler()
-{
-    if (!isset($_POST['action']) || $_POST['action'] !== 'hale_booking_submit') {
-        wp_send_json_error('Invalid request');
-    }
-
-    if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'hale_booking_nonce')) {
-        wp_send_json_error('Your session expired. Please refresh the page and try again.');
-    }
-
-    // Honeypot
-    if (!empty($_POST['website'])) {
-        wp_send_json_success('Thank you – our team will confirm your appointment shortly.');
-    }
-
-    $fullname    = isset($_POST['fullname']) ? sanitize_text_field(wp_unslash($_POST['fullname'])) : '';
-    $email       = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
-    $phone       = isset($_POST['phone']) ? sanitize_text_field(wp_unslash($_POST['phone'])) : '';
-    $message     = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
-    $consultant  = isset($_POST['consultant']) ? sanitize_text_field(wp_unslash($_POST['consultant'])) : '';
-    $date        = isset($_POST['date']) ? sanitize_text_field(wp_unslash($_POST['date'])) : '';
-    $date_label  = isset($_POST['date_label']) ? sanitize_text_field(wp_unslash($_POST['date_label'])) : '';
-    $time        = isset($_POST['time']) ? sanitize_text_field(wp_unslash($_POST['time'])) : '';
-
-    if (empty($fullname) || !is_email($email) || empty($phone)) {
-        wp_send_json_error('Please fill in your name, email and phone number.');
-    }
-
-    if (empty($date) || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
-        wp_send_json_error('Please choose an appointment date.');
-    }
-
-    if (empty($time) || !preg_match('/^\d{2}:\d{2}$/', $time)) {
-        wp_send_json_error('Please choose an appointment time.');
-    }
-
-    if ($date < current_time('Y-m-d')) {
-        wp_send_json_error('That appointment date has already passed. Please pick another date.');
-    }
-
-    if (empty($date_label)) {
-        $date_label = date_i18l('l j F Y', strtotime($date));
-    }
-
-    $to      = get_option('admin_email');
-    $subject = sprintf('New consultation booking: %s on %s at %s', $fullname, $date_label, $time);
-
-    $body = sprintf(
-        "Consultant: %s\nDate: %s\nTime: %s\n\nName: %s\nEmail: %s\nPhone / WhatsApp: %s\n\nMessage:\n%s",
-        $consultant ? $consultant : '-',
-        $date_label,
-        $time,
-        $fullname,
-        $email,
-        $phone,
-        $message ? $message : '-'
-    );
-
-    $headers = array('Reply-To: ' . $email);
-
-    $sent = wp_mail($to, $subject, $body, $headers);
-
-    if ($sent) {
-        wp_send_json_success(sprintf('Thank you %s – your consultation on %s at %s has been requested. We will confirm it shortly.', $fullname, $date_label, $time));
-    }
-
-    wp_send_json_error('We could not send your booking right now. Please try again or contact us directly.');
-}
-add_action('wp_ajax_nopriv_hale_booking_submit', 'hale_booking_submit_handler');
-add_action('wp_ajax_hale_booking_submit', 'hale_booking_submit_handler');
 
 /**
  * Mega Menu Support

@@ -79,6 +79,7 @@
             var afternoonGroup = root.querySelector('#afternoonGroup');
             var noSlots = root.querySelector('#noSlots');
             var continueButton = root.querySelector('#bookingContinue');
+            var stepOneMsg = root.querySelector('#bookingStepOneMsg');
 
             var summary = root.querySelector('#bookingSummary');
             var summaryConsultant = root.querySelector('#bookingSummaryConsultant');
@@ -97,7 +98,8 @@
                 consultant: root.getAttribute('data-default-consultant') || '',
                 date: '',
                 dateLabel: '',
-                time: ''
+                time: '',
+                taken: []
             };
 
 
@@ -211,8 +213,56 @@
                     paintDate(this);
                     refreshSlots();
                     updateSummary();
+                    hideStepMessage();
+
+                    loadAvailability(state.date);
                 });
             });
+
+
+            /*
+            |--------------------------------------------------------------------------
+            | Availability (slots booked by other visitors)
+            |--------------------------------------------------------------------------
+            */
+
+            function loadAvailability(date, callback) {
+                if (!date) {
+                    return;
+                }
+
+                var body = new FormData();
+
+                body.append('action', 'hale_booking_slots');
+                body.append('nonce', config.nonce || '');
+                body.append('date', date);
+
+                fetch(config.ajaxUrl || '/wp-admin/admin-ajax.php', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    body: body
+                })
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (result) {
+                        // Ignore stale responses when the visitor already moved on.
+                        if (!result || !result.success || state.date !== date) {
+                            return;
+                        }
+
+                        state.taken = (result.data && result.data.taken) || [];
+
+                        refreshSlots();
+
+                        if (typeof callback === 'function') {
+                            callback();
+                        }
+                    })
+                    .catch(function () {
+                        // Availability is an enhancement - keep the server rendered state.
+                    });
+            }
 
 
             /*
@@ -222,9 +272,15 @@
             */
 
             function slotIsPast(slot) {
-                if (slot.getAttribute('data-server-closed') === '1') {
+                if (state.taken.indexOf(slot.getAttribute('data-time')) !== -1) {
+                    slot.setAttribute('data-booked', '1');
+                    slot.setAttribute('title', 'Already booked');
+
                     return true;
                 }
+
+                slot.removeAttribute('data-booked');
+                slot.removeAttribute('title');
 
                 if (state.date !== today) {
                     return false;
@@ -273,6 +329,12 @@
                     }
                 });
 
+                // The chosen time may have just been taken by somebody else.
+                if (state.time !== '' && !root.querySelector('.time-slot[data-time="' + state.time + '"]:not([disabled])')) {
+                    state.time = '';
+                    updateSummary();
+                }
+
                 each([morningGroup, afternoonGroup], function (group) {
                     if (!group) {
                         return;
@@ -297,6 +359,7 @@
 
                     state.time = this.getAttribute('data-time') || '';
 
+                    hideStepMessage();
                     refreshSlots();
                     updateSummary();
                 });
@@ -355,6 +418,7 @@
 
                     showStep(2);
                     hideMessage();
+                    hideStepMessage();
                     clearErrors();
                 });
             }
@@ -370,6 +434,7 @@
                     state.date = '';
                     state.dateLabel = '';
                     state.time = '';
+                    state.taken = [];
 
                     form.reset();
                     clearErrors();
@@ -378,6 +443,18 @@
                     paintDate(null);
                     refreshSlots();
                     showStep(1);
+
+                    var firstDate = root.querySelector('.date-button');
+
+                    if (firstDate) {
+                        state.date = firstDate.getAttribute('data-date') || '';
+                        state.dateLabel = firstDate.getAttribute('data-label') || '';
+
+                        paintDate(firstDate);
+                        updateSummary();
+                        refreshSlots();
+                        loadAvailability(state.date);
+                    }
                 });
             }
 
@@ -469,6 +546,22 @@
                 }
             }
 
+            function showStepMessage(text) {
+                if (!stepOneMsg) {
+                    return;
+                }
+
+                stepOneMsg.textContent = text;
+                stepOneMsg.classList.remove('hidden');
+            }
+
+            function hideStepMessage() {
+                if (stepOneMsg) {
+                    stepOneMsg.textContent = '';
+                    stepOneMsg.classList.add('hidden');
+                }
+            }
+
 
             /*
             |--------------------------------------------------------------------------
@@ -538,6 +631,16 @@
                             (result && result.data) ? result.data : 'Something went wrong. Please try again.',
                             true
                         );
+
+                        // The slot may have been taken while the form was open.
+                        var previousTime = state.time;
+
+                        loadAvailability(state.date, function () {
+                            if (previousTime !== '' && state.time === '') {
+                                showStep(1);
+                                showStepMessage((result && result.data) ? result.data : 'That time is no longer available.');
+                            }
+                        });
                     })
                     .catch(function () {
                         showMessage('Network error. Please try again.', true);
@@ -560,8 +663,8 @@
             var initialDate = root.querySelector('.date-button');
 
             each(root.querySelectorAll('.time-slot'), function (slot) {
-                if (slot.disabled) {
-                    slot.setAttribute('data-server-closed', '1');
+                if (slot.getAttribute('data-booked') === '1') {
+                    state.taken.push(slot.getAttribute('data-time'));
                 }
             });
 
@@ -584,6 +687,7 @@
             refreshSlots();
             updateSummary();
             showStep(1);
+            loadAvailability(state.date);
         });
     }
 

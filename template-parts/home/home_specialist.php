@@ -22,28 +22,9 @@ $today = new DateTime('today');
 $dayNames = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 $monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-$morningSlots = [
-    '09:00',
-    '09:15',
-    '09:30',
-    '09:45',
-    '10:00',
-    '10:15',
-    '10:30',
-    '10:45',
-    '11:00',
-    '11:15',
-    '11:30',
-    '11:45',
-];
-
-$afternoonSlots = [
-    '12:00',
-    '12:15',
-    '12:30',
-    '12:45',
-    '13:15',
-];
+$slot_schedule  = hale_booking_get_slot_schedule();
+$morningSlots   = $slot_schedule['Morning'];
+$afternoonSlots = $slot_schedule['Afternoon'];
 
 $booking_days = 7;
 
@@ -64,17 +45,30 @@ $current_month = sprintf('%s, %s', $monthNames[(int) $today->format('n')], $toda
 $timezone_label = 'Africa/Accra - GMT (+00:00)';
 $lead_minutes   = 60;
 $cutoff         = (clone $today)->modify("+{$lead_minutes} minutes");
+$today_value    = $today->format('Y-m-d');
 
-$filter_slots = function ($slots) use ($today, $cutoff) {
-    return array_values(array_filter($slots, function ($slot) use ($today, $cutoff) {
-        $slot_date = new DateTime($today->format('Y-m-d') . ' ' . $slot);
+// Slots already taken by another visitor (single query for the whole week).
+$booked_by_date = hale_booking_get_taken_slots_for_dates(array_column($dates, 'value'));
 
-        return $slot_date >= $cutoff;
-    }));
+$slot_is_open = function ($slot, $date_value) use ($today_value, $cutoff, $booked_by_date) {
+    if ($date_value === $today_value && (new DateTime($date_value . ' ' . $slot)) < $cutoff) {
+        return false;
+    }
+
+    if (in_array($slot, isset($booked_by_date[$date_value]) ? $booked_by_date[$date_value] : [], true)) {
+        return false;
+    }
+
+    return true;
 };
 
-$morning_available   = $filter_slots($morningSlots);
-$afternoon_available = $filter_slots($afternoonSlots);
+// Server side availability for the day shown first.
+$morning_available   = array_values(array_filter($morningSlots, function ($slot) use ($slot_is_open, $today_value) {
+    return $slot_is_open($slot, $today_value);
+}));
+$afternoon_available = array_values(array_filter($afternoonSlots, function ($slot) use ($slot_is_open, $today_value) {
+    return $slot_is_open($slot, $today_value);
+}));
 
 $default_consultant = 'DrLamis';
 
@@ -303,11 +297,16 @@ $default_consultant = 'DrLamis';
 
                                 <?php foreach ($morningSlots as $slot): ?>
 
-                                    <?php $slot_open = !in_array($slot, $morning_available, true); ?>
+                                    <?php
+                                    $slot_open = in_array($slot, $morning_available, true);
+                                    $slot_booked = !$slot_open && in_array($slot, isset($booked_by_date[$today_value]) ? $booked_by_date[$today_value] : [], true);
+                                    ?>
 
-                                    <button type="button" <?= $slot_open ? 'disabled' : '' ?>
+                                    <button type="button" <?= $slot_open ? '' : 'disabled' ?>
+                                        <?= $slot_booked ? 'title="Already booked"' : '' ?>
+                                        <?= $slot_booked ? 'data-booked="1"' : '' ?>
                                         class="time-slot h-[28px] rounded-[3px] border text-[9px] transition
-                                        <?= $slot_open ? 'cursor-not-allowed border-[#e6e6e6] bg-white text-[#c4c4c4] line-through' : 'border-secondary bg-white text-secondary hover:bg-secondary hover:text-white' ?>"
+                                        <?= $slot_open ? 'border-secondary bg-white text-secondary hover:bg-secondary hover:text-white' : 'cursor-not-allowed border-[#e6e6e6] bg-white text-[#c4c4c4] line-through' ?>"
                                         data-time="<?= esc_attr($slot) ?>">
                                         <?= esc_html($slot) ?>
                                     </button>
@@ -338,11 +337,16 @@ $default_consultant = 'DrLamis';
 
                                 <?php foreach ($afternoonSlots as $slot): ?>
 
-                                    <?php $slot_open = !in_array($slot, $afternoon_available, true); ?>
+                                    <?php
+                                    $slot_open = in_array($slot, $afternoon_available, true);
+                                    $slot_booked = !$slot_open && in_array($slot, isset($booked_by_date[$today_value]) ? $booked_by_date[$today_value] : [], true);
+                                    ?>
 
-                                    <button type="button" <?= $slot_open ? 'disabled' : '' ?>
+                                    <button type="button" <?= $slot_open ? '' : 'disabled' ?>
+                                        <?= $slot_booked ? 'title="Already booked"' : '' ?>
+                                        <?= $slot_booked ? 'data-booked="1"' : '' ?>
                                         class="time-slot h-[28px] rounded-[3px] border text-[9px] transition
-                                        <?= $slot_open ? 'cursor-not-allowed border-[#e6e6e6] bg-white text-[#c4c4c4] line-through' : 'border-secondary bg-white text-secondary hover:bg-secondary hover:text-white' ?>"
+                                        <?= $slot_open ? 'border-secondary bg-white text-secondary hover:bg-secondary hover:text-white' : 'cursor-not-allowed border-[#e6e6e6] bg-white text-[#c4c4c4] line-through' ?>"
                                         data-time="<?= esc_attr($slot) ?>">
                                         <?= esc_html($slot) ?>
                                     </button>
@@ -367,6 +371,9 @@ $default_consultant = 'DrLamis';
                         </span>
                     </div>
 
+
+                    <!-- Step 1 feedback (e.g. slot taken while the form was open) -->
+                    <p id="bookingStepOneMsg" class="mt-3 hidden text-[11px] text-red-500"></p>
 
                     <!-- Continue (enabled once a time is chosen) -->
                     <button id="bookingContinue" type="button" disabled

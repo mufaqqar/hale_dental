@@ -172,8 +172,7 @@ $stats = [
                         mb-7
                     ">
                     SINGLE IMPLANT IN ISTANBUL
-                    <span class="mx-2 opacity-50">•</span>
-                    FROM €230
+                   
                 </div>
 
 
