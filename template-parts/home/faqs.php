@@ -21,7 +21,7 @@ if ($faq_query->have_posts()) {
         $faq_query->the_post();
 
         $faqs[] = [
-            'question' => get_the_title(),
+            'question' => apply_filters('the_title', get_the_title()),
             'answer'   => apply_filters('the_content', get_the_content()),
         ];
     }
@@ -101,7 +101,7 @@ if ($faq_query->have_posts()) {
 
                                 <!-- Question -->
                                 <span class="flex-1 text-xl  leading-5 text-[#171717]">
-                                    <?= htmlspecialchars($faq['question']) ?>
+                                    <?= wp_kses_post($faq['question']) ?>
                                 </span>
 
                                 <!-- Arrow -->
