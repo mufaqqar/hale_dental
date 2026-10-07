@@ -39,7 +39,7 @@ if ($treatment_slug) {
 
             $faqs[] = [
                 'question' => get_the_title(),
-                'answer'   => get_the_content(),
+                'answer'   => apply_filters('the_content', get_the_content()),
             ];
         }
 
@@ -168,12 +168,12 @@ if ($treatment_slug) {
                             Here is your answer;
                         </h3>
 
-                        <p
+                        <div
                             id="answerText"
                             class="mt-5 md:text-xl text-lg leading-[21px] text-secondaryLight"
                         >
-                            <?= htmlspecialchars($faqs[0]['answer']) ?>
-                        </p>
+                            <?= wp_kses_post($faqs[0]['answer']) ?>
+                        </div>
 
                     </div>
 

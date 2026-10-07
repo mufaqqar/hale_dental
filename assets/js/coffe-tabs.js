@@ -883,7 +883,7 @@ document.addEventListener('DOMContentLoaded', function () {
     answerText.classList.add('opacity-0', 'translate-y-1');
 
     setTimeout(() => {
-      answerText.textContent = selected.dataset.answer;
+      answerText.innerHTML = selected.dataset.answer;
 
       answerText.classList.remove('opacity-0', 'translate-y-1');
     }, 120);
