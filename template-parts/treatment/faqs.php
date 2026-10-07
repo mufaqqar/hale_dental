@@ -18,16 +18,16 @@ $faqs = [];
 if ($treatment_slug) {
 
     $faq_query = new WP_Query([
-        'post_type'      => 'faq',
+        'post_type' => 'faq',
         'posts_per_page' => -1,
-        'orderby'        => 'menu_order',
-        'order'          => 'ASC',
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
 
-        'tax_query'      => [
+        'tax_query' => [
             [
                 'taxonomy' => 'faq_types',
-                'field'    => 'slug',
-                'terms'    => $treatment_slug,
+                'field' => 'slug',
+                'terms' => $treatment_slug,
             ],
         ],
     ]);
@@ -38,8 +38,8 @@ if ($treatment_slug) {
             $faq_query->the_post();
 
             $faqs[] = [
-                'question' => get_the_title(),
-                'answer'   => apply_filters('the_content', get_the_content()),
+                'question' => apply_filters('the_title', get_the_title()),
+                'answer' => apply_filters('the_content', get_the_content()),
             ];
         }
 
@@ -74,48 +74,31 @@ if ($treatment_slug) {
 
                     <!-- Search -->
                     <div class="mb-3 flex h-[45px] items-center bg-white px-4">
-                        <svg
-                            class="mr-3 h-[17px] w-[17px] shrink-0 text-coff_black"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            viewBox="0 0 24 24"
-                        >
+                        <svg class="mr-3 h-[17px] w-[17px] shrink-0 text-coff_black" fill="none" stroke="currentColor"
+                            stroke-width="1.5" viewBox="0 0 24 24">
                             <circle cx="11" cy="11" r="7"></circle>
                             <path d="m20 20-4-4"></path>
                         </svg>
 
-                        <input
-                            id="faqSearch"
-                            type="text"
-                            placeholder="Search something you wonder"
-                            class="w-full bg-transparent text-sm text-coff_black outline-none placeholder:text-[#b6b6b6]"
-                        >
+                        <input id="faqSearch" type="text" placeholder="Search something you wonder"
+                            class="w-full bg-transparent text-sm text-coff_black outline-none placeholder:text-[#b6b6b6]">
                     </div>
 
 
                     <!-- FAQ List -->
-                    <div
-                        id="faqList"
-                        class="overflow-hidden rounded-b-[14px] bg-white"
-                    >
+                    <div id="faqList" class="overflow-hidden rounded-b-[14px] bg-white">
 
                         <?php foreach ($faqs as $index => $faq): ?>
 
-                            <button
-                                type="button"
-                                class="faq-item group flex min-h-[57px] w-full items-center gap-3 px-3 text-left transition-colors duration-200
+                            <button type="button" class="faq-item group flex min-h-[57px] w-full items-center gap-3 px-3 text-left transition-colors duration-200
                                 <?= $index === 0 ? 'bg-gray-200' : 'bg-white hover:bg-gray-200' ?>"
                                 data-index="<?= $index ?>"
                                 data-question="<?= htmlspecialchars(strtolower($faq['question'])) ?>"
-                                data-answer="<?= htmlspecialchars($faq['answer']) ?>"
-                            >
+                                data-answer="<?= htmlspecialchars($faq['answer']) ?>">
 
                                 <!-- Dot -->
-                                <span
-                                    class="faq-dot flex h-[18px] w-[18px] shrink-0 rounded-full 
-                                    <?= $index === 0 ? 'bg-gray-400' : 'bg-gray-300' ?>"
-                                ></span>
+                                <span class="faq-dot flex h-[18px] w-[18px] shrink-0 rounded-full 
+                                    <?= $index === 0 ? 'bg-gray-400' : 'bg-gray-300' ?>"></span>
 
                                 <!-- Question -->
                                 <span class="flex-1 text-xl  leading-5 text-coff_black">
@@ -123,13 +106,8 @@ if ($treatment_slug) {
                                 </span>
 
                                 <!-- Arrow -->
-                                <svg
-                                    class="faq-arrow h-5 w-5 shrink-0 text-coffGreen transition-transform duration-200"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                >
+                                <svg class="faq-arrow h-5 w-5 shrink-0 text-coffGreen transition-transform duration-200"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                                     <path d="m9 18 6-6-6-6"></path>
                                 </svg>
 
@@ -142,10 +120,8 @@ if ($treatment_slug) {
 
                     <!-- Bottom CTA -->
                     <div class="mt-3">
-                        <a
-                            href="<?php echo esc_url(home_url('/contact-us')); ?>"
-                            class="text-[13px]  text-secondary transition hover:text-primary"
-                        >
+                        <a href="<?php echo esc_url(home_url('/contact-us')); ?>"
+                            class="text-[13px]  text-secondary transition hover:text-primary">
                             Ready to transform your smile? Schedule your consultation today!
                         </a>
                     </div>
@@ -154,24 +130,16 @@ if ($treatment_slug) {
 
 
                 <!-- RIGHT ANSWER -->
-                <div
-                    id="faqAnswer"
-                    class="min-h-[490px] rounded-[14px] bg-gray-200 px-8 py-8 lg:-ml-[34px] lg:pl-[72px]"
-                >
+                <div id="faqAnswer"
+                    class="min-h-[490px] rounded-[14px] bg-gray-200 px-8 py-8 lg:-ml-[34px] lg:pl-[72px]">
 
                     <div class="max-w-[310px]">
 
-                        <h3
-                            id="answerTitle"
-                            class="text-lg text-coff_black"
-                        >
+                        <h3 id="answerTitle" class="text-lg text-coff_black">
                             Here is your answer;
                         </h3>
 
-                        <div
-                            id="answerText"
-                            class="mt-5 md:text-xl text-lg leading-[21px] text-secondaryLight"
-                        >
+                        <div id="answerText" class="mt-5 md:text-xl text-lg leading-[21px] text-secondaryLight">
                             <?= wp_kses_post($faqs[0]['answer']) ?>
                         </div>
 
