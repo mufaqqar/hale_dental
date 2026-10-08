@@ -1,10 +1,10 @@
 <?php
 $banner_info = get_field('banner_info');
 
-$banner_title   = $banner_info['title'] ?? '';
+$banner_title = $banner_info['title'] ?? '';
 $banner_content = $banner_info['content'] ?? '';
-$banner_link    = $banner_info['link'] ?? '';
-$banner_video   = $banner_info['video'] ?? '';
+$banner_link = $banner_info['link'] ?? '';
+$banner_video = $banner_info['video'] ?? '';
 
 /**
  * Hero video: a self-hosted file keeps the player chrome (YouTube logo,
@@ -32,21 +32,21 @@ $banner_poster = file_exists($local_poster)
 <section class="relative min-h-[750px] h-full w-full overflow-hidden ">
 
     <!-- Background Video -->
-    <div class="absolute inset-0 z-0 overflow-hidden">
+    <div class="hero-media absolute inset-0 z-0 overflow-hidden">
 
-        <?php if ($banner_video) : ?>
-            <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"
-                poster="<?php echo esc_url($banner_poster); ?>" disablepictureinpicture disableremoteplayback>
-                <source src="<?php echo esc_url($banner_video); ?>" type="video/mp4">
-            </video>
-        <?php elseif ($banner_poster) : ?>
-            <img class="hero-video" src="<?php echo esc_url($banner_poster); ?>" alt="" aria-hidden="true"
-                width="1920" height="1080" fetchpriority="high">
+        <?php if ($banner_video): ?>
+
+            <iframe class="hero-video"
+                src="https://www.youtube.com/embed/a4HdkGehk5A?autoplay=1&mute=1&loop=1&playlist=a4HdkGehk5A&controls=0&playsinline=1&rel=0"
+                title="Hero video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+            </iframe>
+        <?php elseif ($banner_poster): ?>
+            <img class="hero-video" src="<?php echo esc_url($banner_poster); ?>" alt="" aria-hidden="true" width="1920"
+                height="1080" fetchpriority="high">
         <?php endif; ?>
 
         <!-- Overlay -->
-        <div
-            class="absolute inset-0 z-[1] bg-secondary opacity-[0.78]">
+        <div class="absolute inset-0 z-[1] bg-secondary opacity-[0.78]">
         </div>
 
     </div>
@@ -58,13 +58,13 @@ $banner_poster = file_exists($local_poster)
 
             <div>
 
-                <?php if ($banner_title) : ?>
+                <?php if ($banner_title): ?>
                     <h1 class="text-3xl md:text-5xl">
                         <?php echo esc_html($banner_title); ?>
                     </h1>
                 <?php endif; ?>
 
-                <?php if ($banner_content) : ?>
+                <?php if ($banner_content): ?>
                     <p class="mt-4 text-sm md:text-lg">
                         <?php echo esc_html($banner_content); ?>
                     </p>
@@ -72,11 +72,10 @@ $banner_poster = file_exists($local_poster)
 
             </div>
 
-            <?php if ($banner_link) : ?>
+            <?php if ($banner_link): ?>
                 <div class="mt-8 lg:mt-12">
 
-                    <a
-                        href="<?php echo esc_url($banner_link); ?>"
+                    <a href="<?php echo esc_url($banner_link); ?>"
                         class="inline-block rounded-[48px] px-[25px] py-[13px] text-[18px] leading-[1.5] text-white transition hover:opacity-80 max-[768px]:px-[15px] max-[768px]:py-[10px] max-[768px]:text-[14px]"
                         style="background: linear-gradient(197.05deg, var(--primary) -42.06%, var(--secondary) 136.49%);">
                         Book free consultation

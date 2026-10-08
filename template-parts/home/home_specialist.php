@@ -88,8 +88,8 @@ $default_consultant = 'DrLamis';
 
                 <!-- Hero image -->
                 <div class="overflow-hidden rounded-[15px] h-full">
-                    <img src="<?= get_template_directory_uri() ?>/assets/images/consultation.webp"
-                        alt="Dental consultation" class="h-full w-full object-cover">
+                    <img src="<?= get_template_directory_uri() ?>/assets/images/specialist.jpeg"
+                        alt="Dental specialist" class="h-full w-full object-cover">
                 </div>
 
 
