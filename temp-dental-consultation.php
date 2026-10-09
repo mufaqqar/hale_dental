@@ -11,7 +11,7 @@ get_header(); ?>
                     DETAILED ONLINE DENTAL CONSULTATION
                 </h1>
                 <p class="mt-4 text-lg   text-primary sm:text-xl">
-                    Professional Dental Consultation — €50
+                    Professional Dental Consultation — $50
                 </p>
             </div>
         </div>
@@ -232,7 +232,7 @@ get_header(); ?>
                             <input type="checkbox" id="consultation_consent_fee" name="consent_fee" required
                                 class="mt-[2px] h-4 w-4 accent-primary">
                             <span class="text-sm leading-5 text-coff_black">
-                                I understand that the <strong>€50 fee</strong> applies to the detailed online dental consultation<span class="text-red-500">*</span>.
+                                I understand that the <strong>$50 fee</strong> applies to the detailed online dental consultation<span class="text-red-500">*</span>.
                             </span>
                         </label>
                     </div>
@@ -242,7 +242,7 @@ get_header(); ?>
                 <div>
                     <button type="submit"
                         class="w-full rounded-xl bg-gradient-to-r from-primary to-secondary py-4 text-[15px] font-bold text-white transition hover:opacity-90">
-                        PROCEED TO €50 CONSULTATION
+                        PROCEED TO $50 CONSULTATION
                     </button>
                     <p id="consultation_form_msg" class="mt-3 hidden text-center text-sm font-medium"></p>
                 </div>

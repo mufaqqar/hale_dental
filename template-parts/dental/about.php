@@ -73,14 +73,7 @@ $fallback_icons = [
                 class="absolute inset-0 bg-[linear-gradient(90deg,#FAFAFA_0%,rgba(250,250,250,0.75)_8%,rgba(250,250,250,0.45)_16%,rgba(250,250,250,0.2)_26%,rgba(250,250,250,0.06)_36%,transparent_46%)]"></span><span
                 class="absolute inset-x-0 bottom-0 h-[22%] bg-[linear-gradient(180deg,transparent_0%,rgba(250,250,250,0.5)_70%,#FAFAFA_100%)]"></span>
         </div>
-        <span
-            class="absolute top-6 right-6 z-10 hidden items-center gap-2 rounded-full bg-[rgba(250,250,250,0.92)] px-[18px] py-2.5 text-[13px] font-semibold text-coff_black shadow-[0_8px_22px_rgba(17,17,17,0.12)] backdrop-blur-sm lg:inline-flex"><svg
-                width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"></path>
-                <circle cx="12" cy="9" r="2.4"></circle>
-            </svg>Ilam Din Dental, Istanbul</span>
-        <div class="container relative z-10 py-14 md:py-20">
+               <div class="container relative z-10 py-14 md:py-20">
             <div class="lg:max-w-[46%]">
                 <?php if ($about_subtitle): ?>
                     <div

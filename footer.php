@@ -76,11 +76,14 @@
                 <h5 class="text-lg   text-white mb-5">
                     Subscribe to our newsletter
                 </h5>
-                <form class="mb-6">
+                <form class="hale-newsletter-form mb-6 space-y-2">
+                    <input type="email" name="email" required placeholder="Your email address"
+                        class="w-full rounded-full px-5 py-3 text-[14px] text-coff_black outline-none">
                     <button
                         class="w-full bg-white hover:bg-black hover:text-white text-secondary py-4 rounded-full transition  ">
                         Sign up
                     </button>
+                    <p class="hale-form-msg hidden text-[12px]" role="status" aria-live="polite"></p>
                 </form>
                 <p class="text-sm text-white mb-6">
                     You can unsubscribe at any time.
@@ -111,7 +114,7 @@
     </div>
 </footer>
 <button id="openQuotePopup" class="qoute_btn">
-    <span>Get a Quote</span>
+    <span>Get Consultation</span>
 </button>
 <div id="quotePopup" class="fixed inset-0 w-full bg-transparent flex flex-col items-end justify-center z-50 
      translate-x-full opacity-0 pointer-events-none transition-all duration-500 ease-in-out">

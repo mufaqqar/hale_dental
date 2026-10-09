@@ -1,6 +1,7 @@
 <?php
 
 require_once get_template_directory() . '/inc/booking.php';
+require_once get_template_directory() . '/inc/countries.php';
 
 function hale_coffee_setup()
 {
@@ -46,6 +47,7 @@ function hale_coffee_enqueue_assets()
         [],
         '6.7.2'
     );
+    wp_enqueue_style('dashicons');
     wp_enqueue_style(
         'slick-css',
         'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',
@@ -124,6 +126,20 @@ function hale_coffee_enqueue_assets()
     wp_localize_script('hale-quote-popup', 'haleQuote', array(
         'ajaxUrl' => admin_url('admin-ajax.php'),
         'nonce'   => wp_create_nonce('hale_contact_nonce'),
+    ));
+
+    // Generic lead forms (hero banners, contact page) + country-code dropdown
+    wp_enqueue_script(
+        'hale-form-handlers',
+        get_template_directory_uri() . '/assets/js/form-handlers.js',
+        ['jquery'],
+        filemtime( get_template_directory() . '/assets/js/form-handlers.js' ),
+        true
+    );
+
+    wp_localize_script('hale-form-handlers', 'haleLead', array(
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+        'nonce'   => wp_create_nonce('hale_lead_nonce'),
     ));
 
     // Free dental assessment form JS
@@ -250,6 +266,97 @@ function hale_contact_submit_handler()
 }
 add_action('wp_ajax_nopriv_hale_contact_submit', 'hale_contact_submit_handler');
 add_action('wp_ajax_hale_contact_submit', 'hale_contact_submit_handler');
+
+/**
+ * Generic lead form handler used by the hero banners and the contact page.
+ */
+function hale_lead_submit_handler()
+{
+    if (!isset($_POST['action']) || $_POST['action'] !== 'hale_lead_submit') {
+        wp_send_json_error('Invalid request');
+    }
+
+    if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'hale_lead_nonce')) {
+        wp_send_json_error('Security check failed.');
+    }
+
+    $form_type    = isset($_POST['form_type']) ? sanitize_text_field(wp_unslash($_POST['form_type'])) : 'consultation';
+    $name         = isset($_POST['name']) ? sanitize_text_field(wp_unslash($_POST['name'])) : '';
+    $phone        = isset($_POST['phone']) ? sanitize_text_field(wp_unslash($_POST['phone'])) : '';
+    $country_code = isset($_POST['country_code']) ? sanitize_text_field(wp_unslash($_POST['country_code'])) : '';
+    $email        = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+    $service      = isset($_POST['service']) ? sanitize_text_field(wp_unslash($_POST['service'])) : '';
+    $message      = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
+    $subject_val  = isset($_POST['subject']) ? sanitize_text_field(wp_unslash($_POST['subject'])) : '';
+    $consent      = isset($_POST['consent']) && in_array(
+        strtolower(sanitize_text_field(wp_unslash($_POST['consent']))),
+        array('1', 'on', 'yes', 'true'),
+        true
+    );
+
+    if ($name === '' || $phone === '' || !is_email($email)) {
+        wp_send_json_error('Please fill in all required fields.');
+    }
+
+    if (!$consent) {
+        wp_send_json_error('Please accept the consent to continue.');
+    }
+
+    $full_phone = trim($country_code . ' ' . $phone);
+
+    $to      = get_option('admin_email');
+    $subject = sprintf('%s request from %s', ucfirst($form_type), $name);
+    $body    = sprintf(
+        "Form: %s\nName: %s\nEmail: %s\nPhone: %s\nService: %s\nSubject: %s\n\nMessage:\n%s",
+        $form_type,
+        $name,
+        $email,
+        $full_phone,
+        $service !== '' ? $service : '-',
+        $subject_val !== '' ? $subject_val : '-',
+        $message !== '' ? $message : '-'
+    );
+    $headers = array('Reply-To: ' . $email);
+
+    if (wp_mail($to, $subject, $body, $headers)) {
+        wp_send_json_success('Thank you! Your request has been received. Our team will contact you shortly.');
+    }
+
+    wp_send_json_error('Could not send your request. Please try again later.');
+}
+add_action('wp_ajax_nopriv_hale_lead_submit', 'hale_lead_submit_handler');
+add_action('wp_ajax_hale_lead_submit', 'hale_lead_submit_handler');
+
+/**
+ * Footer newsletter subscription handler.
+ */
+function hale_newsletter_submit_handler()
+{
+    if (!isset($_POST['action']) || $_POST['action'] !== 'hale_newsletter_submit') {
+        wp_send_json_error('Invalid request');
+    }
+
+    if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'hale_lead_nonce')) {
+        wp_send_json_error('Security check failed.');
+    }
+
+    $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+
+    if (!is_email($email)) {
+        wp_send_json_error('Please enter a valid email address.');
+    }
+
+    $to      = get_option('admin_email');
+    $headers = array('Reply-To: ' . $email);
+
+    if (wp_mail($to, 'Newsletter subscription', "New newsletter subscriber: {$email}", $headers)) {
+        wp_send_json_success('Thanks for subscribing!');
+    }
+
+    wp_send_json_error('Could not subscribe right now. Please try again later.');
+}
+add_action('wp_ajax_nopriv_hale_newsletter_submit', 'hale_newsletter_submit_handler');
+add_action('wp_ajax_hale_newsletter_submit', 'hale_newsletter_submit_handler');
 
 /**
  * Free dental assessment form handler (multi-photo upload).
@@ -417,7 +524,7 @@ function hale_consultation_submit_handler()
     }
 
     $to      = get_option('admin_email');
-    $subject = sprintf('Detailed dental consultation request from %s (€50)', $fullname);
+    $subject = sprintf('Detailed dental consultation request from %s ($50)', $fullname);
     $body    = sprintf(
         "Name: %s\nEmail: %s\nPhone / WhatsApp: %s\n\nDental Concern:\n%s\n\nMedical Conditions:\n%s\n\nCurrent Medications:\n%s\n\nHas X-ray/OPG: %s\nHas CBCT: %s\n\nFiles attached: %d",
         $fullname,
@@ -439,7 +546,7 @@ function hale_consultation_submit_handler()
     }
 
     if ($sent) {
-        wp_send_json_success('Your consultation details have been received. You will be contacted shortly to arrange the €50 consultation payment.');
+        wp_send_json_success('Your consultation details have been received. You will be contacted shortly to arrange the $50 consultation payment.');
     }
 
     wp_send_json_error('Could not send your form. Please try again later.');

@@ -19,7 +19,7 @@
             to perfection today?
         </p>
         <!-- Clock / Background Image -->
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/clock.webp"
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/tooth.png"
             alt="Book your free dental consultation" class="hidden h-[200px] w-auto max-w-none md:block md:-ml-[60px]">
 
 

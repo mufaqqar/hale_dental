@@ -527,7 +527,7 @@
   }
 
   .hale_input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255);
   }
 
   .hale_input option {

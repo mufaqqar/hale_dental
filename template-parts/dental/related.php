@@ -85,9 +85,9 @@ $related_treatments = get_posts([
                 <?php if ($exploring_cta_desc): ?>
                     <p class="mx-auto mt-4 mb-0 max-w-[58ch] text-[15px] leading-[1.6] text-white/75"><?php
                     echo esc_html($exploring_cta_desc); ?></p>
-                <?php endif; ?><a href="<?php echo esc_url(home_url('/contact-us')); ?>"
+                <?php endif; ?><a href="<?php echo esc_url(home_url('/free-consultation')); ?>"
                     class="nc-shine group mt-8 inline-flex items-center gap-3 rounded-full bg-coffGreen py-2 pr-2 pl-8 text-[16px] font-semibold whitespace-nowrap text-white ring-1 ring-white/60 shadow-[0_12px_32px_rgba(74,125,255,0.45)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_44px_rgba(74,125,255,0.6)] hover:brightness-110"><span
-                        class="relative z-10">Get My Free Implant Plan</span><span
+                        class="relative z-10">Get a qoute</span><span
                         class="relative z-10 grid size-11 shrink-0 place-items-center rounded-full bg-white text-coffGreen shadow-[0_2px_8px_rgba(17,17,17,0.14)] transition-transform duration-300 group-hover:translate-x-0.5"><svg
                             width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

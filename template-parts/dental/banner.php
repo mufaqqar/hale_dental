@@ -306,7 +306,9 @@ $stats = [
                     lg:p-7
                 ">
 
-                <form action="" method="post" class="space-y-3">
+                <form action="#" method="post" class="hale-lead-form space-y-3">
+
+                    <input type="hidden" name="form_type" value="consultation">
 
                     <!-- Name -->
                     <div>
@@ -350,23 +352,10 @@ $stats = [
                                 border
                                 border-white/20
                                 bg-white/10
-                                overflow-hidden
                                 focus-within:border-white/50
                             ">
 
-                            <div class="
-                                    flex
-                                    items-center
-                                    gap-2
-                                    pl-5
-                                    pr-2
-                                    shrink-0
-                                    text-[13px]
-                                    text-white
-                                ">
-                                <span class="text-[17px]">🇵🇰</span>
-                                <span>+92</span>
-                            </div>
+                            <?php get_template_part('template-parts/partials/country-dropdown', null, array('theme' => 'dark')); ?>
 
                             <input id="implant-phone" type="tel" name="phone" placeholder="Phone number" required class="
                                     flex-1
@@ -545,6 +534,8 @@ $stats = [
 
                     </div>
 
+
+                    <p class="hale-form-msg hidden px-1 text-[12px] leading-snug" role="status" aria-live="polite"></p>
 
                     <!-- Submit -->
                     <button type="submit" class="

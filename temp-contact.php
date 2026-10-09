@@ -106,15 +106,16 @@ get_header(); ?>
                         </p>
                     </div>
 
-                    <form action="#" method="post" class="space-y-2.5">
+                    <form action="#" method="post" class="hale-lead-form space-y-2.5">
+                        <input type="hidden" name="form_type" value="contact">
                         <!-- Name + Phone -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
-                                <label for="full_name" class="block text-sm text-coff_black mb-1">
+                                <label for="name" class="block text-sm text-coff_black mb-1">
                                     Full Name
                                 </label>
 
-                                <input type="text" id="full_name" name="full_name" placeholder="Name and Surname"
+                                <input type="text" id="name" name="name" placeholder="Name and Surname"
                                     required class="w-full h-[38px]
                                            bg-[#fafafa]
                                            border border-transparent
@@ -130,19 +131,19 @@ get_header(); ?>
                                     Phone Number
                                 </label>
 
-                                <div class="relative">
+                                <div class="flex items-center w-full h-[38px]
+                                            bg-[#fafafa]
+                                            border border-transparent
+                                            rounded-lg
+                                            focus-within:border-primary">
 
-                                    <span class="absolute left-3 top-1/2
-                                               -translate-y-1/2
-                                               text-[9px]">
-                                        🇹🇷
-                                    </span>
+                                    <?php get_template_part('template-parts/partials/country-dropdown', null, array('theme' => 'light')); ?>
 
-                                    <input type="tel" id="phone" name="phone" placeholder="+90  301 2345678" required
-                                        class="w-full h-[38px]
-                                               bg-[#fafafa]
-                                               border border-transparent
-                                               rounded-lg pl-9 pr-3
+                                    <input type="tel" id="phone" name="phone" placeholder="301 2345678" required
+                                        class="flex-1 h-full
+                                               bg-transparent
+                                               border-0
+                                               rounded-lg pr-3
                                                text-[12px]
                                                outline-none">
                                 </div>
@@ -170,11 +171,11 @@ get_header(); ?>
                         <!-- Description -->
                         <div>
 
-                            <label for="description" class="block text-sm text-coff_black mb-1">
+                            <label for="message" class="block text-sm text-coff_black mb-1">
                                 Description
                             </label>
 
-                            <textarea id="description" name="description" rows="4"
+                            <textarea id="message" name="message" rows="4"
                                 placeholder="Write something you wonder" class="w-full bg-[#fafafa]
                                        border border-transparent
                                        rounded-lg px-3 py-3
@@ -219,6 +220,8 @@ get_header(); ?>
 
                         </div>
 
+
+                        <p class="hale-form-msg hidden px-1 text-[12px] leading-snug" role="status" aria-live="polite"></p>
 
                         <!-- Submit -->
                         <button type="submit" class="w-full h-[36px]
