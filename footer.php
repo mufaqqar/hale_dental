@@ -93,7 +93,7 @@
         <div class="border-t border-white/20 py-6">
             <div class="flex lg:flex-row flex-col justify-between items-center gap-5">
                 <p class="text-white">
-                    Made by Ilamdin Dental
+                    Made by <a href="https://www.mufaqar.com/" target="_blank">Mufaqar</a>
                 </p>
                 <div class="">
                     <?php
