@@ -47,6 +47,8 @@ function hale_coffee_enqueue_assets()
         [],
         '6.7.2'
     );
+    // Dashicons - required on the front end for ACF Icon Picker ("dashicons")
+    // values. Core only loads it automatically in the admin / admin bar.
     wp_enqueue_style('dashicons');
     wp_enqueue_style(
         'slick-css',
@@ -88,7 +90,7 @@ function hale_coffee_enqueue_assets()
     wp_enqueue_style(
         'hale-coffee-style',
         get_template_directory_uri() . '/assets/css/style.css',
-        ['font-awesome'],
+        ['font-awesome', 'dashicons'],
         filemtime( get_template_directory() . '/assets/css/style.css' )
     );
 

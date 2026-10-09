@@ -46,7 +46,9 @@ $render_icon = function ($icon) {
     }
 
     if (strpos($icon, 'dashicons') === 0) {
-        return '<span class="' . esc_attr($icon) . ' text-[30px] leading-none"></span>';
+        // ACF Icon Picker returns only the glyph class (e.g. "dashicons-yes"),
+        // so the base "dashicons" class (which sets font-family) must be added.
+        return '<span class="dashicons ' . esc_attr($icon) . ' text-[30px] leading-none"></span>';
     }
 
     return '<svg width="34" height="34" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" '

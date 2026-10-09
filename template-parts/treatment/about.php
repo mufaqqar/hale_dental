@@ -72,6 +72,12 @@ if ($section) :
                                         ]
                                     );
 
+                                elseif (is_string($icon) && strpos($icon, 'dashicons') === 0) :
+                                    // ACF Icon Picker returns only the glyph class
+                                    // (e.g. "dashicons-yes"); the base "dashicons"
+                                    // class is required for the font-family to apply.
+                                    echo '<span class="' . esc_attr('dashicons ' . $icon) . ' text-[34px] leading-none text-primary"></span>';
+
                                 else :
                                     echo wp_kses_post($icon);
                                 endif;
