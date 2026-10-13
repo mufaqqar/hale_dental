@@ -599,7 +599,7 @@ function hale_footer_menu_link_class($atts, $item, $args)
 
     if (isset($args->theme_location) && in_array($args->theme_location, $locations, true)) {
         $classes = isset($atts['class']) ? $atts['class'] : '';
-        $atts['class'] = trim($classes . ' text-white hover:text-white/75 transition');
+        $atts['class'] = trim($classes . ' text-sm text-white hover:text-white/75 transition');
     }
 
     return $atts;
