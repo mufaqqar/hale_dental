@@ -972,18 +972,23 @@ document.addEventListener('DOMContentLoaded', function () {
 jQuery(document).ready(function ($) {
 
   $('#transformation-slider').slick({
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     infinite: true,
     arrows: true,
     dots: false,
     autoplay: true,
     speed: 500,
-
     prevArrow: $('.transformation-prev'),
     nextArrow: $('.transformation-next'),
-
     responsive: [
+      {
+        breakpoint: 1420,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
       {
         breakpoint: 1024,
         settings: {

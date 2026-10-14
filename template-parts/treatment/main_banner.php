@@ -1,4 +1,4 @@
-<section class="relative min-h-[750px] h-full w-full overflow-hidden ">
+<section class="relative 2xl:min-h-[70vh] min-h-[750px] h-full w-full overflow-hidden ">
     <div class="absolute inset-0 z-0 overflow-hidden">
         <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline preload="auto"
             aria-hidden="true"

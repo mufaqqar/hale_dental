@@ -29,7 +29,7 @@ $banner_poster = file_exists($local_poster)
     : '';
 ?>
 
-<section class="relative min-h-[750px] h-full w-full overflow-hidden ">
+<section class="relative 2xl:min-h-[70vh] min-h-[750px] h-full w-full overflow-hidden ">
 
     <!-- Background Video -->
     <div class="hero-media absolute inset-0 z-0 overflow-hidden">

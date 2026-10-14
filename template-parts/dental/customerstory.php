@@ -16,7 +16,7 @@ $testimonial_query = new WP_Query([
 
 <?php if ($testimonial_query->have_posts()): ?>
     <section class="bg-[#f7f7f7] py-10">
-        <div class="container mx-auto px-4">
+        <div class="mx-auto px-4">
             <div class="mx-auto mb-7 max-w-[1000px] text-center">
                 <h2 class="text-3xl tracking-tight text-coff_black md:text-5xl">
                     Real, Life-Changing Transformations

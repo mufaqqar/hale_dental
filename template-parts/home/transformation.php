@@ -23,7 +23,7 @@ if ($transformations):
         <!-- Transformation Slider -->
         <?php if ($transformation_cards): ?>
 
-            <div class="container relative mx-auto px-4">
+            <div class="relative mx-auto px-4">
 
                 <!-- Previous Button -->
                 <button type="button"
